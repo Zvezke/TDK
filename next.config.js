@@ -3,6 +3,18 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-}
+  // redirects: async () => {
+  //   return [
+  //     {
+  //       // Source Path ( from )
+  //       source: "/",
 
-module.exports = nextConfig
+  //       // Destination Path ( to )
+  //       destination: "/kommersnart",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
+};
+
+module.exports = nextConfig;
