@@ -7,17 +7,17 @@ const Page = () => {
       {/* 1. sektion - Sangprøven */}
       <div className="bg-tdk-blue-700 relative -z-20">
         <section className="grid lg:grid-cols-2 mx-auto xl:max-w-screen-xl">
-          <div className="flex flex-col justify-center min-h-screen -z-20 text-center order-1 container lg:col-start-1 lg:col-end-2 lg:text-left">
-            <h2 className="font-playfair text-8xl font-black pb-8 lg:mt-12 dark:text-tdk-blue-200">
+          <div className="flex flex-col justify-center items-center min-h-screen -z-20 text-center order-1 container lg:col-start-1 lg:col-end-2 lg:text-left">
+            <h2 className="text-[3.5rem] font-playfair font-black pb-4 lg:text-8xl lg:pb-8 lg:mt-12 lg:self-start dark:text-tdk-blue-200">
               Sangprøven
             </h2>
-            <p className="text-xl px-8 max-w-prose lg:pr-12 lg:px-0 dark:text-tdk-blue-400">
+            <p className="px-8 max-w-prose lg:text-xl lg:pr-12 lg:px-0 dark:text-tdk-blue-400">
               Bliv en del af vores musikalske fællesskab gennem en enkel
               sangprøve. Vi søger drenge, der elsker at synge og har den
               nødvendige musikalitet for at skabe vidunderlige musikoplevelser
               sammen.
             </p>
-            <div className="my-10">
+            <div className="my-10 lg:self-start">
               <Link
                 className="py-4 px-6 rounded-md dark:bg-tdk-yellow-400"
                 href="/kontakt"
@@ -28,7 +28,7 @@ const Page = () => {
           </div>
           <Image
             // Fix billedet
-            className="order-2 w-screen lg:col-start-2 lg:col-end-3 lg:absolute lg:right-0 lg:-top-12 lg:-z-10 lg:w-1/2"
+            className="order-2 lg:col-start-2 lg:col-end-3 lg:absolute lg:right-0 lg:-top-12 lg:-z-10 lg:w-1/2"
             src="/images/sangproeven/boySinging.png"
             alt="Boy singing"
             width={400}
@@ -37,7 +37,7 @@ const Page = () => {
         </section>
       </div>
       {/* 2. sektion - Under stemmeprøven ... */}
-      <section className="py-12 px-8 text-xl col-start-1 col-end-3 dark:bg-tdk-green-700 text-tdk-green-400">
+      <section className="py-12 px-8 col-start-1 col-end-3 lg:text-xl dark:bg-tdk-green-700 text-tdk-green-400">
         <p className="mx-auto max-w-prose text-center">
           Under stemmeprøven vil vi lytte efter drenge med lyse stemmer og en
           god sans for musik, herunder rytmik. Du vil blive bedt om at synge et
