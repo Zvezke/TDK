@@ -28,7 +28,8 @@ export default function RootLayout({
   return (
     <html className="dark" lang="da">
       <body
-        className={`${roboto.variable} ${playfair.variable} bg-tdk-blue-400 dark:bg-tdk-blue-700 container`}
+        className={`${roboto.variable} ${playfair.variable}`}
+        // className={`${roboto.variable} ${playfair.variable} bg-tdk-blue-400 dark:bg-tdk-blue-700 container`}
       >
         {/* <div className="container"> */}
         <Header />

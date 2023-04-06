@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="grid items-center justify-center grid-cols-12 text-tdk-blue-400 py-6">
+    <nav className="grid items-center justify-center grid-cols-12 text-tdk-blue-400 py-6 mx-auto 2xl:max-w-screen-xl">
       {/* Fix logo */}
       {/* Logo */}
-      <Link className="col-start-2 col-end-4 self-center" href="/">
+      <Link className="" href="/">
         <Image src="/images/church.svg" alt="Logo" width={40} height={40} />
       </Link>
       {/* Navigation */}
@@ -25,8 +25,8 @@ const Navbar = () => {
         </li>
       </ul>
       {/* Social icons */}
-      <div className="flex gap-12 col-start-9 col-end-11 justify-center">
-        <div className="flex items-center gap-6">
+      <div className="flex col-start-10 col-end-11 justify-center">
+        <div className="flex gap-8 items-center">
           <Link href="https://www.instagram.com/treenighedskirkens_drengekor/">
             <Image
               src="/images/InstagramIcon.svg"
@@ -47,7 +47,7 @@ const Navbar = () => {
       </div>
 
       {/* Dark mode, language, login */}
-      <div className="flex gap-6 items-center justify-end">
+      <div className="flex gap-8 justify-end col-start-11 col-end-13">
         <Image
           src="/images/lightMode.svg"
           alt="Icon for light mode"
