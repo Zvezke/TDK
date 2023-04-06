@@ -34,6 +34,12 @@ module.exports = {
         400: "#D1DEE3",
         700: "#17313B",
       },
+      "tdk-yellow": {
+        400: "#DFB45A",
+      },
+      "tdk-orange": {
+        400: "#DE8F59",
+      },
     },
   },
   darkMode: "class",
