@@ -26,12 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="dark" lang="da">
+    <html className="" lang="da">
       <body
-        className={`${roboto.variable} ${playfair.variable}`}
+        className={`${roboto.variable} ${playfair.variable} light`}
         // className={`${roboto.variable} ${playfair.variable} bg-tdk-blue-400 dark:bg-tdk-blue-700 container`}
       >
         {/* <div className="container"> */}
+        {/* Enable Header */}
         <Header />
         {children}
         {/* </div> */}

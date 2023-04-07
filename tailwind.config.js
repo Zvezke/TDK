@@ -29,6 +29,13 @@ module.exports = {
         700: "#1C3244",
         800: "#172B3B",
       },
+      "tdk-blue-light": {
+        background: "#F5F9F9",
+        backgroundDark: "#D1DEE3",
+        dividers: "#B7C2C7",
+        buttonsSubheadings: "#1C3244",
+        headlines: "#111E2C",
+      },
       "tdk-green": {
         300: "#E4EEF2",
         400: "#D1DEE3",
@@ -44,3 +51,10 @@ module.exports = {
   },
   darkMode: "class",
 };
+
+// // F5F9F9
+// Dividers: B7C2C7
+// Slightly darker bg: D1DEE3
+
+// Headlines: 111E2C
+// Buttons and subheadings: 1C3244

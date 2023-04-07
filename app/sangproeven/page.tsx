@@ -5,13 +5,13 @@ const Page = () => {
   return (
     <>
       {/* 1. sektion - Sangprøven */}
-      <div className="bg-tdk-blue-700 relative -z-20">
+      <div className="bg-tdk-blue-light-background dark:bg-tdk-blue-700 relative -z-20">
         <section className="grid lg:grid-cols-2 mx-auto xl:max-w-screen-xl">
-          <div className="flex flex-col justify-center items-center min-h-screen -z-20 text-center order-1 container lg:col-start-1 lg:col-end-2 lg:text-left">
-            <h2 className="text-[3.5rem] font-playfair font-black pb-4 lg:text-8xl lg:pb-8 lg:mt-12 lg:self-start dark:text-tdk-blue-200">
+          <div className="flex flex-col justify-center items-center min-h-screen -z-20 text-center container lg:col-start-1 lg:col-end-2 lg:text-left">
+            <h2 className="text-[3.5rem] text-tdk-blue-light-headlines font-playfair font-black pb-4 lg:text-8xl lg:pb-8 lg:mt-12 lg:self-start dark:text-tdk-blue-200">
               Sangprøven
             </h2>
-            <p className="px-8 max-w-prose lg:text-xl lg:pr-12 lg:px-0 dark:text-tdk-blue-400">
+            <p className="px-8 max-w-prose text-tdk-blue-light-buttonsSubheadings lg:text-xl lg:pr-12 lg:px-0 dark:text-tdk-blue-400">
               Bliv en del af vores musikalske fællesskab gennem en enkel
               sangprøve. Vi søger drenge, der elsker at synge og har den
               nødvendige musikalitet for at skabe vidunderlige musikoplevelser
@@ -19,7 +19,7 @@ const Page = () => {
             </p>
             <div className="my-10 lg:self-start">
               <Link
-                className="py-4 px-6 rounded-md dark:bg-tdk-yellow-400"
+                className="py-4 px-6 rounded-md text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
                 href="/kontakt"
               >
                 Tilmeld dit barn i dag
@@ -27,8 +27,7 @@ const Page = () => {
             </div>
           </div>
           <Image
-            // Fix billedet
-            className="order-2 lg:col-start-2 lg:col-end-3 lg:absolute lg:right-0 lg:-top-12 lg:-z-10 lg:w-1/2"
+            className="w-screen lg:col-start-2 lg:col-end-3 lg:absolute lg:right-0 lg:-z-10 lg:w-1/2"
             src="/images/sangproeven/boySinging.png"
             alt="Boy singing"
             width={400}
@@ -37,8 +36,8 @@ const Page = () => {
         </section>
       </div>
       {/* 2. sektion - Under stemmeprøven ... */}
-      <section className="py-12 px-8 col-start-1 col-end-3 lg:text-xl dark:bg-tdk-green-700 text-tdk-green-400">
-        <p className="mx-auto max-w-prose text-center">
+      <section className="col-start-1 col-end-3 py-16 px-6 text-lg bg-tdk-blue-light-backgroundDark text-tdk-blue-light-buttonsSubheadings lg:text-xl dark:bg-tdk-green-700 dark:text-tdk-green-400">
+        <p className="mx-auto max-w-prose  text-center">
           Under stemmeprøven vil vi lytte efter drenge med lyse stemmer og en
           god sans for musik, herunder rytmik. Du vil blive bedt om at synge et
           vers fra en sang, du kender, for eksempel "I østen stiger solen op".
@@ -53,23 +52,79 @@ const Page = () => {
         </p>
       </section>
       {/* 3. sektion - Alderstrin og forskolen */}
-      {/* <section className="py-12 text-xl dark:bg-tdk-green-700 text-tdk-green-400">
-        <p className="mx-auto max-w-prose text-center">
-          Vi har brug for drenge, der er mellem 8 og 12 år, og som har lyst til
-          at synge i et kor. Det er vigtigt, at du har lyst til at synge og
-          gerne vil øve dig. Det er også vigtigt, at du har lyst til at deltage
-          i en række koncerter og arrangementer.
+      <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
+        <Image
+          className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          src="/images/sangproeven/prototype1.png"
+          alt="Boys singing"
+          width={400}
+          height={400}
+        />
+
+        <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700">
+          <h3 className="font-playfair font-black text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
+            Alderstrin og forskolen
+          </h3>
+          {/* Too many mx-auto classes! */}
+          <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
+            Vi henvender os primært til drenge i 3. klasse, men har også gode
+            erfaringer med drenge i 2. klasse. Forskolen er gratis og varer 4-5
+            måneder med undervisning to gange ugentligt i Treenighedskirkens
+            lokaler. Forskolen tjener som en periode med gensidig prøvetid og
+            forberedelse til optagelse i koncertkoret.
+          </p>
+        </div>
+      </section>
+      {/* Musikalsk fællesskab */}
+      <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
+        <section className="grid mx-auto xl:max-w-screen-xl lg:grid lg:grid-cols-2">
+          <div className="mx-auto text-center py-12 px-6  dark:text-tdk-green-400 lg:grid lg:col-start-1 lg:col-end-2 lg:mx-0 lg:px-0 lg:text-left">
+            <h3 className="font-playfair font-black text-4xl text-tdk-blue-light-headlines mb-6 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
+              Musikalsk fællesskab
+            </h3>
+            {/* Too many mx-auto classes! */}
+            <p className="max-w-prose mx-auto text-base lg:pr-8 lg:text-base lg:mx-0 text-tdk-blue-light-headlines dark:text-tdk-green-400">
+              Som medlem af koret vil du opleve et musikalsk fællesskab, hvor
+              dit talent får mulighed for at blomstre. Du vil nyde daglig
+              trivsel, store koncertoplevelser og uforglemmelige
+              rejseoplevelser, mens du deler din passion for musik med
+              ligesindede drenge.
+            </p>
+          </div>
+          <Image
+            className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2"
+            src="/images/sangproeven/prototype1.png"
+            alt="Boys singing"
+            width={400}
+            height={400}
+          />
+        </section>
+      </div>
+      {/* Hvor og hvornår? */}
+      <section className="flex flex-col items-center py-16 px-6 bg-tdk-blue-light-background text-tdk-blue-light-buttonsSubheadings lg:text-xl lg:relative dark:bg-tdk-blue-700 dark:text-tdk-green-400">
+        <h3 className="font-playfair font-black text-4xl text-tdk-blue-light-headlines mb-6 lg:text-center lg:text-5xl dark:text-tdk-blue-200">
+          Hvor og hvornår?
+        </h3>
+        <p className="max-w-prose mb-8 text-center text-base">
+          Sangprøven afholdes årligt i maj og juni måned i Treenighedskirken.
+          Efter en vellykket audition vil optagelse i Forskolen finde sted i
+          august, hvor du vil starte din rejse som en del af vores kor.
         </p>
-        <br />
-        <p className="mx-auto max-w-prose text-center">
-          Vi har brug for drenge, der er mellem 8 og 12 år, og som har lyst til
-          at synge i et kor. Det er vigtigt, at du har lyst til at synge og
-          gerne vil øve dig. Det er også vigtigt, at du har lyst til at deltage
-          i en række koncerter og arrangementer.
-        </p>
-      </section> */}
+        <Link
+          className="py-4 px-6 rounded-md text-base text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
+          href="/kontakt"
+        >
+          Tilmeld dit barn i dag
+        </Link>
+      </section>
     </>
   );
 };
 
 export default Page;
+
+// Blue background: bg-tdk-blue-light-background dark:bg-tdk-blue-700
+// Text on blue background: text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400
+
+// Green background: bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700
+// Text on green background: text-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-400
