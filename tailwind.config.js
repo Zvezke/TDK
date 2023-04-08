@@ -28,6 +28,7 @@ module.exports = {
         400: "#D1DBE3",
         700: "#1C3244",
         800: "#172B3B",
+        cardBg: "#233E54",
       },
       "tdk-blue-light": {
         background: "#F5F9F9",
