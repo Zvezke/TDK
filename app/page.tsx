@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       {/* Hero section */}
-      <section className="flex justify-center max-md:justify-end flex-col items-center bg-tdk-blue-light-background dark:bg-tdk-blue-700 lg:min-h-screen relative -z-20">
-        <div className="flex justify-center items-center max-md:h-80 w-full -z-10 lg:mt-16">
+      <section className="flex justify-center max-md:justify-end flex-col items-center bg-tdk-blue-light-background dark:bg-tdk-blue-700 lg:min-h-screen relative">
+        <div className="flex justify-center items-center max-md:h-80 w-full lg:mt-16">
           <svg
             className="absolute w-10/12 -top-28 lg:top-32 fill-tdk-blue-light-heros dark:fill-tdk-blue-800"
             width="1728"
@@ -19,7 +19,7 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="max-lg:order-1">
+        <div className="max-lg:order-1 z-10">
           <h1 className="text-center max-w-4xl text-3xl text-tdk-blue-light-headlines font-playfair font-black pb-4 lg:leading-tight lg:text-6xl lg:pb-6 lg:mt-12 dark:text-tdk-blue-200">
             Oplev sangglædens kraft med Treenighedskirkens drengekor
           </h1>
