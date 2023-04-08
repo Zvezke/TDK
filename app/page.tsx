@@ -128,7 +128,7 @@ export default function Home() {
               Varieret rigt repertoire. Udenlandsrejser. Stærkt fællesskab.
             </p>
             <Link
-              className="py-4 px-6 rounded-md font-medium dark:border-2 text-tdk-yellow-400"
+              className="py-4 px-6 rounded-md font-medium text-tdk-yellow-400"
               href="/om"
             >
               Læs mere om koret
