@@ -101,7 +101,7 @@ const Page = () => {
         </section>
       </div>
       {/* Hvor og hvornår? */}
-      <section className="flex flex-col items-center pb-16 pt-12 px-6 bg-tdk-blue-light-background text-tdk-blue-light-buttonsSubheadings lg:py-16 lg:text-xl lg:relative dark:bg-tdk-blue-700 dark:text-tdk-green-400">
+      <section className="flex flex-col items-center pb-16 pt-12 px-6 bg-tdk-blue-light-background text-tdk-blue-light-buttonsSubheadings lg:py-16 lg:text-xl lg:relative dark:bg-tdk-blue-700 dark:text-tdk-blue-400">
         <h3 className="font-playfair font-black text-4xl text-tdk-blue-light-headlines mb-6 lg:text-center lg:text-5xl dark:text-tdk-blue-200">
           Hvor og hvornår?
         </h3>

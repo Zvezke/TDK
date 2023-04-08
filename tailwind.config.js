@@ -35,6 +35,7 @@ module.exports = {
         dividers: "#B7C2C7",
         buttonsSubheadings: "#1C3244",
         headlines: "#111E2C",
+        heros: "#DFEEF5",
       },
       "tdk-green": {
         300: "#E4EEF2",

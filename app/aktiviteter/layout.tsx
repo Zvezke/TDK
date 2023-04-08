@@ -3,10 +3,5 @@ export default function AktiviteterLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      {/* Include shared UI here e.g. a header or sidebar */}
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
