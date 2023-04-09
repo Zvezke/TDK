@@ -15,12 +15,12 @@ const Page = () => {
             width={1920}
             height={1080}
           />
-          <div className="xl:max-w-screen-xl pb-16 absolute">
-            <div className="grid grid-cols-2 place-content-end">
-              <h2 className="text-tdk-blue-200 font-playfair font-black text-xl lg:text-5xl">
+          <div className="xl:max-w-screen-xl pb-12 px-2 absolute">
+            <div className="grid md:grid-cols-2 max-md:text-center place-content-end">
+              <h2 className="max-md:mb-12 text-tdk-blue-200 font-playfair font-black text-3xl lg:text-5xl">
                 Treenighedskirkens drenge- og mandskor
               </h2>
-              <p className="place-self-end text-tdk-blue-200 font-roboto text-8xl lg:text-xl">
+              <p className="place-self-end text-tdk-blue-200 font-roboto text-lg lg:text-xl">
                 Grundig musikundervisning. Stemmetræning. Koncertoplevelser.
                 Varieret rigt repertoire. Udenlandsrejser. Stærkt fællesskab.
               </p>
