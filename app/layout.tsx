@@ -6,6 +6,8 @@ import Header from "./header";
 export const metadata = {
   title: "TDK",
   description: "Treenighedskirkens drenge- og mandskor",
+  themeColor: "#172B3B",
+  // image: "/images/church.svg",
 };
 
 const playfair = Playfair_Display({

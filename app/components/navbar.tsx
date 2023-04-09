@@ -32,7 +32,7 @@ const Navbar = () => {
               <Link href="/om">Om</Link>
             </li>
             <li>
-              <Link href="/sangprøven">Sangprøve</Link>
+              <Link href="/sangprøven">Sangprøven</Link>
             </li>
             <li>
               <Link href="/aktiviteter">Aktiviteter</Link>
@@ -122,7 +122,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link href="/sangprøven" onClick={() => setMenuOpen(false)}>
-              Sangprøve
+              Sangprøven
             </Link>
           </li>
           <li>
