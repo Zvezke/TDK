@@ -48,7 +48,7 @@ export default function Home() {
       <section className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
         {/* TODO: Farven på 'Mattias' */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-24 py-12 container xl:max-w-screen-xl text-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-400">
-          <div className="hidden lg:block">
+          <div className="max-lg:hidden lg:flex flex-col justify-between">
             <p className="mb-6">
               “Koret har altid været et sted hvor jeg har fundet inspiration,
               venskab, fællesskab, personlig udvikling og fantastisk
@@ -63,43 +63,43 @@ export default function Home() {
                 width={50}
                 height={50}
               />
-              <p>Mattias</p>
+              <p className="text-sm opacity-80">Mattias</p>
             </div>
           </div>
-          <div className="hidden md:block">
+          <div className="max-md:hidden md:flex flex-col justify-between">
             <p className="mb-6">
-              “Koret har altid været et sted hvor jeg har fundet inspiration,
-              venskab, fællesskab, personlig udvikling og fantastisk
-              kulturoplevelse i alverdens lande - jeg har haft fornøjelsen af
-              mere end 15 forskellige kor rejser, som har været med til at danne
-              mit billede af verden.”
+              “Man oplever rigtig meget på vores rejser med alle de spændende
+              steder og kulturer man kommer rundt og ser i verden. Det gør også
+              rigtig meget for fællesskabet i koret og man for nogle livsvarige
+              minder og kammeratskaber.”
             </p>
             <div className="flex items-center gap-4">
               <Image
-                src="/images/home/testimonialMattias.png"
+                src="/images/home/imgMarcus.png"
                 alt="Placeholder"
                 width={50}
                 height={50}
               />
-              <p>Mattias</p>
+              <p className="text-sm opacity-80">Marcus</p>
             </div>
           </div>
           <div className="max-md:flex flex-col justify-center items-center">
             <p className="mb-6 max-md:text-center max-md:px-8">
-              “Koret har altid været et sted hvor jeg har fundet inspiration,
-              venskab, fællesskab, personlig udvikling og fantastisk
-              kulturoplevelse i alverdens lande - jeg har haft fornøjelsen af
-              mere end 15 forskellige kor rejser, som har været med til at danne
-              mit billede af verden.”
+              “At synge i kor er anderledes end at gå til fodbold. Ens stemme er
+              noget personligt, og når vi synger sammen med hinanden, åbner vi
+              op og viser en del af os selv og bliver ét gennem musikken. Vi
+              tuner bogstaveligt talt ind på samme frekvens, når vi udtaler de
+              samme ord på den samme melodi. På den måde kommer vi tættere på
+              hinanden.”
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center max-md:flex-col max-md:gap-2 md:gap-4">
               <Image
-                src="/images/home/testimonialMattias.png"
+                src="/images/home/testimonialViggo.png"
                 alt="Placeholder"
                 width={50}
                 height={50}
               />
-              <p>Mattias</p>
+              <p className="text-sm opacity-80">Viggo</p>
             </div>
           </div>
         </div>
@@ -170,67 +170,71 @@ export default function Home() {
             {/* TODO: Ret lightmode */}
             {/* Left, Cards - Aktiviteter */}
             <div className="col-start-1 col-end-2">
-              <div className="flex rounded-md overflow-hidden mb-4 max-md:mx-2">
-                <div className="flex flex-col justify-center basis-1/4 px-8 bg-tdk-blue-400 text-tdk-blue-700">
-                  <p className="font-bold leading-8">Dato</p>
-                  <p className="text-base lg:text-sm">Tid</p>
+              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-400 text-tdk-blue-700">
+                  <p className="font-bold leading-8 text-lg ">19. feb.</p>
+                  <p className="text-base lg:text-sm">10.00</p>
                 </div>
-                <div className="px-6 py-4 bg-tdk-blue-cardBg">
-                  <h4 className="font-roboto font-medium text-xl leading-loose text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Første aktivitet
+                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
+                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                    Fastelavnsgudstjeneste
                   </h4>
-                  <p className="text-sm">
-                    Som medlem af koret vil du opleve et musikalsk fællesskab,
-                    hvor dit talent får mulighed for at blomstre. Du vil nyde
-                    daglig
+                  <p className="text-sm line-clamp-2">
+                    Efter Gudstjenesten slår vi Katten’a’tønden og alle
+                    inviteres til sodavand og pølser.
                   </p>
                 </div>
               </div>
-              <div className="flex rounded-md overflow-hidden mb-4 max-md:mx-2">
-                <div className="flex flex-col justify-center basis-1/4 px-8 bg-tdk-blue-400 text-tdk-blue-700">
-                  <p className="font-bold leading-8">Dato</p>
-                  <p className="text-base lg:text-sm">Tid</p>
+              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-400 text-tdk-blue-700">
+                  <p className="font-bold leading-8">21. feb.</p>
+                  <p className="text-base lg:text-sm">18.15</p>
                 </div>
-                <div className="px-6 py-4 bg-tdk-blue-cardBg">
-                  <h4 className="font-roboto font-medium text-xl leading-loose text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Anden aktivitet
+                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
+                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                    Møde, drengenes forældre
                   </h4>
-                  <p className="text-sm">
-                    Som medlem af koret vil du opleve et musikalsk fællesskab,
-                    hvor dit talent får mulighed for at blomstre. Du vil nyde
-                    daglig
+                  <p className="text-sm line-clamp-2">
+                    På dagsordenen er bl.a. skolekoncerter i foråret og ny
+                    procedure for rekruttering til Drengekoret.
                   </p>
                 </div>
               </div>
-              <div className="flex rounded-md overflow-hidden mb-4 max-md:mx-2">
-                <div className="flex flex-col justify-center basis-1/4 px-8 bg-tdk-blue-400 text-tdk-blue-700">
-                  <p className="font-bold leading-8">Dato</p>
-                  <p className="text-base lg:text-sm">Tid</p>
+              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-400 text-tdk-blue-700">
+                  <p className="font-bold leading-8">25. feb.</p>
+                  <p className="text-base lg:text-sm">10.30</p>
                 </div>
-                <div className="px-6 py-4 bg-tdk-blue-cardBg">
-                  <h4 className="font-roboto font-medium text-xl leading-loose text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Tredje aktivitet
+                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
+                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                    Korhyggedag
                   </h4>
-                  <p className="text-sm">
-                    Som medlem af koret vil du opleve et musikalsk fællesskab,
-                    hvor dit talent får mulighed for at blomstre. Du vil nyde
-                    daglig
+                  <p className="text-sm line-clamp-2">
+                    Vi mødes i kirken kl. 10.30 og synger indtil kl. 12.00 hvor
+                    vi spiser medbragte madpakker sammen. Kl. 12.30 går vi i
+                    Svømmestadion, hvor voksne kormedlemmer møder os. Koret
+                    giver indgangsbilletten. Vi slutter kl. 15.00 ved
+                    Svømmestadion.
                   </p>
                 </div>
               </div>
-              <div className="flex rounded-md overflow-hidden mb-4 max-md:mx-2">
-                <div className="flex flex-col justify-center basis-1/4 px-8 bg-tdk-blue-400 text-tdk-blue-700">
-                  <p className="font-bold leading-8">Dato</p>
-                  <p className="text-base lg:text-sm">Tid</p>
+              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-400 text-tdk-blue-700">
+                  <p className="font-bold leading-8">28. feb.</p>
+                  <p className="text-base lg:text-sm">19.00</p>
                 </div>
-                <div className="px-6 py-4 bg-tdk-blue-cardBg">
-                  <h4 className="font-roboto font-medium text-xl leading-loose text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Fjerde aktivitet
+                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
+                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                    Årgang 22 har 1. fælles korprøve
                   </h4>
-                  <p className="text-sm">
-                    Som medlem af koret vil du opleve et musikalsk fællesskab,
-                    hvor dit talent får mulighed for at blomstre. Du vil nyde
-                    daglig
+                  <p className="text-sm line-clamp-2">
+                    Årgang 22 har 1. fælles korprøve med sopraner og mandskoret
+                    kl. 19.00 – 19.50. Korprøven er denne aften forkortet, da
+                    korets afholder sin Generalforsamling fra kl. 20.00. Efter
+                    formandens beretning kan sopraner (og evt. forældre) forlade
+                    mødet, hvis de ønsker det (ca. kl. 20.20) Herefter er
+                    tiderne for Årgang 22: tirsdage kl. 19.00 – 20.15 og
+                    torsdage kl. 15.45 – 17.00
                   </p>
                 </div>
               </div>

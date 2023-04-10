@@ -8,6 +8,7 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  plugins: [require("@tailwindcss/line-clamp")],
   theme: {
     extend: {
       fontFamily: {
@@ -18,7 +19,6 @@ module.exports = {
     container: {
       center: true,
     },
-    plugins: [],
     colors: {
       transparent: "transparent",
       current: "currentColor",

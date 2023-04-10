@@ -70,12 +70,21 @@ const Navbar = () => {
                 setColorMode(colorMode === "light" ? "dark" : "light")
               }
             >
-              <Image
-                src="/images/lightMode.svg"
-                alt="Icon for light mode"
-                width={25}
-                height={25}
-              />
+              {colorMode === "light" ? (
+                <Image
+                  src="/images/darkMode.svg"
+                  alt="Icon for light mode"
+                  width={25}
+                  height={25}
+                />
+              ) : (
+                <Image
+                  src="/images/lightMode.svg"
+                  alt="Icon for dark mode"
+                  width={25}
+                  height={25}
+                />
+              )}
             </button>
             <Image
               src="/images/language.svg"

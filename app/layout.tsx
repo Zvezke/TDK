@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html className="" lang="da">
       <body className={`${roboto.variable} ${playfair.variable} light`}>
-        {/* Enable Header */}
+        {/* Check how to disable header in sub */}
         <Header />
         {children}
         <Footer />

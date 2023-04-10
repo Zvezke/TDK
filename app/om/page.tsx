@@ -57,7 +57,7 @@ const Page = () => {
       {/* Organisation og uddannelse */}
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
-          className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
           src="/images/sangproeven/prototype1.png"
           alt="Boys singing"
           width={400}
@@ -115,7 +115,7 @@ const Page = () => {
       {/* Rejser og fællesoplevelser */}
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
-          className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
           src="/images/sangproeven/prototype1.png"
           alt="Boys singing"
           width={400}
@@ -204,7 +204,7 @@ const Page = () => {
       {/* Rejser og fællesoplevelser */}
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
-          className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
           src="/images/sangproeven/prototype1.png"
           alt="Boys singing"
           width={400}

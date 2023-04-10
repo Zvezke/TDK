@@ -3,5 +3,5 @@ export default function AktiviteterLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <header>{children}</header>;
 }
