@@ -171,7 +171,7 @@ export default function Home() {
             {/* Left, Cards - Aktiviteter */}
             <div className="col-start-1 col-end-2">
               <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-400 text-tdk-blue-700">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
                   <p className="font-bold leading-8 text-lg ">19. feb.</p>
                   <p className="text-base lg:text-sm">10.00</p>
                 </div>
@@ -186,7 +186,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-400 text-tdk-blue-700">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
                   <p className="font-bold leading-8">21. feb.</p>
                   <p className="text-base lg:text-sm">18.15</p>
                 </div>
@@ -201,7 +201,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-400 text-tdk-blue-700">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
                   <p className="font-bold leading-8">25. feb.</p>
                   <p className="text-base lg:text-sm">10.30</p>
                 </div>
@@ -219,7 +219,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-400 text-tdk-blue-700">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
                   <p className="font-bold leading-8">28. feb.</p>
                   <p className="text-base lg:text-sm">19.00</p>
                 </div>

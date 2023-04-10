@@ -37,6 +37,7 @@ module.exports = {
         buttonsSubheadings: "#1C3244",
         headlines: "#111E2C",
         heros: "#DFEEF5",
+        cardBg: "#D4D7D9",
       },
       "tdk-green": {
         300: "#E4EEF2",
