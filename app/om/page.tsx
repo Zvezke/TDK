@@ -38,11 +38,18 @@ const Page = () => {
             </h3>
             {/* Too many mx-auto classes! */}
             <p className="max-w-prose mx-auto text-base lg:pr-8 lg:text-base lg:mx-0 text-tdk-blue-light-headlines dark:text-tdk-green-400">
-              Historien om Treenighedskirkens Drenge- & mandskor går tilbage til
-              1964, hvor organist Per Günther grundlagde koret. Det virkede som
-              fast kor ved kirkens gudstjenester frem til 1989. Koret er
-              inspireret af dygtige engelske kor og bevarer en speciel
-              kortradition i Danmark.
+              Historien om Treenighedskirkens Drenge- &amp; mandskor går tilbage
+              til 1964, hvor organist Per Günther grundlagde koret. Det opnåede
+              hurtigt stor koncert- og rejsevirksomhed og virkede samtidig som
+              fast kor ved kirkens gudstjenester. I 1989 overtog Lone Gislinge
+              ledelsen af koret, som ud over koncerter og rejser synger ved
+              højtiderne, samt et begrænset antal gudstjenester i
+              Treenighedskirken.
+              <br />
+              <br />I Danmark findes ikke mange drengekor og Treenighedskirkens
+              Drenge- og Mandskor er således medvirkende til at bevare en
+              speciel kortradition som er unik for hele den sydvestlige region i
+              Danmark.
             </p>
           </div>
           <Image
@@ -70,10 +77,10 @@ const Page = () => {
           </h3>
           {/* Too many mx-auto classes! */}
           <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
-            Korets organisation består af cirka 50 drenge og mænd. Drengene
-            starter i forskolen, hvor de undervises i stemmetræning, hørelære og
-            teori, inden de optages i koret. Nogle fortsætter som mandssangere
-            efter stemmeovergangen.
+            Korets sammensætning består af cirka 20-25 drenge i soprangruppen og
+            20 herrestemmer i mandskoret. Drengene starter i forskolen, hvor de
+            undervises i stemmetræning, hørelære og teori, inden de optages i
+            koret. Nogle fortsætter i mandskoret efter stemmeovergangen.
           </p>
         </div>
       </section>
@@ -97,10 +104,12 @@ const Page = () => {
             {/* Too many mx-auto classes! */}
             <p className="max-w-prose mx-auto text-base lg:pr-8 lg:text-base lg:mx-0 text-tdk-blue-light-headlines dark:text-tdk-green-400">
               Koret deltager i tjenester i Treenighedskirken og afholder
-              koncerter lokalt og nationalt. Samarbejde med andre musikgrupper
-              fører til opførelse af større værker. Repertoiret spænder fra
-              traditionelt kirkeligt korrepertoire til værker fra moderne
-              komponister.
+              koncerter lokalt og nationalt. Med hovedvægten lagt på et
+              traditionelt korrepertoire suppleret med danske salmer og sange og
+              en forkærlighed for engelsk kormusik – netop komponeret for
+              drengekor – giver samarbejde med bl.a. Konservatoriets Pigekor og
+              Esbjerg Ensemble ligeledes mulighed for opførelser af større
+              værker.
             </p>
           </div>
           <Image
@@ -128,9 +137,9 @@ const Page = () => {
           {/* Too many mx-auto classes! */}
           <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
             Rejser i udlandet er en vigtig del af korets fællesoplevelser. Koret
-            har optrådt i mange europæiske lande, Canada og USA, i kendte kirker
-            og katedraler. Disse ture styrker fællesskabet og giver
-            uforglemmelige minder.
+            har rejst i det meste af Europa, Canada, USA, Kina og Australien
+            Ofte med koncerter i kendte kirker og katedraler. Disse ture styrker
+            fællesskabet og giver uforglemmelige minder.
           </p>
         </div>
       </section>
@@ -159,8 +168,10 @@ const Page = () => {
           <p>
             Jeg har dog oplevet igen og igen at drengene, når de prøver at synge
             sammen med de andre musikalske drenge på ”1. holdet”, bliver
-            overraskede – og optagede af at deltage i korprøver og undervisning
-            sammen med det sociale samvær og kammeratskab de hurtigt etablerer.
+            positivt overraskede – og optagede af at deltage i korprøver og
+            undervisning. Sammen med det sociale samvær og det kammeratskab de
+            hurtigt etablerer, skaber det et solidt fundament for både at
+            udvikle stemmens formåen og for at styrke musikglæden.
           </p>
           <br />
           <p>
@@ -187,9 +198,13 @@ const Page = () => {
             </h3>
             {/* Too many mx-auto classes! */}
             <p className="max-w-prose mx-auto text-base lg:pr-8 lg:text-base lg:mx-0 text-tdk-blue-light-headlines dark:text-tdk-green-400">
-              Koret har jævnligt optrådt i dansk radio og tv samt i andre lande.
-              Disse optrædener bidrager til korets synlighed og anerkendelse, og
-              de bringer musikken ud til et bredere publikum.
+              Koret har jævnligt optrådt i dansk radio og tv. Bl.a. har DR-tv
+              optaget og genudsendt 60 afsnit af programmet ”Før Søndagen”. På
+              koncertrejser samt i andre lande er flere koncerter blevet
+              transmitteret ligesom optagelser fra plade/CD-indspilninger er
+              blevet sendt som optakt til koncerter. Disse udsendelser bidrager
+              til korets synlighed og bringer musikken ud til et bredere
+              publikum.
             </p>
           </div>
           <Image
@@ -216,9 +231,9 @@ const Page = () => {
           </h3>
           {/* Too many mx-auto classes! */}
           <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
-            Koret samarbejder med Esbjerg Kommune og Vestjysk
-            Musikkonservatorium for at bevare og videreføre korets traditioner.
-            Disse partnerskaber sikrer korets fortsatte succes og udvikling.
+            Koret samarbejder - og modtager driftstilskud fra Esbjerg Kommune og
+            Treenighedskirken for at bevare og videreføre korets traditioner.
+            Med disse partnerskaber sikres korets fortsatte succes og udvikling.
           </p>
         </div>
       </section>

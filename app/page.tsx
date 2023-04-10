@@ -167,58 +167,50 @@ export default function Home() {
         </h3>
         <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-blue-700">
           <section className="flex flex-col lg:gap-x-16 mx-auto xl:max-w-screen-xl lg:grid lg:grid-cols-2">
-            {/* TODO: Ret lightmode */}
+            {/* TODO: Grid row */}
             {/* Left, Cards - Aktiviteter */}
             <div className="col-start-1 col-end-2">
               <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
                 <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
-                  <p className="font-bold leading-8 text-lg ">19. feb.</p>
+                  <p className="font-bold leading-8 text-lg ">9. apr.</p>
+                  <p className="text-base lg:text-sm">11.00</p>
+                </div>
+                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
+                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                    Påskehøjmesse i Treenighedskirken
+                  </h4>
+                  <p className="text-sm line-clamp-2">Vi slutter ca. 11.30.</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
+                  <p className="font-bold leading-8">16. maj</p>
+                  <p className="text-base lg:text-sm">19.30</p>
+                </div>
+                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
+                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                    ”Syng med Drengekoret”
+                  </h4>
+                  <p className="text-sm line-clamp-2">
+                    Syng med Drengekoret i Treenighedskirken. Fri entré.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
+                  <p className="font-bold leading-8">28. maj</p>
                   <p className="text-base lg:text-sm">10.00</p>
                 </div>
                 <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
                   <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Fastelavnsgudstjeneste
+                    Pinsehøjmesse
                   </h4>
                   <p className="text-sm line-clamp-2">
-                    Efter Gudstjenesten slår vi Katten’a’tønden og alle
-                    inviteres til sodavand og pølser.
+                    Pinsehøjmesse i Treenighedskirken
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
-                  <p className="font-bold leading-8">21. feb.</p>
-                  <p className="text-base lg:text-sm">18.15</p>
-                </div>
-                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
-                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Møde, drengenes forældre
-                  </h4>
-                  <p className="text-sm line-clamp-2">
-                    På dagsordenen er bl.a. skolekoncerter i foråret og ny
-                    procedure for rekruttering til Drengekoret.
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
-                  <p className="font-bold leading-8">25. feb.</p>
-                  <p className="text-base lg:text-sm">10.30</p>
-                </div>
-                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
-                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Korhyggedag
-                  </h4>
-                  <p className="text-sm line-clamp-2">
-                    Vi mødes i kirken kl. 10.30 og synger indtil kl. 12.00 hvor
-                    vi spiser medbragte madpakker sammen. Kl. 12.30 går vi i
-                    Svømmestadion, hvor voksne kormedlemmer møder os. Koret
-                    giver indgangsbilletten. Vi slutter kl. 15.00 ved
-                    Svømmestadion.
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
+              {/* <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
                 <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
                   <p className="font-bold leading-8">28. feb.</p>
                   <p className="text-base lg:text-sm">19.00</p>
@@ -237,7 +229,7 @@ export default function Home() {
                     torsdage kl. 15.45 – 17.00
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
             {/* Right, IMG */}
             <Image
@@ -259,3 +251,8 @@ export default function Home() {
 
 // Green background: bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700
 // Text on green background: text-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-400
+
+// --------------------
+
+// TODO:
+// Mute Kontakt

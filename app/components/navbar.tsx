@@ -18,7 +18,6 @@ const Navbar = () => {
       <nav className=" text-tdk-blue-400 py-6 bg-tdk-blue-800 fixed w-full z-50">
         <div className="lg:grid max-lg:px-8 max-lg:flex max-lg:items-center mx-auto grid-cols-12 xl:max-w-screen-xl">
           {/* Logo */}
-          {/* Fix toggleMenu */}
           <Link
             onClick={() => setMenuOpen(false)}
             className="max-lg:mr-auto"

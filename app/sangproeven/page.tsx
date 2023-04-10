@@ -14,8 +14,7 @@ const Page = () => {
             <p className="px-8 max-w-prose text-tdk-blue-light-buttonsSubheadings lg:text-xl lg:pr-12 lg:px-0 dark:text-tdk-blue-400">
               Bliv en del af vores musikalske fællesskab gennem en enkel
               sangprøve. Vi søger drenge, der elsker at synge og har den
-              nødvendige musikalitet for at skabe vidunderlige musikoplevelser
-              sammen.
+              nødvendige musikalitet for at skabe store musikoplevelser sammen.
             </p>
             <div className="my-10 lg:self-start">
               <Link
@@ -38,16 +37,16 @@ const Page = () => {
       {/* 2. sektion - Under stemmeprøven ... */}
       <section className="col-start-1 col-end-3 py-16 px-6 text-lg bg-tdk-blue-light-backgroundDark text-tdk-blue-light-buttonsSubheadings lg:text-xl dark:bg-tdk-green-700 dark:text-tdk-green-400">
         <p className="mx-auto max-w-prose  text-center">
-          Under stemmeprøven vil vi lytte efter drenge med lyse stemmer og en
-          god sans for musik, herunder rytmik. Du vil blive bedt om at synge et
-          vers fra en sang, du kender, for eksempel "I østen stiger solen op".
-          Derefter vil du skulle eftersynge forskellige tonekombinationer, synge
-          i høje og lave tonelejer og synge uden støtte fra klaveret.
+          Ved stemmeprøven lytter efter drenge med lyse stemmer og musikalsk
+          talent. Du skal synge et vers fra en sang, du kender, for eksempel "I
+          østen stiger solen op". Du skal også eftersynge forskellige
+          tonekombinationer, synge i højt og dybt toneleje og synge uden støtte
+          fra klaveret.
         </p>
         <br />
         <p className="mx-auto max-w-prose text-center">
           Hvis du ikke bliver udvalgt, er det ikke et udtryk for manglende
-          talent, men snarere et spørgsmål om at finde den rette stemmetype til
+          talent, men snarere fordi vi leder efter en speciel stemmetype til
           vores kor.
         </p>
       </section>
@@ -69,9 +68,9 @@ const Page = () => {
           <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
             Vi henvender os primært til drenge i 3. klasse, men har også gode
             erfaringer med drenge i 2. klasse. Forskolen er gratis og varer 4-5
-            måneder med undervisning to gange ugentligt i Treenighedskirkens
-            lokaler. Forskolen tjener som en periode med gensidig prøvetid og
-            forberedelse til optagelse i koncertkoret.
+            måneder med undervisning to gange ugentligt á 50 minutter i
+            Treenighedskirkens lokaler. Forskolen tjener som en periode med
+            gensidig prøvetid og forberedelse til optagelse i koncertkoret.
           </p>
         </div>
       </section>
@@ -107,8 +106,8 @@ const Page = () => {
         </h3>
         <p className="max-w-prose mb-8 text-center text-base">
           Sangprøven afholdes årligt i maj og juni måned i Treenighedskirken.
-          Efter en vellykket audition vil optagelse i Forskolen finde sted i
-          august, hvor du vil starte din rejse som en del af vores kor.
+          Efter en vellykket prøve vil optagelse og start i Forskolen finde sted
+          i august.
         </p>
         <Link
           className="py-4 px-6 rounded-md text-base text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
