@@ -33,9 +33,9 @@ const Navbar = () => {
             <li>
               <Link href="/sangprøven">Sangprøven</Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/aktiviteter">Aktiviteter</Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/kontakt">Kontakt</Link>
             </li>
@@ -73,23 +73,23 @@ const Navbar = () => {
                 <Image
                   src="/images/darkMode.svg"
                   alt="Icon for light mode"
-                  width={25}
-                  height={25}
+                  width={20}
+                  height={20}
                 />
               ) : (
                 <Image
                   src="/images/lightMode.svg"
                   alt="Icon for dark mode"
-                  width={25}
-                  height={25}
+                  width={20}
+                  height={20}
                 />
               )}
             </button>
             <Image
               src="/images/language.svg"
               alt="Icon for language switch"
-              width={25}
-              height={25}
+              width={20}
+              height={20}
             />
             <button className="text-s max-lg:hidden">Login</button>
             {menuOpen ? (

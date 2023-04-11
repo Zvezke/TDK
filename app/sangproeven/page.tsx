@@ -53,7 +53,7 @@ const Page = () => {
       {/* 3. sektion - Alderstrin og forskolen */}
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
-          className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          className="order-1 w-screen lg:h-full lg:object-cover lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
           src="/images/sangproeven/prototype1.png"
           alt="Boys singing"
           width={400}
@@ -61,7 +61,7 @@ const Page = () => {
         />
 
         <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700">
-          <h3 className="font-playfair font-black text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
+          <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
             Alderstrin og forskolen
           </h3>
           {/* Too many mx-auto classes! */}
@@ -78,7 +78,7 @@ const Page = () => {
       <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
         <section className="grid mx-auto xl:max-w-screen-xl lg:grid lg:grid-cols-2">
           <div className="mx-auto text-center py-12 px-6  dark:text-tdk-green-400 lg:grid lg:col-start-1 lg:col-end-2 lg:mx-0 lg:px-0 lg:text-left">
-            <h3 className="font-playfair font-black text-4xl text-tdk-blue-light-headlines mb-6 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
+            <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
               Musikalsk fællesskab
             </h3>
             {/* Too many mx-auto classes! */}

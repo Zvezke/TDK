@@ -53,8 +53,8 @@ const Page = () => {
             </p>
           </div>
           <Image
-            className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2"
-            src="/images/sangproeven/prototype1.png"
+            className="order-1 w-screen lg:object-cover lg:absolute lg:right-0 lg:w-1/2"
+            src="/images/om/koretsHistorieSoftLight.png"
             alt="Boys singing"
             width={400}
             height={400}
@@ -62,37 +62,54 @@ const Page = () => {
         </section>
       </div>
       {/* Organisation og uddannelse */}
-      <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
-        <Image
-          className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
-          src="/images/sangproeven/prototype1.png"
-          alt="Boys singing"
-          width={400}
-          height={400}
-        />
-
-        <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700 relative">
-          <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
+      {/* Mobil */}
+      <div className="flex flex-col items-center justify-between text-center w-full h-full bg-tdk-blue-light-background lg:hidden dark:bg-tdk-blue-700 ">
+        <div className="text-center py-12 px-6">
+          <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines lg:text-5xl dark:text-tdk-blue-200">
             Organisation og uddannelse
           </h3>
           {/* Too many mx-auto classes! */}
-          <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
+          <p className="max-w-prose text-base lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
             Korets sammensætning består af cirka 20-25 drenge i soprangruppen og
             20 herrestemmer i mandskoret. Drengene starter i forskolen, hvor de
             undervises i stemmetræning, hørelære og teori, inden de optages i
             koret. Nogle fortsætter i mandskoret efter stemmeovergangen.
           </p>
         </div>
-      </section>
-
+        <Image
+          className="w-screen lg:hidden"
+          src="/images/om/koropstilling2.jpg"
+          alt="Koropstilling"
+          width={1920}
+          height={1080}
+        />
+      </div>
+      {/* Desktop */}
+      <div className="max-lg:hidden relative top-0 left-0 flex flex-col items-center justify-between text-center w-full h-full">
+        <section className="flex flex-col">
+          <Image
+            className="w-screen"
+            src="/images/om/koropstilling2.jpg"
+            // src="/images/sangproeven/prototype1.png"
+            alt="Boys singing"
+            width={400}
+            height={400}
+          />
+        </section>
+        <section className="flex flex-col justify-between items-center absolute top-0 left-0 text-center py-12 px-6 h-full w-full text-tdk-blue-400">
+          <h3 className="font-playfair font-bold text-5xl mb-6 ">
+            Organisation og uddannelse
+          </h3>
+          {/* Too many mx-auto classes! */}
+          <p className="max-w-prose mx-auto text-base lg:text-base text-tdk-blue-400">
+            Korets sammensætning består af cirka 20-25 drenge i soprangruppen og
+            20 herrestemmer i mandskoret. Drengene starter i forskolen, hvor de
+            undervises i stemmetræning, hørelære og teori, inden de optages i
+            koret. Nogle fortsætter i mandskoret efter stemmeovergangen.
+          </p>
+        </section>
+      </div>
       {/* IMG, Koropstilling2 */}
-      <Image
-        className="w-screen relative"
-        src="/images/om/koropstilling2.jpg"
-        alt="Koropstilling"
-        width={1920}
-        height={1080}
-      />
 
       {/* Koncerter og repertoire */}
       <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
@@ -113,11 +130,11 @@ const Page = () => {
             </p>
           </div>
           <Image
-            className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2"
-            src="/images/sangproeven/prototype1.png"
-            alt="Boys singing"
-            width={400}
-            height={400}
+            className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2 object-top"
+            src="/images/om/koncerterRepertoireHardLight.png"
+            alt="Koncert med kor og ensemble"
+            width={640}
+            height={426}
           />
         </section>
       </div>
@@ -125,7 +142,7 @@ const Page = () => {
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
           className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
-          src="/images/sangproeven/prototype1.png"
+          src="/images/om/rejserFællesoplevelser.png"
           alt="Boys singing"
           width={400}
           height={400}
