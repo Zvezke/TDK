@@ -91,9 +91,9 @@ const Page = () => {
             className="w-screen"
             src="/images/om/koropstilling2.jpg"
             // src="/images/sangproeven/prototype1.png"
-            alt="Boys singing"
-            width={400}
-            height={400}
+            alt="Koropstilling"
+            width={1920}
+            height={1080}
           />
         </section>
         <section className="flex flex-col justify-between items-center absolute top-0 left-0 text-center py-12 px-6 h-full w-full text-tdk-blue-400">
@@ -199,7 +199,7 @@ const Page = () => {
         <div className="mt-12 mb-4 lg:self-start">
           <Link
             className="py-4 px-6 rounded-md text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
-            href="/kontakt"
+            href="mailto:lonegislinge@gmail.com"
           >
             Tilmeld dit barn i dag
           </Link>
@@ -226,8 +226,8 @@ const Page = () => {
           </div>
           <Image
             className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2"
-            src="/images/sangproeven/prototype1.png"
-            alt="Boys singing"
+            src="/images/om/boysSinging.png"
+            alt="Syngende drenge"
             width={400}
             height={400}
           />
@@ -237,10 +237,10 @@ const Page = () => {
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
           className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
-          src="/images/sangproeven/prototype1.png"
-          alt="Boys singing"
-          width={400}
-          height={400}
+          src="/images/om/partnerskaberSamarbejde.jpg"
+          alt="Koropstilling i Treenighedskirken"
+          width={960}
+          height={304}
         />
         <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700 relative">
           <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">

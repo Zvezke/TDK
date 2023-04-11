@@ -31,7 +31,7 @@ export default function Home() {
             {/* TODO: Hover effect */}
             <Link
               className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md text-sm font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400 border-2 border-tdk-blue-light-buttonsSubheadings dark:border-tdk-yellow-400"
-              href="/kontakt"
+              href="mailto:lonegislinge@gmail.com"
             >
               Tilmeld dit barn i dag
             </Link>
@@ -146,14 +146,14 @@ export default function Home() {
           {/* TODO: Hover effect */}
           <Link
             className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings border-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-700 dark:bg-tdk-orange-400 border-2 dark:border-tdk-orange-400"
-            href="/kontakt"
+            href="mailto:lonegislinge@gmail.com"
           >
             Tilmeld dit barn i dag
           </Link>
           <Link
             // className="py-4 px-6 rounded-md font-medium text-tdk-blue-light-buttonsSubheadings outline-2 outline-tdk-blue-light-buttonsSubheadings dark:text-tdk-orange-400 dark:outline-tdk-orange-400"
             className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md font-medium box-border border-2 dark:text-tdk-orange-400 dark:border-tdk-orange-400"
-            href="/sangprøven"
+            href="mailto:lonegislinge@gmail.com"
           >
             Læs om sangprøven
           </Link>
