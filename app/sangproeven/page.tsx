@@ -53,8 +53,8 @@ const Page = () => {
       {/* 3. sektion - Alderstrin og forskolen */}
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
-          className="order-1 w-screen lg:h-full lg:object-cover lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
-          src="/images/sangproeven/prototype1.png"
+          className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          src="/images/sangproeven/mathiasFrederikAnders.jpg"
           alt="Boys singing"
           width={400}
           height={400}
@@ -92,7 +92,7 @@ const Page = () => {
           </div>
           <Image
             className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2"
-            src="/images/sangproeven/prototype1.png"
+            src="/images/sangproeven/gladeFyre.png"
             alt="Boys singing"
             width={400}
             height={400}
