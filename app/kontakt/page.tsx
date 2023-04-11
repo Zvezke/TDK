@@ -4,16 +4,16 @@ const Page = () => {
       <h2 className=" lg:text-9xl text-5xl mb-4 max-lg:text-center text-tdk-blue-light-headlines dark:text-tdk-blue-200 font-playfair font-bold">
         Kommer snart
       </h2>
-      {/* <p className="lg:text-2xl text-base px-8 text-center text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
+      <p className="lg:text-2xl text-base px-8 text-center text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
         Hvis du ønsker at kontakte korlederen, er du velkommen til at{" "}
         <a className="text-[#B25A1E] dark:text-tdk-orange-400" href="#">
-          sende en email
+          sende en email.
         </a>{" "}
-        eller{" "}
+        {/* eller{" "}
         <a className="text-[#B25A1E] dark:text-tdk-orange-400" href="#">
           ringe.
-        </a>
-      </p> */}
+        </a> */}
+      </p>
     </main>
   );
 };
