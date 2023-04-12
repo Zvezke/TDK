@@ -90,7 +90,6 @@ const Page = () => {
           <Image
             className="w-screen"
             src="/images/om/koropstilling2.jpg"
-            // src="/images/sangproeven/prototype1.png"
             alt="Koropstilling"
             width={1920}
             height={1080}
@@ -138,11 +137,19 @@ const Page = () => {
           />
         </section>
       </div>
+
       {/* Rejser og fællesoplevelser */}
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
           className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
           src="/images/om/rejserFællesoplevelser.png"
+          alt="Boys singing"
+          width={400}
+          height={400}
+        />
+        <Image
+          className="order-1 w-screen lg:hidden"
+          src="/images/om/rejserFællesoplevelserMobil.png"
           alt="Boys singing"
           width={400}
           height={400}
@@ -159,56 +166,118 @@ const Page = () => {
             fællesskabet og giver uforglemmelige minder.
           </p>
         </div>
+        {/* <Image
+          // className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          src="/images/om/partnerskaberSamarbejde.jpg"
+          alt="Koropstilling i Treenighedskirken"
+          width={960}
+          height={304}
+        /> */}
       </section>
 
-      {/* IMG, Lone */}
-      {/* Hvid linje? */}
-      <Image
-        className="w-screen relative"
-        src="/images/om/lone.jpg"
-        alt="Lone Gislinge"
-        width={1920}
-        height={1080}
-      />
       {/* Lones udtalelse */}
-      <section className="col-start-1 col-end-3 py-16 px-6 text-lg lg:text-xl text-center text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 bg-tdk-blue-light-background dark:bg-tdk-blue-700">
+      <section className="col-start-1 col-end-3 py-12 px-6 text-lg lg:text-xl text-center relative bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
         <div className="max-w-prose mx-auto">
-          <h3 className="text-3xl font-playfair font-black text-tdk-blue-light-headlines mb-8 lg:text-5xl dark:text-tdk-blue-200">
+          <h3 className="text-4xl font-playfair font-bold text-tdk-blue-light-headlines dark:text-tdk-green-300 mb-6 lg:text-5xl">
             Korleder, Lone Gislinge
           </h3>
-          <p>
-            “Igennem de over 30 år jeg har arbejdet med Drengekoret, er det min
-            erfaring, at mange drenge som udgangspunkt er skeptiske overfor det
-            at synge i kor. Korsang blandt drenge har ingen høj status!
-          </p>
-          <br />
-          <p>
-            Jeg har dog oplevet igen og igen at drengene, når de prøver at synge
-            sammen med de andre musikalske drenge på ”1. holdet”, bliver
-            positivt overraskede – og optagede af at deltage i korprøver og
-            undervisning. Sammen med det sociale samvær og det kammeratskab de
-            hurtigt etablerer, skaber det et solidt fundament for både at
-            udvikle stemmens formåen og for at styrke musikglæden.
-          </p>
-          <br />
-          <p>
-            Jeg håber derfor at mange drenge fortsat vil give denne enestående
-            mulighed for at dyrke- og udvikle sin musikalitet en chance.”
-          </p>
+          <div className="text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-400">
+            <p>
+              “Igennem de over 30 år jeg har arbejdet med Drengekoret, er det
+              min erfaring, at mange drenge som udgangspunkt er skeptiske
+              overfor det at synge i kor. Korsang blandt drenge har ingen høj
+              status!
+            </p>
+            <br />
+            <p>
+              Jeg har dog oplevet igen og igen at drengene, når de prøver at
+              synge sammen med de andre musikalske drenge på ”1. holdet”, bliver
+              positivt overraskede – og optagede af at deltage i korprøver og
+              undervisning. Sammen med det sociale samvær og det kammeratskab de
+              hurtigt etablerer, skaber det et solidt fundament for både at
+              udvikle stemmens formåen og for at styrke musikglæden.
+            </p>
+            <br />
+            <p>
+              Jeg håber derfor at mange drenge fortsat vil give denne enestående
+              mulighed for at dyrke- og udvikle sin musikalitet en chance.”
+            </p>
+          </div>
         </div>
         <div className="mt-12 mb-4 lg:self-start">
-          <Link
-            className="py-4 px-6 rounded-md text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
+          {/* <Link
+            className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md text-tdk-blue-light-backgroundDark bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
             href="mailto:lonegislinge@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Tilmeld dit barn i dag
+          </Link> */}
+          <Link
+            className="py-2 lg:py-4 px-4 lg:px-6 rounded-md text-sm font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-700 dark:bg-tdk-orange-400 border-2 border-tdk-blue-light-buttonsSubheadings dark:border-tdk-orange-400"
+            href="mailto:lonegislinge@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Tilmeld dit barn i dag
           </Link>
         </div>
       </section>
 
+      {/* Lone og CV */}
+      <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
+        <Image
+          className="w-screen lg:h-full lg:object-cover lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          src="/images/om/lone.jpg"
+          alt="Lone Gislinge"
+          width={1920}
+          height={1080}
+        />
+        <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700 relative">
+          <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
+            CV, Lone Gislinge
+          </h3>
+          {/* Too many mx-auto classes! */}
+          <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
+            Lone Gislinge er ansat som docent ved Syddansk Musikkonservatorium i
+            fagene børnekorledelse, hørelære og som korleder for Konservatoriets
+            Pigekor, som hun startede i 1983.
+            <br />
+            <br />
+            I 1989 blev hun ansat som dirigent for Treenighedskirkens Drengekor.
+            Begge er aktive koncertkor som gennem årene har haft koncertrejser i
+            Europa, USA, Canada, Afrika, Asien og Australien. Begge kor har
+            lavet mange cd-indspilninger, samt medvirket i radio og tv.
+            <br />
+            <br />
+            Med Pigekoret har hun deltaget i både nationale og internationale
+            korkonkurrencer hvor koret har opnået guldmedaljer og gulddiplomer.
+            Drengekoret har ligeledes ved en enkelt lejlighed deltaget i en
+            korkonkurrence i Grækenland, hvor de opnåede at få et flot
+            gulddiplom.
+            <br />
+            <br />
+            Lone Gislinge er ofte instruktør ved korstævner samt underviser ved
+            kurser for kordirigenter. Hun har været i dommerpanelet i
+            ”Sangerdyst fra Kyst til Kyst” samt i Nina Grieg Festivalens jury i
+            Bergen. I 1996 – 2010 var hun i Danske Korledere’s bestyrelse og i
+            en årrække kunstnerisk leder af Esbjerg Sangakademi.
+          </p>
+        </div>
+      </section>
+
       {/* Radio- og TV-optrædener */}
       <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
         <section className="grid mx-auto xl:max-w-screen-xl lg:grid lg:grid-cols-2">
+          <Image
+            // className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+            className="w-screen lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+            src="/images/om/partnerskaberSamarbejdeMobil.jpg"
+            alt="Koropstilling i Treenighedskirken"
+            width={960}
+            height={304}
+          />
           <div className="mx-auto text-center py-12 px-6  dark:text-tdk-green-400 lg:grid lg:col-start-1 lg:col-end-2 lg:mx-0 lg:px-0 lg:text-left">
             <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
               Radio- og TV-optrædener
@@ -233,9 +302,10 @@ const Page = () => {
           />
         </section>
       </div>
-      {/* Rejser og fællesoplevelser */}
+      {/* Partnerskaber og samarbejde */}
       <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
         <Image
+          // className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
           className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
           src="/images/om/partnerskaberSamarbejde.jpg"
           alt="Koropstilling i Treenighedskirken"

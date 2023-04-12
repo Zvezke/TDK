@@ -65,9 +65,9 @@ const Navbar = () => {
           {/* Dark mode, language, login */}
           <div className="flex gap-8 justify-end lg:col-start-11 lg:col-end-13">
             <button
-              onClick={() => {
-                setColorMode(colorMode === "light" ? "dark" : "light");
-              }}
+              onClick={() =>
+                setColorMode(colorMode === "light" ? "dark" : "light")
+              }
             >
               {colorMode === "light" ? (
                 <Image

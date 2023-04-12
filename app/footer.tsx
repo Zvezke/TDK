@@ -10,11 +10,11 @@ const Footer = () => {
             <Link href="/om">Om</Link>
           </li>
           <li>
-            <Link href="/sangprøve">Sangprøve</Link>
+            <Link href="/sangprøven">Sangprøven</Link>
           </li>
-          <li>
-            <Link href="/aktiviteter">Aktiviteter</Link>
-          </li>
+          {/* <li>
+              <Link href="/aktiviteter">Aktiviteter</Link>
+            </li> */}
           <li>
             <Link href="/kontakt">Kontakt</Link>
           </li>

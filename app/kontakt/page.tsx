@@ -6,7 +6,11 @@ const Page = () => {
       </h2>
       <p className="lg:text-2xl text-base px-8 text-center text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
         Hvis du ønsker at kontakte korlederen, er du velkommen til at{" "}
-        <a className="text-[#B25A1E] dark:text-tdk-orange-400" href="#">
+        <a
+          className="text-[#B25A1E] dark:text-tdk-orange-400"
+          href="mailto:lonegislinge@gmail.com"
+          target={"_blank"}
+        >
           sende en email.
         </a>{" "}
         {/* eller{" "}

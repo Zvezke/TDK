@@ -20,6 +20,8 @@ const Page = () => {
               <Link
                 className="py-4 px-6 font-medium rounded-md text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
                 href="mailto:lonegislinge@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Tilmeld dit barn i dag
               </Link>
@@ -112,6 +114,8 @@ const Page = () => {
         <Link
           className="py-4 px-6 font-medium rounded-md text-base text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
           href="mailto:lonegislinge@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Tilmeld dit barn i dag
         </Link>

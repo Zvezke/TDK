@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       {/* Hero section */}
-      <section className="flex justify-center max-md:justify-end flex-col items-center bg-tdk-blue-light-background dark:bg-tdk-blue-700 lg:min-h-screen relative">
-        <div className="flex justify-center items-center max-md:h-80 w-full lg:mt-16">
+      <section className="flex justify-center flex-col items-center bg-tdk-blue-light-background dark:bg-tdk-blue-700 min-h-screen relative">
+        <div className="max-lg:hidden flex justify-center items-center max-md:h-80 w-full lg:mt-16">
           <svg
             className="absolute w-10/12 -top-28 lg:top-32 fill-tdk-blue-light-heros dark:fill-tdk-blue-800"
             width="1728"
@@ -20,10 +20,10 @@ export default function Home() {
         </div>
 
         <div className="max-lg:order-1 z-10">
-          <h1 className="text-center max-w-4xl text-3xl text-tdk-blue-light-headlines font-playfair font-black pb-4 lg:leading-tight lg:text-6xl lg:pb-6 lg:mt-12 dark:text-tdk-blue-200">
+          <h1 className="text-center max-w-4xl text-3xl max-lg:px-2 text-tdk-blue-light-headlines font-playfair font-black pb-4 lg:leading-tight lg:text-6xl lg:pb-6 lg:mt-12 dark:text-tdk-blue-200">
             Oplev sangglædens kraft med Treenighedskirkens drengekor
           </h1>
-          <p className="max-w-3xl text-center px-4 text-tdk-blue-light-buttonsSubheadings lg:text-2xl lg:px-0 dark:text-tdk-blue-400">
+          <p className="max-w-3xl text-center mx-auto px-4 text-tdk-blue-light-buttonsSubheadings lg:text-2xl lg:px-0 dark:text-tdk-blue-400">
             Skab livslange minder og fællesskab i et unikt kor, der bringer
             mennesker sammen gennem musikkens skønhed
           </p>
@@ -32,6 +32,8 @@ export default function Home() {
             <Link
               className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md text-sm font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400 border-2 border-tdk-blue-light-buttonsSubheadings dark:border-tdk-yellow-400"
               href="mailto:lonegislinge@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Tilmeld dit barn i dag
             </Link>
@@ -147,6 +149,8 @@ export default function Home() {
           <Link
             className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings border-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-700 dark:bg-tdk-orange-400 border-2 dark:border-tdk-orange-400"
             href="mailto:lonegislinge@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Tilmeld dit barn i dag
           </Link>
@@ -154,6 +158,8 @@ export default function Home() {
             // className="py-4 px-6 rounded-md font-medium text-tdk-blue-light-buttonsSubheadings outline-2 outline-tdk-blue-light-buttonsSubheadings dark:text-tdk-orange-400 dark:outline-tdk-orange-400"
             className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md font-medium box-border border-2 dark:text-tdk-orange-400 dark:border-tdk-orange-400"
             href="mailto:lonegislinge@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Læs om sangprøven
           </Link>
