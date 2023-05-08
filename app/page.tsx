@@ -178,18 +178,6 @@ export default function Home() {
             <div className="col-start-1 col-end-2">
               <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
                 <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
-                  <p className="font-bold leading-8 text-lg ">9. apr.</p>
-                  <p className="text-base lg:text-sm">11.00</p>
-                </div>
-                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
-                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Påskehøjmesse i Treenighedskirken.
-                  </h4>
-                  <p className="text-sm line-clamp-2">Vi slutter ca. 11.30.</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
                   <p className="font-bold leading-8">16. maj</p>
                   <p className="text-base lg:text-sm">19.30</p>
                 </div>
@@ -214,6 +202,18 @@ export default function Home() {
                   <p className="text-sm line-clamp-2">
                     Pinsehøjmesse i Treenighedskirken
                   </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
+                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
+                  <p className="font-bold leading-8 text-lg ">13. juni</p>
+                  <p className="text-base lg:text-sm">19.30</p>
+                </div>
+                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
+                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                    Sommerkoncert i Treenighedskirken
+                  </h4>
+                  <p className="text-sm line-clamp-2">Fri entré</p>
                 </div>
               </div>
               {/* <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
