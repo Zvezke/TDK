@@ -55,7 +55,7 @@ const Page = () => {
           <Image
             className="order-1 w-screen lg:object-cover lg:absolute lg:right-0 lg:w-1/2"
             src="/images/om/koretsHistorieSoftLight.png"
-            alt="Boys singing"
+            alt="Korets historie"
             width={400}
             height={400}
           />
@@ -143,16 +143,16 @@ const Page = () => {
         <Image
           className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
           src="/images/om/rejserFællesoplevelser.png"
-          alt="Boys singing"
-          width={400}
-          height={400}
+          alt="Koret på tur"
+          width={1000}
+          height={667}
         />
         <Image
           className="order-1 w-screen lg:hidden"
           src="/images/om/rejserFællesoplevelserMobil.png"
-          alt="Boys singing"
-          width={400}
-          height={400}
+          alt="Koret på tur"
+          width={1000}
+          height={667}
         />
         <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700 relative">
           <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
@@ -208,7 +208,7 @@ const Page = () => {
         <div className="mt-12 mb-4 lg:self-start">
           {/* <Link
             className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md text-tdk-blue-light-backgroundDark bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
-            href="mailto:lonegislinge@gmail.com"
+            href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -216,7 +216,7 @@ const Page = () => {
           </Link> */}
           <Link
             className="py-2 lg:py-4 px-4 lg:px-6 rounded-md text-sm font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-700 dark:bg-tdk-orange-400 border-2 border-tdk-blue-light-buttonsSubheadings dark:border-tdk-orange-400"
-            href="mailto:lonegislinge@gmail.com"
+            href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -276,7 +276,7 @@ const Page = () => {
             src="/images/om/partnerskaberSamarbejdeMobil.jpg"
             alt="Koropstilling i Treenighedskirken"
             width={960}
-            height={304}
+            height={594}
           />
           <div className="mx-auto text-center py-12 px-6  dark:text-tdk-green-400 lg:grid lg:col-start-1 lg:col-end-2 lg:mx-0 lg:px-0 lg:text-left">
             <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
@@ -297,8 +297,8 @@ const Page = () => {
             className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2"
             src="/images/om/boysSinging.png"
             alt="Syngende drenge"
-            width={400}
-            height={400}
+            width={813}
+            height={350}
           />
         </section>
       </div>

@@ -31,7 +31,7 @@ export default function Home() {
             {/* TODO: Hover effect */}
             <Link
               className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md text-sm font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400 border-2 border-tdk-blue-light-buttonsSubheadings dark:border-tdk-yellow-400"
-              href="mailto:lonegislinge@gmail.com"
+              href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -148,7 +148,7 @@ export default function Home() {
           {/* TODO: Hover effect */}
           <Link
             className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings border-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-700 dark:bg-tdk-orange-400 border-2 dark:border-tdk-orange-400"
-            href="mailto:lonegislinge@gmail.com"
+            href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -157,7 +157,7 @@ export default function Home() {
           <Link
             // className="py-4 px-6 rounded-md font-medium text-tdk-blue-light-buttonsSubheadings outline-2 outline-tdk-blue-light-buttonsSubheadings dark:text-tdk-orange-400 dark:outline-tdk-orange-400"
             className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md font-medium box-border border-2 dark:text-tdk-orange-400 dark:border-tdk-orange-400"
-            href="mailto:lonegislinge@gmail.com"
+            href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -183,7 +183,7 @@ export default function Home() {
                 </div>
                 <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
                   <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Påskehøjmesse i Treenighedskirken
+                    Påskehøjmesse i Treenighedskirken.
                   </h4>
                   <p className="text-sm line-clamp-2">Vi slutter ca. 11.30.</p>
                 </div>

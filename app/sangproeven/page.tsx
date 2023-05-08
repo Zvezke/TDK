@@ -19,7 +19,7 @@ const Page = () => {
             <div className="my-10 lg:self-start">
               <Link
                 className="py-4 px-6 font-medium rounded-md text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
-                href="mailto:lonegislinge@gmail.com"
+                href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -113,7 +113,7 @@ const Page = () => {
         </p>
         <Link
           className="py-4 px-6 font-medium rounded-md text-base text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
-          href="mailto:lonegislinge@gmail.com"
+          href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
           target="_blank"
           rel="noopener noreferrer"
         >

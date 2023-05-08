@@ -8,7 +8,7 @@ const Page = () => {
         Hvis du ønsker at kontakte korlederen, er du velkommen til at{" "}
         <a
           className="text-[#B25A1E] dark:text-tdk-orange-400"
-          href="mailto:lonegislinge@gmail.com"
+          href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
           target={"_blank"}
         >
           sende en email.
