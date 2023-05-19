@@ -1,0 +1,25 @@
+{
+  "navBar": {
+    "home": "Hjem",
+    "about": "Om",
+    "audition": "Sangprøven",
+    "contact": "Kontakt"
+  }, 
+  "home": {
+    "hero_title": "Oplev sangglædens kraft med Treenighedskirkens drengekor",
+    "hero_subtitle": "Skab livslange minder og fællesskab i et unikt kor, der bringer mennesker sammen gennem musikkens skønhed",
+    "hero_primaryButton": "Tilmeld dit barn i dag",
+    "hero_secondaryButton": "Læs mere om koret",
+    "testimonials_mattias": "“Koret har altid været et sted hvor jeg har fundet inspiration, venskab, fællesskab, personlig udvikling og fantastisk kulturoplevelse i alverdens lande - jeg har haft fornøjelsen af mere end 15 forskellige kor rejser, som har været med til at danne mit billede af verden.”",
+    "testimonials_marcus": "“Man oplever rigtig meget på vores rejser med alle de spændende steder og kulturer man kommer rundt og ser i verden. Det gør også rigtig meget for fællesskabet i koret og man for nogle livsvarige minder og kammeratskaber.”",
+    "testimonials_viggo": "“At synge i kor er anderledes end at gå til fodbold. Ens stemme er noget personligt, og når vi synger sammen hinanden åbner vi op og viser en del af os selv og bliver ét gennem musikken. Vi tuner bogstaveligt talt ind på samme frekvens, når vi udtaler de samme ord på den samme melodi. På den måde kommer vi tættere på hinanden.”",
+    "choirImg_title": "Treenighedskirkens drenge- og mandskor",
+    "choirImg_subtitle": "Grundig musikundervisning. Stemmetræning. Koncertoplevelser. Varieret rigt repertoire. Udenlandsrejser. Stærkt fællesskab.",
+    "choirImg_button": "Læs mere om koret",
+    "joinUs_title": "Vil du være med på 1. holdet",
+    "joinUs_subtitle": "For at blive medlem af koret, skal man til en lille stemmeprøve. Det kræver ingen forkundskaber, det vigtigste er, at man er glad for sang og musik og har den nødvendige musikalitet.",
+    "joinUs_primaryButton": "Tilmeld dit barn i dag",
+    "joinUs_secondaryButton": "Læs om sangprøven",
+    "activities_title": "Vores aktiviteter"
+  }
+}

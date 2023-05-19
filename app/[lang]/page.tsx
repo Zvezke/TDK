@@ -1,14 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getDictionary } from "@/get-dictionary";
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: { lang: "da" | "en" };
+}) {
+  const { home } = await getDictionary(params.lang);
   return (
     <>
       {/* Hero section */}
-      <section className="flex justify-center flex-col items-center bg-tdk-blue-light-background dark:bg-tdk-blue-700 min-h-screen relative">
-        <div className="max-lg:hidden flex justify-center items-center max-md:h-80 w-full lg:mt-16">
+      <section className="relative flex min-h-screen flex-col items-center justify-center bg-tdk-blue-light-background dark:bg-tdk-blue-700">
+        <div className="flex w-full items-center justify-center max-lg:hidden max-md:h-80 lg:mt-16">
           <svg
-            className="absolute w-10/12 -top-28 lg:top-32 fill-tdk-blue-light-heros dark:fill-tdk-blue-800"
+            className="absolute -top-28 w-10/12 fill-tdk-blue-light-heros dark:fill-tdk-blue-800 lg:top-32"
             width="1728"
             height="629"
             viewBox="0 0 1728 629"
@@ -19,29 +25,28 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="max-lg:order-1 z-10">
-          <h1 className="text-center max-w-4xl text-3xl max-lg:px-2 text-tdk-blue-light-headlines font-playfair font-black pb-4 lg:leading-tight lg:text-6xl lg:pb-6 lg:mt-12 dark:text-tdk-blue-200">
-            Oplev sangglædens kraft med Treenighedskirkens drengekor
+        <div className="z-10 max-lg:order-1">
+          <h1 className="max-w-4xl pb-4 text-center font-playfair text-3xl font-black text-tdk-blue-light-headlines dark:text-tdk-blue-200 max-lg:px-2 lg:mt-12 lg:pb-6 lg:text-6xl lg:leading-tight">
+            {home.hero_title}
           </h1>
-          <p className="max-w-3xl text-center mx-auto px-4 text-tdk-blue-light-buttonsSubheadings lg:text-2xl lg:px-0 dark:text-tdk-blue-400">
-            Skab livslange minder og fællesskab i et unikt kor, der bringer
-            mennesker sammen gennem musikkens skønhed
+          <p className="mx-auto max-w-3xl px-4 text-center text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 lg:px-0 lg:text-2xl">
+            {home.hero_subtitle}
           </p>
-          <div className="mb-12 mt-6 lg:my-10 flex justify-center gap-2">
+          <div className="mb-12 mt-6 flex justify-center gap-2 lg:my-10">
             {/* TODO: Hover effect */}
             <Link
-              className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md text-sm font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400 border-2 border-tdk-blue-light-buttonsSubheadings dark:border-tdk-yellow-400"
+              className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings py-2 px-4 text-sm font-medium text-tdk-blue-light-background dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700 lg:mr-8 lg:py-4 lg:px-6"
               href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Tilmeld dit barn i dag
+              {home.hero_primaryButton}
             </Link>
             <Link
-              className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md text-sm font-medium text-tdk-blue-light-buttonsSubheadings border-2 border-tdk-blue-light-buttonsSubheadings dark:text-tdk-yellow-400 dark:border-tdk-yellow-400"
+              className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings py-2 px-4 text-sm font-medium text-tdk-blue-light-buttonsSubheadings dark:border-tdk-yellow-400 dark:text-tdk-yellow-400 lg:py-4 lg:px-6"
               href="/om"
             >
-              Læs mere om koret
+              {home.hero_secondaryButton}
             </Link>
           </div>
         </div>
@@ -49,15 +54,9 @@ export default function Home() {
       {/* Testimonials */}
       <section className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
         {/* TODO: Farven på 'Mattias' */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-24 py-12 container xl:max-w-screen-xl text-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-400">
-          <div className="max-lg:hidden lg:flex flex-col justify-between">
-            <p className="mb-6">
-              “Koret har altid været et sted hvor jeg har fundet inspiration,
-              venskab, fællesskab, personlig udvikling og fantastisk
-              kulturoplevelse i alverdens lande - jeg har haft fornøjelsen af
-              mere end 15 forskellige kor rejser, som har været med til at danne
-              mit billede af verden.”
-            </p>
+        <div className="container grid gap-24 py-12 text-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-400 md:grid-cols-2 lg:grid-cols-3 xl:max-w-screen-xl">
+          <div className="flex-col justify-between max-lg:hidden lg:flex">
+            <p className="mb-6">{home.testimonials_mattias}</p>
             <div className="flex items-center gap-4">
               <Image
                 src="/images/home/testimonialMattias.png"
@@ -68,13 +67,8 @@ export default function Home() {
               <p className="text-sm opacity-80">Mattias</p>
             </div>
           </div>
-          <div className="max-md:hidden md:flex flex-col justify-between">
-            <p className="mb-6">
-              “Man oplever rigtig meget på vores rejser med alle de spændende
-              steder og kulturer man kommer rundt og ser i verden. Det gør også
-              rigtig meget for fællesskabet i koret og man for nogle livsvarige
-              minder og kammeratskaber.”
-            </p>
+          <div className="flex-col justify-between max-md:hidden md:flex">
+            <p className="mb-6">{home.testimonials_marcus}</p>
             <div className="flex items-center gap-4">
               <Image
                 src="/images/home/imgMarcus.png"
@@ -85,14 +79,9 @@ export default function Home() {
               <p className="text-sm opacity-80">Marcus</p>
             </div>
           </div>
-          <div className="max-md:flex flex-col justify-center items-center">
-            <p className="mb-6 max-md:text-center max-md:px-8">
-              “At synge i kor er anderledes end at gå til fodbold. Ens stemme er
-              noget personligt, og når vi synger sammen med hinanden, åbner vi
-              op og viser en del af os selv og bliver ét gennem musikken. Vi
-              tuner bogstaveligt talt ind på samme frekvens, når vi udtaler de
-              samme ord på den samme melodi. På den måde kommer vi tættere på
-              hinanden.”
+          <div className="flex-col items-center justify-center max-md:flex">
+            <p className="mb-6 max-md:px-8 max-md:text-center">
+              {home.testimonials_viggo}
             </p>
             <div className="flex items-center max-md:flex-col max-md:gap-2 md:gap-4">
               <Image
@@ -107,7 +96,7 @@ export default function Home() {
         </div>
       </section>
       {/* IMG, koropstilling */}
-      <section className="flex justify-center relative">
+      <section className="relative flex justify-center">
         {/* <div className="w-screen"> */}
         <Image
           src="/images/home/koropstilling1.png"
@@ -116,73 +105,70 @@ export default function Home() {
           height={1080}
         />
         {/* </div> */}
-        <div className="flex flex-col pt-4 lg:pt-24 lg:pb-16 justify-between absolute h-full">
-          <h2 className="text-tdk-blue-light-background text-center text-2xl lg:text-5xl font-playfair font-black">
-            Treenighedskirkens drenge- og mandskor
+        <div className="absolute flex h-full flex-col justify-between pt-4 lg:pt-24 lg:pb-16">
+          <h2 className="text-center font-playfair text-2xl font-black text-tdk-blue-light-background lg:text-5xl">
+            {home.choirImg_title}
           </h2>
           <div className="flex flex-col items-center">
-            <p className="text-tdk-blue-light-backgroundDark leading-tight lg:mb-8 text-base lg:text-xl max-w-md text-center">
-              Grundig musikundervisning. Stemmetræning. Koncertoplevelser.
-              Varieret rigt repertoire. Udenlandsrejser. Stærkt fællesskab.
+            <p className="max-w-md text-center text-base leading-tight text-tdk-blue-light-backgroundDark lg:mb-8 lg:text-xl">
+              {home.choirImg_subtitle}
             </p>
             <Link
-              className="pb-6 pt-2 lg:py-4 px-6 rounded-md font-medium text-tdk-yellow-400"
+              className="rounded-md px-6 pb-6 pt-2 font-medium text-tdk-yellow-400 lg:py-4"
               href="/om"
             >
-              Læs mere om koret
+              {home.choirImg_button}
             </Link>
           </div>
         </div>
       </section>
       {/* Vil du med på 1. holdet? */}
-      <section className="flex flex-col items-center lg:pb-16 pt-12 px-2 lg:px-6 bg-tdk-blue-light-background text-tdk-blue-light-buttonsSubheadings lg:py-16 lg:text-xl lg:relative dark:bg-tdk-green-700 dark:text-tdk-green-400">
-        <h3 className="font-playfair font-black text-3xl text-center text-tdk-blue-light-headlines mb-6 lg:text-center lg:text-5xl dark:text-tdk-blue-200">
-          Vil du med på 1. holdet?
+      <section className="flex flex-col items-center bg-tdk-blue-light-background px-2 pt-12 text-tdk-blue-light-buttonsSubheadings dark:bg-tdk-green-700 dark:text-tdk-green-400 lg:relative lg:px-6 lg:py-16 lg:pb-16 lg:text-xl">
+        <h3 className="mb-6 text-center font-playfair text-3xl font-black text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-center lg:text-5xl">
+          {home.joinUs_title}
         </h3>
         <p className="max-w-prose text-center text-base">
-          For at blive medlem af koret, skal man til en lille stemmeprøve. Det
-          kræver ingen forkundskaber, det vigtigste er, at man er glad for sang
-          og musik og har den nødvendige musikalitet.
+          {home.joinUs_subtitle}
         </p>
-        <div className="mb-12 mt-6 lg:my-10 max-lg:flex max-lg:text-sm justify-center gap-2 text-base">
+        <div className="mb-12 mt-6 justify-center gap-2 text-base max-lg:flex max-lg:text-sm lg:my-10">
           {/* TODO: Hover effect */}
           <Link
-            className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings border-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-700 dark:bg-tdk-orange-400 border-2 dark:border-tdk-orange-400"
+            className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings py-2 px-4 font-medium text-tdk-blue-light-background dark:border-tdk-orange-400 dark:bg-tdk-orange-400 dark:text-tdk-green-700 lg:mr-8 lg:py-4 lg:px-6"
             href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Tilmeld dit barn i dag
+            {home.joinUs_primaryButton}
           </Link>
           <Link
             // className="py-4 px-6 rounded-md font-medium text-tdk-blue-light-buttonsSubheadings outline-2 outline-tdk-blue-light-buttonsSubheadings dark:text-tdk-orange-400 dark:outline-tdk-orange-400"
-            className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md font-medium box-border border-2 dark:text-tdk-orange-400 dark:border-tdk-orange-400"
+            className="box-border rounded-md border-2 py-2 px-4 font-medium dark:border-tdk-orange-400 dark:text-tdk-orange-400 lg:mr-8 lg:py-4 lg:px-6"
             href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Læs om sangprøven
+            {home.joinUs_secondaryButton}
           </Link>
         </div>
       </section>
       {/* Vores aktiviteter */}
-      <section className="flex flex-col pt-12 bg-tdk-blue-light-backgroundDark text-tdk-blue-light-buttonsSubheadings lg:pt-16 lg:text-xl lg:relative dark:bg-tdk-blue-700 dark:text-tdk-blue-300">
+      <section className="flex flex-col bg-tdk-blue-light-backgroundDark pt-12 text-tdk-blue-light-buttonsSubheadings dark:bg-tdk-blue-700 dark:text-tdk-blue-300 lg:relative lg:pt-16 lg:text-xl">
         {/* Headline */}
-        <h3 className="font-playfair font-black text-4xl self-center text-tdk-blue-light-headlines mb-12 lg:text-center lg:text-5xl dark:text-tdk-blue-200">
-          Vores aktiviteter
+        <h3 className="mb-12 self-center font-playfair text-4xl font-black text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-center lg:text-5xl">
+          {home.activities_title}
         </h3>
         <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-blue-700">
-          <section className="flex flex-col lg:gap-x-16 mx-auto xl:max-w-screen-xl lg:grid lg:grid-cols-2">
+          <section className="mx-auto flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-16 xl:max-w-screen-xl">
             {/* TODO: Grid row */}
             {/* Left, Cards - Aktiviteter */}
             <div className="col-start-1 col-end-2">
-              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
+              <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
+                <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
                   <p className="font-bold leading-8">16. maj</p>
                   <p className="text-base lg:text-sm">19.30</p>
                 </div>
-                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
-                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                <div className="col-start-5 col-end-13 px-2 py-4 lg:col-start-4 lg:px-4">
+                  <h4 className="truncate font-roboto text-xl font-medium leading-loose text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-2xl">
                     ”Syng med Drengekoret”
                   </h4>
                   <p className="text-sm line-clamp-2">
@@ -190,13 +176,13 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
+              <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
+                <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
                   <p className="font-bold leading-8">28. maj</p>
                   <p className="text-base lg:text-sm">10.00</p>
                 </div>
-                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
-                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                <div className="col-start-5 col-end-13 px-2 py-4 lg:col-start-4 lg:px-4">
+                  <h4 className="truncate font-roboto text-xl font-medium leading-loose text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-2xl">
                     Pinsehøjmesse
                   </h4>
                   <p className="text-sm line-clamp-2">
@@ -204,13 +190,13 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
-                  <p className="font-bold leading-8 text-lg ">13. juni</p>
+              <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
+                <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
+                  <p className="text-lg font-bold leading-8 ">13. juni</p>
                   <p className="text-base lg:text-sm">19.30</p>
                 </div>
-                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
-                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
+                <div className="col-start-5 col-end-13 px-2 py-4 lg:col-start-4 lg:px-4">
+                  <h4 className="truncate font-roboto text-xl font-medium leading-loose text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-2xl">
                     Sommerkoncert i Treenighedskirken
                   </h4>
                   <p className="text-sm line-clamp-2">Fri entré</p>
@@ -239,7 +225,7 @@ export default function Home() {
             </div>
             {/* Right, IMG */}
             <Image
-              className="w-screen h-full object-cover lg:rounded-tl-md lg:absolute lg:right-0 lg:w-1/2"
+              className="h-full w-screen object-cover lg:absolute lg:right-0 lg:w-1/2 lg:rounded-tl-md"
               src="/images/home/syngendeDrengeVoresAktiviteter.png"
               alt="Boys singing"
               width={400}

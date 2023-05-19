@@ -1,7 +1,17 @@
 import { Playfair_Display, Roboto } from "next/font/google";
 import Footer from "./footer";
 import "./globals.css";
-import Header from "./header";
+import { i18n } from "@/i18n-config";
+import { get } from "http";
+import { getDictionary } from "@/get-dictionary";
+import Link from "next/link";
+// import Header from "./header";
+import Logo from "./components/Logo";
+import Navbar from "./components/navbar";
+
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
 
 export const metadata = {
   title: "TDK",
@@ -22,16 +32,26 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { lang: "da" | "en" };
 }) {
+  const { navBar } = await getDictionary(params.lang);
   return (
-    <html className="" lang="da">
+    <html lang={params.lang}>
       <body className={`${roboto.variable} ${playfair.variable} light`}>
         {/* Check how to disable header in sub */}
-        <Header />
+        <header>
+          <Navbar
+            params={params}
+            about={navBar.about}
+            audition={navBar.audition}
+            contact={navBar.contact}
+          />
+        </header>
         {children}
         <Footer />
       </body>

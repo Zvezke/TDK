@@ -1,17 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useColorMode from "@/hooks/useColorMode";
 import Image from "next/image";
 import Link from "next/link";
+import { getDictionary } from "@/get-dictionary";
 
-const Navbar = () => {
+interface Dictionary {
+  navBar: {
+    home: string;
+    about: string;
+    audition: string;
+    contact: string;
+  };
+}
+
+interface NavbarProps {
+  lang: "da" | "en";
+}
+
+const Navbar = ({ lang }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [colorMode, setColorMode] = useColorMode();
+  const [dict, setDict] = useState<Dictionary | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const dictionary = await getDictionary(lang);
+      setDict(dictionary);
+    };
+
+    fetchData();
+  }, [lang]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  // const dictionary = getDictionary(lang);
 
   return (
     <>
@@ -28,16 +54,16 @@ const Navbar = () => {
           {/* Navigation */}
           <ul className="max-lg:hidden flex justify-center items-center gap-12 col-start-5 col-end-9">
             <li>
-              <Link href="/om">Om</Link>
+              <Link href="/om">{dict?.navBar.about}</Link>
             </li>
             <li>
-              <Link href="/sangprøven">Sangprøven</Link>
+              <Link href="/sangprøven">{dict?.navBar.audition}</Link>
             </li>
             {/* <li>
               <Link href="/aktiviteter">Aktiviteter</Link>
             </li> */}
             <li>
-              <Link href="/kontakt">Kontakt</Link>
+              <Link href="/kontakt">{dict?.navBar.contact}</Link>
             </li>
           </ul>
 

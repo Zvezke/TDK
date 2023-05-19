@@ -1,0 +1,25 @@
+{
+  "navBar": {
+    "home": "Home",
+    "about": "About",
+    "audition": "Audition",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Experience the power of singing with Trinity Church's Boys Choir",
+    "hero_subtitle": "Create lifelong memories and friendships in a unique choir that brings people together through the beauty of music",
+    "hero_primaryButton": "Enroll your child today",
+    "hero_secondaryButton": "Read more about the choir",
+    "testimonials_mattias": "\"The choir has always been a place where I have found inspiration, friendship, community, personal development, and fantastic cultural experiences in countries all over the world - I have had the pleasure of more than 15 different choir trips, which have helped shape my view of the world.\"",
+    "testimonials_marcus": "\"You experience a lot on our travels with all the exciting places and cultures you get to see around the world. It also does a lot for the community in the choir, and you gain lifelong memories and friendships.\"",
+    "testimonials_viggo": "\"Singing in a choir is different from playing football. Your voice is something personal, and when we sing together, we open up and show a part of ourselves and become one through the music. We literally tune in to the same frequency when we pronounce the same words to the same melody. In this way, we get closer to each other.\"",
+    "choirImg_title": "Trinity Church's Boys and Men Choir",
+    "choirImg_subtitle": "Thorough music education. Voice training. Concert experiences. Varied rich repertoire. International trips. Strong community.",
+    "choirImg_button": "Read more about the choir",
+    "joinUs_title": "Do you want to be part of the first team?",
+    "joinUs_subtitle": "To become a member of the choir, one must undergo a small voice audition. No prior knowledge is required; the most important thing is that you enjoy singing and music and have the necessary musicality.",
+    "joinUs_primaryButton": "Enroll your child today",
+    "joinUs_secondaryButton": "Read about the audition",
+    "activities_title": "Our Activities"
+  }
+}
