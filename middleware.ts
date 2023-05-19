@@ -34,7 +34,13 @@ export function middleware(request: NextRequest) {
       "/images/lightMode.svg",
       "/images/hamburger.svg",
       "/images/close.svg",
-      "/images/home/syngendeDrengeVoresAktiviteter.png"
+      "/images/home/syngendeDrengeVoresAktiviteter.png",
+      "/images/home/heroSingingBoys.svg",
+      "/images/home/imgMarcus.png",
+      "/images/home/koropstilling1.png",
+      "/images/home/syngendeDrengeVoresAktiviteter.png",
+      "/images/home/testimonialMattias.png",
+      "/images/home/testimonialViggo.png"
       // Your other files in `public`
     ].includes(pathname)
   )
