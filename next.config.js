@@ -11,6 +11,9 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    domains: ["treenighedskirkensdrengekor.dk", "localhost"],
+  },
   // redirects: async () => {
   //   return [
   //     {
