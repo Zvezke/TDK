@@ -4,7 +4,7 @@
     "about": "Om",
     "audition": "Sangprøven",
     "contact": "Kontakt"
-  }, 
+  },
   "home": {
     "hero_title": "Oplev sangglædens kraft med Treenighedskirkens drengekor",
     "hero_subtitle": "Skab livslange minder og fællesskab i et unikt kor, der bringer mennesker sammen gennem musikkens skønhed",
@@ -21,5 +21,32 @@
     "joinUs_primaryButton": "Tilmeld dit barn i dag",
     "joinUs_secondaryButton": "Læs om sangprøven",
     "activities_title": "Vores aktiviteter"
+  },
+  "aboutPage": {
+    "title": "Treenighedskirkens drenge- og mandskor",
+    "description": "Grundig musikundervisning. Stemmetræning. Koncertoplevelser. Varieret rigt repertoire. Udenlandsrejser. Stærkt fællesskab.",
+    "historyTitle": "Korets historie",
+    "historyDescription": "Historien om Treenighedskirkens Drenge- & mandskor går tilbage til 1964, hvor organist Per Günther grundlagde koret. Det opnåede hurtigt stor koncert- og rejsevirksomhed og virkede samtidig som fast kor ved kirkens gudstjenester. I 1989 overtog Lone Gislinge ledelsen af koret, som ud over koncerter og rejser synger ved højtiderne, samt et begrænset antal gudstjenester i Treenighedskirken.",
+    "historyDescriptionContinued": "I Danmark findes ikke mange drengekor og Treenighedskirkens Drenge- og Mandskor er således medvirkende til at bevare en speciel kortradition som er unik for hele den sydvestlige region i Danmark.",
+    "organizationTitle": "Organisation og uddannelse",
+    "organizationDescription": "Korets sammensætning består af cirka 20-25 drenge i soprangruppen og 20 herrestemmer i mandskoret. Drengene starter i forskolen, hvor de undervises i stemmetræning, hørelære og teori, inden de optages i koret. Nogle fortsætter i mandskoret efter stemmeovergangen.",
+    "concertsTitle": "Koncerter og repertoire",
+    "concertsDescription": "Koret deltager i tjenester i Treenighedskirken og afholder koncerter lokalt og nationalt. Med hovedvægten lagt på et traditionelt korrepertoire suppleret med danske salmer og sange og en forkærlighed for engelsk kormusik – netop komponeret for drengekor – giver samarbejde med bl.a. Konservatoriets Pigekor og Esbjerg Ensemble ligeledes mulighed for opførelser af større værker.",
+    "travelTitle": "Rejser og fællesoplevelser",
+    "travelDescription": "Rejser i udlandet er en vigtig del af korets fællesoplevelser. Koret har rejst i det meste af Europa, Canada, USA, Kina og Australien Ofte med koncerter i kendte kirker og katedraler. Disse ture styrker fællesskabet og giver uforglemmelige minder.",
+    "lonesStatementTitle": "Korleder, Lone Gislinge",
+    "lonesStatement": "“Igennem de over 30 år jeg har arbejdet med Drengekoret, er det min erfaring, at mange drenge som udgangspunkt er skeptiske overfor det at synge i kor. Korsang blandt drenge har ingen høj status!",
+    "lonesStatementContinued": "Jeg har dog oplevet igen og igen at drengene, når de prøver at synge sammen med de andre musikalske drenge på ”1. holdet”, bliver positivt overraskede – og optagede af at deltage i korprøver og undervisning. Sammen med det sociale samvær og det kammeratskab de hurtigt etablerer, skaber det et solidt fundament for både at udvikle stemmens formåen og for at styrke musikglæden.",
+    "lonesStatementFinal": "Jeg håber derfor at mange drenge fortsat vil give denne enestående mulighed for at dyrke- og udvikle sin musikalitet en chance.",
+    "lonesStatementButton": "Tilmeld dit barn i dag",
+    "loneGislingeDescription": "Lone Gislinge er ansat som docent ved Syddansk Musikkonservatorium i fagene børnekorledelse, hørelære og som korleder for Konservatoriets Pigekor, som hun startede i 1983.",
+    "loneGislingeDescriptionContinued1": "I 1989 blev hun ansat som dirigent for Treenighedskirkens Drengekor. Begge er aktive koncertkor som gennem årene har haft koncertrejser i Europa, USA, Canada, Afrika, Asien og Australien. Begge kor har lavet mange cd-indspilninger, samt medvirket i radio og tv.",
+    "loneGislingeDescriptionContinued2": "Med Pigekoret har hun deltaget i både nationale og internationale korkonkurrencer hvor koret har opnået guldmedaljer og gulddiplomer. Drengekoret har ligeledes ved en enkelt lejlighed deltaget i en korkonkurrence i Grækenland, hvor de opnåede at få et flot gulddiplom.",
+    "loneGislingeDescriptionFinal": "Lone Gislinge er ofte instruktør ved korstævner samt underviser ved kurser for kordirigenter. Hun har været i dommerpanelet i ”Sangerdyst fra Kyst til Kyst” samt i Nina Grieg Festivalens jury i Bergen. I 1996 – 2010 var hun i Danske Korledere’s bestyrelse og i en årrække kunstnerisk leder af Esbjerg Sangakademi.",
+    "loneGislingeButton": "Tilmeld dit barn i dag",
+    "radioTVTitle": "Radio- og TV-optrædener",
+    "radioTVDescription": "Koret har jævnligt optrådt i dansk radio og tv. Bl.a. har DR-tv optaget og genudsendt 60 afsnit af programmet ”Før Søndagen”. På koncertrejser samt i andre lande er flere koncerter blevet transmitteret ligesom optagelser fra plade/CD-indspilninger er blevet sendt som optakt til koncerter. Disse udsendelser bidrager til korets synlighed og bringer musikken ud til et bredere publikum.",
+    "partnershipsTitle": "Partnerskaber og samarbejde",
+    "partnershipsDescription": "Koret samarbejder - og modtager driftstilskud fra Esbjerg Kommune og Treenighedskirken for at bevare og videreføre korets traditioner. Med disse partnerskaber sikres korets fortsatte succes og udvikling."
   }
 }

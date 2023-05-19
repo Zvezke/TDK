@@ -21,5 +21,31 @@
     "joinUs_primaryButton": "Enroll your child today",
     "joinUs_secondaryButton": "Read about the audition",
     "activities_title": "Our Activities"
+  },
+  "aboutPage": {
+    "title": "Trinity Church's Boys and Men Choir",
+    "description": "Thorough music education. Voice training. Concert experiences. Varied rich repertoire. Overseas trips. Strong community.",
+    "historyTitle": "History of the Choir",
+    "historyDescription": "The history of Trinity Church's Boys and Men Choir dates back to 1964 when organist Per Günther founded the choir. It quickly achieved extensive concert and travel activity and also served as the regular choir for the church's services. In 1989, Lone Gislinge took over the management of the choir, which in addition to",
+    "historyDescriptionContinued": "concerts and travel sings at holidays, as well as a limited number of services in Trinity Church. In Denmark, there are not many boys' choirs and Trinity Church's Boys and Men Choir is thus helping to preserve a special choral tradition that is unique to the entire southwestern region of Denmark.",
+    "organizationTitle": "Organization and education",
+    "organizationDescription": "The composition of the choir consists of about 20-25 boys in the soprano group and 20 male voices in the men's choir. The boys start in pre-school, where they are taught voice training, ear training, and theory, before they are admitted to the choir. Some continue in the men's choir after their voice changes.",
+    "concertsTitle": "Concerts and repertoire",
+    "concertsDescription": "The choir participates in services in Trinity Church and holds concerts locally and nationally. With the emphasis on a traditional choral repertoire supplemented with Danish hymns and songs and a fondness for English choral music – specifically composed for boys' choirs – cooperation with, among others, the Conservatory Girls' Choir and Esbjerg Ensemble also allows for performances of larger works.",
+    "travelTitle": "Trips and shared experiences",
+    "travelDescription": "Traveling abroad is an important part of the choir's shared experiences. The choir has traveled in most of Europe, Canada, USA, China, and Australia. Often with concerts in famous churches and cathedrals. These trips strengthen the community and create unforgettable memories.",
+    "lonesStatement": "“Throughout the more than 30 years I have worked with the Boys' Choir, it is my experience that many boys initially are skeptical about singing in a choir. Choir singing among boys does not have a high status!",
+    "lonesStatementContinued": "However, I have experienced time and time again that the boys, when they try to sing along with the other musical boys in the 'first team', become pleasantly surprised – and eager to participate in choir rehearsals and teaching. Combined with social interaction and the camaraderie they quickly establish, it creates a solid foundation for both developing the voice's abilities and for enhancing the joy of music.",
+    "lonesStatementFinal": "I therefore hope that many boys will continue to give this unique opportunity to cultivate and develop their musicality a chance.",
+    "lonesStatementButton": "Enroll your child today",
+    "lonesStatementTitle": "Choir Director, Lone Gislinge",
+    "loneGislingeDescription": "Lone Gislinge is employed as an associate professor at the South Danish Music Conservatory in the subjects of children's choir leadership, ear training, and as a choir director for the Conservatory's Girls' Choir, which she started in 1983.",
+    "loneGislingeDescriptionContinued1": "In 1989 she was hired as the conductor for Trinity Church Boys' Choir. Both are active concert choirs which over the years have had concert tours in Europe, USA, Canada, Africa, Asia, and Australia. Both choirs have made many CD recordings, as well as participated in radio and TV.",
+    "loneGislingeDescriptionContinued2": "With the Girls' Choir, she has participated in both national and international choir competitions where the choir has won gold medals and gold diplomas. The Boys' Choir has also on one occasion participated in a choir competition in Greece, where they managed to receive a beautiful gold diploma.",
+    "loneGislingeDescriptionFinal": "Lone Gislinge often instructs at choir festivals and teaches courses for choir conductors. She has been on the judging panel in 'Singer Battle from Coast to Coast' and in the Nina Grieg Festival jury in Bergen. From 1996 – 2010, she was on the board of Danish Choir Leaders and for several years she was the artistic director of Esbjerg Singing Academy.",
+    "radioTVTitle": "Radio and TV appearances",
+    "radioTVDescription": "The choir has regularly appeared on Danish radio and TV. Among other things, DR-TV has recorded and re-broadcast 60 episodes of the program 'Before Sunday'. During concert tours and in other countries, several concerts have been transmitted, as well as recordings from LP/CD recordings have been aired as a prelude to concerts. These broadcasts contribute to the choir's visibility and bring the music to a wider audience.",
+    "partnershipsTitle": "Partnerships and cooperation",
+    "partnershipsDescription": "The choir cooperates - and receives operating grants from Esbjerg Municipality and Trinity Church to preserve and continue the choir's traditions. With these partnerships, the choir's continued success and development are ensured."
   }
 }

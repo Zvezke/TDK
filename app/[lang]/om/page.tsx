@@ -1,28 +1,29 @@
+import { getDictionary } from "@/get-dictionary";
 import Image from "next/image";
 import Link from "next/link";
 
-const Page = () => {
+const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
+  const { aboutPage } = await getDictionary(params.lang);
   return (
     <>
       {/* 1. sektion - Hero section */}
       <section>
-        <div className="flex justify-center items-end relative">
+        <div className="relative flex items-end justify-center">
           {/* TODO: Fix the image positioning */}
           <Image
-            className="w-screen h-screen object-cover"
+            className="h-screen w-screen object-cover"
             src="/images/om/heroKoropstilling.png"
             alt="Koropstilling"
             width={1920}
             height={1080}
           />
-          <div className="xl:max-w-screen-xl pb-12 px-2 absolute">
-            <div className="grid md:grid-cols-2 max-md:text-center place-content-end">
-              <h2 className="max-md:mb-12 text-tdk-blue-200 font-playfair font-black text-3xl lg:text-5xl">
-                Treenighedskirkens drenge- og mandskor
+          <div className="absolute px-2 pb-12 xl:max-w-screen-xl">
+            <div className="grid place-content-end max-md:text-center md:grid-cols-2">
+              <h2 className="font-playfair text-3xl font-black text-tdk-blue-200 max-md:mb-12 lg:text-5xl">
+                {aboutPage.title}
               </h2>
-              <p className="place-self-end text-tdk-blue-200 font-roboto text-lg lg:text-xl">
-                Grundig musikundervisning. Stemmetræning. Koncertoplevelser.
-                Varieret rigt repertoire. Udenlandsrejser. Stærkt fællesskab.
+              <p className="place-self-end font-roboto text-lg text-tdk-blue-200 lg:text-xl">
+                {aboutPage.description}
               </p>
             </div>
           </div>
@@ -31,29 +32,21 @@ const Page = () => {
 
       {/* Korets historie */}
       <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
-        <section className="grid mx-auto xl:max-w-screen-xl lg:grid lg:grid-cols-2">
-          <div className="mx-auto text-center py-12 px-6  dark:text-tdk-green-400 lg:grid lg:col-start-1 lg:col-end-2 lg:mx-0 lg:px-0 lg:text-left">
-            <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
-              Korets historie
+        <section className="mx-auto grid lg:grid lg:grid-cols-2 xl:max-w-screen-xl">
+          <div className="mx-auto py-12 px-6 text-center  dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
+            <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-left lg:text-5xl">
+              {aboutPage.historyTitle}
             </h3>
             {/* Too many mx-auto classes! */}
-            <p className="max-w-prose mx-auto text-base lg:pr-8 lg:text-base lg:mx-0 text-tdk-blue-light-headlines dark:text-tdk-green-400">
-              Historien om Treenighedskirkens Drenge- &amp; mandskor går tilbage
-              til 1964, hvor organist Per Günther grundlagde koret. Det opnåede
-              hurtigt stor koncert- og rejsevirksomhed og virkede samtidig som
-              fast kor ved kirkens gudstjenester. I 1989 overtog Lone Gislinge
-              ledelsen af koret, som ud over koncerter og rejser synger ved
-              højtiderne, samt et begrænset antal gudstjenester i
-              Treenighedskirken.
+            <p className="mx-auto max-w-prose text-base text-tdk-blue-light-headlines dark:text-tdk-green-400 lg:mx-0 lg:pr-8 lg:text-base">
+              {aboutPage.historyDescription}
               <br />
-              <br />I Danmark findes ikke mange drengekor og Treenighedskirkens
-              Drenge- og Mandskor er således medvirkende til at bevare en
-              speciel kortradition som er unik for hele den sydvestlige region i
-              Danmark.
+              <br />
+              {aboutPage.historyDescriptionContinued}
             </p>
           </div>
           <Image
-            className="order-1 w-screen lg:object-cover lg:absolute lg:right-0 lg:w-1/2"
+            className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2 lg:object-cover"
             src="/images/om/koretsHistorieSoftLight.png"
             alt="Korets historie"
             width={400}
@@ -63,17 +56,14 @@ const Page = () => {
       </div>
       {/* Organisation og uddannelse */}
       {/* Mobil */}
-      <div className="flex flex-col items-center justify-between text-center w-full h-full bg-tdk-blue-light-background lg:hidden dark:bg-tdk-blue-700 ">
-        <div className="text-center py-12 px-6">
-          <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines lg:text-5xl dark:text-tdk-blue-200">
-            Organisation og uddannelse
+      <div className="flex h-full w-full flex-col items-center justify-between bg-tdk-blue-light-background text-center dark:bg-tdk-blue-700 lg:hidden ">
+        <div className="py-12 px-6 text-center">
+          <h3 className="font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-5xl">
+            {aboutPage.organizationTitle}
           </h3>
           {/* Too many mx-auto classes! */}
-          <p className="max-w-prose text-base lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
-            Korets sammensætning består af cirka 20-25 drenge i soprangruppen og
-            20 herrestemmer i mandskoret. Drengene starter i forskolen, hvor de
-            undervises i stemmetræning, hørelære og teori, inden de optages i
-            koret. Nogle fortsætter i mandskoret efter stemmeovergangen.
+          <p className="max-w-prose text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 lg:mx-0 lg:px-0 lg:text-base">
+            {aboutPage.organizationDescription}
           </p>
         </div>
         <Image
@@ -85,7 +75,7 @@ const Page = () => {
         />
       </div>
       {/* Desktop */}
-      <div className="max-lg:hidden relative top-0 left-0 flex flex-col items-center justify-between text-center w-full h-full">
+      <div className="relative top-0 left-0 flex h-full w-full flex-col items-center justify-between text-center max-lg:hidden">
         <section className="flex flex-col">
           <Image
             className="w-screen"
@@ -95,16 +85,13 @@ const Page = () => {
             height={1080}
           />
         </section>
-        <section className="flex flex-col justify-between items-center absolute top-0 left-0 text-center py-12 px-6 h-full w-full text-tdk-blue-400">
-          <h3 className="font-playfair font-bold text-5xl mb-6 ">
-            Organisation og uddannelse
+        <section className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-between py-12 px-6 text-center text-tdk-blue-400">
+          <h3 className="mb-6 font-playfair text-5xl font-bold ">
+            {aboutPage.organizationTitle}
           </h3>
           {/* Too many mx-auto classes! */}
-          <p className="max-w-prose mx-auto text-base lg:text-base text-tdk-blue-400">
-            Korets sammensætning består af cirka 20-25 drenge i soprangruppen og
-            20 herrestemmer i mandskoret. Drengene starter i forskolen, hvor de
-            undervises i stemmetræning, hørelære og teori, inden de optages i
-            koret. Nogle fortsætter i mandskoret efter stemmeovergangen.
+          <p className="mx-auto max-w-prose text-base text-tdk-blue-400 lg:text-base">
+            {aboutPage.organizationDescription}
           </p>
         </section>
       </div>
@@ -112,24 +99,18 @@ const Page = () => {
 
       {/* Koncerter og repertoire */}
       <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
-        <section className="grid mx-auto xl:max-w-screen-xl lg:grid lg:grid-cols-2">
-          <div className="mx-auto text-center py-12 px-6  dark:text-tdk-green-400 lg:grid lg:col-start-1 lg:col-end-2 lg:mx-0 lg:px-0 lg:text-left">
-            <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
-              Koncerter og repertoire
+        <section className="mx-auto grid lg:grid lg:grid-cols-2 xl:max-w-screen-xl">
+          <div className="mx-auto py-12 px-6 text-center  dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
+            <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-left lg:text-5xl">
+              {aboutPage.concertsTitle}
             </h3>
             {/* Too many mx-auto classes! */}
-            <p className="max-w-prose mx-auto text-base lg:pr-8 lg:text-base lg:mx-0 text-tdk-blue-light-headlines dark:text-tdk-green-400">
-              Koret deltager i tjenester i Treenighedskirken og afholder
-              koncerter lokalt og nationalt. Med hovedvægten lagt på et
-              traditionelt korrepertoire suppleret med danske salmer og sange og
-              en forkærlighed for engelsk kormusik – netop komponeret for
-              drengekor – giver samarbejde med bl.a. Konservatoriets Pigekor og
-              Esbjerg Ensemble ligeledes mulighed for opførelser af større
-              værker.
+            <p className="mx-auto max-w-prose text-base text-tdk-blue-light-headlines dark:text-tdk-green-400 lg:mx-0 lg:pr-8 lg:text-base">
+              {aboutPage.concertsDescription}
             </p>
           </div>
           <Image
-            className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2 object-top"
+            className="order-1 w-screen object-top lg:absolute lg:right-0 lg:w-1/2"
             src="/images/om/koncerterRepertoireHardLight.png"
             alt="Koncert med kor og ensemble"
             width={640}
@@ -139,9 +120,9 @@ const Page = () => {
       </div>
 
       {/* Rejser og fællesoplevelser */}
-      <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
+      <section className="mx-auto flex flex-col lg:grid lg:grid-cols-2 ">
         <Image
-          className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:-z-10 lg:w-1/2"
           src="/images/om/rejserFællesoplevelser.png"
           alt="Koret på tur"
           width={1000}
@@ -154,16 +135,13 @@ const Page = () => {
           width={1000}
           height={667}
         />
-        <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700 relative">
-          <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
-            Rejser og fællesoplevelser
+        <div className="relative bg-tdk-blue-light-background py-12 px-6 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
+          <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl">
+            {aboutPage.travelTitle}
           </h3>
           {/* Too many mx-auto classes! */}
-          <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
-            Rejser i udlandet er en vigtig del af korets fællesoplevelser. Koret
-            har rejst i det meste af Europa, Canada, USA, Kina og Australien
-            Ofte med koncerter i kendte kirker og katedraler. Disse ture styrker
-            fællesskabet og giver uforglemmelige minder.
+          <p className="mx-auto max-w-prose text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 lg:mx-0 lg:px-0 lg:text-left lg:text-base">
+            {aboutPage.travelDescription}
           </p>
         </div>
         {/* <Image
@@ -177,32 +155,17 @@ const Page = () => {
       </section>
 
       {/* Lones udtalelse */}
-      <section className="col-start-1 col-end-3 py-12 px-6 text-lg lg:text-xl text-center relative bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
-        <div className="max-w-prose mx-auto">
-          <h3 className="text-4xl font-playfair font-bold text-tdk-blue-light-headlines dark:text-tdk-green-300 mb-6 lg:text-5xl">
-            Korleder, Lone Gislinge
+      <section className="relative col-start-1 col-end-3 bg-tdk-blue-light-backgroundDark py-12 px-6 text-center text-lg dark:bg-tdk-green-700 lg:text-xl">
+        <div className="mx-auto max-w-prose">
+          <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-green-300 lg:text-5xl">
+            {aboutPage.lonesStatementTitle}
           </h3>
           <div className="text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-400">
-            <p>
-              “Igennem de over 30 år jeg har arbejdet med Drengekoret, er det
-              min erfaring, at mange drenge som udgangspunkt er skeptiske
-              overfor det at synge i kor. Korsang blandt drenge har ingen høj
-              status!
-            </p>
+            <p>{aboutPage.lonesStatement}</p>
             <br />
-            <p>
-              Jeg har dog oplevet igen og igen at drengene, når de prøver at
-              synge sammen med de andre musikalske drenge på ”1. holdet”, bliver
-              positivt overraskede – og optagede af at deltage i korprøver og
-              undervisning. Sammen med det sociale samvær og det kammeratskab de
-              hurtigt etablerer, skaber det et solidt fundament for både at
-              udvikle stemmens formåen og for at styrke musikglæden.
-            </p>
+            <p>{aboutPage.lonesStatementContinued}</p>
             <br />
-            <p>
-              Jeg håber derfor at mange drenge fortsat vil give denne enestående
-              mulighed for at dyrke- og udvikle sin musikalitet en chance.”
-            </p>
+            <p>{aboutPage.lonesStatementFinal}</p>
           </div>
         </div>
         <div className="mt-12 mb-4 lg:self-start">
@@ -215,82 +178,63 @@ const Page = () => {
             Tilmeld dit barn i dag
           </Link> */}
           <Link
-            className="py-2 lg:py-4 px-4 lg:px-6 rounded-md text-sm font-medium text-tdk-blue-light-background bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-green-700 dark:bg-tdk-orange-400 border-2 border-tdk-blue-light-buttonsSubheadings dark:border-tdk-orange-400"
+            className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings py-2 px-4 text-sm font-medium text-tdk-blue-light-background dark:border-tdk-orange-400 dark:bg-tdk-orange-400 dark:text-tdk-green-700 lg:py-4 lg:px-6"
             href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Tilmeld dit barn i dag
+            {aboutPage.lonesStatementButton}
           </Link>
         </div>
       </section>
 
       {/* Lone og CV */}
-      <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
+      <section className="mx-auto flex flex-col lg:grid lg:grid-cols-2 ">
         <Image
-          className="w-screen lg:h-full lg:object-cover lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          className="w-screen lg:absolute lg:left-0 lg:-z-10 lg:h-full lg:w-1/2 lg:object-cover"
           src="/images/om/lone.jpg"
           alt="Lone Gislinge"
           width={1920}
           height={1080}
         />
-        <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700 relative">
+        <div className="relative bg-tdk-blue-light-background py-12 px-6 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
           {/* <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
             CV, Lone Gislinge
           </h3> */}
           {/* Too many mx-auto classes! */}
-          <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
-            Lone Gislinge er ansat som docent ved Syddansk Musikkonservatorium i
-            fagene børnekorledelse, hørelære og som korleder for Konservatoriets
-            Pigekor, som hun startede i 1983.
+          <p className="mx-auto max-w-prose text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 lg:mx-0 lg:px-0 lg:text-left lg:text-base">
+            {aboutPage.loneGislingeDescription}
             <br />
             <br />
-            I 1989 blev hun ansat som dirigent for Treenighedskirkens Drengekor.
-            Begge er aktive koncertkor som gennem årene har haft koncertrejser i
-            Europa, USA, Canada, Afrika, Asien og Australien. Begge kor har
-            lavet mange cd-indspilninger, samt medvirket i radio og tv.
+            {aboutPage.loneGislingeDescriptionContinued1}
             <br />
             <br />
-            Med Pigekoret har hun deltaget i både nationale og internationale
-            korkonkurrencer hvor koret har opnået guldmedaljer og gulddiplomer.
-            Drengekoret har ligeledes ved en enkelt lejlighed deltaget i en
-            korkonkurrence i Grækenland, hvor de opnåede at få et flot
-            gulddiplom.
+            {aboutPage.loneGislingeDescriptionContinued2}
             <br />
             <br />
-            Lone Gislinge er ofte instruktør ved korstævner samt underviser ved
-            kurser for kordirigenter. Hun har været i dommerpanelet i
-            ”Sangerdyst fra Kyst til Kyst” samt i Nina Grieg Festivalens jury i
-            Bergen. I 1996 – 2010 var hun i Danske Korledere’s bestyrelse og i
-            en årrække kunstnerisk leder af Esbjerg Sangakademi.
+            {aboutPage.loneGislingeDescriptionFinal}
           </p>
         </div>
       </section>
 
       {/* Radio- og TV-optrædener */}
       <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
-        <section className="grid mx-auto xl:max-w-screen-xl lg:grid lg:grid-cols-2">
+        <section className="mx-auto grid lg:grid lg:grid-cols-2 xl:max-w-screen-xl">
           <Image
             // className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
-            className="w-screen lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+            className="w-screen lg:absolute lg:left-0 lg:-z-10 lg:hidden lg:w-1/2"
             src="/images/om/partnerskaberSamarbejdeMobil.jpg"
             alt="Koropstilling i Treenighedskirken"
             width={960}
             height={594}
           />
-          <div className="mx-auto text-center py-12 px-6  dark:text-tdk-green-400 lg:grid lg:col-start-1 lg:col-end-2 lg:mx-0 lg:px-0 lg:text-left">
-            <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
-              Radio- og TV-optrædener
+          <div className="mx-auto py-12 px-6 text-center  dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
+            <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-left lg:text-5xl">
+              {aboutPage.radioTVTitle}
             </h3>
             {/* Too many mx-auto classes! */}
-            <p className="max-w-prose mx-auto text-base lg:pr-8 lg:text-base lg:mx-0 text-tdk-blue-light-headlines dark:text-tdk-green-400">
-              Koret har jævnligt optrådt i dansk radio og tv. Bl.a. har DR-tv
-              optaget og genudsendt 60 afsnit af programmet ”Før Søndagen”. På
-              koncertrejser samt i andre lande er flere koncerter blevet
-              transmitteret ligesom optagelser fra plade/CD-indspilninger er
-              blevet sendt som optakt til koncerter. Disse udsendelser bidrager
-              til korets synlighed og bringer musikken ud til et bredere
-              publikum.
+            <p className="mx-auto max-w-prose text-base text-tdk-blue-light-headlines dark:text-tdk-green-400 lg:mx-0 lg:pr-8 lg:text-base">
+              {aboutPage.radioTVDescription}
             </p>
           </div>
           <Image
@@ -303,24 +247,22 @@ const Page = () => {
         </section>
       </div>
       {/* Partnerskaber og samarbejde */}
-      <section className="flex flex-col mx-auto lg:grid lg:grid-cols-2 ">
+      <section className="mx-auto flex flex-col lg:grid lg:grid-cols-2 ">
         <Image
           // className="order-1 w-screen lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
-          className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:w-1/2 lg:-z-10"
+          className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:-z-10 lg:w-1/2"
           src="/images/om/partnerskaberSamarbejde.jpg"
           alt="Koropstilling i Treenighedskirken"
           width={960}
           height={304}
         />
-        <div className="text-center py-12 px-6 bg-tdk-blue-light-background lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left dark:bg-tdk-blue-700 relative">
-          <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
-            Partnerskaber og samarbejde
+        <div className="relative bg-tdk-blue-light-background py-12 px-6 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
+          <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl">
+            {aboutPage.partnershipsTitle}
           </h3>
           {/* Too many mx-auto classes! */}
-          <p className="max-w-prose mx-auto text-base lg:text-left lg:px-0 lg:mx-0 lg:text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
-            Koret samarbejder - og modtager driftstilskud fra Esbjerg Kommune og
-            Treenighedskirken for at bevare og videreføre korets traditioner.
-            Med disse partnerskaber sikres korets fortsatte succes og udvikling.
+          <p className="mx-auto max-w-prose text-base text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 lg:mx-0 lg:px-0 lg:text-left lg:text-base">
+            {aboutPage.partnershipsDescription}
           </p>
         </div>
       </section>

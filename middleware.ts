@@ -40,7 +40,17 @@ export function middleware(request: NextRequest) {
       "/images/home/koropstilling1.png",
       "/images/home/syngendeDrengeVoresAktiviteter.png",
       "/images/home/testimonialMattias.png",
-      "/images/home/testimonialViggo.png"
+      "/images/home/testimonialViggo.png",
+      "/images/om/heroKoropstilling.png",
+      "/images/om/koretsHistorieSoftLight.png",
+      "/images/om/koropstilling2.jpg",
+      "/images/om/koncerterRepertoireHardLight.png",
+      "/images/om/rejserFællesoplevelser.png",
+      "/images/om/rejserFællesoplevelserMobil.png",
+      "/images/om/lone.jpg",
+      "/images/om/partnerskaberSamarbejdeMobil.jpg",
+      "/images/om/boysSinging.png",
+      "/images/om/partnerskaberSamarbejde.jpg"
       // Your other files in `public`
     ].includes(pathname)
   )
