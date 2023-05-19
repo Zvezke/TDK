@@ -123,14 +123,14 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
       <section className="mx-auto flex flex-col lg:grid lg:grid-cols-2 ">
         <Image
           className="order-1 w-screen max-lg:hidden lg:absolute lg:left-0 lg:-z-10 lg:w-1/2"
-          src="/images/om/rejserFællesoplevelser.png"
+          src="/images/om/rejserFaellesoplevelser.png"
           alt="Koret på tur"
           width={1000}
           height={667}
         />
         <Image
           className="order-1 w-screen lg:hidden"
-          src="/images/om/rejserFællesoplevelserMobil.png"
+          src="/images/om/rejserFaellesoplevelserMobil.png"
           alt="Koret på tur"
           width={1000}
           height={667}
