@@ -25,7 +25,9 @@ export function middleware(request: NextRequest) {
   if (
     [
       "/manifest.json",
-      "/favicon.ico",
+      "/images/favicon.ico",
+      "/images/faviconLight.svg",
+      "/images/faviconDark.svg",
       "/images/church.svg",
       "/images/language.svg",
       "/images/FacebookIcon.svg",
@@ -50,7 +52,11 @@ export function middleware(request: NextRequest) {
       "/images/om/lone.jpg",
       "/images/om/partnerskaberSamarbejdeMobil.jpg",
       "/images/om/boysSinging.png",
-      "/images/om/partnerskaberSamarbejde.jpg"
+      "/images/om/partnerskaberSamarbejde.jpg",
+      "/images/sangproeven/boySinging.png",
+      "/images/sangproeven/mathiasFrederikAnders.jpg",
+      "/images/sangproeven/gladeFyre.png",
+      
       // Your other files in `public`
     ].includes(pathname)
   )

@@ -48,5 +48,19 @@
     "radioTVDescription": "Koret har jævnligt optrådt i dansk radio og tv. Bl.a. har DR-tv optaget og genudsendt 60 afsnit af programmet ”Før Søndagen”. På koncertrejser samt i andre lande er flere koncerter blevet transmitteret ligesom optagelser fra plade/CD-indspilninger er blevet sendt som optakt til koncerter. Disse udsendelser bidrager til korets synlighed og bringer musikken ud til et bredere publikum.",
     "partnershipsTitle": "Partnerskaber og samarbejde",
     "partnershipsDescription": "Koret samarbejder - og modtager driftstilskud fra Esbjerg Kommune og Treenighedskirken for at bevare og videreføre korets traditioner. Med disse partnerskaber sikres korets fortsatte succes og udvikling."
+  },
+  "sangproeven": {
+    "sangproevenTitle": "Sangprøven",
+    "sangproevenDescription": "Bliv en del af vores musikalske fællesskab gennem en enkel sangprøve. Vi søger drenge, der elsker at synge og har den nødvendige musikalitet for at skabe store musikoplevelser sammen.",
+    "sangproevenButton": "Tilmeld dit barn i dag",
+    "voiceTestIntro": "Ved stemmeprøven lytter efter drenge med lyse stemmer og musikalsk talent. Du skal synge et vers fra en sang, du kender, for eksempel \"I østen stiger solen op\". Du skal også eftersynge forskellige tonekombinationer, synge i højt og dybt toneleje og synge uden støtte fra klaveret.",
+    "voiceTestConclusion": "Hvis du ikke bliver udvalgt, er det ikke et udtryk for manglende talent, men snarere fordi vi leder efter en speciel stemmetype til vores kor.",
+    "ageAndPreSchoolTitle": "Alderstrin og forskolen",
+    "ageAndPreSchoolDescription": "Vi henvender os primært til drenge i 3. klasse, men har også gode erfaringer med drenge i 2. klasse. Forskolen er gratis og varer 4-5 måneder med undervisning to gange ugentligt á 50 minutter i Treenighedskirkens lokaler. Forskolen tjener som en periode med gensidig prøvetid og forberedelse til optagelse i koncertkoret.",
+    "musicalCommunityTitle": "Musikalsk fællesskab",
+    "musicalCommunityDescription": "Som medlem af koret vil du opleve et musikalsk fællesskab, hvor dit talent får mulighed for at blomstre. Du vil nyde daglig trivsel, store koncertoplevelser og uforglemmelige rejseoplevelser, mens du deler din passion for musik med ligesindede drenge.",
+    "whereAndWhenTitle": "Hvor og hvornår?",
+    "whereAndWhenDescription": "Sangprøven afholdes årligt i maj og juni måned i Treenighedskirken. Efter en vellykket prøve vil optagelse og start i Forskolen finde sted i august.",
+    "whereAndWhenButton": "Tilmeld dit barn i dag"
   }
 }

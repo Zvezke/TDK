@@ -47,5 +47,19 @@
     "radioTVDescription": "The choir has regularly appeared on Danish radio and TV. Among other things, DR-TV has recorded and re-broadcast 60 episodes of the program 'Before Sunday'. During concert tours and in other countries, several concerts have been transmitted, as well as recordings from LP/CD recordings have been aired as a prelude to concerts. These broadcasts contribute to the choir's visibility and bring the music to a wider audience.",
     "partnershipsTitle": "Partnerships and cooperation",
     "partnershipsDescription": "The choir cooperates - and receives operating grants from Esbjerg Municipality and Trinity Church to preserve and continue the choir's traditions. With these partnerships, the choir's continued success and development are ensured."
+  },
+  "sangproeven": {
+    "sangproevenTitle": "The Audition",
+    "sangproevenDescription": "Become part of our musical community through a simple audition. We are looking for boys who love to sing and have the necessary musicality to create great musical experiences together.",
+    "sangproevenButton": "Enroll your child today",
+    "voiceTestIntro": "At the voice test, we are listening for boys with bright voices and musical talent. You must sing a verse from a song you know, for example, 'The sun rises in the east.' You must also echo different tone combinations, sing in high and low pitch, and sing without support from the piano.",
+    "voiceTestConclusion": "If you are not selected, it is not a reflection of lack of talent, but rather because we are looking for a special voice type for our choir.",
+    "ageAndPreSchoolTitle": "Age Group and Preschool",
+    "ageAndPreSchoolDescription": "We primarily address boys in 3rd grade, but also have good experiences with boys in 2nd grade. Preschool is free and lasts 4-5 months with teaching twice a week for 50 minutes in the Holy Trinity Church premises. Preschool serves as a period of mutual trial and preparation for admission to the concert choir.",
+    "musicalCommunityTitle": "Musical Community",
+    "musicalCommunityDescription": "As a member of the choir, you will experience a musical community where your talent will have the opportunity to flourish. You will enjoy daily well-being, great concert experiences and unforgettable travel experiences while sharing your passion for music with like-minded boys.",
+    "whereAndWhenTitle": "Where and When?",
+    "whereAndWhenDescription": "The audition is held annually in May and June at the Trinity Church. After a successful test, admission and the start in Preschool will take place in August.",
+    "whereAndWhenButton": "Enroll your child today"
   }
 }

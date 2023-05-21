@@ -39,7 +39,7 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                 <Link href="/om">{about}</Link>
               </li>
               <li>
-                <Link href="/sangprøven">{audition}</Link>
+                <Link href="/sangproeven">{audition}</Link>
               </li>
               {/* <li>
               <Link href="/aktiviteter">Aktiviteter</Link>
