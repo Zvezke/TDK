@@ -7,6 +7,7 @@ import { getDictionary } from "@/get-dictionary";
 import Link from "next/link";
 import { Locale } from "../../../i18n-config";
 import Logo from "./Logo";
+import LocaleSwitcher from "./locale-switcher";
 
 interface ParamsProps {
   lang: string;
@@ -79,7 +80,7 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               </div>
             </div>
             {/* Dark mode, language, login */}
-            <div className="flex justify-end gap-8 lg:col-start-11 lg:col-end-13">
+            <div className="flex items-center justify-end gap-8 lg:col-start-11 lg:col-end-13">
               <button
                 onClick={() => {
                   setColorMode(colorMode === "light" ? "dark" : "light");
@@ -101,12 +102,13 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                   />
                 )}
               </button>
-              <Image
+              {/* <Image
                 src="/images/language.svg"
                 alt="Icon for language switch"
                 width={20}
                 height={20}
-              />
+              /> */}
+              <LocaleSwitcher />
               <button className="text-s max-lg:hidden">Login</button>
               {menuOpen ? (
                 <Image
@@ -145,15 +147,15 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               </Link>
             </li>
             <li>
-              <Link href="/sangprøven" onClick={() => setMenuOpen(false)}>
+              <Link href="/sangproeven" onClick={() => setMenuOpen(false)}>
                 Sangprøven
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/aktiviteter" onClick={() => setMenuOpen(false)}>
                 Aktiviteter
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/kontakt" onClick={() => setMenuOpen(false)}>
                 Kontakt
