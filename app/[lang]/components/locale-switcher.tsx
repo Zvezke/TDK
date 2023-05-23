@@ -27,7 +27,7 @@ export default function LocaleSwitcher() {
   return (
     <>
       {console.log(pathName)}
-      {pathName.includes("/da/") && (
+      {pathName.includes("/da") && (
         <Link key="da" href={redirectedPathName("en")}>
           <Image
             src="/images/language.svg"
@@ -37,7 +37,7 @@ export default function LocaleSwitcher() {
           />
         </Link>
       )}
-      {pathName.includes("/en/") && (
+      {pathName.includes("/en") && (
         <Link key="en" href={redirectedPathName("da")}>
           <Image
             src="/images/language.svg"

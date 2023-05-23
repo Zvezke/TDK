@@ -161,7 +161,7 @@ export default async function Home({
           <section className="mx-auto flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-16 xl:max-w-screen-xl">
             {/* TODO: Grid row */}
             {/* Left, Cards - Aktiviteter */}
-            <div className="col-start-1 col-end-2">
+            <div className="col-start-1 col-end-2 lg:h-[32rem]">
               <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
                 <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
                   <p className="font-bold leading-8">16. maj</p>
@@ -225,7 +225,7 @@ export default async function Home({
             </div>
             {/* Right, IMG */}
             <Image
-              className="h-full w-screen object-cover lg:absolute lg:right-0 lg:w-1/2 lg:rounded-tl-md"
+              className="w-screen lg:absolute lg:right-0 lg:w-1/2 lg:rounded-tl-md"
               src="/images/home/syngendeDrengeVoresAktiviteter.png"
               alt="Boys singing"
               width={400}
