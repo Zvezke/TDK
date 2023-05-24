@@ -62,5 +62,10 @@
     "whereAndWhenTitle": "Hvor og hvornår?",
     "whereAndWhenDescription": "Sangprøven afholdes årligt i maj og juni måned i Treenighedskirken. Efter en vellykket prøve vil optagelse og start i Forskolen finde sted i august.",
     "whereAndWhenButton": "Tilmeld dit barn i dag"
+  },
+  "contact": {
+    "comingSoonTitle": "Kommer snart",
+    "contactMessage": "Hvis du ønsker at kontakte korlederen, er du velkommen til at ",
+    "contactLink": "sende en email."
   }
 }

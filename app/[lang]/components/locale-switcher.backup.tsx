@@ -26,7 +26,7 @@ export default function LocaleSwitcher() {
 
   return (
     <>
-      {/* {console.log(pathName)} */}
+      {console.log(pathName)}
       {pathName.includes("/da") && (
         <Link key="da" href={redirectedPathName("en")}>
           <Image

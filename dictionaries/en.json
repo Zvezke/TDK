@@ -61,5 +61,10 @@
     "whereAndWhenTitle": "Where and When?",
     "whereAndWhenDescription": "The audition is held annually in May and June at the Trinity Church. After a successful test, admission and the start in Preschool will take place in August.",
     "whereAndWhenButton": "Enroll your child today"
+  },
+  "contact": {
+    "comingSoonTitle": "Coming soon",
+    "contactMessage": "If you wish to contact the choir leader, you are welcome to ",
+    "contactLink": "send an email."
   }
 }
