@@ -109,7 +109,9 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                 height={20}
               /> */}
               <LocaleSwitcher />
-              <button className="text-s max-lg:hidden">Login</button>
+              <Link className="text-s max-lg:hidden" href="/login">
+                Login
+              </Link>
               {menuOpen ? (
                 <Image
                   onClick={toggleMenu}
