@@ -25,8 +25,7 @@ const useLogout = () => {
 const useRefresh = async () => {
   try {
     const authRefresh = await pb.collection("users").authRefresh();
-    // console.log("authRefresh", authRefresh);
-    return { authRefresh };
+    return { authRefresh, pbAuthStore: pb.authStore };
   } catch (error) {
     return { error };
   }

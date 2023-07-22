@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import useColorMode from "@/hooks/useColorMode";
 import Image from "next/image";
 import { getDictionary } from "@/get-dictionary";
@@ -9,24 +9,67 @@ import { Locale } from "../../../i18n-config";
 import Logo from "./Logo";
 import LocaleSwitcher from "./locale-switcher";
 
-interface ParamsProps {
-  lang: string;
-}
+// Types and interfaces
+import { AuthRecord, IAuthStore, NavbarProps } from "../../../types/interfaces";
 
-interface NavbarProps {
-  params: ParamsProps;
-  about: string;
-  audition: string;
-  contact: string;
-}
+// Context
+import { useAuth } from "../../../context/AuthContext";
+
+// Pocketbase
+import { useLogout, useLogin, useRefresh } from "../../../pocketbase/auth";
+import Loading from "./loading";
 
 const Navbar = ({ about, audition, contact }: NavbarProps) => {
+  // Context
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
+
+  // States
   const [menuOpen, setMenuOpen] = useState(false);
   const [colorMode, setColorMode] = useColorMode();
+  const [authData, setAuthData] = useState<AuthRecord | null | undefined>(null);
+  const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
+    null
+  );
+  // const [dummy, setDummy] = useState(true);
+
+  useEffect(() => {
+    const authData = async () => {
+      const { authRefresh, pbAuthStore } = await useRefresh();
+      setAuthData(authRefresh?.record as unknown as AuthRecord | null);
+      setAuthStore(pbAuthStore as unknown as IAuthStore | null);
+    };
+    authData();
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleLogIn = async () => {
+    console.log("handleLogIn");
+    const { authData, authStore, error } = await useLogin({
+      email: "superur@gmail.com",
+      password: "Ft30953095Ft",
+    });
+    console.log("authData", authData);
+    console.log("authStore", authStore);
+    console.log("error", error);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = async () => {
+    console.log("handleLogout");
+    const { authRefresh, pbAuthStore } = await useRefresh();
+    // console.log("authRefresh", authRefresh);
+    // console.log("pbAuthStore", pbAuthStore);
+    useLogout();
+    setIsLoggedIn(false);
+    // console.log("isLoggedIn", isLoggedIn);
+    // setDummy(null);
+  };
+
+  // console.log("authData, navBar", authData);
+  // console.log("authStore, navBar", authStore);
 
   try {
     return (
@@ -109,9 +152,29 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                 height={20}
               /> */}
               <LocaleSwitcher />
-              <Link className="text-s max-lg:hidden" href="/login">
-                Login
-              </Link>
+              <Suspense fallback={<Loading />}>
+                {isLoggedIn ? (
+                  <button
+                    className="hidden max-lg:block"
+                    onClick={handleLogout}
+                  >
+                    Log ud
+                  </button>
+                ) : (
+                  <Link className="hidden max-lg:block" href="/login">
+                    Log ind
+                  </Link>
+                )}
+              </Suspense>
+              {isLoggedIn ? (
+                <button className="text-s max-lg:hidden" onClick={handleLogout}>
+                  Log ud
+                </button>
+              ) : (
+                <Link className="text-s max-lg:hidden" href="/login">
+                  Log ind
+                </Link>
+              )}
               {menuOpen ? (
                 <Image
                   onClick={toggleMenu}

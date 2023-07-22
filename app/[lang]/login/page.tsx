@@ -1,43 +1,16 @@
 "use client";
 
+import { IAuthStore, AuthRecord } from "../../../types/interfaces";
 import { useState, useEffect, use } from "react";
 import { useLogin, useLogout, useRefresh } from "../../../pocketbase/auth";
 
-interface IAuthStore {
-  avatar: string;
-  collectionId: string;
-  collectionName: string;
-  created: string;
-  email: string;
-  emailVisibility: boolean;
-  id: string;
-  name: string;
-  updated: string;
-  username: string;
-  verified: boolean;
-  isValid: boolean;
-}
-
-export interface Test {
-  record: AuthRecord;
-  token: string;
-}
-
-export interface AuthRecord {
-  avatar: string;
-  collectionId: string;
-  collectionName: string;
-  created: string;
-  email: string;
-  emailVisibility: boolean;
-  id: string;
-  name: string;
-  updated: string;
-  username: string;
-  verified: boolean;
-}
+// Context
+import { useAuth } from "../../../context/AuthContext";
+import { set } from "zod";
 
 export default function Login() {
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
+
   const [email, setEmail] = useState("superur@gmail.com");
   const [password, setPassword] = useState("Ft30953095Ft");
   const [authData, setAuthData] = useState<
@@ -46,13 +19,15 @@ export default function Login() {
   const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
     null
   );
-  const [dummy, setDummy] = useState(null);
 
   useEffect(() => {
     const authData = async () => {
-      const { authRefresh } = await useRefresh();
-      // console.log("authRefresh", authRefresh);
+      const { authRefresh, pbAuthStore } = await useRefresh();
       setAuthData(authRefresh?.record as unknown as AuthRecord | null);
+      setAuthStore(pbAuthStore as unknown as IAuthStore | null);
+      // setIsLoggedIn2(true);
+      setIsLoggedIn(true);
+      console.log("useEffect, Login, isLoggedIn2", isLoggedIn);
     };
     authData();
   }, []);
@@ -60,26 +35,24 @@ export default function Login() {
   // HandleSignIn function
   const handleSignIn = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setIsLoggedIn(true);
     const { authData, authStore, error } = await useLogin({ email, password });
-    console.log("authData", authData);
-    console.log("authStore", authStore);
-    console.log("error", error);
+    console.log("Login, handleSignIn", isLoggedIn);
     setAuthData(authData?.record as unknown as IAuthStore | null);
     setAuthStore(authStore as unknown as IAuthStore | null);
   };
 
   return (
     <>
+      {/* {console.log("Login, dummyLogin", isLoggedIn)} */}
       <div className="flex min-h-screen flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
         <div className="w-full max-w-sm space-y-10">
           <div>
             <h2 className="text-gray-900 mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
               Velkommen til login.
             </h2>
-            {authData && <h2>Logget ind som: {email}</h2>}
-
-            {authStore && (
-              <h2>Logget ind som: {authStore.isValid.toString()}</h2>
+            {isLoggedIn && authStore?.isValid && (
+              <h2>Logget ind som: {authData?.email}</h2>
             )}
           </div>
           <form className="space-y-6" action="#" method="POST">
@@ -118,7 +91,6 @@ export default function Login() {
             <div>
               <button
                 onClick={handleSignIn}
-                // type="submit"
                 className="focus-visible:outline-indigo-600 flex w-full justify-center rounded-md border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings px-3 py-1.5 text-sm font-semibold leading-6 text-tdk-blue-light-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700"
               >
                 Login

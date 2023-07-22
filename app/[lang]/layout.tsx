@@ -8,6 +8,7 @@ import Link from "next/link";
 // import Header from "./header";
 import Logo from "./components/Logo";
 import Navbar from "./components/navbar";
+import { Providers } from "@/providers/Providers";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -41,20 +42,22 @@ export default async function RootLayout({
 }) {
   const { navBar } = await getDictionary(params.lang);
   return (
-    <html lang={params.lang}>
-      <body className={`${roboto.variable} ${playfair.variable} light`}>
-        {/* Check how to disable header in sub */}
-        <header>
-          <Navbar
-            params={params}
-            about={navBar.about}
-            audition={navBar.audition}
-            contact={navBar.contact}
-          />
-        </header>
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <Providers>
+      <html lang={params.lang}>
+        <body className={`${roboto.variable} ${playfair.variable} light`}>
+          {/* Check how to disable header in sub */}
+          <header>
+            <Navbar
+              params={params}
+              about={navBar.about}
+              audition={navBar.audition}
+              contact={navBar.contact}
+            />
+          </header>
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </Providers>
   );
 }
