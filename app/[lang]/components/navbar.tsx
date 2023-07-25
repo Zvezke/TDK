@@ -5,18 +5,21 @@ import useColorMode from "@/hooks/useColorMode";
 import Image from "next/image";
 import { getDictionary } from "@/get-dictionary";
 import Link from "next/link";
-import { Locale } from "../../../i18n-config";
+import { Locale } from "@/i18n-config";
 import Logo from "./Logo";
 import LocaleSwitcher from "./locale-switcher";
 
+// Components
+import LogoutButton from "./logoutButton/page";
+
 // Types and interfaces
-import { AuthRecord, IAuthStore, NavbarProps } from "../../../types/interfaces";
+import { AuthRecord, IAuthStore, NavbarProps } from "@/types/interfaces";
 
 // Context
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
 // Pocketbase
-import { useLogout, useLogin, useRefresh } from "../../../pocketbase/auth";
+import { useLogout, useLogin, useRefresh } from "@/pocketbase/auth";
 import Loading from "./loading";
 
 const Navbar = ({ about, audition, contact }: NavbarProps) => {
@@ -37,6 +40,7 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
       const { authRefresh, pbAuthStore } = await useRefresh();
       setAuthData(authRefresh?.record as unknown as AuthRecord | null);
       setAuthStore(pbAuthStore as unknown as IAuthStore | null);
+      console.log("useEffect, Navbar, isLoggedIn", isLoggedIn);
     };
     authData();
   }, []);
@@ -145,6 +149,7 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                   />
                 )}
               </button>
+              {/* <LoginButton /> */}
               {/* <Image
                 src="/images/language.svg"
                 alt="Icon for language switch"
@@ -152,29 +157,17 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                 height={20}
               /> */}
               <LocaleSwitcher />
-              <Suspense fallback={<Loading />}>
-                {isLoggedIn ? (
-                  <button
-                    className="hidden max-lg:block"
-                    onClick={handleLogout}
-                  >
-                    Log ud
-                  </button>
-                ) : (
-                  <Link className="hidden max-lg:block" href="/login">
-                    Log ind
-                  </Link>
-                )}
-              </Suspense>
-              {isLoggedIn ? (
-                <button className="text-s max-lg:hidden" onClick={handleLogout}>
-                  Log ud
-                </button>
-              ) : (
+              {!isLoggedIn ? (
                 <Link className="text-s max-lg:hidden" href="/login">
                   Log ind
                 </Link>
+              ) : (
+                <Suspense fallback={<Loading />}>
+                  {/* @ts-expect-error Async Server Component */}
+                  <LogoutButton />
+                </Suspense>
               )}
+
               {menuOpen ? (
                 <Image
                   onClick={toggleMenu}

@@ -1,12 +1,14 @@
 "use client";
 
-import { IAuthStore, AuthRecord } from "../../../types/interfaces";
-import { useState, useEffect, use } from "react";
-import { useLogin, useLogout, useRefresh } from "../../../pocketbase/auth";
+import { IAuthStore, AuthRecord } from "@/types/interfaces";
+import { useState, useEffect, use, Suspense } from "react";
+import { useLogin, useLogout, useRefresh } from "@/pocketbase/auth";
 
 // Context
 import { useAuth } from "../../../context/AuthContext";
 import { set } from "zod";
+import Loading from "./loading";
+import LoggedInAs from "../components/loggedInAs";
 
 export default function Login() {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
@@ -21,15 +23,17 @@ export default function Login() {
   );
 
   useEffect(() => {
-    const authData = async () => {
+    const fetchData = async () => {
       const { authRefresh, pbAuthStore } = await useRefresh();
       setAuthData(authRefresh?.record as unknown as AuthRecord | null);
       setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-      // setIsLoggedIn2(true);
-      setIsLoggedIn(true);
-      console.log("useEffect, Login, isLoggedIn2", isLoggedIn);
+      // console.log("useEffect, Login, authData", authData);
+      // console.log("useEffect, Login, authStore", authStore);
+      // console.log("useEffect, Login, isValid", authStore?.isValid);
+      pbAuthStore?.isValid && setIsLoggedIn(true);
+      // console.log("useEffect, Login, isLoggedIn", isLoggedIn);
     };
-    authData();
+    fetchData();
   }, []);
 
   // HandleSignIn function
@@ -37,7 +41,7 @@ export default function Login() {
     event.preventDefault();
     setIsLoggedIn(true);
     const { authData, authStore, error } = await useLogin({ email, password });
-    console.log("Login, handleSignIn", isLoggedIn);
+    // console.log("Login, handleSignIn", isLoggedIn);
     setAuthData(authData?.record as unknown as IAuthStore | null);
     setAuthStore(authStore as unknown as IAuthStore | null);
   };
@@ -45,14 +49,17 @@ export default function Login() {
   return (
     <>
       {/* {console.log("Login, dummyLogin", isLoggedIn)} */}
-      <div className="flex min-h-screen flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+      <div className="flex min-h-screen flex-1 items-center justify-center bg-tdk-blue-700 px-4 py-12 sm:px-6 lg:px-8">
         <div className="w-full max-w-sm space-y-10">
           <div>
-            <h2 className="text-gray-900 mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
+            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-tdk-blue-200">
               Velkommen til login.
             </h2>
             {isLoggedIn && authStore?.isValid && (
-              <h2>Logget ind som: {authData?.email}</h2>
+              <Suspense fallback={<Loading />}>
+                {/* @ts-expect-error Async Server Component */}
+                <LoggedInAs email={authData?.email} />
+              </Suspense>
             )}
           </div>
           <form className="space-y-6" action="#" method="POST">
