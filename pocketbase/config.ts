@@ -1,5 +1,5 @@
 import PocketBase from "pocketbase";
 
-const pb = new PocketBase("https://pocketbase-development.up.railway.app");
+const pb = new PocketBase(process.env.NEXT_PUBLIC_POCKETBASE_URL);
 
 export default pb;

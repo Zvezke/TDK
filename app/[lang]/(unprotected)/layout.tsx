@@ -1,13 +1,13 @@
 import { Playfair_Display, Roboto } from "next/font/google";
 import Footer from "./footer";
-import "./globals.css";
+import "../globals.css";
 import { i18n } from "@/i18n-config";
 import { get } from "http";
 import { getDictionary } from "@/get-dictionary";
 import Link from "next/link";
 // import Header from "./header";
-import Logo from "./components/Logo";
-import Navbar from "./components/navbar";
+import Logo from "../components/Logo";
+import Navbar from "../components/navbar";
 import { Providers } from "@/providers/Providers";
 
 export async function generateStaticParams() {

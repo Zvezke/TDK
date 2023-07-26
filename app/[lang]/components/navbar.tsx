@@ -51,7 +51,11 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
 
   const handleLogIn = async () => {
     console.log("handleLogIn");
-    const { authData, authStore, error } = await useLogin({
+    const {
+      authData,
+      pbAuthStore: authStore,
+      error,
+    } = await useLogin({
       email: "superur@gmail.com",
       password: "Ft30953095Ft",
     });
@@ -95,6 +99,11 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               <li>
                 <Link href="/kontakt">{contact}</Link>
               </li>
+              {isLoggedIn && (
+                <li>
+                  <Link href="/intra">Intra</Link>
+                </li>
+              )}
             </ul>
 
             {/* Social icons */}
@@ -217,6 +226,11 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
             <li>
               <Link href="/kontakt" onClick={() => setMenuOpen(false)}>
                 Kontakt
+              </Link>
+            </li>
+            <li>
+              <Link href="/intra" onClick={() => setMenuOpen(false)}>
+                Intra
               </Link>
             </li>
           </ul>

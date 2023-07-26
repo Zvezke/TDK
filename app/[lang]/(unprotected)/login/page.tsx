@@ -2,25 +2,46 @@
 
 import { IAuthStore, AuthRecord } from "@/types/interfaces";
 import { useState, useEffect, use, Suspense } from "react";
+
+// Hooks
 import { useLogin, useLogout, useRefresh } from "@/pocketbase/auth";
 
+// Dependencies
+import { z, ZodType } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 // Context
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../../context/AuthContext";
 import { set } from "zod";
 import Loading from "./loading";
-import LoggedInAs from "../components/loggedInAs";
+import LoggedInAs from "../../components/loggedInAs";
+
+interface IForm {
+  email: string;
+  password: string;
+}
+
+const schema: ZodType<IForm> = z.object({
+  email: z.string().email(),
+  password: z.string().min(8),
+});
 
 export default function Login() {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
 
-  const [email, setEmail] = useState("superur@gmail.com");
-  const [password, setPassword] = useState("Ft30953095Ft");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [authData, setAuthData] = useState<
     IAuthStore | AuthRecord | null | undefined
   >(null);
   const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
     null
   );
+
+  const { register, handleSubmit } = useForm<IForm>({
+    resolver: zodResolver(schema),
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,19 +57,32 @@ export default function Login() {
     fetchData();
   }, []);
 
-  // HandleSignIn function
-  const handleSignIn = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    setIsLoggedIn(true);
-    const { authData, authStore, error } = await useLogin({ email, password });
-    // console.log("Login, handleSignIn", isLoggedIn);
-    setAuthData(authData?.record as unknown as IAuthStore | null);
-    setAuthStore(authStore as unknown as IAuthStore | null);
+  const submitData = async (data: IForm) => {
+    try {
+      const { authData, pbAuthStore } = await useLogin(data);
+      console.log("Login, submitData", isLoggedIn);
+      setAuthData(authData?.record as unknown as IAuthStore | null);
+      setAuthStore(pbAuthStore as unknown as IAuthStore | null);
+      // console.log("Login, submitData, authData", authData);
+      // console.log("Login, submitData, authStore", pbAuthStore);
+      pbAuthStore?.isValid && setIsLoggedIn(true);
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
   };
+
+  // // HandleSignIn function
+  // const handleSignIn = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   event.preventDefault();
+  //   setIsLoggedIn(true);
+  //   const { authData, authStore, error } = await useLogin({ email, password });
+  //   // console.log("Login, handleSignIn", isLoggedIn);
+  //   setAuthData(authData?.record as unknown as IAuthStore | null);
+  //   setAuthStore(authStore as unknown as IAuthStore | null);
+  // };
 
   return (
     <>
-      {/* {console.log("Login, dummyLogin", isLoggedIn)} */}
       <div className="flex min-h-screen flex-1 items-center justify-center bg-tdk-blue-700 px-4 py-12 sm:px-6 lg:px-8">
         <div className="w-full max-w-sm space-y-10">
           <div>
@@ -62,45 +96,53 @@ export default function Login() {
               </Suspense>
             )}
           </div>
-          <form className="space-y-6" action="#" method="POST">
+          <form
+            className="space-y-6"
+            action="#"
+            onSubmit={handleSubmit(submitData)}
+          >
             <div className="relative -space-y-px rounded-md shadow-sm">
               <div className="ring-gray-300 pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset" />
               <div>
                 <label htmlFor="email-address" className="sr-only">
-                  Email address
+                  E-mailadresse
                 </label>
                 <input
                   id="email-address"
-                  name="email"
+                  // name="email"
                   type="email"
                   autoComplete="email"
                   required
                   className="text-gray-900 ring-gray-100 placeholder:text-gray-400 focus:ring-indigo-600 relative block w-full rounded-t-md border-0 py-1.5 ring-1 ring-inset focus:z-10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
-                  placeholder="Email address"
+                  placeholder="E-mailadresse"
+                  {...register("email")}
                 />
               </div>
               <div>
                 <label htmlFor="password" className="sr-only">
-                  Password
+                  Kodeord
                 </label>
                 <input
                   id="password"
-                  name="password"
+                  // name="password"
                   type="password"
                   autoComplete="current-password"
                   required
                   className="text-gray-900 ring-gray-100 placeholder:text-gray-400 focus:ring-indigo-600 relative block w-full rounded-b-md border-0 py-1.5 ring-1 ring-inset focus:z-10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
-                  placeholder="Password"
+                  placeholder="Kodeord"
+                  {...register("password")}
                 />
               </div>
             </div>
 
             <div>
               <button
-                onClick={handleSignIn}
+                type="submit"
+                // onSubmit={handleSubmit(submitData)}
+                // onClick={handleSignIn}
                 className="focus-visible:outline-indigo-600 flex w-full justify-center rounded-md border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings px-3 py-1.5 text-sm font-semibold leading-6 text-tdk-blue-light-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700"
               >
-                Login
+                Log ind
               </button>
             </div>
           </form>

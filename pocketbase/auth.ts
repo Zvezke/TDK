@@ -12,7 +12,7 @@ const useLogin = async ({ email, password }: AuthData) => {
     const authData = await pb
       .collection("users")
       .authWithPassword(email, password);
-    return { authData, authStore: pb.authStore };
+    return { authData, pbAuthStore: pb.authStore };
   } catch (error) {
     return { error };
   }
