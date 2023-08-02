@@ -1,7 +1,9 @@
 "use client";
 
-import { IAuthStore, AuthRecord } from "@/types/interfaces";
 import { useState, useEffect, use, Suspense } from "react";
+
+// Interfaces
+import { IAuthStore, AuthRecord } from "@/types/interfaces";
 
 // Hooks
 import { useLogin, useLogout, useRefresh } from "@/pocketbase/auth";
@@ -29,9 +31,6 @@ const schema: ZodType<IForm> = z.object({
 
 export default function Login() {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [authData, setAuthData] = useState<
     IAuthStore | AuthRecord | null | undefined
   >(null);
@@ -71,16 +70,6 @@ export default function Login() {
     }
   };
 
-  // // HandleSignIn function
-  // const handleSignIn = async (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   event.preventDefault();
-  //   setIsLoggedIn(true);
-  //   const { authData, authStore, error } = await useLogin({ email, password });
-  //   // console.log("Login, handleSignIn", isLoggedIn);
-  //   setAuthData(authData?.record as unknown as IAuthStore | null);
-  //   setAuthStore(authStore as unknown as IAuthStore | null);
-  // };
-
   return (
     <>
       <div className="flex min-h-screen flex-1 items-center justify-center bg-tdk-blue-700 px-4 py-12 sm:px-6 lg:px-8">
@@ -109,7 +98,6 @@ export default function Login() {
                 </label>
                 <input
                   id="email-address"
-                  // name="email"
                   type="email"
                   autoComplete="email"
                   required
@@ -124,7 +112,6 @@ export default function Login() {
                 </label>
                 <input
                   id="password"
-                  // name="password"
                   type="password"
                   autoComplete="current-password"
                   required
@@ -138,8 +125,6 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                // onSubmit={handleSubmit(submitData)}
-                // onClick={handleSignIn}
                 className="focus-visible:outline-indigo-600 flex w-full justify-center rounded-md border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings px-3 py-1.5 text-sm font-semibold leading-6 text-tdk-blue-light-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700"
               >
                 Log ind

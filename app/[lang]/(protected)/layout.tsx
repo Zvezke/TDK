@@ -9,6 +9,7 @@ import Link from "next/link";
 import Logo from "../components/Logo";
 import Navbar from "../components/navbar";
 import { Providers } from "@/providers/Providers";
+import Sidebar from "../components/sidebar";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -47,6 +48,7 @@ export default async function RootLayout({
         <body className={`${roboto.variable} ${playfair.variable} light`}>
           {/* Check how to disable header in sub */}
           <header>
+            {/* <Sidebar /> */}
             {/* <Navbar
               params={params}
               about={navBar.about}

@@ -54,18 +54,3 @@ const LogoutButton = async () => {
 };
 
 export default LogoutButton;
-
-// // <Suspense fallback={<Loading />}>
-// //                 {isLoggedIn ? (
-// //                   <button
-// //                     className="hidden max-lg:block"
-// //                     onClick={handleLogout}
-// //                   >
-// //                     Log ud
-// //                   </button>
-// //                 ) : (
-// //                   <Link className="hidden max-lg:block" href="/login">
-// //                     Log ind
-// //                   </Link>
-// //                 )}
-// //               </Suspense>

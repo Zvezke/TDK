@@ -13,6 +13,8 @@ import {
   XMarkIcon,
   WindowIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
+// import Eksternt from "./eksternt";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
@@ -33,7 +35,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function Sidebar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -182,7 +184,7 @@ export default function Example() {
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
-                    {navigation.map((item) => (
+                    {/* {navigation.map((item) => (
                       <li key={item.name}>
                         <a
                           href={item.href}
@@ -200,7 +202,27 @@ export default function Example() {
                           {item.name}
                         </a>
                       </li>
-                    ))}
+                    ))} */}
+                    <Link
+                      href="/intra/eksternt"
+                      className="group flex gap-x-3
+                        rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
+                    >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
+                        <CalendarIcon className="h-6 w-6" aria-hidden="true" />
+                      </span>
+                      <span className="truncate">Aktiviteter (eksternt)</span>
+                    </Link>
+                    <Link
+                      href="/intra/internt"
+                      className="group flex gap-x-3
+                        rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
+                    >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
+                        <CalendarIcon className="h-6 w-6" aria-hidden="true" />
+                      </span>
+                      <span className="truncate">Aktiviteter (Internt)</span>
+                    </Link>
                   </ul>
                 </li>
                 <li>
@@ -227,8 +249,8 @@ export default function Example() {
                       </li>
                     ))} */}
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        href="/"
                         className="group flex gap-x-3
                         rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       >
@@ -236,8 +258,8 @@ export default function Example() {
                           <WindowIcon className="h-6 w-6" aria-hidden="true" />
                         </span>
                         <span className="truncate">Hjem</span>
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href="#"
                         className="group flex gap-x-3
                         rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
@@ -246,8 +268,8 @@ export default function Example() {
                           <WindowIcon className="h-6 w-6" aria-hidden="true" />
                         </span>
                         <span className="truncate">Om</span>
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href="#"
                         className="group flex gap-x-3
                         rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
@@ -256,7 +278,7 @@ export default function Example() {
                           <WindowIcon className="h-6 w-6" aria-hidden="true" />
                         </span>
                         <span className="truncate">Sangprøven</span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
@@ -291,19 +313,18 @@ export default function Example() {
           <div className="flex-1 text-sm font-semibold leading-6 text-tdk-blue-200">
             Dashboard
           </div>
-          {/* <a href="#">
+        </div>
+        {/* <a href="#">
             <span className="sr-only">Your profile</span>
             <img
               className="h-8 w-8 rounded-full bg-tdk-blue-800"
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
               alt=""
             />
-          </a> */}
-        </div>
-
-        <main className="py-10 lg:pl-72">
-          <div className="px-4 sm:px-6 lg:px-8">{/* Your content */}</div>
-        </main>
+          </a>
+          <main className="grid h-screen grid-cols-12 bg-tdk-blue-cardBg py-10 lg:pl-72">
+          <div className="px-4 sm:px-6 lg:px-8">{/* <Eksternt /></div>
+        </main> */}
       </div>
     </>
   );

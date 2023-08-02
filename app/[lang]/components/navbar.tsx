@@ -1,19 +1,24 @@
 "use client";
 
 import { useState, useEffect, Suspense } from "react";
-import useColorMode from "@/hooks/useColorMode";
 import Image from "next/image";
-import { getDictionary } from "@/get-dictionary";
 import Link from "next/link";
-import { Locale } from "@/i18n-config";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
-import LocaleSwitcher from "./locale-switcher";
-
-// Components
-import LogoutButton from "./logoutButton/page";
 
 // Types and interfaces
 import { AuthRecord, IAuthStore, NavbarProps } from "@/types/interfaces";
+
+// Locale
+import { getDictionary } from "@/get-dictionary";
+import { Locale } from "@/i18n-config";
+import LocaleSwitcher from "./locale-switcher";
+
+// Custom hooks
+import useColorMode from "@/hooks/useColorMode";
+
+// Components
+import LogoutButton from "./logoutButton/page";
 
 // Context
 import { useAuth } from "@/context/AuthContext";
@@ -101,7 +106,7 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               </li>
               {isLoggedIn && (
                 <li>
-                  <Link href="/intra">Intra</Link>
+                  <Link href="/intra/ekstern">Intra</Link>
                 </li>
               )}
             </ul>
@@ -229,7 +234,7 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               </Link>
             </li>
             <li>
-              <Link href="/intra" onClick={() => setMenuOpen(false)}>
+              <Link href="/intra/ekstern" onClick={() => setMenuOpen(false)}>
                 Intra
               </Link>
             </li>
