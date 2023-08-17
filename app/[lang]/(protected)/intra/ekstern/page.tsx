@@ -47,7 +47,7 @@ export default function Ekstern() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const currentRoute = usePathname();
-  console.log("currentRoute", currentRoute);
+  // console.log("currentRoute", currentRoute);
 
   return (
     <>

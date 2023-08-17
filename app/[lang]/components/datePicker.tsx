@@ -3,8 +3,6 @@
 // Måske bruge 'With title and pill actions' - https://tailwindui.com/components/application-ui/forms/textareas#component-c8189b6993ca18e9955b370f741b763b
 
 // Libraries
-import { da } from "date-fns/locale";
-import { isValid, format } from "date-fns";
 import { useForm } from "react-hook-form";
 import { z, ZodType } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,48 +29,76 @@ const schema = z.object({
   body: z.string(),
 });
 
-const formatDate = (date: Date) => {
-  return format(date, "yyyy-MM-dd HH:mm:ss.SSS", { locale: da });
-};
+const monthNames = [
+  "Januar",
+  "Februar",
+  "Marts",
+  "April",
+  "Maj",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "December",
+];
+
+// Subtracts the specified number of hours to a given time string in the format "HH:mm" and returns the updated time string.
+function subtractedHours(timeString: string, hoursToSubtract: number) {
+  const [hour, minute] = timeString.split(":").map(Number);
+  const newHour = hour - hoursToSubtract;
+  const timeWithTwoHoursAdded = `${String(newHour).padStart(2, "0")}:${String(
+    minute
+  ).padStart(2, "0")}`;
+  return timeWithTwoHoursAdded;
+}
+
+// Formats a date string in the format "YYYY-M-D" to "YYYY-MM-DD" by padding single-digit months and days with a leading zero.
+function addLeadingZeroToDate(dateString: string) {
+  const [year, month, day] = dateString.split("-").map(Number);
+  const formattedDatePart = `${year}-${String(month).padStart(2, "0")}-${String(
+    day
+  ).padStart(2, "0")}`;
+  const formattedDateString = formattedDatePart;
+  return formattedDateString;
+}
 
 const onSubmit = async (data: FormValues) => {
+  console.log("data", data);
   const { year, month, day, daytime, title, body } = data;
-  const date = formatDate(new Date(`${year}-${month}-${day} ${daytime}`));
-  const dataForPb = {
-    title: title,
-    body: body,
-    date: date,
-  };
-  await pb.collection("events").create(dataForPb);
+
+  // Converts a month name to a month number, subtracts 2 hours to a given time string, formats the date string, and constructs a new date-time string in the format "YYYY-MM-DD HH:mm:00.000Z" for use with Pocketbase.
+  const monthNumber = monthNames.indexOf(month) + 1;
+  const newTimeString = subtractedHours(daytime, 2);
+  const formattedDateString2 = addLeadingZeroToDate(
+    `${year}-${monthNumber}-${day}`
+  );
+  const dateForPocketbase = `${formattedDateString2} ${newTimeString}:00.000Z`;
+
+  try {
+    const dataForPocketbase = {
+      title: title,
+      body: body,
+      date: dateForPocketbase,
+    };
+    await pb.collection("events").create(dataForPocketbase);
+  } catch (error) {
+    console.error("Error parsing date:", error);
+  }
 };
 
-export default function DatePicker() {
-  const { register, handleSubmit } = useForm<FormValues>({
+const DatePicker = () => {
+  const { register, handleSubmit, formState } = useForm<FormValues>({
     resolver: zodResolver(schema),
   });
+
+  const { errors } = formState;
+
   return (
     <div className="">
       <form className="grid" onSubmit={handleSubmit(onSubmit)}>
-        {/* Year */}
         <div className="flex justify-between">
-          <div className="flex flex-col">
-            <label
-              htmlFor="year"
-              className="text-gray-900 block text-sm font-medium leading-6"
-            >
-              År
-            </label>
-            <select
-              id="year"
-              className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
-              defaultValue="2023"
-              {...register("year")}
-            >
-              <option>2023</option>
-              <option>2024</option>
-              <option>2025</option>
-            </select>
-          </div>
           {/* Month */}
           <div className="flex flex-col">
             <label
@@ -100,7 +126,9 @@ export default function DatePicker() {
               <option>November</option>
               <option>December</option>
             </select>
+            {errors.month && <span>{errors.month.message}</span>}
           </div>
+
           {/* Day */}
           <div className="flex flex-col">
             <label
@@ -147,7 +175,31 @@ export default function DatePicker() {
               <option>30</option>
               <option>31</option>
             </select>
+            {errors.day && <span>{errors.day.message}</span>}
           </div>
+
+          {/* Year */}
+          <div className="flex flex-col">
+            <label
+              htmlFor="year"
+              className="text-gray-900 block text-sm font-medium leading-6"
+            >
+              År
+            </label>
+            <select
+              id="year"
+              className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+              defaultValue="2023"
+              {...register("year")}
+            >
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+            </select>
+            {errors.year && <span>{errors.year.message}</span>}
+          </div>
+
+          {/* Daytime */}
           <div className="flex flex-col">
             <label
               htmlFor="daytime"
@@ -275,6 +327,7 @@ export default function DatePicker() {
           {...register("title")}
           required
         />
+        {errors.title && <span>{errors.title.message}</span>}
 
         {/* Body */}
         <label
@@ -285,12 +338,11 @@ export default function DatePicker() {
         </label>
         <textarea
           id="body"
-          // rows="4"
-          // cols="50"
           className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block h-48 w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
           {...register("body")}
           required
         ></textarea>
+        {errors.body && <span>{errors.body.message}</span>}
 
         {/* Submit button */}
         <button
@@ -302,4 +354,6 @@ export default function DatePicker() {
       </form>
     </div>
   );
-}
+};
+
+export default DatePicker;
