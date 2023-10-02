@@ -59,7 +59,7 @@ export default function Login() {
   const submitData = async (data: IForm) => {
     try {
       const { authData, pbAuthStore } = await useLogin(data);
-      console.log("Login, submitData", isLoggedIn);
+      // console.log("Login, submitData", isLoggedIn);
       setAuthData(authData?.record as unknown as IAuthStore | null);
       setAuthStore(pbAuthStore as unknown as IAuthStore | null);
       // console.log("Login, submitData, authData", authData);
