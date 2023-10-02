@@ -38,27 +38,18 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
   const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
     null
   );
-  // const [dummy, setDummy] = useState(true);
 
   useEffect(() => {
     const fetchAuthData = async () => {
       const { authRefresh, pbAuthStore } = await useRefresh();
-      console.log("pbAuthStore", pbAuthStore);
+      // console.log("pbAuthStore", pbAuthStore);
       setAuthData(authRefresh?.record as unknown as AuthRecord | null);
       setAuthStore(pbAuthStore as unknown as IAuthStore | null);
       pbAuthStore?.isValid && setIsLoggedIn(true);
-      console.log(isLoggedIn);
+      // console.log(isLoggedIn);
     };
     fetchAuthData();
   }, []);
-
-  // console.log("Post useEffect, authData", authData);
-  // console.log("Post useEffect, authStore", authStore);
-
-  // console.log("isValid", authStore?.isValid);
-
-  // console.log("baseToken", authStore?.baseToken);
-  // console.log("Token", authStore?.token);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
