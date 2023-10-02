@@ -79,25 +79,25 @@ const Events = () => {
   }, []);
 
   // Subscribe to the Pocketbase collection and update the state with new records
-  pb.collection("events").subscribe("*", function (e) {
-    console.log("Subscribing", e.record);
-    if ("title" in e.record && "body" in e.record && "date" in e.record) {
-      setSnapshot(e.record as unknown as IRecord);
-    }
-    setRecords((prevRecords) => {
-      const index = prevRecords.findIndex(
-        (record) => record.title === e.record.title
-      );
-      if (index === -1) {
-        return [...prevRecords, e.record as unknown as IRecord];
-      } else {
-        const newRecords = [...prevRecords];
-        newRecords[index] = e.record as unknown as IRecord;
-        return newRecords;
-      }
-    });
-    console.log("Subscription, snapshot", snapshot);
-  });
+  // // pb.collection("events").subscribe("*", function (e) {
+  // //   console.log("Subscribing", e.record);
+  // //   if ("title" in e.record && "body" in e.record && "date" in e.record) {
+  // //     setSnapshot(e.record as unknown as IRecord);
+  // //   }
+  // //   setRecords((prevRecords) => {
+  // //     const index = prevRecords.findIndex(
+  // //       (record) => record.title === e.record.title
+  // //     );
+  // //     if (index === -1) {
+  // //       return [...prevRecords, e.record as unknown as IRecord];
+  // //     } else {
+  // //       const newRecords = [...prevRecords];
+  // //       newRecords[index] = e.record as unknown as IRecord;
+  // //       return newRecords;
+  // //     }
+  // //   });
+  // //   console.log("Subscription, snapshot", snapshot);
+  // // });
 
   function classNames(...classes: any) {
     return classes.filter(Boolean).join(" ");
