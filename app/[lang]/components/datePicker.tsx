@@ -65,7 +65,6 @@ function addLeadingZeroToDate(dateString: string) {
 }
 
 const onSubmit = async (data: FormValues) => {
-  console.log("data", data);
   const { year, month, day, daytime, title, body } = data;
 
   // Converts a month name to a month number, subtracts 2 hours to a given time string, formats the date string, and constructs a new date-time string in the format "YYYY-MM-DD HH:mm:00.000Z" for use with Pocketbase.
@@ -110,6 +109,7 @@ const DatePicker = () => {
             <select
               id="Month"
               className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+              // Set default value to current month
               defaultValue="Januar"
               {...register("month")}
             >
@@ -140,6 +140,7 @@ const DatePicker = () => {
             <select
               id="Day"
               className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+              // Set default value to current day
               defaultValue="1"
               {...register("day")}
             >
@@ -189,6 +190,7 @@ const DatePicker = () => {
             <select
               id="year"
               className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+              // Set default value to current year
               defaultValue="2023"
               {...register("year")}
             >

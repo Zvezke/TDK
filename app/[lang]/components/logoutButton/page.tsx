@@ -18,10 +18,10 @@ const LogoutButton = async () => {
   // setIsLoggedIn(true);
 
   const handleLogout = async () => {
-    console.log("handleLogout");
+    // console.log("handleLogout");
     const { authRefresh, pbAuthStore } = await useRefresh();
-    console.log("authRefresh", authRefresh);
-    console.log("pbAuthStore", pbAuthStore);
+    // console.log("authRefresh", authRefresh);
+    // console.log("pbAuthStore", pbAuthStore);
     useLogout();
     setIsLoggedIn(false);
     // console.log("isLoggedIn", isLoggedIn);

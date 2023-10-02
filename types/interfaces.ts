@@ -1,4 +1,6 @@
 export interface IAuthStore {
+  baseToken: string;
+  token: string;
   avatar: string;
   collectionId: string;
   collectionName: string;
