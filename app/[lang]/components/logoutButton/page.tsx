@@ -1,3 +1,5 @@
+"use client";
+
 import { useLogin, useLogout, useRefresh } from "@/pocketbase/auth";
 import Link from "next/link";
 import Loading from "./loading";
