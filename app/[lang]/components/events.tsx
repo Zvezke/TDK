@@ -35,6 +35,7 @@ interface IRecord {
 
 // Define a function to fetch the records from Pocketbase
 const fetchData = async () => {
+  pb.autoCancellation(false);
   const records = await pb.collection("events").getFullList({
     sort: "date",
   });
