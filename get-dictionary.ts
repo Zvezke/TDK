@@ -1,5 +1,5 @@
 import "server-only";
-import type { Locale } from "./i18n-config";
+import { i18n, Locale } from "./i18n-config";
 
 // We enumerate all dictionaries here for better linting and typescript support
 // We also get the default import for cleaner types
@@ -11,6 +11,18 @@ const dictionaries = {
 // We use the locale as the key to get the dictionary
 // export const getDictionary = async (locale: Locale) => dictionaries[locale]();
 
+// export const getDictionary = async (locale: Locale) => dictionaries[i18n.locales.includes(locale) ? locale : i18n.defaultLocale]()
+
+// export const getDictionary = async (
+//   locale: Locale
+// ): Promise<Record<string, string>> => {
+//   const selectedLocale = i18n.locales.includes(locale)
+//     ? locale
+//     : i18n.defaultLocale;
+//   const dictionary = await dictionaries[selectedLocale]();
+//   return dictionary;
+// };
+
 export const getDictionary = async (locale: Locale) => {
-  return dictionaries[locale]();
+  return locale == "da" ? dictionaries.da() : dictionaries.en();
 };

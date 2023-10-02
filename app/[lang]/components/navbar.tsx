@@ -1,32 +1,98 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import useColorMode from "@/hooks/useColorMode";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
-import { getDictionary } from "@/get-dictionary";
 import Link from "next/link";
-import { Locale } from "../../../i18n-config";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
+
+// Types and interfaces
+import { AuthRecord, IAuthStore, NavbarProps } from "@/types/interfaces";
+
+// Locale
+import { getDictionary } from "@/get-dictionary";
+import { Locale } from "@/i18n-config";
 import LocaleSwitcher from "./locale-switcher";
 
-interface ParamsProps {
-  lang: string;
-}
+// Custom hooks
+import useColorMode from "@/hooks/useColorMode";
 
-interface NavbarProps {
-  params: ParamsProps;
-  about: string;
-  audition: string;
-  contact: string;
-}
+// Components
+import LogoutButton from "./logoutButton/page";
+
+// Context
+import { useAuth } from "@/context/AuthContext";
+
+// Pocketbase
+import { useLogout, useLogin, useRefresh } from "@/pocketbase/auth";
+import Loading from "./loading";
 
 const Navbar = ({ about, audition, contact }: NavbarProps) => {
+  // Context
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
+
+  // States
   const [menuOpen, setMenuOpen] = useState(false);
   const [colorMode, setColorMode] = useColorMode();
+  const [authData, setAuthData] = useState<AuthRecord | null | undefined>(null);
+  const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
+    null
+  );
+  // const [dummy, setDummy] = useState(true);
+
+  useEffect(() => {
+    const fetchAuthData = async () => {
+      const { authRefresh, pbAuthStore } = await useRefresh();
+      console.log("pbAuthStore", pbAuthStore);
+      setAuthData(authRefresh?.record as unknown as AuthRecord | null);
+      setAuthStore(pbAuthStore as unknown as IAuthStore | null);
+      pbAuthStore?.isValid && setIsLoggedIn(true);
+      console.log(isLoggedIn);
+    };
+    fetchAuthData();
+  }, []);
+
+  // console.log("Post useEffect, authData", authData);
+  // console.log("Post useEffect, authStore", authStore);
+
+  // console.log("isValid", authStore?.isValid);
+
+  // console.log("baseToken", authStore?.baseToken);
+  // console.log("Token", authStore?.token);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleLogIn = async () => {
+    console.log("handleLogIn");
+    const {
+      authData,
+      pbAuthStore: authStore,
+      error,
+    } = await useLogin({
+      email: "superur@gmail.com",
+      password: "Ft30953095Ft",
+    });
+    console.log("authData", authData);
+    console.log("authStore", authStore);
+    console.log("error", error);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = async () => {
+    console.log("handleLogout");
+    const { authRefresh, pbAuthStore } = await useRefresh();
+    // console.log("authRefresh", authRefresh);
+    // console.log("pbAuthStore", pbAuthStore);
+    useLogout();
+    setIsLoggedIn(false);
+    // console.log("isLoggedIn", isLoggedIn);
+    // setDummy(null);
+  };
+
+  // console.log("authData, navBar", authData);
+  // console.log("authStore, navBar", authStore);
 
   try {
     return (
@@ -48,6 +114,11 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               <li>
                 <Link href="/kontakt">{contact}</Link>
               </li>
+              {isLoggedIn && (
+                <li>
+                  <Link href="/intra/ekstern">Intra</Link>
+                </li>
+              )}
             </ul>
 
             {/* Social icons */}
@@ -102,6 +173,7 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                   />
                 )}
               </button>
+              {/* <LoginButton /> */}
               {/* <Image
                 src="/images/language.svg"
                 alt="Icon for language switch"
@@ -109,7 +181,17 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                 height={20}
               /> */}
               <LocaleSwitcher />
-              <button className="text-s max-lg:hidden">Login</button>
+              {!isLoggedIn ? (
+                <Link className="text-s max-lg:hidden" href="/login">
+                  Log ind
+                </Link>
+              ) : (
+                <Suspense fallback={<Loading />}>
+                  {/* @ts-expect-error Async Server Component */}
+                  <LogoutButton />
+                </Suspense>
+              )}
+
               {menuOpen ? (
                 <Image
                   onClick={toggleMenu}
@@ -159,6 +241,11 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
             <li>
               <Link href="/kontakt" onClick={() => setMenuOpen(false)}>
                 Kontakt
+              </Link>
+            </li>
+            <li>
+              <Link href="/intra/ekstern" onClick={() => setMenuOpen(false)}>
+                Intra
               </Link>
             </li>
           </ul>
