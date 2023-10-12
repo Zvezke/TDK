@@ -13,6 +13,12 @@ const nextConfig = {
   // },
   images: {
     domains: ["treenighedskirkensdrengekor.dk", "localhost", "trekor-development.up.railway.app", "sagamedia.dk", "trekor-production.up.railway.app"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
   // redirects: async () => {
   //   return [
