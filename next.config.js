@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  // experimental: {
+  //   appDir: true,
+  // },
   // async rewrites() {
   //   return [
   //     {
@@ -12,7 +12,7 @@ const nextConfig = {
   //   ];
   // },
   images: {
-    domains: ["treenighedskirkensdrengekor.dk", "localhost"],
+    domains: ["treenighedskirkensdrengekor.dk", "localhost", "trekor-development.up.railway.app", "sagamedia.dk", "trekor-production.up.railway.app"],
   },
   // redirects: async () => {
   //   return [
