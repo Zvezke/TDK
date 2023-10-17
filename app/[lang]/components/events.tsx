@@ -25,6 +25,7 @@ import { set } from "date-fns";
 // Import the Loading component
 import Loading from "./loading";
 import { de } from "date-fns/locale";
+import CardHeading from "./cardHeadings";
 
 // Define the interface for a record
 interface IRecord {
@@ -107,32 +108,25 @@ const Events = () => {
     <>
       {records.map((record: IRecord) => {
         return (
-          <div className="bg-white px-4 py-5 sm:px-6">
+          <div>
+            {/* <div className="bg-white px-4 py-5 sm:px-6"> */}
             <div className="flex space-x-3">
-              {/* <div className="flex-shrink-0">
-                <img
-                  className="h-10 w-10 rounded-full"
-                  src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                />
-              </div> */}
               <div className="min-w-0 flex-1">
                 <p className="text-gray-900 text-sm font-semibold">
-                  <a href="#" className="hover:underline">
-                    {record.title}
-                  </a>
+                  <h3>{record.title}</h3>
                 </p>
-                <p className="text-gray-500 text-sm">
-                  <a href="#" className="hover:underline">
+
+                <p className="text-gray-500 pb-2 text-xs">
+                  <p>
                     {formatDate(record.date)}
                     {/* {record.date} */}
-                  </a>
+                  </p>
                 </p>
               </div>
               <div className="flex flex-shrink-0 self-center">
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
-                    <Menu.Button className="text-gray-400 hover:text-gray-600 -m-2 flex items-center rounded-full p-2">
+                    <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-tdk-blue-cardBg hover:text-tdk-blue-800">
                       <span className="sr-only">Åben menu</span>
                       <EllipsisVerticalIcon
                         className="h-5 w-5"
@@ -150,7 +144,7 @@ const Events = () => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="bg-white ring-black absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md shadow-lg ring-1 ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="ring-black absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-tdk-blue-200 shadow-lg ring-1 ring-opacity-5 focus:outline-none">
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
@@ -158,8 +152,8 @@ const Events = () => {
                               href="#"
                               className={classNames(
                                 active
-                                  ? "bg-gray-100 text-gray-900"
-                                  : "text-gray-700",
+                                  ? "bg-tdk-blue-400 text-tdk-blue-800"
+                                  : "text-tdk-blue-700",
                                 "flex px-4 py-2 text-sm"
                               )}
                             >
@@ -177,8 +171,8 @@ const Events = () => {
                               href="#"
                               className={classNames(
                                 active
-                                  ? "bg-gray-100 text-gray-900"
-                                  : "text-gray-700",
+                                  ? "bg-tdk-blue-400 text-tdk-blue-800"
+                                  : "text-tdk-blue-700",
                                 "flex px-4 py-2 text-sm"
                               )}
                             >
@@ -196,27 +190,14 @@ const Events = () => {
                 </Menu>
               </div>
             </div>
+            <p className="pb-6 text-sm text-tdk-blue-light-buttonsSubheadings">
+              <p>{record.body}</p>
+            </p>
           </div>
         );
       })}
     </>
   );
-
-  // return (
-  //   // <div>
-  //   //   <Suspense fallback={<Loading />}>
-  //   //     {records.map((record: IRecord) => {
-  //   //       return (
-  //   //         <div>
-  //   //           <h2>{record.title}</h2>
-  //   //           <p>{record.body}</p>
-  //   //           <p>{record.date}</p>
-  //   //         </div>
-  //   //       );
-  //   //     })}
-  //   //   </Suspense>
-  //   // </div>
-  // );
 };
 
 export default Events;
