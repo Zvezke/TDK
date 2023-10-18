@@ -40,7 +40,7 @@ const fetchData = async () => {
   const records = await pb.collection("events").getFullList({
     sort: "date",
   });
-  console.log("records", records);
+  // console.log("records", records);
   const mappedRecords = records.map((record) => {
     return {
       title: record.title,

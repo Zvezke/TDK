@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDictionary } from "@/get-dictionary";
+import EventCards from "../components/eventCards";
+
+// Hooks
+// import { getResultList } from "@/pocketbase/getUsers";
 
 export default async function Home({
   params,
@@ -8,6 +12,7 @@ export default async function Home({
   params: { lang: "da" | "en" };
 }) {
   const { home } = await getDictionary(params.lang);
+
   return (
     <>
       {/* Hero section */}
@@ -162,7 +167,8 @@ export default async function Home({
             {/* TODO: Grid row */}
             {/* Left, Cards - Aktiviteter */}
             <div className="col-start-1 col-end-2 lg:h-[32rem]">
-              <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
+              <EventCards />
+              {/* <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
                 <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
                   <p className="font-bold leading-8">16. maj</p>
                   <p className="text-base lg:text-sm">19.30</p>
@@ -201,7 +207,7 @@ export default async function Home({
                   </h4>
                   <p className="text-sm line-clamp-2">Fri entré</p>
                 </div>
-              </div>
+              </div> */}
               {/* <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
                 <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
                   <p className="font-bold leading-8">28. feb.</p>
