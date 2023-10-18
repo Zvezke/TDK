@@ -38,7 +38,7 @@ interface IRecord {
 const fetchData = async () => {
   pb.autoCancellation(false);
   const records = await pb.collection("events").getFullList({
-    sort: "date",
+    sort: "-date",
   });
   // console.log("records", records);
   const mappedRecords = records.map((record) => {
