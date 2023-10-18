@@ -22,7 +22,6 @@ const getResultFullList = async () => {
   const records = await pb.collection("events").getFullList({
     sort: "-date",
   });
-  console.log(records);
   const mappedRecords = records.map((record) => {
     return {
       id: record.id,
