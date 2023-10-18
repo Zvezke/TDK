@@ -44,3 +44,10 @@ export interface NavbarProps {
   audition: string;
   contact: string;
 }
+
+export interface IRecord {
+  id: string;
+  title: string;
+  body: string;
+  date: string;
+}
