@@ -4,6 +4,9 @@ import EventSourcePolyfill from "eventsource";
 // Import React components
 import { Fragment, Suspense, useEffect, useState } from "react";
 
+// Next
+import { useRouter } from "next/navigation";
+
 // Import dependencies
 import { format, parseISO } from "date-fns";
 import { da } from "date-fns/locale";
@@ -29,6 +32,7 @@ import CardHeading from "./cardHeadings";
 
 // Define the interface for a record
 interface IRecord {
+  id: string;
   title: string;
   body: string;
   date: string;
@@ -43,6 +47,7 @@ const fetchData = async () => {
   // console.log("records", records);
   const mappedRecords = records.map((record) => {
     return {
+      id: record.id,
       title: record.title,
       body: record.body,
       date: record.date,
@@ -58,8 +63,10 @@ const formatDate = (inputDate: string) => {
 
 const Events = () => {
   // Define the state for the snapshot and records
-  const [snapshot, setSnapshot] = useState<IRecord | null>(null);
+  // const [snapshot, setSnapshot] = useState<IRecord | null>(null);
   const [records, setRecords] = useState<IRecord[]>([]);
+
+  const router = useRouter();
 
   // Unsubscribe from the Pocketbase collection when the component unmounts
   useEffect(() => {
@@ -168,6 +175,9 @@ const Events = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <a
+                              onClick={async () => {
+                                await pb.collection("events").delete(record.id);
+                              }}
                               href="#"
                               className={classNames(
                                 active
