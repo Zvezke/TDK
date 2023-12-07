@@ -47,7 +47,10 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
   // );
 
   // States - Supabase
-  const [authSupabaseData, setAuthSupabaseData] = useState(null);
+  const [authSupabaseData, setAuthSupabaseData] = useState<{
+    // @ts-ignore - Supabase
+    session: Session;
+  } | null>(null);
 
   // useEffect(() => {
   //   const fetchAuthData = async () => {
