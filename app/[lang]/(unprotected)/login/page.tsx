@@ -72,6 +72,7 @@ export default function Login() {
 
   const submitData = async (FormData: IForm) => {
     try {
+      //@ts-ignore ... I care because you do.
       const { data, error } = await useLogin(FormData);
       console.log("data", data);
       console.log("error", error);
