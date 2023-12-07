@@ -6,13 +6,15 @@ const AddSong = async () => {
     // console.log("formData", formData.get("title"));
     const title = formData.get("title");
     const res = await fetch(
-      "http://localhost:3000/da/intra/oevestemmer/add-song",
+      "https://trekor-development.up.railway.app/da/intra/oevestemmer/add-song",
       {
         method: "POST",
         body: JSON.stringify({ title: title }),
       }
     );
-    revalidatePath("http://localhost:3000/da/intra/oevestemmer/get-song");
+    revalidatePath(
+      "https://trekor-development.up.railway.app/da/intra/oevestemmer/get-song"
+    );
     // console.log("res", res);
     return res.json();
   };

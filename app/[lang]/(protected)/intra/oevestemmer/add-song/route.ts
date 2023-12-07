@@ -15,7 +15,9 @@ export async function POST(request: Request) {
     .select();
 
   // revalidatePath("/[lang]/(protected)/intra/oevestemmer/get-song");
-  revalidatePath("http://localhost:3000/da/intra/oevestemmer/get-song");
+  revalidatePath(
+    "https://trekor-development.up.railway.app/da/intra/oevestemmer/get-song"
+  );
 
   return NextResponse.json({ data, error });
 }

@@ -13,7 +13,7 @@ export default async function Page() {
   // console.log("supabase, session", supabase.auth.getSession());
 
   if (error) {
-    console.error("Error logging in:", error);
+    // console.error("Error logging in:", error);
   }
 
   if (!data.session) {
