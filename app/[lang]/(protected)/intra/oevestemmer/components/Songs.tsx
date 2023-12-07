@@ -6,7 +6,7 @@ import ListVoices from "./ListVoices";
 const Songs = async () => {
   const getSong = async () => {
     const res = await fetch(
-      "http://localhost:3000/da/intra/oevestemmer/get-song"
+      "https://trekor-development.up.railway.app/da/intra/oevestemmer/get-song"
     );
     // console.log("res, getSong", res);
     return res.json();
@@ -14,11 +14,11 @@ const Songs = async () => {
 
   const getListOfVoices = async () => {
     const res = await fetch(
-      "http://localhost:3000/da/intra/oevestemmer/get-list-voices"
+      "https://trekor-development.up.railway.app/da/intra/oevestemmer/get-list-voices"
     );
     // console.log("res", res);
     revalidatePath(
-      "http://localhost:3000/da/intra/oevestemmer/get-list-voices"
+      "https://trekor-development.up.railway.app/da/intra/oevestemmer/get-list-voices"
     );
 
     return res.json();

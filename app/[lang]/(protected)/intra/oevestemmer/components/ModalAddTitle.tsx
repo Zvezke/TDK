@@ -42,10 +42,13 @@ export default function ModalAddTitle({ open, setOpen }: any) {
       return;
     }
     // ... else fetch POST request to add title
-    await fetch("http://localhost:3000/da/intra/oevestemmer/add-song", {
-      method: "POST",
-      body: JSON.stringify({ title: title }),
-    });
+    await fetch(
+      "https://trekor-development.up.railway.app/intra/oevestemmer/add-song",
+      {
+        method: "POST",
+        body: JSON.stringify({ title: title }),
+      }
+    );
     // revalidatePath("http://localhost:3000/da/intra/oevestemmer/get-song");
 
     // ... finally close modal
