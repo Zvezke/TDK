@@ -5,7 +5,7 @@ const getResultList = async () => {
   const resultList = await pb.collection("events").getList(1, 5, {
     sort: "-date",
   });
-  console.log("resultList", resultList);
+  // console.log("resultList", resultList);
   const mappedResultList = resultList.items?.map((result) => {
     return {
       id: result.id,

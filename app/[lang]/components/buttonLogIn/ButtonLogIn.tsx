@@ -5,7 +5,7 @@ import React, { Suspense } from "react";
 const ButtonLogIn = async () => {
   // Supabase
   const supabase = createSupabaseFrontendClient();
-  console.log("supabase", supabase.auth.getSession());
+  // console.log("supabase", supabase.auth.getSession());
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

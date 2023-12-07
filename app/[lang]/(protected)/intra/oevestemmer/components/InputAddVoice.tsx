@@ -12,8 +12,8 @@ const InputAddVoice = ({ songTitle }: { songTitle: string }) => {
     const { data, error } = await supabase.storage
       .from("voices-storage")
       .upload(`${songTitle}/${fileName}`, file);
-    console.log("data", data);
-    console.log("error", error);
+    // console.log("data", data);
+    // console.log("error", error);
   };
 
   return <input type="file" onChange={(e) => addVoice(e)} />;

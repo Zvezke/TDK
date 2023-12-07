@@ -68,8 +68,8 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
   useEffect(() => {
     const fetchAuthSupabaseData = async () => {
       const { data, error } = await supabase.auth.getSession();
-      console.log("data", data);
-      console.log("error", error);
+      // console.log("data", data);
+      // console.log("error", error);
       setAuthSupabaseData(data);
       if (data && data.session) {
         setIsLoggedIn(true);
@@ -101,16 +101,16 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
   // };
 
   const handleLogout = async () => {
-    console.log("handleLogout");
+    // console.log("handleLogout");
     const { authRefresh, pbAuthStore } = await useRefresh();
     useLogout();
     setIsLoggedIn(false);
     // setDummy(null);
   };
 
-  if (authSupabaseData) {
-    console.log("authSupabaseData", authSupabaseData);
-  }
+  // if (authSupabaseData) {
+  //   console.log("authSupabaseData", authSupabaseData);
+  // }
 
   try {
     return (
