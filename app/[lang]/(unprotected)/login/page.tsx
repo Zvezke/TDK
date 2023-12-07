@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, use, Suspense } from "react";
+import { useState, useEffect, Suspense, use } from "react";
 
 // Interfaces
 import { IAuthStore, AuthRecord } from "@/types/interfaces";
 
 // Hooks
-import { useLogin, useLogout, useRefresh } from "@/pocketbase/auth";
+// import { useLogin, useLogout, useRefresh } from "@/pocketbase/auth";
+import { useLogin } from "@/supabase/auth";
 
 // Dependencies
 import { z, ZodType } from "zod";
@@ -14,8 +15,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 // Context
-import { useAuth } from "../../../../context/AuthContext";
-import { set } from "zod";
+import { useAuth } from "@/context/AuthContext";
 import Loading from "./loading";
 import LoggedInAs from "../../components/loggedInAs";
 
@@ -42,29 +42,45 @@ export default function Login() {
     resolver: zodResolver(schema),
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { authRefresh, pbAuthStore } = await useRefresh();
-      setAuthData(authRefresh?.record as unknown as AuthRecord | null);
-      setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-      // console.log("useEffect, Login, authData", authData);
-      // console.log("useEffect, Login, authStore", authStore);
-      // console.log("useEffect, Login, isValid", authStore?.isValid);
-      pbAuthStore?.isValid && setIsLoggedIn(true);
-      // console.log("useEffect, Login, isLoggedIn", isLoggedIn);
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const { authRefresh, pbAuthStore } = await useRefresh();
+  //     setAuthData(authRefresh?.record as unknown as AuthRecord | null);
+  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
+  //     // console.log("useEffect, Login, authData", authData);
+  //     // console.log("useEffect, Login, authStore", authStore);
+  //     // console.log("useEffect, Login, isValid", authStore?.isValid);
+  //     pbAuthStore?.isValid && setIsLoggedIn(true);
+  //     // console.log("useEffect, Login, isLoggedIn", isLoggedIn);
+  //   };
+  //   fetchData();
+  // }, []);
 
-  const submitData = async (data: IForm) => {
+  // const submitData = async (data: IForm) => {
+  //   try {
+  //     const { authData, pbAuthStore } = await useLogin(data);
+  //     // console.log("Login, submitData", isLoggedIn);
+  //     setAuthData(authData?.record as unknown as IAuthStore | null);
+  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
+  //     // console.log("Login, submitData, authData", authData);
+  //     // console.log("Login, submitData, authStore", pbAuthStore);
+  //     pbAuthStore?.isValid && setIsLoggedIn(true);
+  //   } catch (error) {
+  //     console.error("Error logging in:", error);
+  //   }
+  // };
+
+  const submitData = async (FormData: IForm) => {
     try {
-      const { authData, pbAuthStore } = await useLogin(data);
-      // console.log("Login, submitData", isLoggedIn);
-      setAuthData(authData?.record as unknown as IAuthStore | null);
-      setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-      // console.log("Login, submitData, authData", authData);
-      // console.log("Login, submitData, authStore", pbAuthStore);
-      pbAuthStore?.isValid && setIsLoggedIn(true);
+      const { data, error } = await useLogin(FormData);
+      console.log("data", data);
+      console.log("error", error);
+      if (data) {
+        setAuthData(data);
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
     } catch (error) {
       console.error("Error logging in:", error);
     }
@@ -78,10 +94,10 @@ export default function Login() {
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-tdk-blue-200">
               Velkommen til login.
             </h2>
-            {isLoggedIn && authStore?.isValid && (
+            {isLoggedIn && (
               <Suspense fallback={<Loading />}>
                 {/* @ts-expect-error Async Server Component */}
-                <LoggedInAs email={authData?.email} />
+                <LoggedInAs email={authData?.user.email} />
               </Suspense>
             )}
           </div>

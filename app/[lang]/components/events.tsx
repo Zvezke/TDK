@@ -23,11 +23,9 @@ import {
 
 // Import Pocketbase
 import pb from "@/pocketbase/config";
-import { set } from "date-fns";
 
 // Import the Loading component
 import Loading from "./loading";
-import { de } from "date-fns/locale";
 import CardHeading from "./cardHeadings";
 
 // Define the interface for a record
