@@ -83,7 +83,7 @@ const onSubmit = async (data: FormValues) => {
     };
     await pb.collection("events").create(dataForPocketbase);
   } catch (error) {
-    console.error("Error parsing date:", error);
+    // console.error("Error parsing date:", error);
   }
 };
 

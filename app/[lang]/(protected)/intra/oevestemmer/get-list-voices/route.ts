@@ -16,8 +16,8 @@ export async function GET() {
 
   // const { data: list3 } = await supabase.storage.getBucket("voices-storage");
 
-  console.log("list", list);
-  console.log("error", error);
+  // console.log("list", list);
+  // console.log("error", error);
   // console.log("listBuckets", list2);
   // console.log("getBucket", list3);
   return NextResponse.json({ list, error });

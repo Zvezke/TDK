@@ -69,7 +69,7 @@ const Events = () => {
   // Unsubscribe from the Pocketbase collection when the component unmounts
   useEffect(() => {
     return () => {
-      console.log("Unsubscribing");
+      // console.log("Unsubscribing");
       pb.collection("events").unsubscribe("*");
     };
   }, []);
@@ -79,7 +79,7 @@ const Events = () => {
     const fetchRecords = async () => {
       const mappedRecords = await fetchData();
       setRecords(mappedRecords);
-      console.log("mappedRecords", mappedRecords);
+      // console.log("mappedRecords", mappedRecords);
     };
     fetchRecords();
   }, []);

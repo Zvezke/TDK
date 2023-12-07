@@ -8,6 +8,6 @@ export async function GET() {
     .from("songs")
     .select("*, voices(voice)");
 
-  console.log(songs);
+  // console.log(songs);
   return NextResponse.json({ songs, error });
 }

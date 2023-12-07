@@ -8,7 +8,7 @@ const Songs = async () => {
     const res = await fetch(
       "http://localhost:3000/da/intra/oevestemmer/get-song"
     );
-    console.log("res, getSong", res);
+    // console.log("res, getSong", res);
     return res.json();
   };
 
@@ -16,7 +16,7 @@ const Songs = async () => {
     const res = await fetch(
       "http://localhost:3000/da/intra/oevestemmer/get-list-voices"
     );
-    console.log("res", res);
+    // console.log("res", res);
     revalidatePath(
       "http://localhost:3000/da/intra/oevestemmer/get-list-voices"
     );
@@ -26,8 +26,8 @@ const Songs = async () => {
 
   let data = await getSong();
   let voices = await getListOfVoices();
-  console.log("data", data);
-  console.log("voices", voices);
+  // console.log("data", data);
+  // console.log("voices", voices);
 
   return (
     <>

@@ -17,7 +17,7 @@ const useLogin = async ({ email, password }: AuthData) => {
     }
     return { data, error };
   } catch (error) {
-    console.error("Error signing in:", error);
+    // console.error("Error signing in:", error);
   }
 };
 

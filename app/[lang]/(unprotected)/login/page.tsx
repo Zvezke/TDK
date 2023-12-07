@@ -74,8 +74,8 @@ export default function Login() {
     try {
       //@ts-ignore ... I care because you do.
       const { data, error } = await useLogin(FormData);
-      console.log("data", data);
-      console.log("error", error);
+      // console.log("data", data);
+      // console.log("error", error);
       if (data) {
         setAuthData(data);
         setIsLoggedIn(true);

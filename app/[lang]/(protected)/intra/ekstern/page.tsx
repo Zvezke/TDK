@@ -49,31 +49,30 @@ export default function External() {
   };
 
   if (!isLoggedIn) {
-    console.log("External, isLoggedIn", isLoggedIn);
+    // console.log("External, isLoggedIn", isLoggedIn);
     // router.push("/login");
     return <div>Ikke logget ind</div>;
   }
 
   return (
     <>
-      {isLoggedIn &&
-        (console.log("External, isLoggedIn", isLoggedIn),
-        (
-          <main className="py-10 lg:pl-72">
-            <div className="grid grid-cols-2 gap-8 px-4 sm:px-6 lg:px-8">
-              <div>
-                <h2 className="mb-4 text-2xl">Tilføj begivenhed</h2>
-                <DatePicker />
-              </div>
-
-              <div>
-                <h2 className="mb-4 text-2xl">Begivenhederne</h2>
-                <Events />
-              </div>
-              <button onClick={handleLogout}>Log ud</button>
+      {isLoggedIn && (
+        // (console.log("External, isLoggedIn", isLoggedIn),
+        <main className="py-10 lg:pl-72">
+          <div className="grid grid-cols-2 gap-8 px-4 sm:px-6 lg:px-8">
+            <div>
+              <h2 className="mb-4 text-2xl">Tilføj begivenhed</h2>
+              <DatePicker />
             </div>
-          </main>
-        ))}
+
+            <div>
+              <h2 className="mb-4 text-2xl">Begivenhederne</h2>
+              <Events />
+            </div>
+            <button onClick={handleLogout}>Log ud</button>
+          </div>
+        </main>
+      )}
     </>
   );
 }

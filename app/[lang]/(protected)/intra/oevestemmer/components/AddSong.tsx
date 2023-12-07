@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 const AddSong = async () => {
   const addTitle = async (formData: FormData) => {
     "use server";
-    console.log("formData", formData.get("title"));
+    // console.log("formData", formData.get("title"));
     const title = formData.get("title");
     const res = await fetch(
       "http://localhost:3000/da/intra/oevestemmer/add-song",
@@ -13,7 +13,7 @@ const AddSong = async () => {
       }
     );
     revalidatePath("http://localhost:3000/da/intra/oevestemmer/get-song");
-    console.log("res", res);
+    // console.log("res", res);
     return res.json();
   };
 

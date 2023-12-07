@@ -7,7 +7,7 @@ interface NavbarProps {
 
 const Navbar = async ({ lang }: NavbarProps) => {
   const dictionary = await getDictionary(lang);
-  console.log(`Navbar called with lang: ${lang}`);
+  // console.log(`Navbar called with lang: ${lang}`);
   return (
     <>
       <nav className=" text-tdk-blue-400 py-6 bg-tdk-blue-800 fixed w-full z-50">
