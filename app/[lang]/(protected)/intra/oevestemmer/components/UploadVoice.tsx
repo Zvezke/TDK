@@ -27,7 +27,19 @@ const UploadVoice = ({ songTitle }: { songTitle: string }) => {
     router.refresh();
   };
 
-  return <input type="file" onChange={(e) => addVoice(e)} />;
+  return (
+    <>
+      <label className="cursor-pointer" htmlFor={`file-upload-${songTitle}`}>
+        Tilføj fil
+      </label>
+      <input
+        id={`file-upload-${songTitle}`}
+        className="hidden"
+        type="file"
+        onChange={(e) => addVoice(e)}
+      />
+    </>
+  );
 };
 
 export default UploadVoice;

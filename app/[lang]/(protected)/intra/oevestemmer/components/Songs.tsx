@@ -32,11 +32,13 @@ const Songs = async () => {
           )
           .map((song: Songs) => (
             <div key={song.id} className="col-span-1">
-              <h2 className="mb-4 text-base font-semibold">{song.title}</h2>
-              <UploadVoice songTitle={song.title ?? ""} />
+              <div className="flex gap-4 justify-between items-center">
+                <h2 className="text-base font-semibold">{song.title}</h2>
+                <UploadVoice songTitle={song.title ?? ""} />
+              </div>
               <Suspense fallback={<div>Henter stemmer ...</div>}>
                 {/* @ts-expect-error Async Server Component */}
-                <ListVoices songTitle={song.title ?? "asdf"} />
+                <ListVoices songTitle={song.title ?? ""} />
               </Suspense>
             </div>
           ))}
