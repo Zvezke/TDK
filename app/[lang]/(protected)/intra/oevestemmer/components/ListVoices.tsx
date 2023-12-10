@@ -1,14 +1,5 @@
+import Link from "next/link";
 import React from "react";
-
-interface Metadata {
-  eTag: string;
-  size: number;
-  mimetype: string;
-  cacheControl: string;
-  lastModified: string;
-  contentLength: number;
-  httpStatusCode: number;
-}
 
 interface Voice {
   name: string;
@@ -16,24 +7,39 @@ interface Voice {
   updated_at: string;
   created_at: string;
   last_accessed_at: string;
-  metadata: Metadata;
 }
 
-interface Voices {
-  list: Voice[];
-}
+const ListVoices = async ({ songTitle }: { songTitle: string }) => {
+  console.log("songTitle", songTitle);
+  const getListOfVoices = async () => {
+    const res = await fetch(
+      process.env.NEXT_PUBLIC_RAILWAY_URL +
+        `/da/intra/oevestemmer/get-list-voices/${songTitle}`
+    );
+    return res.json();
+  };
 
-const ListVoices = ({ voices }: { voices: Voices }) => {
+  let voices = await getListOfVoices();
+  console.log("getListVoices, voices", voices);
+
   return (
     <div className="mt-4">
       <ul className="flex flex-col gap-2">
         {voices &&
-          voices?.list?.map((voice) => (
+          voices?.list?.map((voice: Voice) => (
             <li
               key={voice.id}
-              className="px-2 py-1 text-xs font-normal text-tdk-blue-800 bg-gray-100 rounded-md"
+              className={
+                voice.name === ".emptyFolderPlaceholder"
+                  ? "hidden"
+                  : "px-2 py-1 text-xs font-normal text-tdk-blue-800 bg-gray-100 rounded-md"
+              }
             >
-              {voice.name}
+              {voice.name === ".emptyFolderPlaceholder" ? null : (
+                <Link href={`${voices?.url?.publicUrl}/${voice.name}`}>
+                  {voice.name}
+                </Link>
+              )}
             </li>
           ))}
       </ul>

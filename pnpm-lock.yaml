@@ -71,6 +71,9 @@ dependencies:
   pocketbase:
     specifier: ^0.15.3
     version: 0.15.3
+  punycode:
+    specifier: ^2.3.1
+    version: 2.3.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -78,19 +81,19 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   react-hook-form:
-    specifier: ^7.45.2
+    specifier: ^7.48.2
     version: 7.48.2(react@18.2.0)
   server-only:
     specifier: ^0.0.1
     version: 0.0.1
   sharp:
-    specifier: ^0.32.1
+    specifier: ^0.32.6
     version: 0.32.6
   typescript:
     specifier: 4.9.5
     version: 4.9.5
   zod:
-    specifier: ^3.21.4
+    specifier: ^3.22.4
     version: 3.22.4
 
 devDependencies:
@@ -113,7 +116,7 @@ devDependencies:
     specifier: ^0.3.0
     version: 0.3.0(prettier@2.8.8)
   prisma:
-    specifier: ^4.11.0
+    specifier: ^4.16.2
     version: 4.16.2
   tailwindcss:
     specifier: ^3.2.7

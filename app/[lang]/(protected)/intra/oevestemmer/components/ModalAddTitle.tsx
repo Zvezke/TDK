@@ -43,7 +43,7 @@ export default function ModalAddTitle({ open, setOpen }: any) {
     }
     // ... else fetch POST request to add title
     await fetch(
-      "https://trekor-development.up.railway.app/intra/oevestemmer/add-song",
+      "process.env.NEXT_PUBLIC_RAILWAY_URL/intra/oevestemmer/add-song",
       {
         method: "POST",
         body: JSON.stringify({ title: title }),
