@@ -15,6 +15,7 @@ const UploadVoice = ({ songTitle }: { songTitle: string }) => {
     const supabase = createSupabaseFrontendClient();
     const file = e.target.files[0];
     const fileName = file.name;
+    // Remove 'data' and 'error' from the destructuring assignment to avoid unused variables.
     const { data, error } = await supabase.storage
       .from("voices-storage")
       .upload(`${songTitle}/${fileName}`, file);
