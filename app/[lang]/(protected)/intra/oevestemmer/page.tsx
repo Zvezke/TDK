@@ -2,7 +2,7 @@ import { createSupabaseServerComponentClient } from "@/supabase/backendClient";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import AddSong from "./components/AddSong";
-import ButtonAddSong from "./components/ButtonAddSong";
+// import ButtonAddSong from "./components/ButtonAddSong";
 import Songs from "./components/Songs";
 
 export default async function Page() {

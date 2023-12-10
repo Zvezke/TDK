@@ -14,10 +14,11 @@ export async function POST(request: Request) {
     .insert([{ title: body.title }])
     .select();
 
-  // revalidatePath("/[lang]/(protected)/intra/oevestemmer/get-song");
-  revalidatePath(
-    "https://trekor-development.up.railway.app/da/intra/oevestemmer/get-song"
-  );
+  // const { data: songs, error: songsError } = await supabase
+  //   .from("voices")
+  //   .insert([{ voice: body.voice }])
+  //   .select();
 
   return NextResponse.json({ data, error });
+  // return NextResponse.json({ data, error, songs, songsError });
 }
