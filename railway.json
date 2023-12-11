@@ -5,7 +5,7 @@
     "nixpacksPlan": {
       "phases": {
         "setup": {
-          "nixPkgs": ["...", "gcc", "libvips-dev", "python38"]
+          "nixPkgs": ["...", "gcc", "vips", "python38"]
         }
       }
     }
