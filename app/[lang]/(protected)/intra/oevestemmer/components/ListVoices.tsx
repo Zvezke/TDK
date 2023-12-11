@@ -30,37 +30,22 @@ const replaceDanishCharacters = (str: string) => {
 };
 
 export const deleteVoice = async (songTitle: string, voiceName: string) => {
-  console.log("ListVoices.tsx, deleteVoice, songTitle", songTitle);
-  console.log("ListVoices.tsx, deleteVoice, voiceName", voiceName);
+  // console.log("ListVoices.tsx, deleteVoice, songTitle", songTitle);
+  // console.log("ListVoices.tsx, deleteVoice, voiceName", voiceName);
   // const router = useRouter();
   // const supabase = createSupabaseFrontendClient<Database>();
   const sanitizedSongTitle = replaceDanishCharacters(songTitle);
   const encodedVoiceName = encodeURIComponent(voiceName);
-  console.log(
-    "ListVoices.tsx, deleteVoice, sanitizedSongTitle",
-    sanitizedSongTitle
-  );
+
   const res = await fetch(
     process.env.NEXT_PUBLIC_RAILWAY_URL +
       `/da/intra/oevestemmer/delete-voice/${sanitizedSongTitle}/${encodedVoiceName}`
-    // ,{
-    //   method: "DELETE",
-    // }
   );
 
-  // console.log("ListVoices.tsx, res", res);
-
-  // const { data, error } = await supabase.storage
-  //   .from("voices-storage")
-  //   .remove([`${sanitizedSongTitle}/${voiceName}`]);
-
-  // console.log("ListVoices.tsx, res", res);
   revalidatePath(
     process.env.NEXT_PUBLIC_RAILWAY_URL +
       `/da/intra/oevestemmer/get-list-voices/${songTitle}`
   );
-
-  // router.refresh();
 };
 
 const ListVoices = async ({ songTitle }: { songTitle: string }) => {
@@ -94,7 +79,6 @@ const ListVoices = async ({ songTitle }: { songTitle: string }) => {
                     {voice.name}
                   </Link>
                   <DeleteVoice songTitle={songTitle} voiceName={voice.name} />
-                  {/* <DeleteVoice songTitle={songTitle} voiceName={voice.name} /> */}
                 </div>
               )}
             </li>
