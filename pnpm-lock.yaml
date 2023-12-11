@@ -59,9 +59,6 @@ dependencies:
   eventsource-polyfill:
     specifier: ^0.9.6
     version: 0.9.6
-  libvips:
-    specifier: ^0.0.2
-    version: 0.0.2
   lucide-react:
     specifier: ^0.287.0
     version: 0.287.0(react@18.2.0)
@@ -3141,10 +3138,6 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-    dev: false
-
-  /libvips@0.0.2:
-    resolution: {integrity: sha512-E+jHGKSgWuep9t2oFvV9ll6i0YUVVWyNaMgr3zKP4hLYZmaP2qTQeSrGe7tvhUgwcLD8gn2nacgdi1WxMmOJMw==}
     dev: false
 
   /lilconfig@2.1.0:
