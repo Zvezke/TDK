@@ -23,11 +23,9 @@ import {
 
 // Import Pocketbase
 import pb from "@/pocketbase/config";
-import { set } from "date-fns";
 
 // Import the Loading component
 import Loading from "./loading";
-import { de } from "date-fns/locale";
 import CardHeading from "./cardHeadings";
 
 // Define the interface for a record
@@ -71,7 +69,7 @@ const Events = () => {
   // Unsubscribe from the Pocketbase collection when the component unmounts
   useEffect(() => {
     return () => {
-      console.log("Unsubscribing");
+      // console.log("Unsubscribing");
       pb.collection("events").unsubscribe("*");
     };
   }, []);
@@ -81,7 +79,7 @@ const Events = () => {
     const fetchRecords = async () => {
       const mappedRecords = await fetchData();
       setRecords(mappedRecords);
-      console.log("mappedRecords", mappedRecords);
+      // console.log("mappedRecords", mappedRecords);
     };
     fetchRecords();
   }, []);

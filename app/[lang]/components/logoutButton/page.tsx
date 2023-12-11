@@ -1,37 +1,20 @@
 "use client";
 
-import { useLogin, useLogout, useRefresh } from "@/pocketbase/auth";
-import Link from "next/link";
-import Loading from "./loading";
+import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
 
 // Context
 import { useAuth } from "@/context/AuthContext";
 
 const LogoutButton = async () => {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
-  // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  // const { authData, authStore, error } = await useLogin({
-  //   email: "superur@gmail.com",
-  //   password: "Ft30953095Ft",
-  // });
-  // console.log("authData", authData);
-  // console.log("authStore", authStore);
-  // console.log("error", error);
-  // setIsLoggedIn(true);
+
+  // Supabase
+  const supabase = createSupabaseFrontendClient();
 
   const handleLogout = async () => {
-    // console.log("handleLogout");
-    const { authRefresh, pbAuthStore } = await useRefresh();
-    // console.log("authRefresh", authRefresh);
-    // console.log("pbAuthStore", pbAuthStore);
-    useLogout();
+    const { error } = await supabase.auth.signOut();
     setIsLoggedIn(false);
-    // console.log("isLoggedIn", isLoggedIn);
-    // setDummy(null);
   };
-
-  // console.log("authData, navBar", authData);
-  // console.log("authStore, navBar", authStore);
 
   return (
     // <Suspense fallback={<Loading />}>

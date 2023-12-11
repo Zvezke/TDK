@@ -26,64 +26,91 @@ import { useAuth } from "@/context/AuthContext";
 // Pocketbase
 import { useLogout, useLogin, useRefresh } from "@/pocketbase/auth";
 import Loading from "./loading";
+import ButtonLogIn from "./buttonLogIn/ButtonLogIn";
+
+// Supabase
+import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
 
 const Navbar = ({ about, audition, contact }: NavbarProps) => {
   // Context
   const { isLoggedIn, setIsLoggedIn } = useAuth();
 
+  // // Supabase
+  const supabase = createSupabaseFrontendClient();
+
   // States
   const [menuOpen, setMenuOpen] = useState(false);
   const [colorMode, setColorMode] = useColorMode();
-  const [authData, setAuthData] = useState<AuthRecord | null | undefined>(null);
-  const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
-    null
-  );
+  // const [authData, setAuthData] = useState<AuthRecord | null | undefined>(null);
+  // const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
+  //   null
+  // );
 
+  // States - Supabase
+  const [authSupabaseData, setAuthSupabaseData] = useState<{
+    // @ts-ignore - Supabase
+    session: Session;
+  } | null>(null);
+
+  // useEffect(() => {
+  //   const fetchAuthData = async () => {
+  //     const { authRefresh, pbAuthStore } = await useRefresh();
+  //     // console.log("pbAuthStore", pbAuthStore);
+  //     setAuthData(authRefresh?.record as unknown as AuthRecord | null);
+  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
+  //     pbAuthStore?.isValid && setIsLoggedIn(true);
+  //     // console.log(isLoggedIn);
+  //   };
+  //   fetchAuthData();
+  // }, []);
+
+  // useEffect, Supabase
   useEffect(() => {
-    const fetchAuthData = async () => {
-      const { authRefresh, pbAuthStore } = await useRefresh();
-      // console.log("pbAuthStore", pbAuthStore);
-      setAuthData(authRefresh?.record as unknown as AuthRecord | null);
-      setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-      pbAuthStore?.isValid && setIsLoggedIn(true);
-      // console.log(isLoggedIn);
+    const fetchAuthSupabaseData = async () => {
+      const { data, error } = await supabase.auth.getSession();
+      // console.log("data", data);
+      // console.log("error", error);
+      setAuthSupabaseData(data);
+      if (data && data.session) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
     };
-    fetchAuthData();
+    fetchAuthSupabaseData();
   }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleLogIn = async () => {
-    console.log("handleLogIn");
-    const {
-      authData,
-      pbAuthStore: authStore,
-      error,
-    } = await useLogin({
-      email: "superur@gmail.com",
-      password: "Ft30953095Ft",
-    });
-    console.log("authData", authData);
-    console.log("authStore", authStore);
-    console.log("error", error);
-    setIsLoggedIn(true);
-  };
+  // const handleLogIn = async () => {
+  //   console.log("handleLogIn");
+  //   const {
+  //     authData,
+  //     pbAuthStore: authStore,
+  //     error,
+  //   } = await useLogin({
+  //     email: "superur@gmail.com",
+  //     password: "Ft30953095Ft",
+  //   });
+  //   console.log("authData", authData);
+  //   console.log("authStore", authStore);
+  //   console.log("error", error);
+  //   setIsLoggedIn(true);
+  // };
 
   const handleLogout = async () => {
-    console.log("handleLogout");
+    // console.log("handleLogout");
     const { authRefresh, pbAuthStore } = await useRefresh();
-    // console.log("authRefresh", authRefresh);
-    // console.log("pbAuthStore", pbAuthStore);
     useLogout();
     setIsLoggedIn(false);
-    // console.log("isLoggedIn", isLoggedIn);
     // setDummy(null);
   };
 
-  // console.log("authData, navBar", authData);
-  // console.log("authStore, navBar", authStore);
+  // if (authSupabaseData) {
+  //   console.log("authSupabaseData", authSupabaseData);
+  // }
 
   try {
     return (
@@ -177,7 +204,8 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
                   Log ind
                 </Link>
               ) : (
-                <Suspense fallback={<Loading />}>
+                // <ButtonLogIn />
+                <Suspense fallback={<div>Loading...</div>}>
                   {/* @ts-expect-error Async Server Component */}
                   <LogoutButton />
                 </Suspense>

@@ -23,7 +23,7 @@ const Tiptap = () => {
   }
 
   const handleData = async () => {
-    console.log(editor.getJSON());
+    // console.log(editor.getJSON());
 
     const html = editor.getHTML();
     // example create data
