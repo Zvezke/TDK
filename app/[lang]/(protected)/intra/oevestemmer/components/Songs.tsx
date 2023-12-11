@@ -2,6 +2,7 @@
 import React, { Suspense } from "react";
 import UploadVoice from "./UploadVoice";
 import ListVoices from "./ListVoices";
+import DeleteSong from "./DeleteSong";
 
 const Songs = async () => {
   const getSong = async () => {
@@ -32,9 +33,14 @@ const Songs = async () => {
           )
           .map((song: Songs) => (
             <div key={song.id} className="col-span-1">
-              <div className="flex gap-4 mt-4 justify-between items-center">
+              <div className="flex flex-col gap-2 mt-4 justify-between items-start">
                 <h2 className="text-base font-semibold">{song.title}</h2>
-                <UploadVoice songTitle={song.title ?? ""} />
+                <div className="flex">
+                  <div className="flex gap-2">
+                    <DeleteSong songTitle={song.title ?? ""} />
+                    <UploadVoice songTitle={song.title ?? ""} />
+                  </div>
+                </div>
               </div>
               <Suspense fallback={<div>Henter stemmer ...</div>}>
                 {/* @ts-expect-error Async Server Component */}

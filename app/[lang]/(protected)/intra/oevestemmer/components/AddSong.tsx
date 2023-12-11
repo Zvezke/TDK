@@ -3,23 +3,6 @@ import { revalidatePath } from "next/cache";
 import { createSupabaseBackendClient } from "@/supabase/backendClient";
 
 const AddSong = async () => {
-  // const addTitle = async (formData: FormData) => {
-  //   "use server";
-  //   const title = formData.get("title");
-  //   const res = await fetch(
-  //     process.env.NEXT_PUBLIC_RAILWAY_URL + "/da/intra/oevestemmer/add-song",
-  //     // "http://localhost:3000/da/intra/oevestemmer/add-song",
-  //     {
-  //       method: "POST",
-  //       body: JSON.stringify({ title: title }),
-  //     }
-  //   );
-  //   revalidatePath(
-  //     process.env.NEXT_PUBLIC_RAILWAY_URL + "/da/intra/oevestemmer/get-song"
-  //   );
-  //   return res.json();
-  // };
-
   const addSong = async (formData: FormData) => {
     "use server";
     const supabase = createSupabaseBackendClient<Database>();
@@ -31,7 +14,6 @@ const AddSong = async () => {
     }
 
     // NB. Error handling missing
-    // Add song to songs table
     const { data, error } = await supabase
       .from("songs")
       .insert([{ title: title }])
@@ -42,10 +24,25 @@ const AddSong = async () => {
     );
   };
 
+  const deleteSong = async (songTitle: string) => {
+    "use server";
+    const supabase = createSupabaseBackendClient<Database>();
+
+    // NB. Error handling missing
+    const { data, error } = await supabase
+      .from("songs")
+      .delete()
+      .match({ title: songTitle })
+      .select();
+
+    revalidatePath(
+      process.env.NEXT_PUBLIC_RAILWAY_URL + "/da/intra/oevestemmer/get-song"
+    );
+  };
+
   return (
     <>
       <form className="flex gap-4" action={addSong}>
-        {/* <div className="flex"> */}
         <div className="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-tdk-blue-700bg-tdk-blue-700 focus-within:ring-1 focus-within:ring-tdk-blue-700bg-tdk-blue-700">
           <label htmlFor="title" className="sr-only">
             Titel
@@ -65,7 +62,6 @@ const AddSong = async () => {
         >
           Tilføj sang
         </button>
-        {/* </div> */}
       </form>
     </>
   );

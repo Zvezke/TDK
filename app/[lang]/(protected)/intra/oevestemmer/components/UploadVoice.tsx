@@ -44,7 +44,10 @@ const UploadVoice = ({ songTitle }: { songTitle: string }) => {
 
   return (
     <>
-      <label className="cursor-pointer" htmlFor={`file-upload-${songTitle}`}>
+      <label
+        className="cursor-pointer border-2 border-gray-300 text-xs rounded-md px-2 py-1 hover:bg-gray-50"
+        htmlFor={`file-upload-${songTitle}`}
+      >
         Tilføj fil
       </label>
       <input
