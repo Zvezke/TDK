@@ -42,11 +42,11 @@ export default function External() {
     fetchSession();
   }, []);
 
-  const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    setIsLoggedIn(false);
-    router.push("/login");
-  };
+  // const handleLogout = async () => {
+  //   const { error } = await supabase.auth.signOut();
+  //   setIsLoggedIn(false);
+  //   router.push("/login");
+  // };
 
   if (!isLoggedIn) {
     // console.log("External, isLoggedIn", isLoggedIn);
@@ -69,7 +69,7 @@ export default function External() {
               <h2 className="mb-4 text-2xl">Begivenhederne</h2>
               <Events />
             </div>
-            <button onClick={handleLogout}>Log ud</button>
+            {/* <button onClick={handleLogout}>Log ud</button> */}
           </div>
         </main>
       )}
