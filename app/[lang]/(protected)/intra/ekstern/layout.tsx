@@ -212,6 +212,8 @@ export default function ExternalLayout({
           </Dialog>
         </Transition.Root>
 
+        {/* {console.log("currentRoute", currentRoute)} */}
+
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
@@ -235,10 +237,10 @@ export default function ExternalLayout({
                           : "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       }
                     >
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-transparent text-[0.625rem] font-medium text-tdk-blue-200">
                         <CalendarIcon className="h-6 w-6" aria-hidden="true" />
                       </span>
-                      <span className="truncate">Aktiviteter (Ekstern)</span>
+                      <span className="truncate">Begivenheder</span>
                     </Link>
                     {/* <Link
                       href="/da/intra/intern"
@@ -256,13 +258,26 @@ export default function ExternalLayout({
                     <Link
                       href="/da/intra/oevestemmer"
                       className={
-                        currentRoute === "da/intra/oevestemmer"
+                        currentRoute === "/da/intra/oevestemmer"
                           ? "group flex gap-x-3 rounded-md bg-tdk-blue-cardBg p-2 text-sm font-semibold leading-6 text-tdk-blue-200"
-                          : "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
+                          : "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200 bg-tdk-blue-800"
                       }
                     >
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
-                        <CalendarIcon className="h-6 w-6" aria-hidden="true" />
+                      <span
+                        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg ${
+                          currentRoute === "/da/intra/oevestemmer"
+                            ? "bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200"
+                            : "bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-800 group-hover:text-tdk-blue-cardBg"
+                        }`}
+                      >
+                        <CalendarIcon
+                          className={`h-6 w-6 ${
+                            currentRoute === "/da/intra/oevestemmer"
+                              ? "bg-tdk-blue-cardBg text-tdk-blue-200"
+                              : "bg-transparent text-tdk-blue-400 hover:bg-tdk-blue-cardBg"
+                          }`}
+                          aria-hidden="true"
+                        />
                       </span>
                       <span className="truncate">Øvestemmer</span>
                     </Link>

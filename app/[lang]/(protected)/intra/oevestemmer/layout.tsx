@@ -238,7 +238,7 @@ export default function ExternalLayout({
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
                         <CalendarIcon className="h-6 w-6" aria-hidden="true" />
                       </span>
-                      <span className="truncate">Aktiviteter (Ekstern)</span>
+                      <span className="truncate">Begivenheder</span>
                     </Link>
                     {/* <Link
                       href="/da/intra/intern"
@@ -256,12 +256,12 @@ export default function ExternalLayout({
                     <Link
                       href="/da/intra/oevestemmer"
                       className={
-                        currentRoute === "da/intra/oevestemmer"
+                        currentRoute === "/da/intra/oevestemmer"
                           ? "group flex gap-x-3 rounded-md bg-tdk-blue-cardBg p-2 text-sm font-semibold leading-6 text-tdk-blue-200"
                           : "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       }
                     >
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-transparent text-[0.625rem] font-medium text-tdk-blue-200">
                         <CalendarIcon className="h-6 w-6" aria-hidden="true" />
                       </span>
                       <span className="truncate">Øvestemmer</span>
