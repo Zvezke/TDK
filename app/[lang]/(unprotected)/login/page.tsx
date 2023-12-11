@@ -1,6 +1,9 @@
 "use client";
 
-import { useState, useEffect, Suspense, use } from "react";
+import { useState, useEffect, Suspense } from "react";
+
+// NextJS
+import { useRouter } from "next/navigation";
 
 // Interfaces
 import { IAuthStore, AuthRecord } from "@/types/interfaces";
@@ -18,6 +21,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "@/context/AuthContext";
 import Loading from "./loading";
 import LoggedInAs from "../../components/loggedInAs";
+import { redirect } from "next/navigation";
 
 interface IForm {
   email: string;
@@ -38,37 +42,11 @@ export default function Login() {
     null
   );
 
+  const router = useRouter();
+
   const { register, handleSubmit } = useForm<IForm>({
     resolver: zodResolver(schema),
   });
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const { authRefresh, pbAuthStore } = await useRefresh();
-  //     setAuthData(authRefresh?.record as unknown as AuthRecord | null);
-  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-  //     // console.log("useEffect, Login, authData", authData);
-  //     // console.log("useEffect, Login, authStore", authStore);
-  //     // console.log("useEffect, Login, isValid", authStore?.isValid);
-  //     pbAuthStore?.isValid && setIsLoggedIn(true);
-  //     // console.log("useEffect, Login, isLoggedIn", isLoggedIn);
-  //   };
-  //   fetchData();
-  // }, []);
-
-  // const submitData = async (data: IForm) => {
-  //   try {
-  //     const { authData, pbAuthStore } = await useLogin(data);
-  //     // console.log("Login, submitData", isLoggedIn);
-  //     setAuthData(authData?.record as unknown as IAuthStore | null);
-  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-  //     // console.log("Login, submitData, authData", authData);
-  //     // console.log("Login, submitData, authStore", pbAuthStore);
-  //     pbAuthStore?.isValid && setIsLoggedIn(true);
-  //   } catch (error) {
-  //     console.error("Error logging in:", error);
-  //   }
-  // };
 
   const submitData = async (FormData: IForm) => {
     try {
@@ -79,6 +57,7 @@ export default function Login() {
       if (data) {
         setAuthData(data);
         setIsLoggedIn(true);
+        router.push("/da/intra/oevestemmer");
       } else {
         setIsLoggedIn(false);
       }
@@ -95,12 +74,6 @@ export default function Login() {
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-tdk-blue-200">
               Velkommen til login.
             </h2>
-            {isLoggedIn && (
-              <Suspense fallback={<Loading />}>
-                {/* @ts-expect-error Async Server Component */}
-                <LoggedInAs email={authData?.user.email} />
-              </Suspense>
-            )}
           </div>
           <form
             className="space-y-6"
@@ -155,3 +128,10 @@ export default function Login() {
 }
 
 // border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings text-tdk-blue-light-background dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700
+
+// {isLoggedIn && (
+//   <Suspense fallback={<Loading />}>
+//     {/* @ts-expect-error Async Server Component */}
+//     <LoggedInAs email={authData?.user.email} />
+//   </Suspense>
+// )}
