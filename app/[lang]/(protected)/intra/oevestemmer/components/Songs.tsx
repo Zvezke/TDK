@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 import React, { Suspense } from "react";
 import UploadVoice from "./UploadVoice";
 import ListVoices from "./ListVoices";
@@ -20,7 +20,7 @@ const Songs = async () => {
   // );
 
   // let voices = await getListOfVoices();
-  console.log("songData", songData);
+  // console.log("songData", songData);
   // console.log("voices", voices);
 
   return (
@@ -32,7 +32,7 @@ const Songs = async () => {
           )
           .map((song: Songs) => (
             <div key={song.id} className="col-span-1">
-              <div className="flex gap-4 justify-between items-center">
+              <div className="flex gap-4 mt-4 justify-between items-center">
                 <h2 className="text-base font-semibold">{song.title}</h2>
                 <UploadVoice songTitle={song.title ?? ""} />
               </div>
