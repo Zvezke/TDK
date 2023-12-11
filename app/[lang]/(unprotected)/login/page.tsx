@@ -42,34 +42,6 @@ export default function Login() {
     resolver: zodResolver(schema),
   });
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const { authRefresh, pbAuthStore } = await useRefresh();
-  //     setAuthData(authRefresh?.record as unknown as AuthRecord | null);
-  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-  //     // console.log("useEffect, Login, authData", authData);
-  //     // console.log("useEffect, Login, authStore", authStore);
-  //     // console.log("useEffect, Login, isValid", authStore?.isValid);
-  //     pbAuthStore?.isValid && setIsLoggedIn(true);
-  //     // console.log("useEffect, Login, isLoggedIn", isLoggedIn);
-  //   };
-  //   fetchData();
-  // }, []);
-
-  // const submitData = async (data: IForm) => {
-  //   try {
-  //     const { authData, pbAuthStore } = await useLogin(data);
-  //     // console.log("Login, submitData", isLoggedIn);
-  //     setAuthData(authData?.record as unknown as IAuthStore | null);
-  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-  //     // console.log("Login, submitData, authData", authData);
-  //     // console.log("Login, submitData, authStore", pbAuthStore);
-  //     pbAuthStore?.isValid && setIsLoggedIn(true);
-  //   } catch (error) {
-  //     console.error("Error logging in:", error);
-  //   }
-  // };
-
   const submitData = async (FormData: IForm) => {
     try {
       //@ts-ignore ... I care because you do.
