@@ -4,9 +4,8 @@
     "builder": "NIXPACKS",
     "nixpacksPlan": {
       "phases": {
-        "install": {
-          "dependsOn": ["setup"],
-          "cmds": ["NPM_CONFIG_PRODUCTION= npm ci --omit=dev --omit=optional"]
+        "setup": {
+          "nixPkgs": ["...", "python38"]
         }
       }
     }
