@@ -34,7 +34,7 @@ export default async function Page() {
           </Suspense>
           {/* <ButtonAddSong /> */}
         </div>
-        <div className="grid grid-rows-2 grid-cols-4 gap-8">
+        <div className="grid grid-rows-2 grid-cols-4 mt-4 gap-8">
           <Suspense fallback={<div>Henter sange ...</div>}>
             {/* @ts-expect-error Async Server Component */}
             <Songs />
