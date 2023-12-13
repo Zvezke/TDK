@@ -1,11 +1,12 @@
 {
-  "$schema": "https://railway.app/railway.schema.json",
+  "$schema": "https://schema.up.railway.app/railway.schema.json",
   "build": {
     "builder": "NIXPACKS",
     "nixpacksPlan": {
       "phases": {
         "setup": {
-          "nixPkgs": ["...", "vips", "gcc", "python38"]
+          "nixPkgs": ["...", "gcc", "python38"],
+          "aptPkgs": ["...", "libvips-dev"]
         }
       }
     }
