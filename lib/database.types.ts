@@ -30,6 +30,30 @@ export interface Database {
         }
         Relationships: []
       }
+      events: {
+        Row: {
+          body: string | null
+          created_at: string
+          date: string | null
+          id: string
+          title: string | null
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string
+          date?: string | null
+          id?: string
+          title?: string | null
+        }
+        Update: {
+          body?: string | null
+          created_at?: string
+          date?: string | null
+          id?: string
+          title?: string | null
+        }
+        Relationships: []
+      }
       songs: {
         Row: {
           created_at: string
