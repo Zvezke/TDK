@@ -1,3 +1,5 @@
+"use client";
+
 import EventSourcePolyfill from "eventsource";
 (global as any).EventSource = EventSourcePolyfill;
 
@@ -25,8 +27,8 @@ import {
 import pb from "@/pocketbase/config";
 
 // Import the Loading component
-import Loading from "./loading";
-import CardHeading from "./cardHeadings";
+import Loading from "../../../../components/loading";
+import CardHeading from "../../../../components/cardHeadings";
 
 // Define the interface for a record
 interface IRecord {
