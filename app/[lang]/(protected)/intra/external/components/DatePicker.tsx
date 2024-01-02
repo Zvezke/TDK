@@ -162,9 +162,9 @@ const DatePicker = () => {
               defaultValue="2023"
               {...register("year")}
             >
-              <option>2023</option>
               <option>2024</option>
               <option>2025</option>
+              <option>2026</option>
             </select>
             {errors.year && <span>{errors.year.message}</span>}
           </div>
