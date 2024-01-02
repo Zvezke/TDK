@@ -32,6 +32,7 @@ import {
 // Import the Loading component
 import Loading from "../../../../components/loading";
 import CardHeading from "../../../../components/cardHeadings";
+import EventsDeleteModal from "./EventsDeleteModal";
 
 // Define the interface for a record
 // interface IRecord {
@@ -86,7 +87,12 @@ interface EventProps {
 // }
 
 const EventsPreferences = ({ eventId }: EventProps) => {
+  const [open, setOpen] = useState(false);
   console.log("eventId", eventId);
+
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
 
   function classNames(...classes: any) {
     return classes.filter(Boolean).join(" ");
@@ -199,7 +205,7 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                           )}
                         >
                           <PencilSquareIcon
-                            className="text-gray-400 mr-3 h-5 w-5"
+                            className="text-tdk-blue-700 mr-3 h-5 w-5"
                             aria-hidden="true"
                           />
                           <span>Rediger</span>
@@ -209,9 +215,10 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          onClick={async () => {
-                            await useDeleteEvent(eventId as string);
-                          }}
+                          onClick={() => setOpen(true)}
+                          // onClick={async () => {
+                          // await useDeleteEvent(eventId as string);
+                          // }}
                           href="#"
                           className={classNames(
                             active
@@ -221,7 +228,7 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                           )}
                         >
                           <MinusCircleIcon
-                            className="text-gray-400 mr-3 h-5 w-5"
+                            className="text-tdk-blue-700 mr-3 h-5 w-5"
                             aria-hidden="true"
                           />
                           <span>Slet</span>
@@ -233,6 +240,11 @@ const EventsPreferences = ({ eventId }: EventProps) => {
               </Transition>
             </Menu>
           </div>
+          <EventsDeleteModal
+            eventId={eventId as string}
+            open={open}
+            onClose={handleCloseModal}
+          />
         </div>
         <p className="pb-6 text-sm text-tdk-blue-light-buttonsSubheadings">
           {/* <p>{events?.body}</p> */}
