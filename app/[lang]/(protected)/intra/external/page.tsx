@@ -21,7 +21,7 @@ export default async function Page() {
   const { events, eventsError } = await useGetAllEvents();
   const { data } = await useServerAuthSession();
   // const { data, error } = await supabase.auth.getSession();
-  console.log("events", events);
+  // console.log("events", events);
 
   if (!data.session) {
     return redirect("/login");
