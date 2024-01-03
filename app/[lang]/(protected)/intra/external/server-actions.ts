@@ -17,6 +17,7 @@ const useGetAllEvents = async () => {
     .from("events")
     .select("*")
     .order("date", { ascending: true });
+  revalidatePath("/[lang]/(unprotected)/components/EventCards");
   return { events, eventsError };
 };
 
