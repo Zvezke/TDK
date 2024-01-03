@@ -16,11 +16,10 @@ const formatDate = (inputDate: string) => {
   const utcDate = new Date(inputDate);
   const zonedDate = utcToZonedTime(utcDate, "Europe/Copenhagen");
 
-  // Subtract one hour
+  // Subtract one hour (DST)
   const adjustedDate = add(zonedDate, { hours: -1 });
 
   return format(adjustedDate, "dd. MMMM, 'kl.' HH:mm", { locale: da });
-  // return format(zonedDate, "dd. MMMM, 'kl.' HH:mm", { locale: da });
 };
 
 interface EventsProps {
@@ -43,7 +42,10 @@ const Events: React.FC<EventsProps> = ({ events }) => {
           console.log("event", event),
           (
             <Suspense fallback={<p>Henter begivenheder ...</p>}>
-              <div className="flex border-2 px-4 py-2 rounded-md justify-between items-center mb-4">
+              <div
+                key={event.id}
+                className="flex border-2 px-4 py-2 rounded-md justify-between items-center mb-4"
+              >
                 <div>
                   <h3 className="text-sm font-semibold text-gray-900">
                     {event?.title}
