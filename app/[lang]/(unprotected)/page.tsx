@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDictionary } from "@/get-dictionary";
-import EventCards from "../components/eventCards";
+import EventCards from "./components/EventCards";
+import { Suspense } from "react";
 
 // Hooks
 // import { getResultList } from "@/pocketbase/getUsers";
@@ -167,7 +168,10 @@ export default async function Home({
             {/* TODO: Grid row */}
             {/* Left, Cards - Aktiviteter */}
             <div className="col-start-1 col-end-2 lg:h-[32rem]">
-              <EventCards />
+              <Suspense fallback={<div>Henter begivenheder ...</div>}>
+                {/* @ts-ignore - bug in Next JS */}
+                <EventCards />
+              </Suspense>
               {/* <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
                 <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
                   <p className="font-bold leading-8">16. maj</p>
