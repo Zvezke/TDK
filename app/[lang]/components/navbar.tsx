@@ -134,7 +134,7 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               </li>
               {isLoggedIn && (
                 <li>
-                  <Link href="/intra/ekstern">Intra</Link>
+                  <Link href="/intra/external">Intra</Link>
                 </li>
               )}
             </ul>

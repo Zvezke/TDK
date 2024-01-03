@@ -2,13 +2,15 @@
 
 // Måske bruge 'With title and pill actions' - https://tailwindui.com/components/application-ui/forms/textareas#component-c8189b6993ca18e9955b370f741b763b
 
+import { createDateTimeForSupabase } from "../utils/timeUtils";
+
 // Libraries
 import { useForm } from "react-hook-form";
 import { z, ZodType } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-// Pocketbase
-import pb from "@/pocketbase/config";
+// Supabase
+import { useCreateEvent } from "../server-actions";
 
 // Types
 type FormValues = {
@@ -29,68 +31,34 @@ const schema = z.object({
   body: z.string(),
 });
 
-const monthNames = [
-  "Januar",
-  "Februar",
-  "Marts",
-  "April",
-  "Maj",
-  "Juni",
-  "Juli",
-  "August",
-  "September",
-  "Oktober",
-  "November",
-  "December",
-];
-
-// Subtracts the specified number of hours to a given time string in the format "HH:mm" and returns the updated time string.
-function subtractedHours(timeString: string, hoursToSubtract: number) {
-  const [hour, minute] = timeString.split(":").map(Number);
-  const newHour = hour - hoursToSubtract;
-  const timeWithTwoHoursAdded = `${String(newHour).padStart(2, "0")}:${String(
-    minute
-  ).padStart(2, "0")}`;
-  return timeWithTwoHoursAdded;
-}
-
-// Formats a date string in the format "YYYY-M-D" to "YYYY-MM-DD" by padding single-digit months and days with a leading zero.
-function addLeadingZeroToDate(dateString: string) {
-  const [year, month, day] = dateString.split("-").map(Number);
-  const formattedDatePart = `${year}-${String(month).padStart(2, "0")}-${String(
-    day
-  ).padStart(2, "0")}`;
-  const formattedDateString = formattedDatePart;
-  return formattedDateString;
-}
-
-const onSubmit = async (data: FormValues) => {
-  const { year, month, day, daytime, title, body } = data;
-
-  // Converts a month name to a month number, subtracts 2 hours to a given time string, formats the date string, and constructs a new date-time string in the format "YYYY-MM-DD HH:mm:00.000Z" for use with Pocketbase.
-  const monthNumber = monthNames.indexOf(month) + 1;
-  const newTimeString = subtractedHours(daytime, 2);
-  const formattedDateString2 = addLeadingZeroToDate(
-    `${year}-${monthNumber}-${day}`
-  );
-  const dateForPocketbase = `${formattedDateString2} ${newTimeString}:00.000Z`;
-
-  try {
-    const dataForPocketbase = {
-      title: title,
-      body: body,
-      date: dateForPocketbase,
-    };
-    await pb.collection("events").create(dataForPocketbase);
-  } catch (error) {
-    // console.error("Error parsing date:", error);
-  }
-};
-
 const DatePicker = () => {
-  const { register, handleSubmit, formState } = useForm<FormValues>({
+  const { register, handleSubmit, reset, formState } = useForm<FormValues>({
     resolver: zodResolver(schema),
   });
+
+  const onSubmit = async (data: FormValues) => {
+    const { year, month, day, daytime, title, body } = data;
+
+    const dateForSupabase = createDateTimeForSupabase(
+      year,
+      month,
+      day,
+      daytime
+    );
+
+    try {
+      const dataForSupabase = {
+        title: title,
+        body: body,
+        date: dateForSupabase,
+      };
+      const { eventError } = await useCreateEvent(dataForSupabase);
+      console.warn("DatePicker, eventError", eventError);
+    } catch (error) {
+    } finally {
+      reset();
+    }
+  };
 
   const { errors } = formState;
 
@@ -108,7 +76,7 @@ const DatePicker = () => {
             </label>
             <select
               id="Month"
-              className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+              className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
               // Set default value to current month
               defaultValue="Januar"
               {...register("month")}
@@ -139,7 +107,7 @@ const DatePicker = () => {
             </label>
             <select
               id="Day"
-              className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+              className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
               // Set default value to current day
               defaultValue="1"
               {...register("day")}
@@ -189,14 +157,14 @@ const DatePicker = () => {
             </label>
             <select
               id="year"
-              className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+              className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
               // Set default value to current year
               defaultValue="2023"
               {...register("year")}
             >
-              <option>2023</option>
               <option>2024</option>
               <option>2025</option>
+              <option>2026</option>
             </select>
             {errors.year && <span>{errors.year.message}</span>}
           </div>
@@ -211,7 +179,7 @@ const DatePicker = () => {
             </label>
             <select
               id="daytime"
-              className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+              className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
               defaultValue="12:00"
               {...register("daytime")}
             >
@@ -325,7 +293,7 @@ const DatePicker = () => {
         <input
           type="text"
           id="title"
-          className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+          className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
           {...register("title")}
           required
         />
@@ -340,7 +308,7 @@ const DatePicker = () => {
         </label>
         <textarea
           id="body"
-          className="text-gray-900 ring-gray-300 focus:ring-indigo-600 mt-2 block h-48 w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+          className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block h-48 w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
           {...register("body")}
           required
         ></textarea>
@@ -348,7 +316,7 @@ const DatePicker = () => {
 
         {/* Submit button */}
         <button
-          className="text-white hover:bg-indigo-500 focus-visible:outline-indigo-600 mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="text-white hover:bg-orange-500 focus-visible:outline-orange-600 mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
           type="submit"
         >
           Tilføj begivenhed
