@@ -9,7 +9,7 @@ import Link from "next/link";
 import Logo from "../components/Logo";
 import Navbar from "../components/navbar";
 import { Providers } from "@/providers/Providers";
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/Sidebar";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
