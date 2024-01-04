@@ -232,7 +232,7 @@ export default function ExternalLayout({
                     <Link
                       href="/da/intra/ekstern"
                       className={
-                        currentRoute === "/da/intra/ekstern"
+                        currentRoute === "/da/intra/external"
                           ? "group flex gap-x-3 rounded-md bg-tdk-blue-cardBg p-2 text-sm font-semibold leading-6 text-tdk-blue-200"
                           : "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       }
@@ -300,7 +300,7 @@ export default function ExternalLayout({
                         <span className="truncate">Hjem</span>
                       </Link>
                       <Link
-                        href="#"
+                        href="/om"
                         className="group flex gap-x-3
                         rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       >
@@ -310,7 +310,7 @@ export default function ExternalLayout({
                         <span className="truncate">Om</span>
                       </Link>
                       <Link
-                        href="#"
+                        href="/sangproeven"
                         className="group flex gap-x-3
                         rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       >
