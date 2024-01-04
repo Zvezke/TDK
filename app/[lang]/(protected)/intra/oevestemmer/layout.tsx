@@ -34,21 +34,6 @@ import Events from "@/app/[lang]/(protected)/intra/external/components/Events";
 import { useRefresh } from "@/pocketbase/auth";
 import { is } from "date-fns/locale";
 
-// const navigation = [
-//   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-//   { name: "Team", href: "#", icon: UsersIcon, current: false },
-//   { name: "Projects", href: "#", icon: FolderIcon, current: false },
-//   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-//   { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-//   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
-//   { name: "Reports", href: "#", icon: WindowIcon, current: false },
-// ];
-// const teams = [
-//   { id: 1, name: "Heroicons", href: "#", icon: WindowIcon, current: false },
-//   { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-//   { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
-// ];
-
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -58,12 +43,7 @@ export default function ExternalLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const [isLogged, setIsLogged] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  // const [authData, setAuthData] = useState<AuthRecord | null | undefined>(null);
-  // const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
-  //   null
-  // );
 
   const currentRoute = usePathname();
 
@@ -228,7 +208,7 @@ export default function ExternalLayout({
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
                     <Link
-                      href="/da/intra/ekstern"
+                      href="/da/intra/external"
                       className={
                         currentRoute === "/da/intra/ekstern"
                           ? "group flex gap-x-3 rounded-md bg-tdk-blue-cardBg p-2 text-sm font-semibold leading-6 text-tdk-blue-200"
@@ -285,7 +265,7 @@ export default function ExternalLayout({
                         <span className="truncate">Hjem</span>
                       </Link>
                       <Link
-                        href="#"
+                        href="/om"
                         className="group flex gap-x-3
                         rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       >
@@ -295,7 +275,7 @@ export default function ExternalLayout({
                         <span className="truncate">Om</span>
                       </Link>
                       <Link
-                        href="#"
+                        href="/sangproeven"
                         className="group flex gap-x-3
                         rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       >
