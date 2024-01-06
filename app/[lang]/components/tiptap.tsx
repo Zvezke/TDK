@@ -9,10 +9,11 @@ import Toolbar from "./toolbar";
 
 // Hiv data ud som props
 
-const pb = new PocketBase("https://pocketbase-development.up.railway.app");
+// const pb = new PocketBase("https://pocketbase-development.up.railway.app");
 
 const Tiptap = () => {
   const [title, setTitle] = useState("");
+
   const editor = useEditor({
     extensions: [StarterKit],
     content: "<p>Brødtekst ...</p>",
@@ -32,13 +33,17 @@ const Tiptap = () => {
       text: html,
     };
 
-    const record = await pb.collection("concert_tours_json").create(data);
+    // const record = await pb.collection("concert_tours_json").create(data);
   };
 
   return (
     <div className="flex min-h-[250px] flex-col justify-items-stretch">
       <label>Title</label>
-      <input type="text" onChange={(e) => setTitle(e.target.value)} />
+      <input
+        className="border-2 border-gray-700"
+        type="text"
+        onChange={(e) => setTitle(e.target.value)}
+      />
       <Toolbar editor={editor} />
       <EditorContent editor={editor} />
       <button onClick={handleData}>Gem</button>
