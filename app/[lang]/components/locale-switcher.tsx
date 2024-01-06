@@ -29,22 +29,24 @@ export default function LocaleSwitcher() {
       {/* {console.log(pathName)} */}
       {pathName.includes("/da") && (
         <Link key="da" href={redirectedPathName("en")}>
-          <Image
+          EN
+          {/* <Image
             src="/images/language.svg"
             alt="Icon for language switch"
             width={20}
             height={20}
-          />
+          /> */}
         </Link>
       )}
       {pathName.includes("/en") && (
         <Link key="en" href={redirectedPathName("da")}>
-          <Image
+          DA
+          {/* <Image
             src="/images/language.svg"
             alt="Icon for language switch"
             width={20}
             height={20}
-          />
+          /> */}
         </Link>
       )}
     </>
