@@ -9,7 +9,7 @@ import { da } from "date-fns/locale";
 
 import { IRecord } from "@/types/interfaces";
 
-const EventCards = () => {
+const EventsCards = () => {
   const [resultList, setResultList] = useState<IRecord[] | null>(null);
 
   const dayAndMonth = (date: string) => {
@@ -59,4 +59,4 @@ const EventCards = () => {
   );
 };
 
-export default EventCards;
+export default EventsCards;
