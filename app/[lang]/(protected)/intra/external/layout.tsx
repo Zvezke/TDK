@@ -28,7 +28,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import DatePicker from "@/app/[lang]/(protected)/intra/external/components/DatePicker";
-import Events from "@/app/[lang]/(protected)/intra/external/components/Events";
+import Events from "@/app/[lang]/(protected)/intra/external/components/EventsInternal";
 
 // Hooks
 import { useRefresh } from "@/pocketbase/auth";

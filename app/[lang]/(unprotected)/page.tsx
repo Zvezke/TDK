@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDictionary } from "@/get-dictionary";
-import EventCards from "./components/EventCards";
+import EventsCards from "./components/EventsCards";
 import { Suspense } from "react";
 
 // Hooks
@@ -149,8 +149,7 @@ export default async function Home({
           <Link
             // className="py-4 px-6 rounded-md font-medium text-tdk-blue-light-buttonsSubheadings outline-2 outline-tdk-blue-light-buttonsSubheadings dark:text-tdk-orange-400 dark:outline-tdk-orange-400"
             className="box-border rounded-md border-2 py-2 px-4 font-medium dark:border-tdk-orange-400 dark:text-tdk-orange-400 lg:mr-8 lg:py-4 lg:px-6"
-            href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
-            target="_blank"
+            href="/om"
             rel="noopener noreferrer"
           >
             {home.joinUs_secondaryButton}
@@ -169,69 +168,9 @@ export default async function Home({
             {/* Left, Cards - Aktiviteter */}
             <div className="col-start-1 col-end-2 lg:h-[32rem]">
               <Suspense fallback={<div>Henter begivenheder ...</div>}>
-                {/* @ts-ignore - bug in Next JS */}
-                <EventCards />
+                {/* @ts-ignore - bug in NextJS */}
+                <EventsCards />
               </Suspense>
-              {/* <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
-                <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
-                  <p className="font-bold leading-8">16. maj</p>
-                  <p className="text-base lg:text-sm">19.30</p>
-                </div>
-                <div className="col-start-5 col-end-13 px-2 py-4 lg:col-start-4 lg:px-4">
-                  <h4 className="truncate font-roboto text-xl font-medium leading-loose text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-2xl">
-                    ”Syng med Drengekoret”
-                  </h4>
-                  <p className="text-sm line-clamp-2">
-                    Syng med Drengekoret i Treenighedskirken. Fri entré.
-                  </p>
-                </div>
-              </div>
-              <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
-                <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
-                  <p className="font-bold leading-8">28. maj</p>
-                  <p className="text-base lg:text-sm">10.00</p>
-                </div>
-                <div className="col-start-5 col-end-13 px-2 py-4 lg:col-start-4 lg:px-4">
-                  <h4 className="truncate font-roboto text-xl font-medium leading-loose text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-2xl">
-                    Pinsehøjmesse
-                  </h4>
-                  <p className="text-sm line-clamp-2">
-                    Pinsehøjmesse i Treenighedskirken
-                  </p>
-                </div>
-              </div>
-              <div className="mb-4 grid grid-cols-12 gap-4 overflow-hidden rounded-md dark:bg-tdk-blue-cardBg max-md:mx-2">
-                <div className="col-start-1 col-end-5 flex flex-col justify-center bg-tdk-blue-300 pl-6 dark:bg-tdk-blue-400 dark:text-tdk-blue-700 lg:col-end-4 lg:px-8">
-                  <p className="text-lg font-bold leading-8 ">13. juni</p>
-                  <p className="text-base lg:text-sm">19.30</p>
-                </div>
-                <div className="col-start-5 col-end-13 px-2 py-4 lg:col-start-4 lg:px-4">
-                  <h4 className="truncate font-roboto text-xl font-medium leading-loose text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-2xl">
-                    Sommerkoncert i Treenighedskirken
-                  </h4>
-                  <p className="text-sm line-clamp-2">Fri entré</p>
-                </div>
-              </div> */}
-              {/* <div className="grid grid-cols-12 gap-4 rounded-md overflow-hidden mb-4 max-md:mx-2 dark:bg-tdk-blue-cardBg">
-                <div className="flex flex-col col-start-1 col-end-5 lg:col-end-4 justify-center pl-6 lg:px-8 bg-tdk-blue-300 dark:bg-tdk-blue-400 dark:text-tdk-blue-700">
-                  <p className="font-bold leading-8">28. feb.</p>
-                  <p className="text-base lg:text-sm">19.00</p>
-                </div>
-                <div className="px-2 lg:px-4 py-4 col-start-5 lg:col-start-4 col-end-13">
-                  <h4 className="font-roboto font-medium text-xl leading-loose truncate text-tdk-blue-light-headlines lg:text-2xl dark:text-tdk-blue-200">
-                    Årgang 22 har 1. fælles korprøve
-                  </h4>
-                  <p className="text-sm line-clamp-2">
-                    Årgang 22 har 1. fælles korprøve med sopraner og mandskoret
-                    kl. 19.00 – 19.50. Korprøven er denne aften forkortet, da
-                    korets afholder sin Generalforsamling fra kl. 20.00. Efter
-                    formandens beretning kan sopraner (og evt. forældre) forlade
-                    mødet, hvis de ønsker det (ca. kl. 20.20) Herefter er
-                    tiderne for Årgang 22: tirsdage kl. 19.00 – 20.15 og
-                    torsdage kl. 15.45 – 17.00
-                  </p>
-                </div>
-              </div> */}
             </div>
             {/* Right, IMG */}
             <Image

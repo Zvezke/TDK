@@ -14,7 +14,7 @@ import { useGetAllEvents } from "./server-actions";
 
 // Components
 import DatePicker from "@/app/[lang]/(protected)/intra/external/components/DatePicker";
-import Events from "@/app/[lang]/(protected)/intra/external/components/Events";
+import Events from "@/app/[lang]/(protected)/intra/external/components/EventsInternal";
 
 export default async function Page() {
   const supabase = createSupabaseServerComponentClient();
