@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import Tiptap from "../../components/tiptap";
+import Tiptap from "./components/Tiptap";
 
 import PocketBase from "pocketbase";
 
