@@ -5,7 +5,7 @@ import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
 // Context
 import { useAuth } from "@/context/AuthContext";
 
-const LogoutButton = async () => {
+const LogoutButton = () => {
   const { isLoggedIn, setIsLoggedIn } = useAuth();
 
   // Supabase

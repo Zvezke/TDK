@@ -6,9 +6,6 @@ import { usePathname, redirect } from "next/navigation";
 // Types and interfaces
 import { AuthRecord, IAuthStore, NavbarProps } from "@/types/interfaces";
 
-// Pocketbase
-import pb from "@/pocketbase/config";
-
 // Context
 import { useAuth } from "@/context/AuthContext";
 
@@ -46,27 +43,6 @@ export default function ExternalLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const currentRoute = usePathname();
-
-  // const { isLoggedIn, setIsLoggedIn } = useAuth();
-
-  // useEffect(() => {
-  //   const fetchAuthData = async () => {
-  //     const { authRefresh, pbAuthStore } = await useRefresh();
-  //     // console.log("pbAuthStore", pbAuthStore);
-  //     setAuthData(authRefresh?.record as unknown as AuthRecord | null);
-  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-  //     pbAuthStore?.isValid && setIsLoggedIn(true);
-  //     // console.log(isLoggedIn);
-  //   };
-  //   fetchAuthData();
-  // }, []);
-
-  // console.log("isLoggedIn", isLoggedIn);
-  // !isLoggedIn && redirect("/");
-
-  // useEffect(() => {
-  //   !isLoggedIn && redirect("/");
-  // }, [isLoggedIn]);
 
   return (
     <>

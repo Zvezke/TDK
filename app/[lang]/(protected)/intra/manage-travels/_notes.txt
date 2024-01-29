@@ -1,0 +1,61 @@
+PAGE.TSX:
+
+---
+
+MARKUP:
+Venstre side: Editor m. titel, datepicker, billede, knapper m. "Overskrifter", fed, kursiv (richtext editor), brødtekst, knap (gem).
+Højre side: Oversigt over alle sider (titel, billede, uddrag af brødtekst).
+
+---
+
+DATA:
+
+DATEPICKER:
+Samme som begivenheder.
+
+BILLEDE:
+FileUpload (storage).
+Funktionalitet:
+Upload billede til storage.
+Slette billede fra storage.
+
+NB. Input (type="file") skal nulstilles efter hver upload.
+
+EDITOR:
+Tiptap.
+Toolbar.
+
+KNAP (GEM):
+Data skal samles fra Datepicker, FileUpload og Editor.
+Send til Supabase:
+useCreateTravel (server-actions)
+
+Send: Titel, billede, brødtekst
+Billede: FileUpload (storage)
+Titel: text.
+Dato (måned og år): Date.
+Brødtekst: jsonb (richtext editor).
+-
+Fikset:
+
+---
+
+SUPABASE:
+Table "travels" m. titel (text), date (Date), image_url (url), rich_text (jsonb).
+
+Storage "travels" m. undermappe der er navngivet efter destination m. billede (file).
+Dvs. at inden billedet uploades, skal der laves en mappe med destinationens navn. Vi skal have URL'en til billedet, så vi kan gemme den i databasen.
+-
+Fikset:
+
+---
+
+Fremgang:
+1. Opret inputfelter (titel, datepicker, billede, brødtekst, knap).
+-
+Fikset:
+Titel.
+Knap (Gem)
+
+---
+2. Opret state (titel, datepicker, billede, editor). Console.log.

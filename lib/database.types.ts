@@ -98,6 +98,36 @@ export interface Database {
           }
         ]
       }
+      travels: {
+        Row: {
+          created_at: string
+          end_date: string | null
+          id: string
+          image_url: string | null
+          rich_text: Json | null
+          start_date: string | null
+          title: string | null
+        }
+        Insert: {
+          created_at?: string
+          end_date?: string | null
+          id?: string
+          image_url?: string | null
+          rich_text?: Json | null
+          start_date?: string | null
+          title?: string | null
+        }
+        Update: {
+          created_at?: string
+          end_date?: string | null
+          id?: string
+          image_url?: string | null
+          rich_text?: Json | null
+          start_date?: string | null
+          title?: string | null
+        }
+        Relationships: []
+      }
       voices: {
         Row: {
           created_at: string

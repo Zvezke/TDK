@@ -2,7 +2,10 @@
 
 // import { useState } from "react";
 
+// Components
+import AddTravel from "./components/AddTravel";
 import Tiptap from "./components/Tiptap";
+import UploadImage from "./components/UploadImage";
 
 // import PocketBase from "pocketbase";
 
@@ -20,6 +23,8 @@ const Page = () => {
   // };
   return (
     <div className="flex h-screen flex-col items-center justify-center">
+      <AddTravel />
+      {/* <UploadImage imageTitle="test" /> */}
       <Tiptap />
       {/* <button>Vis data</button> */}
       {/* <button onClick={displayData}>Vis data</button> */}
