@@ -206,7 +206,6 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               ) : (
                 // <ButtonLogIn />
                 <Suspense fallback={<div>Loading...</div>}>
-                  {/* @ts-expect-error Async Server Component */}
                   <LogoutButton />
                 </Suspense>
               )}

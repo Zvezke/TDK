@@ -26,69 +26,17 @@ import {
   MinusCircleIcon,
 } from "@heroicons/react/20/solid";
 
-// Import Pocketbase
-// import pb from "@/pocketbase/config";
-
 // Import the Loading component
 import Loading from "../../../../components/loading";
 import CardHeading from "../../../../components/cardHeadings";
 import EventsDeleteModal from "./EventsDeleteModal";
 
-// Define the interface for a record
-// interface IRecord {
-//   id: string;
-//   title: string;
-//   body: string;
-//   date: string;
-// }
-
-// Define a function to fetch the records from Pocketbase
-// const fetchData = async () => {
-//   pb.autoCancellation(false);
-//   const records = await pb.collection("events").getFullList({
-//     sort: "-date",
-//   });
-//   // console.log("records", records);
-//   const mappedRecords = records.map((record) => {
-//     return {
-//       id: record.id,
-//       title: record.title,
-//       body: record.body,
-//       date: record.date,
-//     };
-//   });
-//   return mappedRecords;
-// };
-
-// const formatDate = (inputDate: string) => {
-//   const date = parseISO(inputDate);
-//   // console.log("date", date);
-//   return format(date, "d. MMMM, 'kl.' HH:mm", { locale: da });
-// };
-
-// interface Event {
-//   body: string | null;
-//   created_at: string;
-//   date: string | null;
-//   id: string;
-//   title: string | null;
-// }
-
-// interface EventsProps {
-//   events: Event[] | null;
-// }
-
 interface EventProps {
   eventId: string | null;
 }
 
-// interface EventsProps {
-//   events: Events | null;
-// }
-
 const EventsPreferences = ({ eventId }: EventProps) => {
   const [open, setOpen] = useState(false);
-  console.log("eventId", eventId);
 
   const handleCloseModal = () => {
     setOpen(false);
@@ -97,72 +45,6 @@ const EventsPreferences = ({ eventId }: EventProps) => {
   function classNames(...classes: any) {
     return classes.filter(Boolean).join(" ");
   }
-
-  //   return (
-  //     <>
-  //       {events?.map((event) => (
-  //         <Suspense fallback={<p>Henter begivenheder ...</p>}>
-  //           <div>
-  //             <h3 className="text-sm font-semibold leading-6 text-gray-900">
-  //               {event?.title} -{" "}
-  //               <span className="mt-1 text-xs leading-5 text-gray-500">
-  //                 {formatDate(event?.date as string)}
-  //               </span>
-  //             </h3>
-  //             <p className="mt-1 truncate text-xs leading-5 text-gray-900">
-  //               {event.body}
-  //             </p>
-  //           </div>
-  //         </Suspense>
-  //       ))}
-  //     </>
-  //   );
-  // };
-
-  // Define the state for the snapshot and records
-  // const [snapshot, setSnapshot] = useState<IRecord | null>(null);
-  // const [records, setRecords] = useState<IRecord[]>([]);
-
-  // const router = useRouter();
-
-  // Unsubscribe from the Pocketbase collection when the component unmounts
-  // useEffect(() => {
-  //   return () => {
-  //     // console.log("Unsubscribing");
-  //     pb.collection("events").unsubscribe("*");
-  //   };
-  // }, []);
-
-  // // Fetch the records from Pocketbase when the component mounts
-  // useEffect(() => {
-  //   const fetchRecords = async () => {
-  //     const mappedRecords = await fetchData();
-  //     setRecords(mappedRecords);
-  //     // console.log("mappedRecords", mappedRecords);
-  //   };
-  //   fetchRecords();
-  // }, []);
-
-  // Subscribe to the Pocketbase collection and update the state with new records
-  // // pb.collection("events").subscribe("*", function (e) {
-  // //   console.log("Subscribing", e.record);
-  // //   if ("title" in e.record && "body" in e.record && "date" in e.record) {
-  // //     setSnapshot(e.record as unknown as IRecord);
-  // //   }
-  // //   setRecords((prevRecords) => {
-  // //     const index = prevRecords.findIndex(
-  // //       (record) => record.title === e.record.title
-  // //     );
-  // //     if (index === -1) {
-  // //       return [...prevRecords, e.record as unknown as IRecord];
-  // //     } else {
-  // //       const newRecords = [...prevRecords];
-  // //       newRecords[index] = e.record as unknown as IRecord;
-  // //       return newRecords;
-  // //     }
-  // //   });
-  // //   console.log("Subscription, snapshot", snapshot);
-  // // });
 
   return (
     <>

@@ -293,7 +293,7 @@ const DatePicker = () => {
         <input
           type="text"
           id="title"
-          className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+          className="block w-full rounded-md border-0 py-1.5 mt-2 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
           {...register("title")}
           required
         />
@@ -308,7 +308,7 @@ const DatePicker = () => {
         </label>
         <textarea
           id="body"
-          className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block h-48 w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+          className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 h-48 w-full rounded-md block border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
           {...register("body")}
           required
         ></textarea>

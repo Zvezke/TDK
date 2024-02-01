@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { useCreateTravel } from "../lib/server-actions";
 // import { useGetTravels } from "../_lib/server-actions";
-import { useEditor, EditorContent, Extension } from "@tiptap/react";
+import { useEditor, EditorContent, Extension, BubbleMenu } from "@tiptap/react";
 // import { StarterKit, Heading } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Toolbar from "./Toolbar";
@@ -73,6 +73,44 @@ const Tiptap = ({ setRichText }: Props) => {
   return (
     <div className="flex min-h-full flex-col">
       <Toolbar editor={editor} />
+      {editor && (
+        <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
+          <div className="flex gap-2">
+            <button
+              onClick={() =>
+                editor.chain().focus().toggleHeading({ level: 2 }).run()
+              }
+              className={
+                editor.isActive("heading", { level: 2 })
+                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+              }
+            >
+              H2
+            </button>
+            <button
+              onClick={() => editor.chain().focus().toggleBold().run()}
+              className={
+                editor.isActive("bold")
+                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+              }
+            >
+              Fed
+            </button>
+            <button
+              onClick={() => editor.chain().focus().toggleItalic().run()}
+              className={
+                editor.isActive("italic")
+                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+              }
+            >
+              Kursiv
+            </button>
+          </div>
+        </BubbleMenu>
+      )}
       {/* Tjek BubbleMenu: https://tiptap.dev/docs/editor/api/extensions/bubble-menu */}
       <EditorContent editor={editor} />
     </div>
