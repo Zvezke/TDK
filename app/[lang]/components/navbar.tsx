@@ -52,18 +52,6 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
     session: Session;
   } | null>(null);
 
-  // useEffect(() => {
-  //   const fetchAuthData = async () => {
-  //     const { authRefresh, pbAuthStore } = await useRefresh();
-  //     // console.log("pbAuthStore", pbAuthStore);
-  //     setAuthData(authRefresh?.record as unknown as AuthRecord | null);
-  //     setAuthStore(pbAuthStore as unknown as IAuthStore | null);
-  //     pbAuthStore?.isValid && setIsLoggedIn(true);
-  //     // console.log(isLoggedIn);
-  //   };
-  //   fetchAuthData();
-  // }, []);
-
   // useEffect, Supabase
   useEffect(() => {
     const fetchAuthSupabaseData = async () => {
