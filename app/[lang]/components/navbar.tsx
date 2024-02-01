@@ -84,22 +84,6 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
     setMenuOpen(!menuOpen);
   };
 
-  // const handleLogIn = async () => {
-  //   console.log("handleLogIn");
-  //   const {
-  //     authData,
-  //     pbAuthStore: authStore,
-  //     error,
-  //   } = await useLogin({
-  //     email: "superur@gmail.com",
-  //     password: "Ft30953095Ft",
-  //   });
-  //   console.log("authData", authData);
-  //   console.log("authStore", authStore);
-  //   console.log("error", error);
-  //   setIsLoggedIn(true);
-  // };
-
   const handleLogout = async () => {
     // console.log("handleLogout");
     const { authRefresh, pbAuthStore } = await useRefresh();
