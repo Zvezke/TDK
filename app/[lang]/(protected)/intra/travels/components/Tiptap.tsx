@@ -6,7 +6,7 @@ import React, { forwardRef, useImperativeHandle } from "react";
 import { useEditor, EditorContent, Extension, BubbleMenu } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Toolbar from "./Toolbar";
-import Heading from "@tiptap/extension-heading";
+import { Heading } from "@tiptap/extension-heading";
 import { Placeholder } from "@tiptap/extension-placeholder";
 
 interface TiptapProps {
