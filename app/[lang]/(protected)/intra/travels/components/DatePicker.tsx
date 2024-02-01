@@ -2,12 +2,15 @@
 
 // Måske bruge 'With title and pill actions' - https://tailwindui.com/components/application-ui/forms/textareas#component-c8189b6993ca18e9955b370f741b763b
 
+import { useTravel } from "../context/TravelContext";
+
 import { createDateTimeForSupabase } from "../utils/timeUtils";
 
 // Libraries
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useCreateTravel } from "../lib/server-actions";
 
 // Supabase
 // import { useCreateEvent } from "../server-actions";
@@ -18,8 +21,8 @@ type FormValues = {
   month: string;
   day: string;
   daytime: string;
-  title: string;
-  body: string;
+  // title: string;
+  // body: string;
 };
 
 const schema = z.object({
@@ -27,8 +30,8 @@ const schema = z.object({
   month: z.string(),
   day: z.string(),
   daytime: z.string(),
-  title: z.string(),
-  body: z.string(),
+  // title: z.string(),
+  // body: z.string(),
 });
 
 type Props = {
@@ -36,12 +39,14 @@ type Props = {
 };
 
 const DatePicker = (setDate: Props) => {
+  const { imageUrl, setImageUrl } = useTravel();
   const { register, handleSubmit, reset, formState } = useForm<FormValues>({
     resolver: zodResolver(schema),
   });
 
   const onSubmit = async (data: FormValues) => {
-    const { year, month, day, daytime, title, body } = data;
+    const { year, month, day, daytime } = data;
+    // const { year, month, day, daytime, title, body } = data;
 
     const dateForSupabase = createDateTimeForSupabase(
       year,
@@ -51,12 +56,14 @@ const DatePicker = (setDate: Props) => {
     );
 
     try {
-      // const dataForSupabase = {
-      //   title: title,
-      //   body: body,
-      //   date: dateForSupabase,
-      // };
-      // const { eventError } = await useCreateEvent(dataForSupabase);
+      // setId(
+      const dataForSupabase = {
+        // title: title,
+        // body: body,
+        date: dateForSupabase,
+      };
+      const { travel } = await useCreateTravel(dataForSupabase);
+      console.log("DatePicker, travel", travel);
       // console.warn("DatePicker, eventError", eventError);
     } catch (error) {
     } finally {

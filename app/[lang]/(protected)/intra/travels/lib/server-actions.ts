@@ -12,7 +12,8 @@ const useCreateTravel = async (travelData: any) => {
   const { data: travel, error: travelError } = await supabase
     .from("travels")
     .insert([travelData])
-    .select();
+    .select()
+    .single();
   return { travel, travelError };
 };
 

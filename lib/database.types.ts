@@ -4,173 +4,173 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json | undefined }
-  | Json[]
+  | Json[];
 
 export interface Database {
   public: {
     Tables: {
       diaries: {
         Row: {
-          body: Json | null
-          created_at: string
-          id: string
-          title: string | null
-        }
+          body: Json | null;
+          created_at: string;
+          id: string;
+          title: string | null;
+        };
         Insert: {
-          body?: Json | null
-          created_at?: string
-          id?: string
-          title?: string | null
-        }
+          body?: Json | null;
+          created_at?: string;
+          id?: string;
+          title?: string | null;
+        };
         Update: {
-          body?: Json | null
-          created_at?: string
-          id?: string
-          title?: string | null
-        }
-        Relationships: []
-      }
+          body?: Json | null;
+          created_at?: string;
+          id?: string;
+          title?: string | null;
+        };
+        Relationships: [];
+      };
       events: {
         Row: {
-          body: string | null
-          created_at: string
-          date: string | null
-          id: string
-          title: string | null
-        }
+          body: string | null;
+          created_at: string;
+          date: string | null;
+          id: string;
+          title: string | null;
+        };
         Insert: {
-          body?: string | null
-          created_at?: string
-          date?: string | null
-          id?: string
-          title?: string | null
-        }
+          body?: string | null;
+          created_at?: string;
+          date?: string | null;
+          id?: string;
+          title?: string | null;
+        };
         Update: {
-          body?: string | null
-          created_at?: string
-          date?: string | null
-          id?: string
-          title?: string | null
-        }
-        Relationships: []
-      }
+          body?: string | null;
+          created_at?: string;
+          date?: string | null;
+          id?: string;
+          title?: string | null;
+        };
+        Relationships: [];
+      };
       songs: {
         Row: {
-          created_at: string
-          id: string
-          title: string | null
-        }
+          created_at: string;
+          id: string;
+          title: string | null;
+        };
         Insert: {
-          created_at?: string
-          id?: string
-          title?: string | null
-        }
+          created_at?: string;
+          id?: string;
+          title?: string | null;
+        };
         Update: {
-          created_at?: string
-          id?: string
-          title?: string | null
-        }
-        Relationships: []
-      }
+          created_at?: string;
+          id?: string;
+          title?: string | null;
+        };
+        Relationships: [];
+      };
       songs_body: {
         Row: {
-          body: string | null
-          created_at: string
-          id: string
-        }
+          body: string | null;
+          created_at: string;
+          id: string;
+        };
         Insert: {
-          body?: string | null
-          created_at?: string
-          id: string
-        }
+          body?: string | null;
+          created_at?: string;
+          id: string;
+        };
         Update: {
-          body?: string | null
-          created_at?: string
-          id?: string
-        }
+          body?: string | null;
+          created_at?: string;
+          id?: string;
+        };
         Relationships: [
           {
-            foreignKeyName: "songs_body_id_fkey"
-            columns: ["id"]
-            isOneToOne: true
-            referencedRelation: "songs"
-            referencedColumns: ["id"]
+            foreignKeyName: "songs_body_id_fkey";
+            columns: ["id"];
+            isOneToOne: true;
+            referencedRelation: "songs";
+            referencedColumns: ["id"];
           }
-        ]
-      }
+        ];
+      };
       travels: {
         Row: {
-          created_at: string
-          end_date: string | null
-          id: string
-          image_url: string | null
-          rich_text: Json | null
-          start_date: string | null
-          title: string | null
-        }
+          created_at: string;
+          end_date: string | null;
+          image_url: string;
+          image_url: string | null;
+          rich_text: Json | null;
+          start_date: string | null;
+          title: string | null;
+        };
         Insert: {
-          created_at?: string
-          end_date?: string | null
-          id?: string
-          image_url?: string | null
-          rich_text?: Json | null
-          start_date?: string | null
-          title?: string | null
-        }
+          created_at?: string;
+          end_date?: string | null;
+          id?: string;
+          image_url?: string | null;
+          rich_text?: Json | null;
+          start_date?: string | null;
+          title?: string | null;
+        };
         Update: {
-          created_at?: string
-          end_date?: string | null
-          id?: string
-          image_url?: string | null
-          rich_text?: Json | null
-          start_date?: string | null
-          title?: string | null
-        }
-        Relationships: []
-      }
+          created_at?: string;
+          end_date?: string | null;
+          id?: string;
+          image_url?: string | null;
+          rich_text?: Json | null;
+          start_date?: string | null;
+          title?: string | null;
+        };
+        Relationships: [];
+      };
       voices: {
         Row: {
-          created_at: string
-          id: string
-          song_title: string | null
-          voice: string | null
-        }
+          created_at: string;
+          id: string;
+          song_title: string | null;
+          voice: string | null;
+        };
         Insert: {
-          created_at?: string
-          id?: string
-          song_title?: string | null
-          voice?: string | null
-        }
+          created_at?: string;
+          id?: string;
+          song_title?: string | null;
+          voice?: string | null;
+        };
         Update: {
-          created_at?: string
-          id?: string
-          song_title?: string | null
-          voice?: string | null
-        }
+          created_at?: string;
+          id?: string;
+          song_title?: string | null;
+          voice?: string | null;
+        };
         Relationships: [
           {
-            foreignKeyName: "voices_song_title_fkey"
-            columns: ["song_title"]
-            isOneToOne: false
-            referencedRelation: "songs"
-            referencedColumns: ["title"]
+            foreignKeyName: "voices_song_title_fkey";
+            columns: ["song_title"];
+            isOneToOne: false;
+            referencedRelation: "songs";
+            referencedColumns: ["title"];
           }
-        ]
-      }
-    }
+        ];
+      };
+    };
     Views: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Functions: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Enums: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     CompositeTypes: {
-      [_ in never]: never
-    }
-  }
+      [_ in never]: never;
+    };
+  };
 }
 
 export type Tables<
@@ -184,7 +184,7 @@ export type Tables<
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
       Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
-      Row: infer R
+      Row: infer R;
     }
     ? R
     : never
@@ -192,11 +192,11 @@ export type Tables<
       Database["public"]["Views"])
   ? (Database["public"]["Tables"] &
       Database["public"]["Views"])[PublicTableNameOrOptions] extends {
-      Row: infer R
+      Row: infer R;
     }
     ? R
     : never
-  : never
+  : never;
 
 export type TablesInsert<
   PublicTableNameOrOptions extends
@@ -207,17 +207,17 @@ export type TablesInsert<
     : never = never
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Insert: infer I
+      Insert: infer I;
     }
     ? I
     : never
   : PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
   ? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
-      Insert: infer I
+      Insert: infer I;
     }
     ? I
     : never
-  : never
+  : never;
 
 export type TablesUpdate<
   PublicTableNameOrOptions extends
@@ -228,17 +228,17 @@ export type TablesUpdate<
     : never = never
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Update: infer U
+      Update: infer U;
     }
     ? U
     : never
   : PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
   ? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
-      Update: infer U
+      Update: infer U;
     }
     ? U
     : never
-  : never
+  : never;
 
 export type Enums<
   PublicEnumNameOrOptions extends
@@ -251,4 +251,4 @@ export type Enums<
   ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : PublicEnumNameOrOptions extends keyof Database["public"]["Enums"]
   ? Database["public"]["Enums"][PublicEnumNameOrOptions]
-  : never
+  : never;

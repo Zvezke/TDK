@@ -1,16 +1,10 @@
-// "use client";
-
 import { createSupabaseServerComponentClient } from "@/supabase/backendClient";
-// import { createSupabaseBackendClient } from "@/supabase/backendClient";
 import { useServerAuthSession } from "@/utils/auth";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
 // Supabase
 import { useGetAllEvents } from "./server-actions";
-
-// Context
-// import { useAuth } from "@/context/AuthContext";
 
 // Components
 import DatePicker from "@/app/[lang]/(protected)/intra/external/components/DatePicker";
@@ -20,8 +14,6 @@ export default async function Page() {
   const supabase = createSupabaseServerComponentClient();
   const { events, eventsError } = await useGetAllEvents();
   const { data } = await useServerAuthSession();
-  // const { data, error } = await supabase.auth.getSession();
-  // console.log("events", events);
 
   if (!data.session) {
     return redirect("/login");

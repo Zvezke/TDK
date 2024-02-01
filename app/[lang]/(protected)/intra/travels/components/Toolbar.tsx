@@ -19,7 +19,23 @@ const Toolbar = ({ editor }: Props) => {
           editor.isActive("heading", { level: 2 }) && "active-editor-btn"
         }`}
       >
-        Overskrift
+        H2
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleBold().run()}
+        className={`editor-btn ${
+          editor.isActive("bold") && "active-editor-btn"
+        }`}
+      >
+        B
+      </button>
+      <button
+        onClick={() => editor.chain().focus().toggleItalic().run()}
+        className={`editor-btn ${
+          editor.isActive("italic") && "active-editor-btn"
+        }`}
+      >
+        I
       </button>
     </div>
   );

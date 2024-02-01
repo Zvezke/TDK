@@ -16,7 +16,6 @@ Samme som begivenheder.
 BILLEDE:
 FileUpload (storage).
 Funktionalitet:
-Upload billede til storage.
 Slette billede fra storage.
 
 NB. Input (type="file") skal nulstilles efter hver upload.
@@ -30,13 +29,19 @@ Data skal samles fra Datepicker, FileUpload og Editor.
 Send til Supabase:
 useCreateTravel (server-actions)
 
+Knappen skal ... :
 Send: Titel, billede, brødtekst
 Billede: FileUpload (storage)
 Titel: text.
 Dato (måned og år): Date.
 Brødtekst: jsonb (richtext editor).
+
 -
+
 Fikset:
+
+BILLEDE:
+Upload billede til storage.
 
 ---
 

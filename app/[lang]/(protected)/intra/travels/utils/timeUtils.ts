@@ -132,3 +132,23 @@ export function createDateTimeForSupabase(
 //   const hoursToAdjust = isDst ? 0 : 1; // Adjust by 1 hour for DST, otherwise 2
 //   return subtractedHours(timeString, hoursToAdjust);
 // }
+
+const monthMapping: { [key: string]: number } = {
+  Januar: 0,
+  Februar: 1,
+  Marts: 2,
+  April: 3,
+  Maj: 4,
+  Juni: 5,
+  Juli: 6,
+  August: 7,
+  September: 8,
+  Oktober: 9,
+  November: 10,
+  December: 11,
+};
+
+export const createDate = (year: string, month: string, day: string) => {
+  const date = new Date(parseInt(year), monthMapping[month], parseInt(day));
+  return date;
+};
