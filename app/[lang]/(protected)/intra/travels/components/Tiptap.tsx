@@ -57,7 +57,7 @@ const Tiptap = ({ setRichText }: Props) => {
     editorProps: {
       attributes: {
         class:
-          "text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block min-h-[40vh] w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6",
+          "text-gray-900 ring-gray-300 focus:outline-orange-600 mt-2 block min-h-[40vh] w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset sm:text-sm sm:leading-6",
       },
     },
     onUpdate: ({ editor }) => {
@@ -82,8 +82,8 @@ const Tiptap = ({ setRichText }: Props) => {
               }
               className={
                 editor.isActive("heading", { level: 2 })
-                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
-                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-700"
+                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-700"
               }
             >
               H2
@@ -92,8 +92,8 @@ const Tiptap = ({ setRichText }: Props) => {
               onClick={() => editor.chain().focus().toggleBold().run()}
               className={
                 editor.isActive("bold")
-                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
-                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-700"
+                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-700"
               }
             >
               Fed
@@ -102,8 +102,8 @@ const Tiptap = ({ setRichText }: Props) => {
               onClick={() => editor.chain().focus().toggleItalic().run()}
               className={
                 editor.isActive("italic")
-                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
-                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
+                  ? "rounded bg-tdk-blue-800 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-700"
+                  : "rounded bg-tdk-blue-400 px-2 py-1 text-xs font-semibold text-tdk-blue-800 shadow-sm hover:bg-tdk-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-700"
               }
             >
               Kursiv
