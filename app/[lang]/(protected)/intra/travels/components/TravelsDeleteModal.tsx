@@ -3,24 +3,40 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 // Server actions
-// import { useDeleteEvent } from "../server-actions";
+import { useDeleteTravel } from "../lib/server-actions";
 
-interface EventsDeleteModalProps {
-  eventId: string;
+// Utils
+import { getFileNameFromUrl } from "../utils/fileUtils";
+
+interface TravelsDeleteModalProps {
+  travelId: string;
+  travelImageUrl: string;
   open: boolean;
   onClose: () => void;
 }
 
-export default function EventsDeleteModal({
-  eventId,
+export default function TravelsDeleteModal({
+  travelId,
+  travelImageUrl,
   open,
   onClose,
-}: EventsDeleteModalProps) {
+}: TravelsDeleteModalProps) {
   // const [open = false, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
 
-  const handleDeleteEvent = async () => {
-    // await useDeleteEvent(eventId);
+  const fileName = getFileNameFromUrl(travelImageUrl as string);
+
+  const handleDeleteTravel = async () => {
+    const { travelDeleteError, travelImageDeleteError } = await useDeleteTravel(
+      travelId,
+      fileName as string
+    );
+    if (travelDeleteError) {
+      console.log("Error deleting travel", travelDeleteError);
+    }
+    if (travelImageDeleteError) {
+      console.log("Error deleting travel image", travelImageDeleteError);
+    }
   };
 
   return (
@@ -80,10 +96,10 @@ export default function EventsDeleteModal({
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                    // onClick={async () => {
-                    //   await handleDeleteEvent();
-                    //   onClose();
-                    // }}
+                    onClick={async () => {
+                      await handleDeleteTravel();
+                      onClose();
+                    }}
                     // onClick={() => setOpen(false)}
                   >
                     Slet
@@ -91,6 +107,7 @@ export default function EventsDeleteModal({
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                    // onClick={console.log("cancel")}
                     onClick={onClose}
                     ref={cancelButtonRef}
                   >

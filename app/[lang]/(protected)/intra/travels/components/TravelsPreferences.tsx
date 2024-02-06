@@ -29,16 +29,18 @@ import {
 // Import the Loading component
 // import Loading from "../../../../components/loading";
 // import CardHeading from "../../../../components/cardHeadings";
-import EventsDeleteModal from "./TravelsDeleteModal";
+import TravelsDeleteModal from "./TravelsDeleteModal";
 
-interface EventProps {
-  eventId: string | null;
+interface TravelProps {
+  travelId: string | null;
+  travelImageUrl: string | null;
 }
 
-const EventsPreferences = ({ eventId }: EventProps) => {
+const TravelsPreferences = ({ travelId, travelImageUrl }: TravelProps) => {
   const [open, setOpen] = useState(false);
 
   const handleCloseModal = () => {
+    console.log("close");
     setOpen(false);
   };
 
@@ -100,7 +102,7 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                           onClick={() => setOpen(true)}
                           // onClick={async () => {
                           // await useDeleteEvent(eventId as string);
-                          // }}
+                          // }}eventId
                           href="#"
                           className={classNames(
                             active
@@ -122,8 +124,9 @@ const EventsPreferences = ({ eventId }: EventProps) => {
               </Transition>
             </Menu>
           </div>
-          <EventsDeleteModal
-            eventId={eventId as string}
+          <TravelsDeleteModal
+            travelId={travelId as string}
+            travelImageUrl={travelImageUrl as string}
             open={open}
             onClose={handleCloseModal}
           />
@@ -137,4 +140,4 @@ const EventsPreferences = ({ eventId }: EventProps) => {
   );
 };
 
-export default EventsPreferences;
+export default TravelsPreferences;

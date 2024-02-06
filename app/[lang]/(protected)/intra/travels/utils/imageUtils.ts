@@ -51,4 +51,26 @@ const addImage = async (
   }
 };
 
-export { addImage };
+const removeChosenImage = async (
+  fileInputRef: RefObject<HTMLInputElement>,
+  setImageUrl: (id: string | null) => void,
+  imageUrl: string | null
+) => {
+  const supabase = createSupabaseFrontendClient<Database>();
+  const fileNameFromPreviousUrl = imageUrl?.split("/").pop();
+
+  const { error: travelsStorageError } = await supabase.storage
+    .from("travels-storage")
+    .remove([fileNameFromPreviousUrl!]);
+  if (travelsStorageError) {
+    console.log("UploadImage, error", travelsStorageError);
+    return;
+  }
+  setImageUrl(null);
+
+  if (fileInputRef.current) {
+    fileInputRef.current.value = "";
+  }
+};
+
+export { addImage, removeChosenImage };

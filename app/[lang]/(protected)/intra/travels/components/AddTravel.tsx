@@ -86,7 +86,7 @@ const AddTravel = () => {
       if (travelError) {
         console.log("AddTravel, travelError", travelError);
       }
-      setImageUrl("");
+      setImageUrl(null);
       setRichText("");
       setTitle("");
       setYear("2024");
@@ -98,182 +98,161 @@ const AddTravel = () => {
     }
   };
 
-  const { errors } = formState;
-
   return (
     <>
       {/* <DatePicker setDate={setDate} /> */}
       <div className="">
-        {/* <form className="grid" onSubmit={handleSubmit(onSubmit)}> */}
-        <div className="flex gap-2">
-          {/* <div className="flex justify-between"> */}
-          {/* Month */}
-          <div className="flex flex-1 flex-col">
-            Test of input field
+        <div className="grid">
+          <div className="flex gap-2">
+            {/* <div className="flex justify-between"> */}
+            {/* Month */}
+            <div className="flex flex-1 flex-col">
+              <label
+                htmlFor="Month"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Måned
+              </label>
+              <select
+                id="Month"
+                className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
+                // Set default value to current month
+                // defaultValue="Januar"
+                value={month}
+                onChange={(e) => setMonth(e.target.value)}
+              >
+                <option>Januar</option>
+                <option>Februar</option>
+                <option>Marts</option>
+                <option>April</option>
+                <option>Maj</option>
+                <option>Juni</option>
+                <option>Juli</option>
+                <option>August</option>
+                <option>September</option>
+                <option>Oktober</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+              {/* {errors.month && <span>{errors.month.message}</span>} */}
+            </div>
+
+            {/* Day */}
+            <div className="flex flex-1 flex-col">
+              <label
+                htmlFor="Day"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Dag
+              </label>
+              <select
+                id="Day"
+                className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
+                // Set default value to current day
+                // defaultValue="1"
+                value={day}
+                onChange={(e) => setDay(e.target.value)}
+                // {...register("day")}
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+              </select>
+              {/* {errors.day && <span>{errors.day.message}</span>} */}
+            </div>
+
+            {/* Year */}
+            <div className="flex flex-1 flex-col">
+              <label
+                htmlFor="year"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                År
+              </label>
+              <select
+                id="year"
+                className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
+                // Set default value to current year
+                // defaultValue="2023"
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+                // {...register("year")}
+              >
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+              </select>
+              {/* {errors.year && <span>{errors.year.message}</span>} */}
+            </div>
+          </div>
+
+          {/* Title */}
+          <label
+            htmlFor="title"
+            className="mt-4 block text-sm font-medium leading-6 text-gray-900"
+          >
+            Titel
+          </label>
+          <div className="flex gap-2">
             <input
               type="text"
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
-              // Set default value to current month
-              // defaultValue="Januar"
+              className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
             />
-            <label
-              htmlFor="Month"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Måned
-            </label>
-            <select
-              id="Month"
-              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
-              // Set default value to current month
-              // defaultValue="Januar"
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
-            >
-              <option>Januar</option>
-              <option>Februar</option>
-              <option>Marts</option>
-              <option>April</option>
-              <option>Maj</option>
-              <option>Juni</option>
-              <option>Juli</option>
-              <option>August</option>
-              <option>September</option>
-              <option>Oktober</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-            {/* {errors.month && <span>{errors.month.message}</span>} */}
+            <UploadImage />
+            {/* <UploadImage imageTitle={title} /> */}
           </div>
 
-          {/* Day */}
-          <div className="flex flex-1 flex-col">
-            <label
-              htmlFor="Day"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Dag
-            </label>
-            <select
-              id="Day"
-              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
-              // Set default value to current day
-              // defaultValue="1"
-              value={day}
-              onChange={(e) => setDay(e.target.value)}
-              // {...register("day")}
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18</option>
-              <option>19</option>
-              <option>20</option>
-              <option>21</option>
-              <option>22</option>
-              <option>23</option>
-              <option>24</option>
-              <option>25</option>
-              <option>26</option>
-              <option>27</option>
-              <option>28</option>
-              <option>29</option>
-              <option>30</option>
-              <option>31</option>
-            </select>
-            {/* {errors.day && <span>{errors.day.message}</span>} */}
-          </div>
-
-          {/* Year */}
-          <div className="flex flex-1 flex-col">
-            <label
-              htmlFor="year"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              År
-            </label>
-            <select
-              id="year"
-              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
-              // Set default value to current year
-              // defaultValue="2023"
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
-              // {...register("year")}
-            >
-              <option>2024</option>
-              <option>2025</option>
-              <option>2026</option>
-            </select>
-            {/* {errors.year && <span>{errors.year.message}</span>} */}
-          </div>
-        </div>
-
-        {/* Title */}
-        {/* <label
-            htmlFor="title"
+          {/* Body */}
+          <label
+            htmlFor="body"
             className="mt-4 block text-sm font-medium leading-6 text-gray-900"
           >
-            Titel
-          </label> */}
-        <div className="flex gap-2">
-          {/* <input
-              type="text"
-              id="title"
-              className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
-              {...register("title")}
-              required
-            /> */}
-          <UploadImage imageTitle={title} />
+            Dagbogen
+          </label>
+
+          {/* Rich text editor */}
+          <Tiptap setRichText={setRichText} />
+
+          {/* Button to submit */}
+          <button
+            className="mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+            onClick={handleSubmission}
+          >
+            Tilføj koncertrejse
+          </button>
+          {/* <button onClick={handleDeleteTravel}>useDeleteTravel</button> */}
         </div>
-        {/* {errors.title && <span>{errors.title.message}</span>} */}
-        {/* Body */}
-        <label
-          htmlFor="body"
-          className="mt-4 block text-sm font-medium leading-6 text-gray-900"
-        >
-          Dagbogen
-        </label>
-        {/* <Tiptap /> */}
-        {/* <Tiptap ref={tiptapRef} /> */}
-        {/* <Tiptap
-            richText={richText}
-            setRichText={setRichText}
-            // updateRichTextBeforeSubmit={updateRichTextBeforeSubmit}
-          /> */}
-        {/* {errors.body && <span>{errors.body.message}</span>} */}
-        {/* Submit button */}
-        <button
-          className="mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-          // type="submit"
-          onClick={handleSubmission}
-        >
-          Tilføj koncertrejse
-        </button>
-        {/* </form> */}
-        {/* <Tiptap ref={editorRef} /> */}
-        <Tiptap
-          // richText={richText}
-          setRichText={setRichText}
-          // updateRichTextBeforeSubmit={updateRichTextBeforeSubmit}
-        />
       </div>
     </>
   );

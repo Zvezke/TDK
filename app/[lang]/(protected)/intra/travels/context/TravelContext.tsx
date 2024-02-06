@@ -12,14 +12,14 @@ type TravelProviderProps = {
 };
 
 const TravelContext = createContext<TravelContextProps>({
-  imageUrl: "",
+  imageUrl: null,
   setImageUrl: () => {},
 });
 
 export const TravelProvider = ({ children }: TravelProviderProps) => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
-  imageUrl && console.log("TravelContext, imageUrl", imageUrl);
+  // imageUrl && console.log("TravelContext, imageUrl", imageUrl);
 
   return (
     <TravelContext.Provider value={{ imageUrl, setImageUrl }}>
