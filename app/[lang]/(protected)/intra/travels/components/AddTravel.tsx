@@ -8,13 +8,13 @@ import { useState, useRef } from "react";
 import { useTravel } from "../context/TravelContext";
 
 // Utils
-import { createDateTimeForSupabase } from "../utils/timeUtils";
+// import { createDateTimeForSupabase } from "../utils/timeUtils";
 import { createDate } from "../utils/timeUtils";
 
 // Libraries
-import { useForm } from "react-hook-form";
-import { z, ZodType } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+// import { useForm } from "react-hook-form";
+// import { z, ZodType } from "zod";
+// import { zodResolver } from "@hookform/resolvers/zod";
 
 // Components
 import UploadImage from "./UploadImage";
@@ -25,24 +25,24 @@ import Tiptap from "./Tiptap";
 // import { useCreateEvent } from "../server-actions";
 
 // Types
-type FormValues = {
-  // year: string;
-  // month: string;
-  // day: string;
-  // imageUrl: string;
-  // title: string;
-  // richText: string;
-};
+// type FormValues = {
+//   // year: string;
+//   // month: string;
+//   // day: string;
+//   // imageUrl: string;
+//   // title: string;
+//   // richText: string;
+// };
 
-const schema = z.object({
-  // year: z.string(),
-  // month: z.string(),
-  // day: z.string(),
-  // imageUrl: z.string().optional(),
-  // title: z.string(),
-  // // body: z.string(),
-  // richText: z.string(),
-});
+// const schema = z.object({
+//   // year: z.string(),
+//   // month: z.string(),
+//   // day: z.string(),
+//   // imageUrl: z.string().optional(),
+//   // title: z.string(),
+//   // // body: z.string(),
+//   // richText: z.string(),
+// });
 
 const AddTravel = () => {
   // const [test, setTest] = useState<string>("");
@@ -52,27 +52,16 @@ const AddTravel = () => {
   const [title, setTitle] = useState<string>("");
   const { imageUrl, setImageUrl } = useTravel();
   const [richText, setRichText] = useState<string>("");
-  // const tiptapRef = useRef<TiptapHandles>(null);
-  // const editorRef = useRef<{ getEditorContent: () => string }>(null);
 
-  const { register, handleSubmit, reset, formState } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-  });
+  const editorRef = useRef<any>();
 
-  // const onSubmit = async (data: FormValues) => {
+  // const { register, handleSubmit, reset, formState } = useForm<FormValues>({
+  //   resolver: zodResolver(schema),
+  // });
+
   const handleSubmission = async () => {
-    // console.log("AddTravel, data", data);
-    // const { year, month, day } = data;
-    // const { year, month, day, title } = data;
-
-    // setRichText(currentRichText);
-    // updateRichTextBeforeSubmit();
-
     const dateForSupabase = createDate(year, month, day);
     console.log("dateForSupabase", dateForSupabase);
-
-    // const currentContent = editorRef.current?.getEditorContent();
-    // updateRichTextBeforeSubmit(currentContent || "");
 
     try {
       const travelData = {
@@ -85,6 +74,7 @@ const AddTravel = () => {
       const { travelError } = await useCreateTravel(travelData);
       if (travelError) {
         console.log("AddTravel, travelError", travelError);
+        return;
       }
       setImageUrl(null);
       setRichText("");
@@ -92,9 +82,10 @@ const AddTravel = () => {
       setYear("2024");
       setMonth("Januar");
       setDay("1");
+      editorRef.current.resetEditor();
     } catch (error) {
     } finally {
-      reset();
+      // reset();
     }
   };
 
@@ -230,7 +221,6 @@ const AddTravel = () => {
               className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
             />
             <UploadImage />
-            {/* <UploadImage imageTitle={title} /> */}
           </div>
 
           {/* Body */}
@@ -242,7 +232,7 @@ const AddTravel = () => {
           </label>
 
           {/* Rich text editor */}
-          <Tiptap setRichText={setRichText} />
+          <Tiptap setRichText={setRichText} ref={editorRef} />
 
           {/* Button to submit */}
           <button

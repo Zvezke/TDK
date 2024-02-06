@@ -1,34 +1,19 @@
 "use client";
 
 // import { useState } from "react";
-import React, { forwardRef, useImperativeHandle, useState } from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 
-import { useCreateTravel } from "../lib/server-actions";
-// import { useGetTravels } from "../_lib/server-actions";
 import { useEditor, EditorContent, Extension, BubbleMenu } from "@tiptap/react";
-// import { StarterKit, Heading } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Toolbar from "./Toolbar";
 import Heading from "@tiptap/extension-heading";
 import { Placeholder } from "@tiptap/extension-placeholder";
 
-// Define the props type, including any props besides the ref you might pass
 interface TiptapProps {
-  // richText: string;
   setRichText: React.Dispatch<React.SetStateAction<string>>;
 }
 
-// Define the ref's type to specify what methods it will expose
-// interface TiptapHandles {
-//   getCurrentContent: () => string;
-// }
-
-const Tiptap = ({ setRichText }: TiptapProps) => {
-  // const [newRichText, setNewRichText] = useState<string>("");
-  // const [title, setTitle] = useState("");
-
-  // updateRichTextBeforeSubmit(newRichText);
-
+const Tiptap = forwardRef(({ setRichText }: TiptapProps, ref) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -54,10 +39,13 @@ const Tiptap = ({ setRichText }: TiptapProps) => {
     },
   });
 
-  // useImperativeHandle(ref, () => ({
-  //   getEditorContent: () => {
-  //     return newRichText;
-  //   },
+  const resetEditor = () => {
+    editor?.chain().setContent("").run();
+  };
+
+  useImperativeHandle(ref, () => ({
+    resetEditor,
+  }));
 
   if (!editor) {
     return null;
@@ -107,6 +95,6 @@ const Tiptap = ({ setRichText }: TiptapProps) => {
       <EditorContent editor={editor} />
     </div>
   );
-};
+});
 
 export default Tiptap;
