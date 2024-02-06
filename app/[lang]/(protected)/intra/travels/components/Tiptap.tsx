@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
+import React, { forwardRef, useImperativeHandle, useState } from "react";
 
 import { useCreateTravel } from "../lib/server-actions";
 // import { useGetTravels } from "../_lib/server-actions";
@@ -11,39 +12,26 @@ import Toolbar from "./Toolbar";
 import Heading from "@tiptap/extension-heading";
 import { Placeholder } from "@tiptap/extension-placeholder";
 
-type Props = {
+// Define the props type, including any props besides the ref you might pass
+interface TiptapProps {
+  // richText: string;
   setRichText: React.Dispatch<React.SetStateAction<string>>;
-};
+}
 
-const Tiptap = ({ setRichText }: Props) => {
+// Define the ref's type to specify what methods it will expose
+// interface TiptapHandles {
+//   getCurrentContent: () => string;
+// }
+
+const Tiptap = ({ setRichText }: TiptapProps) => {
+  // const [newRichText, setNewRichText] = useState<string>("");
   // const [title, setTitle] = useState("");
+
+  // updateRichTextBeforeSubmit(newRichText);
 
   const editor = useEditor({
     extensions: [
       StarterKit,
-      // StarterKit.configure({
-      //   bold: {
-      //     HTMLAttributes: {
-      //       class: "font-bold",
-      //     },
-      //   },
-      //   italic: {
-      //     HTMLAttributes: {
-      //       class: "italic",
-      //     },
-      //   },
-      //   strike: {
-      //     HTMLAttributes: {
-      //       class: "line-through",
-      //     },
-      //   },
-      //   code: {
-      //     HTMLAttributes: {
-      //       class: "font-mono",
-      //     },
-      //   },
-      // }),
-
       Heading.configure({
         HTMLAttributes: {
           class: "text-xl font-bold font-roboto",
@@ -61,10 +49,15 @@ const Tiptap = ({ setRichText }: Props) => {
       },
     },
     onUpdate: ({ editor }) => {
-      const richText = JSON.parse(JSON.stringify(editor.getJSON()));
-      setRichText(richText);
+      const newRichText = JSON.parse(JSON.stringify(editor?.getJSON()));
+      setRichText(newRichText);
     },
   });
+
+  // useImperativeHandle(ref, () => ({
+  //   getEditorContent: () => {
+  //     return newRichText;
+  //   },
 
   if (!editor) {
     return null;
@@ -111,7 +104,6 @@ const Tiptap = ({ setRichText }: Props) => {
           </div>
         </BubbleMenu>
       )}
-      {/* Tjek BubbleMenu: https://tiptap.dev/docs/editor/api/extensions/bubble-menu */}
       <EditorContent editor={editor} />
     </div>
   );

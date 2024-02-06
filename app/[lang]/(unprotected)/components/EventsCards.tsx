@@ -1,4 +1,4 @@
-import { useGetAllEvents } from "../_utils/server-actions";
+import { useGetAllEvents } from "../utils/server-actions";
 import { format } from "date-fns";
 import { da } from "date-fns/locale";
 import EventsExternal from "./EventsExternal";

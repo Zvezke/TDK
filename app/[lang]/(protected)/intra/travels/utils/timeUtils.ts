@@ -149,6 +149,10 @@ const monthMapping: { [key: string]: number } = {
 };
 
 export const createDate = (year: string, month: string, day: string) => {
-  const date = new Date(parseInt(year), monthMapping[month], parseInt(day));
+  const monthNumber = monthMapping[month] + 1; // Months are 1-indexed in date strings
+  const dateStr = `${year}-${monthNumber
+    .toString()
+    .padStart(2, "0")}-${day.padStart(2, "0")}`;
+  const date = new Date(dateStr);
   return date;
 };

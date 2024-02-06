@@ -3,31 +3,28 @@ PAGE.TSX:
 ---
 
 MARKUP:
-Venstre side: Editor m. titel, datepicker, billede, knapper m. "Overskrifter", fed, kursiv (richtext editor), brødtekst, knap (gem).
+Fikset: Venstre side: Editor m. titel, datepicker, billede, knapper m. "Overskrifter", fed, kursiv (richtext editor), brødtekst, knap (gem).
 Højre side: Oversigt over alle sider (titel, billede, uddrag af brødtekst).
 
 ---
 
 DATA:
 
+
+
+BILLEDE:
+Funktionalitet:
+Slette billede fra storage.
+
+-
+
+Fikset:
+
 DATEPICKER:
 Samme som begivenheder.
 
 BILLEDE:
-FileUpload (storage).
-Funktionalitet:
-Slette billede fra storage.
-
-NB. Input (type="file") skal nulstilles efter hver upload.
-
-EDITOR:
-Tiptap.
-Toolbar.
-
-KNAP (GEM):
-Data skal samles fra Datepicker, FileUpload og Editor.
-Send til Supabase:
-useCreateTravel (server-actions)
+Upload billede til storage.
 
 Knappen skal ... :
 Send: Titel, billede, brødtekst
@@ -36,12 +33,12 @@ Titel: text.
 Dato (måned og år): Date.
 Brødtekst: jsonb (richtext editor).
 
--
+NB. Input (type="file") skal nulstilles efter hver upload.
 
-Fikset:
-
-BILLEDE:
-Upload billede til storage.
+KNAP (GEM):
+Data skal samles fra Datepicker, FileUpload og Editor.
+Send til Supabase:
+useCreateTravel (server-actions)
 
 ---
 

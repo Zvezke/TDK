@@ -3,7 +3,8 @@ import { TravelProvider } from "./context/TravelContext";
 
 // Components
 import AddTravel from "./components/AddTravel";
-import Tiptap from "./components/Tiptap";
+import TravelsInternal from "./components/TravelsInternal";
+import { Suspense } from "react";
 
 const Page = () => {
   return (
@@ -19,9 +20,10 @@ const Page = () => {
 
         <div>
           <h2 className="mb-4 text-2xl">Koncertrejser</h2>
-          {/* <Suspense fallback={<div>Henter begivenheder ...</div>}>
-            <Events events={events} />
-          </Suspense> */}
+          <Suspense fallback={<div>Henter koncertrejser ...</div>}>
+            {/* @ts-expect-error Async Server Component */}
+            <TravelsInternal />
+          </Suspense>
         </div>
         {/* <button onClick={handleLogout}>Log ud</button> */}
       </div>
