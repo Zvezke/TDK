@@ -43,7 +43,7 @@ const Travels = async () => {
           </div>
           {travel?.image_url && (
             <Image
-              src={travel.image_url as string}
+              src={travel.image_url}
               alt={travel?.title as string}
               width={100}
               height={100}
@@ -53,7 +53,7 @@ const Travels = async () => {
           )}
           <TravelsPreferences
             travelId={travel.id}
-            travelImageUrl={travel.image_url as string}
+            travelImageUrl={travel.image_url}
           />
         </div>
       ))}
