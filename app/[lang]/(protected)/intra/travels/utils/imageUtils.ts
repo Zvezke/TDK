@@ -38,8 +38,7 @@ const addImage = async (
   console.log("UploadImage, data", data);
   console.log("UploadImage, travelsStorageError", travelsStorageError);
   setImageUrl(
-    `https://spdjrgyjutrearvffuvp.supabase.co/storage/v1/object/public/travels-storage/${data?.path}`
-    // `${process.env.NEXT_PUBLIC_SUPABASE_TRAVELS_IMAGE_URL!}/${data?.path}`
+    `${process.env.NEXT_PUBLIC_SUPABASE_TRAVELS_IMAGE_URL!}/${data?.path}`
   );
 
   if (fileInputRef.current) {
