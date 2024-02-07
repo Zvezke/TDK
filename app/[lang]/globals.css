@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rich-text-content h2 {
+  @apply text-sm font-bold mb-2;
+}
+
+.rich-text-content p {
+  @apply text-xs mb-4;
+}
+
+.rich-text-content p:last-child {
+  @apply mb-0;
+}
+
+.rich-text-content strong,
+.rich-text-content em {
+  @apply text-xs;
+}

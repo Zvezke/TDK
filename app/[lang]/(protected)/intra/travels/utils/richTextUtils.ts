@@ -32,7 +32,9 @@ export function convertRichTextToHtml(richText: RichTextDoc): string {
         case "italic":
           textHtml = `<em>${textHtml}</em>`;
           break;
-        // Handle other mark types as needed
+        // case "h2":
+        //   textHtml = `<h2 className="text-xl font-bold font-roboto">${textHtml}</h2>`;
+        //   break;
       }
     });
     return textHtml;
