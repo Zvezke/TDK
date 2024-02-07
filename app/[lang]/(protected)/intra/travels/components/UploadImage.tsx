@@ -44,8 +44,8 @@ const UploadImage = () => {
         <div className="group relative">
           <Image
             className="h-11 w-24 rounded-md border-2 border-gray-300 bg-gray-50"
-            src="https://www.dr.dk/"
-            // src={imageUrl as string}
+            // src="https://www.dr.dk/"
+            src={imageUrl as string}
             width={50}
             height={50}
             alt="image title"
