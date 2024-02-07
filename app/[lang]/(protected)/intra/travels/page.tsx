@@ -17,6 +17,13 @@ const Page = () => {
             {/* <Tiptap /> */}
           </TravelProvider>
         </div>
+        <div>
+          <h2 className="mb-4 text-2xl">Koncertrejser</h2>
+          <Suspense fallback={<div>Henter koncertrejser ...</div>}>
+            {/* @ts-expect-error Async Server Component */}
+            <TravelsInternal />
+          </Suspense>
+        </div>
         {/* <button onClick={handleLogout}>Log ud</button> */}
       </div>
     </main>
@@ -25,10 +32,10 @@ const Page = () => {
 
 export default Page;
 
-// <div>
-//           <h2 className="mb-4 text-2xl">Koncertrejser</h2>
-//           <Suspense fallback={<div>Henter koncertrejser ...</div>}>
-//             {/* @ts-expect-error Async Server Component */}
-//             <TravelsInternal />
-//           </Suspense>
-//         </div>
+//<div>
+//          <h2 className="mb-4 text-2xl">Koncertrejser</h2>
+//          <Suspense fallback={<div>Henter koncertrejser ...</div>}>
+//            {/* @ts-expect-error Async Server Component */}
+//            <TravelsInternal />
+//          </Suspense>
+//        </div>
