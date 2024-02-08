@@ -24,4 +24,14 @@ const useGetTravels = async () => {
   return { travels, travelsError };
 };
 
-export { useCreateTravel, useGetTravels };
+const useGetTravel = async (id: string) => {
+  const supabase = createSupabaseServerComponentClient<Database>();
+  const { data: travel, error: travelError } = await supabase
+    .from("travels")
+    .select("*")
+    .eq("id", id)
+    .single();
+  return { travel, travelError };
+};
+
+export { useCreateTravel, useGetTravels, useGetTravel };

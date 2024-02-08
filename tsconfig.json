@@ -30,7 +30,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/[lang]/(protected)/intra/oevestemmer/_layout.tsx",
-    "app/[lang]/(unprotected)/travels/layout.tsx_"
+    "app/[lang]/(unprotected)/koncertrejser/layout.tsx_"
   ],
   "exclude": ["node_modules"]
 }
