@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Travels, intra */
 .rich-text-content h2 {
   @apply text-sm font-bold mb-2;
 }
@@ -17,4 +18,22 @@
 .rich-text-content strong,
 .rich-text-content em {
   @apply text-xs;
+}
+
+/* CardTravel */
+.rich-text-content-cardtravel h2 {
+  @apply text-lg font-bold mb-2;
+}
+
+.rich-text-content-cardtravel p {
+  @apply text-base mb-4;
+}
+
+.rich-text-content-cardtravel p:last-child {
+  @apply mb-0;
+}
+
+.rich-text-content-cardtravel strong,
+.rich-text-content-cardtravel em {
+  @apply text-base;
 }

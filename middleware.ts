@@ -56,7 +56,10 @@ export function middleware(request: NextRequest) {
       "/images/sangproeven/boySinging.png",
       "/images/sangproeven/mathiasFrederikAnders.jpg",
       "/images/sangproeven/gladeFyre.png",
-      
+      "/images/travels/koncertrejser.jpg",
+      "/images/travels/koncertrejser32.jpg",
+      "/images/travels/koncertrejser24.jpg",
+
       // Your other files in `public`
     ].includes(pathname)
   )

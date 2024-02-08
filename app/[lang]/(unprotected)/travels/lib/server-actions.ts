@@ -20,7 +20,7 @@ const useGetTravels = async () => {
   const supabase = createSupabaseServerComponentClient<Database>();
   const { data: travels, error: travelsError } = await supabase
     .from("travels")
-    .select();
+    .select("*");
   return { travels, travelsError };
 };
 

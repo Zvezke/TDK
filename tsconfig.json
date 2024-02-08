@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/[lang]/(protected)/intra/oevestemmer/_layout.tsx"
+    "app/[lang]/(protected)/intra/oevestemmer/_layout.tsx",
+    "app/[lang]/(unprotected)/travels/layout.tsx_"
   ],
   "exclude": ["node_modules"]
 }

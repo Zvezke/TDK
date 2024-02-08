@@ -34,7 +34,7 @@ const Travels = async () => {
           <div>
             <div className="mb-6 flex justify-between">
               <div>
-                <h3 className="text-sm font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-gray-900">
                   {travel?.title}
                 </h3>
                 <time className="text-xs text-gray-500">
