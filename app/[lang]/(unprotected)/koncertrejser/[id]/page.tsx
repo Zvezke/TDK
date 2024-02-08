@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
   convertRichTextToHtml,
   RichTextDoc,
-} from "@/app/[lang]/(protected)/intra/travels/utils/richTextUtils";
+} from "@/app/[lang]/(protected)/intra/koncertrejser/utils/richTextUtils";
 import { formatDate } from "../utils/timeUtils";
 
 // Server actions
@@ -14,14 +14,11 @@ import { useGetTravel } from "../lib/server-actions";
 export default async function Page({ params }: { params: { id: string } }) {
   const { travel, travelError } = await useGetTravel(params.id);
 
-  console.log("travel", travel);
-
   if (travelError) {
     console.log("Error fetching travel", travelError);
   }
 
   return (
-    // <div className="flex min-h-screen items-center justify-center">
     <div className="relative bg-tdk-blue-light-background dark:bg-tdk-blue-700">
       <section className="mx-auto xl:max-w-screen-xl">
         <div className="container flex min-h-screen flex-col items-center justify-center text-center lg:col-start-1 lg:col-end-2 lg:text-left">
@@ -62,6 +59,5 @@ export default async function Page({ params }: { params: { id: string } }) {
         </div>
       </section>
     </div>
-    // </div>
   );
 }

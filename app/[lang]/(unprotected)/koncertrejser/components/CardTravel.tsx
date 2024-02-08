@@ -9,7 +9,7 @@ import { useGetTravels } from "../lib/server-actions";
 import {
   convertRichTextToHtml,
   RichTextDoc,
-} from "@/app/[lang]/(protected)/intra/travels/utils/richTextUtils";
+} from "@/app/[lang]/(protected)/intra/koncertrejser/utils/richTextUtils";
 import { formatDate } from "../utils/timeUtils";
 
 // function formatDate(dateString: string): string {

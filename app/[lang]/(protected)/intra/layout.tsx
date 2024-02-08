@@ -282,23 +282,23 @@ export default function ExternalLayout({
                       <span className="truncate">Øvestemmer</span>
                     </Link>
                     <Link
-                      href="/da/intra/travels"
+                      href="/da/intra/koncertrejser"
                       className={
-                        currentRoute === "/da/intra/travels"
+                        currentRoute === "/da/intra/koncertrejser"
                           ? "group flex gap-x-3 rounded-md bg-tdk-blue-cardBg p-2 text-sm font-semibold leading-6 text-tdk-blue-200"
                           : "group flex gap-x-3 rounded-md bg-tdk-blue-800 p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       }
                     >
                       <span
                         className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg ${
-                          currentRoute === "/da/intra/travels"
+                          currentRoute === "/da/intra/koncertrejser"
                             ? "bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200"
                             : "bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-800 group-hover:text-tdk-blue-cardBg"
                         }`}
                       >
                         <CalendarIcon
                           className={`h-6 w-6 ${
-                            currentRoute === "/da/intra/travels"
+                            currentRoute === "/da/intra/koncertrejser"
                               ? "bg-tdk-blue-cardBg text-tdk-blue-200"
                               : "bg-transparent text-tdk-blue-400 hover:bg-tdk-blue-cardBg"
                           }`}
