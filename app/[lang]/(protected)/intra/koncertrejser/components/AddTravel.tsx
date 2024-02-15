@@ -48,7 +48,7 @@ const AddTravel = () => {
   // const [test, setTest] = useState<string>("");
   const [year, setYear] = useState<string>("2024");
   const [month, setMonth] = useState<string>("Januar");
-  const [day, setDay] = useState<string>("1");
+  // const [day, setDay] = useState<string>("1");
   const [title, setTitle] = useState<string>("");
   const { imageUrl, setImageUrl } = useTravel();
   const [richText, setRichText] = useState<string>("");
@@ -60,7 +60,8 @@ const AddTravel = () => {
   // });
 
   const handleSubmission = async () => {
-    const dateForSupabase = createDate(year, month, day);
+    const dateForSupabase = createDate(year, month);
+    // const dateForSupabase = createDate(year, month, day);
     console.log("dateForSupabase", dateForSupabase);
 
     try {
@@ -81,7 +82,7 @@ const AddTravel = () => {
       setTitle("");
       setYear("2024");
       setMonth("Januar");
-      setDay("1");
+      // setDay("1");
       editorRef.current.resetEditor();
     } catch (error) {
     } finally {
@@ -128,7 +129,7 @@ const AddTravel = () => {
               {/* {errors.month && <span>{errors.month.message}</span>} */}
             </div>
 
-            {/* Day */}
+            {/* Day
             <div className="flex flex-1 flex-col">
               <label
                 htmlFor="Day"
@@ -177,8 +178,7 @@ const AddTravel = () => {
                 <option>30</option>
                 <option>31</option>
               </select>
-              {/* {errors.day && <span>{errors.day.message}</span>} */}
-            </div>
+            </div> */}
 
             {/* Year */}
             <div className="flex flex-1 flex-col">
@@ -197,6 +197,34 @@ const AddTravel = () => {
                 onChange={(e) => setYear(e.target.value)}
                 // {...register("year")}
               >
+                <option>1996</option>
+                <option>1997</option>
+                <option>1998</option>
+                <option>1999</option>
+                <option>2000</option>
+                <option>2001</option>
+                <option>2002</option>
+                <option>2003</option>
+                <option>2004</option>
+                <option>2005</option>
+                <option>2006</option>
+                <option>2007</option>
+                <option>2008</option>
+                <option>2009</option>
+                <option>2010</option>
+                <option>2011</option>
+                <option>2012</option>
+                <option>2013</option>
+                <option>2014</option>
+                <option>2015</option>
+                <option>2016</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
                 <option>2024</option>
                 <option>2025</option>
                 <option>2026</option>

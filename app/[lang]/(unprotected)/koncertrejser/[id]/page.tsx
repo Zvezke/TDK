@@ -22,6 +22,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div className="min-h-screen bg-tdk-blue-light-background dark:bg-tdk-blue-700">
       <section className="">
         <div className="relative h-[90vh] lg:col-start-2 lg:col-end-3">
+          {/* <div className="absolute  inset-0 z-10 bg-black opacity-50"></div> */}
           <Image
             className="absolute left-0 top-20 h-[80vh] object-cover"
             src={travel?.image_url as string}
@@ -65,27 +66,3 @@ export default async function Page({ params }: { params: { id: string } }) {
     </div>
   );
 }
-
-// <div className="row-start-2 mx-auto max-w-2xl items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none ">
-//           <div className="mt-16 flex justify-center">
-//             <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
-//               <div className="mb-4">
-//                 <h1 className="font-playfair text-3xl font-bold tracking-tight text-white sm:text-4xl">
-//                   {travel?.title}
-//                 </h1>
-//                 <time className="text-xs text-gray-300">
-//                   {/* {travel?.date} */}
-//                   {formatDate(travel?.date as string)}
-//                 </time>
-//               </div>
-//               <div
-//                 className="rich-text-content-cardtravel max-w-xl pb-16 text-gray-300"
-//                 dangerouslySetInnerHTML={{
-//                   __html: convertRichTextToHtml(
-//                     travel?.rich_text as RichTextDoc
-//                   ),
-//                 }}
-//               />
-//             </div>
-//           </div>
-//         </div>
