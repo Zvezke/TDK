@@ -6,9 +6,6 @@ import { usePathname, redirect } from "next/navigation";
 // Types and interfaces
 import { AuthRecord, IAuthStore, NavbarProps } from "@/types/interfaces";
 
-// Pocketbase
-import pb from "@/pocketbase/config";
-
 // Context
 import { useAuth } from "@/context/AuthContext";
 
