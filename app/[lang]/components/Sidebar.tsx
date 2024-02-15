@@ -64,7 +64,7 @@ export default function Sidebar() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <div className="bg-gray-900/80 fixed inset-0" />
+              <div className="fixed inset-0 bg-gray-900/80" />
             </Transition.Child>
 
             <div className="fixed inset-0 flex">
@@ -102,7 +102,7 @@ export default function Sidebar() {
                     </div>
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
-                  <div className="bg-gray-900 ring-white/10 flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-2 ring-1">
+                  <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2 ring-1 ring-white/10">
                     <div className="flex h-16 shrink-0 items-center">
                       <img
                         className="h-8 w-auto"
@@ -151,7 +151,7 @@ export default function Sidebar() {
                                     "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
                                   )}
                                 >
-                                  <span className="border-gray-700 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
+                                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
                                     {team.initial}
                                   </span>
                                   <span className="truncate">{team.name}</span>
@@ -279,6 +279,16 @@ export default function Sidebar() {
                         </span>
                         <span className="truncate">Sangprøven</span>
                       </Link>
+                      <Link
+                        href="#"
+                        className="group flex gap-x-3
+                        rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
+                      >
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
+                          <WindowIcon className="h-6 w-6" aria-hidden="true" />
+                        </span>
+                        <span className="truncate">Koncertrejser</span>
+                      </Link>
                     </li>
                   </ul>
                 </li>
@@ -301,7 +311,7 @@ export default function Sidebar() {
           </div>
         </div>
 
-        <div className="bg-gray-900 sticky top-0 z-40 flex items-center gap-x-6 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+        <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
           <button
             type="button"
             className="-m-2.5 p-2.5 text-tdk-blue-400 lg:hidden"

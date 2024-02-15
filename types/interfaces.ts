@@ -42,6 +42,7 @@ export interface NavbarProps {
   params: ParamsProps;
   about: string;
   audition: string;
+  travels: string;
   contact: string;
 }
 

@@ -13,9 +13,9 @@ const Page = () => {
               Koncertrejser
             </h2>
             <p className="z-10 max-w-prose px-8 text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 lg:px-0 lg:pr-12 lg:text-xl">
-              Læs om vores koncertrejser. Vi søger sangglade drenge til
-              internationale optrædener og musikalsk vækst. Kom med og skab
-              uforglemmelige musikalske minder.
+              Læs om vores koncertrejser. Læs om internationale optrædener og
+              musikalske fællesskab. Kom med og skab uforglemmelige musikalske
+              minder.
             </p>
             <Image
               className="absolute lg:right-0"

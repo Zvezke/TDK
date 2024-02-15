@@ -51,6 +51,7 @@ export default async function RootLayout({
               params={params}
               about={navBar.about}
               audition={navBar.audition}
+              travels={navBar.travels}
               contact={navBar.contact}
             />
           </header>

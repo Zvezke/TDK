@@ -31,7 +31,7 @@ import ButtonLogIn from "./buttonLogIn/ButtonLogIn";
 // Supabase
 import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
 
-const Navbar = ({ about, audition, contact }: NavbarProps) => {
+const Navbar = ({ about, audition, travels, contact }: NavbarProps) => {
   // Context
   const { isLoggedIn, setIsLoggedIn } = useAuth();
 
@@ -98,9 +98,9 @@ const Navbar = ({ about, audition, contact }: NavbarProps) => {
               <li>
                 <Link href="/sangproeven">{audition}</Link>
               </li>
-              {/* <li>
-              <Link href="/aktiviteter">Aktiviteter</Link>
-            </li> */}
+              <li>
+                <Link href="/koncertrejser">{travels}</Link>
+              </li>
               <li>
                 <Link href="/kontakt">{contact}</Link>
               </li>

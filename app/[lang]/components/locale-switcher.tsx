@@ -52,23 +52,3 @@ export default function LocaleSwitcher() {
     </>
   );
 }
-
-// {i18n.locales.map((locale) => {
-//   return (
-//     <>
-//       {/* {console.log(redirectedPathName(locale))} */}
-
-//       {pathName.includes("da") && (
-//         <Link key={locale} href={redirectedPathName(locale)}>
-//           {locale}
-//           <Image
-//             src="/images/language.svg"
-//             alt="Icon for language switch"
-//             width={20}
-//             height={20}
-//           />
-//         </Link>
-//       )}
-//     </>
-//   );
-// })}
