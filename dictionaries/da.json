@@ -4,6 +4,7 @@
     "about": "Om",
     "audition": "Sangprøven",
     "travels": "Koncertrejser",
+    "discography": "Diskografi",
     "contact": "Kontakt"
   },
   "home": {
@@ -49,6 +50,11 @@
     "radioTVDescription": "Koret har jævnligt optrådt i dansk radio og tv. Bl.a. har DR-tv optaget og genudsendt 60 afsnit af programmet ”Før Søndagen”. På koncertrejser samt i andre lande er flere koncerter blevet transmitteret ligesom optagelser fra plade/CD-indspilninger er blevet sendt som optakt til koncerter. Disse udsendelser bidrager til korets synlighed og bringer musikken ud til et bredere publikum.",
     "partnershipsTitle": "Partnerskaber og samarbejde",
     "partnershipsDescription": "Koret samarbejder - og modtager driftstilskud fra Esbjerg Kommune og Treenighedskirken for at bevare og videreføre korets traditioner. Med disse partnerskaber sikres korets fortsatte succes og udvikling."
+  },
+  "discography": {
+    "title": "Diskografi",
+    "description": "Koret har udgivet flere CD'er og medvirket i radio- og tv-udsendelser. Koret har et bredt repertoire, der spænder fra traditionelle korsatser til danske salmer og sange og engelsk kormusik.",
+    "comingSoon": "Kommer snart"
   },
   "sangproeven": {
     "sangproevenTitle": "Sangprøven",

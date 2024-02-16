@@ -1,0 +1,805 @@
+[
+  {
+    "album": "I will sing",
+    "image": "/images/discography/2016-i-will-sing-small.jpg",
+    "description": "Indspillet i Sct. Catharinæ Kirke, Ribe - 2016",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "I will sing with the spirit"
+      },
+      {
+        "track_number": 2,
+        "title": "Kyrie"
+      },
+      {
+        "track_number": 3,
+        "title": "Davids salme 139: Herre, du ransager mig"
+      },
+      {
+        "track_number": 4,
+        "title": "Exultate Justi in Domino"
+      },
+      {
+        "track_number": 5,
+        "title": "Du milde Gud"
+      },
+      {
+        "track_number": 6,
+        "title": "The Lord bless you and keep you"
+      },
+      {
+        "track_number": 7,
+        "title": "Te Deum Laudamus"
+      },
+      {
+        "track_number": 8,
+        "title": "Air mejestueux ( Orgel )"
+      },
+      {
+        "track_number": 9,
+        "title": "Om alle mine lemmer"
+      },
+      {
+        "track_number": 10,
+        "title": "Hymn to the stars"
+      },
+      {
+        "track_number": 11,
+        "title": "Potpurri over sange af Carl Nielsen",
+        "songs": [
+          "Den danske sang - Jeg ved en lærkerede",
+          "Jens Vejmand - Tit er jeg glad",
+          "Jeg bærer med smil min byrde",
+          "Lær mig nattens stjerne"
+        ]
+      },
+      {
+        "track_number": 12,
+        "title": "Contre-danse"
+      },
+      {
+        "track_number": 13,
+        "title": "Air tendre"
+      },
+      {
+        "track_number": 14,
+        "title": "Gavotte"
+      },
+      {
+        "track_number": 15,
+        "title": "Gigue"
+      }
+    ]
+  },
+  {
+    "album": "For lo I raise up",
+    "image": "/images/discography/2007_for_lo_I_raise_up.jpg",
+    "description": "Optaget i Løgumkloster Kirke - juni 2007",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Magnificat Hør klip"
+      },
+      {
+        "track_number": 2,
+        "title": "Nunc Dimittis"
+      },
+      {
+        "track_number": 3,
+        "title": "Domine,non secundum Hør klip"
+      },
+      {
+        "track_number": 4,
+        "title": "Ave Maria"
+      },
+      {
+        "track_number": 5,
+        "title": "Dextera Domini Hør klip"
+      },
+      {
+        "track_number": 6,
+        "title": "For lo I raise up"
+      },
+      {
+        "track_number": 7,
+        "title": "Ye choirs of new Jerusalem"
+      },
+      {
+        "track_number": 8,
+        "title": "Du, Herre Krist"
+      },
+      {
+        "track_number": 9,
+        "title": "Aldrig er jeg uden våde Hør klip"
+      },
+      {
+        "track_number": 10,
+        "title": "Her vil ties, her vil bies"
+      },
+      {
+        "track_number": 11,
+        "title": "Gloria"
+      }
+    ]
+  },
+  {
+    "album": "Salmer til livet og lyset",
+    "image": "/images/discography/2000-livet-og-lyset.jpg",
+    "description": "Optaget i Sct. Catharinæ Kirke, Ribe - juni 2000",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Lysets engel går med glans Hør klip"
+      },
+      {
+        "track_number": 2,
+        "title": "Gud ske tak og lov"
+      },
+      {
+        "track_number": 3,
+        "title": "Nu vågne alle Guds fugle små"
+      },
+      {
+        "track_number": 4,
+        "title": "Den mørke nat forgangen er"
+      },
+      {
+        "track_number": 5,
+        "title": "Præludium no. IV fra opus 51"
+      },
+      {
+        "track_number": 6,
+        "title": "Nu sol i øst oprinder mild"
+      },
+      {
+        "track_number": 7,
+        "title": "Præludium no. XXIII fra opus 51"
+      },
+      {
+        "track_number": 8,
+        "title": "Min Jesus, lad mit hjerte få Hør klip"
+      },
+      {
+        "track_number": 9,
+        "title": "Præludium no. XIV fra opus 51"
+      },
+      {
+        "track_number": 10,
+        "title": "Jeg lægger mig så trygt til ro"
+      },
+      {
+        "track_number": 11,
+        "title": "Vi synger med Maria"
+      },
+      {
+        "track_number": 12,
+        "title": "Fyldt af glæde over livets under"
+      },
+      {
+        "track_number": 13,
+        "title": "Du, som har tændt millioner af stjerner"
+      },
+      {
+        "track_number": 14,
+        "title": "Sorrig og glæde de vandre til hobe"
+      },
+      {
+        "track_number": 15,
+        "title": "Den klare sol går ned"
+      },
+      {
+        "track_number": 16,
+        "title": "Den lyse dag forgangen er"
+      },
+      {
+        "track_number": 17,
+        "title": "Dagen går med raske fjed"
+      },
+      {
+        "track_number": 18,
+        "title": "Natten er så stille"
+      },
+      {
+        "track_number": 19,
+        "title": "Festpræludium over koralen: Lover den Herre"
+      }
+    ]
+  },
+  {
+    "album": "De 9 Læsninger",
+    "image": "/images/discography/1994-de-ni-laesninger.jpg",
+    "description": "Optaget i Sct. Catharinæ Kirke, Ribe - oktober 1994",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Klokkeringning"
+      },
+      {
+        "track_number": 2,
+        "title": "Tak og ære være gud Hør klip"
+      },
+      {
+        "track_number": 3,
+        "title": "Indledning"
+      },
+      {
+        "track_number": 4,
+        "title": "Responsorium"
+      },
+      {
+        "track_number": 5,
+        "title": "Velkommen igen, guds engle små"
+      },
+      {
+        "track_number": 6,
+        "title": "1. læsning"
+      },
+      {
+        "track_number": 7,
+        "title": "Te deum"
+      },
+      {
+        "track_number": 8,
+        "title": "2. læsning"
+      },
+      {
+        "track_number": 9,
+        "title": "Kyrie"
+      },
+      {
+        "track_number": 10,
+        "title": "Hvorledes skal jeg møde"
+      },
+      {
+        "track_number": 11,
+        "title": "3. læsning"
+      },
+      {
+        "track_number": 12,
+        "title": "Blomstre som en rosengård"
+      },
+      {
+        "track_number": 13,
+        "title": "4. læsning"
+      },
+      {
+        "track_number": 14,
+        "title": "Magnificat (Marias Lovsang)"
+      },
+      {
+        "track_number": 15,
+        "title": "5. læsning"
+      },
+      {
+        "track_number": 16,
+        "title": "Alleluja"
+      },
+      {
+        "track_number": 17,
+        "title": "Barn jesus i en krybbe lå"
+      },
+      {
+        "track_number": 18,
+        "title": "6. læsning"
+      },
+      {
+        "track_number": 19,
+        "title": "Englenes vise"
+      },
+      {
+        "track_number": 20,
+        "title": "7. læsning"
+      },
+      {
+        "track_number": 21,
+        "title": "Stjerne på sø og strand"
+      },
+      {
+        "track_number": 22,
+        "title": "8. læsning"
+      },
+      {
+        "track_number": 23,
+        "title": "En sød og liflig klang"
+      },
+      {
+        "track_number": 24,
+        "title": "9. læsning"
+      },
+      {
+        "track_number": 25,
+        "title": "Nunc Dimittis (Simeons lovsang)"
+      },
+      {
+        "track_number": 26,
+        "title": "Kollekt og velsignelse"
+      },
+      {
+        "track_number": 27,
+        "title": "Julen har bragt velsignet bud"
+      },
+      {
+        "track_number": 28,
+        "title": "Gade: Tonestykke i F for orgel"
+      }
+    ]
+  },
+  {
+    "album": "Salmer til tak og trøst",
+    "image": "/images/discography/1987-tak-og-troest.jpg",
+    "description": "Optaget i Sct. Catharinæ Kirke, Ribe - August 1987",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Gud, du som lyst og dagen oplod"
+      },
+      {
+        "track_number": 2,
+        "title": "Til himlene rækker din miskundhed, Gud"
+      },
+      {
+        "track_number": 3,
+        "title": "Guds kirkes grund alene"
+      },
+      {
+        "track_number": 4,
+        "title": "Den store mester kommer"
+      },
+      {
+        "track_number": 5,
+        "title": "Mægtigste Kriste, menighedens herre"
+      },
+      {
+        "track_number": 6,
+        "title": "Der venter bag langfredags nat"
+      },
+      {
+        "track_number": 7,
+        "title": "Der venter bag langfredags nat - orgelkoral"
+      },
+      {
+        "track_number": 8,
+        "title": "Nærmere, Gud, til dig"
+      },
+      {
+        "track_number": 9,
+        "title": "Så tag mig da ved hånden"
+      },
+      {
+        "track_number": 10,
+        "title": "Vær du mig nær"
+      },
+      {
+        "track_number": 11,
+        "title": "Her vil ties, her vil bies"
+      },
+      {
+        "track_number": 12,
+        "title": "Klynke og klage nætter og dage"
+      },
+      {
+        "track_number": 13,
+        "title": "Aldrig er jeg uden våde"
+      },
+      {
+        "track_number": 14,
+        "title": "Almagts Gud, velsignet vær"
+      },
+      {
+        "track_number": 15,
+        "title": "Hartmann: Fantasi F-moll"
+      }
+    ]
+  },
+  {
+    "album": "Vesper",
+    "image": "/images/discography/1980-vesper.jpg",
+    "description": "Optaget i Sct. Catharinæ Kirke, Ribe - april 1980",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Klokkeringning"
+      },
+      {
+        "track_number": 2,
+        "title": "Orgelintonation"
+      },
+      {
+        "track_number": 3,
+        "title": "O kom, I Herrens tjenere"
+      },
+      {
+        "track_number": 4,
+        "title": "Læsning: salme 51, 3-4 og 8"
+      },
+      {
+        "track_number": 5,
+        "title": "Responsorium"
+      },
+      {
+        "track_number": 6,
+        "title": "Hør min bøn, o Herre"
+      },
+      {
+        "track_number": 7,
+        "title": "Fra det dybe råber jeg til dig, Herre"
+      },
+      {
+        "track_number": 8,
+        "title": "Læsning: Esajas 53, 1-5"
+      },
+      {
+        "track_number": 9,
+        "title": "Hør i nåde hver bøn, o Gud"
+      },
+      {
+        "track_number": 10,
+        "title": "Magnificat ( Marias lovsang )"
+      },
+      {
+        "track_number": 11,
+        "title": "Læsning: Markus 16, 1-7"
+      },
+      {
+        "track_number": 12,
+        "title": "Nunc Dimitis ( Simeons lovsang )"
+      },
+      {
+        "track_number": 13,
+        "title": "Trosbekendelse"
+      },
+      {
+        "track_number": 14,
+        "title": "Responsorium"
+      },
+      {
+        "track_number": 15,
+        "title": "Lad mildeste Immanuel"
+      },
+      {
+        "track_number": 16,
+        "title": "Kollekt - Velsignelse"
+      },
+      {
+        "track_number": 17,
+        "title": "Herren Krist opstod i dag"
+      },
+      {
+        "track_number": 18,
+        "title": "Fanfare ( Orgel )"
+      }
+    ]
+  },
+  {
+    "album": "Julesalmer",
+    "image": "/images/discography/1978-julesalmer.jpg",
+    "description": "Optaget i Treenighedskirken, Esbjerg - juni og september 1978",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Velkommen igen, Guds engle små"
+      },
+      {
+        "track_number": 2,
+        "title": "Søde Jesus, Davids rod"
+      },
+      {
+        "track_number": 3,
+        "title": "Kimer, I klokker"
+      },
+      {
+        "track_number": 4,
+        "title": "Lad det klinge sødt i sky"
+      },
+      {
+        "track_number": 5,
+        "title": "Julen har englelyd"
+      },
+      {
+        "track_number": 6,
+        "title": "Den yndigste rose er funden"
+      },
+      {
+        "track_number": 7,
+        "title": "Julen har bragt velsignet bud"
+      },
+      {
+        "track_number": 8,
+        "title": "Det kimer nu til julefest"
+      },
+      {
+        "track_number": 9,
+        "title": "Glade jul, dejlige jul"
+      },
+      {
+        "track_number": 10,
+        "title": "Hjerte, løft din glædes vinger"
+      },
+      {
+        "track_number": 11,
+        "title": "Er barn er født i Betlehem"
+      },
+      {
+        "track_number": 12,
+        "title": "Julebudet til dem, der bygge"
+      },
+      {
+        "track_number": 13,
+        "title": "Dejlig er jorden"
+      }
+    ]
+  },
+  {
+    "album": "Årets salmer",
+    "image": "/images/discography/1976-aarets-salmer.jpg",
+    "description": "Optaget i Treenighedskirken, Esbjerg - Maj 1976",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Vær velkommen Herrens år"
+      },
+      {
+        "track_number": 2,
+        "title": "Gør døren høj, gør porten vid"
+      },
+      {
+        "track_number": 3,
+        "title": "En sød og liflig klang (vers 1-2 og 4)"
+      },
+      {
+        "track_number": 4,
+        "title": "De hellig tre konger så hjertensglad"
+      },
+      {
+        "track_number": 5,
+        "title": "Se, hvor nu Jesus træder"
+      },
+      {
+        "track_number": 6,
+        "title": "Nu kom der bud fra englekor (vers 1-3)"
+      },
+      {
+        "track_number": 7,
+        "title": "Op dog; Sion, ser du ej"
+      },
+      {
+        "track_number": 8,
+        "title": "Mindes vi en fuldtro ven"
+      },
+      {
+        "track_number": 9,
+        "title": "Det hellige kors, vor Herre han bar"
+      },
+      {
+        "track_number": 10,
+        "title": "Tag det sorte kors fra graven"
+      },
+      {
+        "track_number": 11,
+        "title": "Til himmels fór den ærens drot"
+      },
+      {
+        "track_number": 12,
+        "title": "I al sin glans nu stråler solen"
+      },
+      {
+        "track_number": 13,
+        "title": "O kristelighed"
+      },
+      {
+        "track_number": 14,
+        "title": "Orgelpostludium: O kristelighed"
+      }
+    ]
+  },
+  {
+    "album": "Indledning til julen (De Ni Læsninger)",
+    "image": "/images/discography/1975-indledning-til-julen.jpg",
+    "description": "Optaget i Treenighedskirken, Esbjerg - september 1975",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Klokkeringning"
+      },
+      {
+        "track_number": 2,
+        "title": "Orgelintonation"
+      },
+      {
+        "track_number": 3,
+        "title": "Tak og ære være gud"
+      },
+      {
+        "track_number": 4,
+        "title": "Indledning"
+      },
+      {
+        "track_number": 5,
+        "title": "Responsorium"
+      },
+      {
+        "track_number": 6,
+        "title": "Vær velkommen, Herrens år"
+      },
+      {
+        "track_number": 7,
+        "title": "Første læsning"
+      },
+      {
+        "track_number": 8,
+        "title": "Te deum Laudamus Hør klip"
+      },
+      {
+        "track_number": 9,
+        "title": "Anden læsning"
+      },
+      {
+        "track_number": 10,
+        "title": "Kyrie"
+      },
+      {
+        "track_number": 11,
+        "title": "Gud, efter dig jeg længes"
+      },
+      {
+        "track_number": 12,
+        "title": "Tredie læsning"
+      },
+      {
+        "track_number": 13,
+        "title": "En rose så jeg skyde"
+      },
+      {
+        "track_number": 14,
+        "title": "Fjerde læsning"
+      },
+      {
+        "track_number": 15,
+        "title": "Magnificat (Marias Lovsang)"
+      },
+      {
+        "track_number": 16,
+        "title": "Femte læsning"
+      },
+      {
+        "track_number": 17,
+        "title": "Mit hjerte altid vanker"
+      },
+      {
+        "track_number": 18,
+        "title": "Sjette læsning"
+      },
+      {
+        "track_number": 19,
+        "title": "Fra himlen kom en engel klar Hør klip"
+      },
+      {
+        "track_number": 20,
+        "title": "Hyrdefløjten"
+      },
+      {
+        "track_number": 21,
+        "title": "Syvende læsning"
+      },
+      {
+        "track_number": 22,
+        "title": "Dejlig er den himmel blå"
+      },
+      {
+        "track_number": 23,
+        "title": "Ottende læsning"
+      },
+      {
+        "track_number": 24,
+        "title": "Himlens lys kom i dig til jord Hør klip"
+      },
+      {
+        "track_number": 25,
+        "title": "Niende læsning"
+      },
+      {
+        "track_number": 26,
+        "title": "Nunc Dimittis (Simeons lovsang)"
+      },
+      {
+        "track_number": 27,
+        "title": "Kollekt og velsignelse"
+      },
+      {
+        "track_number": 28,
+        "title": "Julen har bragt velsignet bud"
+      },
+      {
+        "track_number": 29,
+        "title": "Parafrase for orgel"
+      }
+    ]
+  },
+  {
+    "album": "Treenighedskirkens Drengekor Esbjerg",
+    "image": "/images/discography/1970-treenighedskirkens-drengekor.jpg",
+    "description": "Optaget i Ribe Domkirke, Ribe - juni 1970",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Alta Trinita Beata"
+      },
+      {
+        "track_number": 2,
+        "title": "Ave Maria"
+      },
+      {
+        "track_number": 3,
+        "title": "Gud os gav sin Søn til broder"
+      },
+      {
+        "track_number": 4,
+        "title": "Sicut Servus"
+      },
+      {
+        "track_number": 5,
+        "title": "Den bitre død dig trængte"
+      },
+      {
+        "track_number": 6,
+        "title": "Kyrie Gott heiliger Geist"
+      },
+      {
+        "track_number": 7,
+        "title": "Op, alle folk på denne jord"
+      },
+      {
+        "track_number": 8,
+        "title": "Preis, Dank, Lob, Ehr und Herrlichkeit"
+      },
+      {
+        "track_number": 9,
+        "title": "Jesus er mit liv i live"
+      },
+      {
+        "track_number": 10,
+        "title": "Tre satser fra 'Elias'. Hebe deine Augen zu den Bergen. Siehe der Hüter Israels. Wer bis an der Ende beharrt."
+      },
+      {
+        "track_number": 11,
+        "title": "Procession of Palms"
+      },
+      {
+        "track_number": 12,
+        "title": "Fred hviler over land og by"
+      }
+    ]
+  },
+  {
+    "album": "Treenighedskirken Esbjerg",
+    "image": "/images/discography/1968-treenighedskirken.jpg",
+    "description": "Optaget i Treenighedskirken, Esbjerg - juni 1968",
+    "tracks": [
+      {
+        "track_number": 1,
+        "title": "Dixit Maria ad angelum (Motet) Hør klip"
+      },
+      {
+        "track_number": 2,
+        "title": "Min Jesus lad mit hjerte få"
+      },
+      {
+        "track_number": 3,
+        "title": "Lover den Herre (Motet)"
+      },
+      {
+        "track_number": 4,
+        "title": "I østen stiger solen op (Morgensang fra 'Elverskud', kor og orgel)"
+      },
+      {
+        "track_number": 5,
+        "title": "Dank sei Dir, Herr. (Arioso for tenorsolo, kor og orgel)"
+      },
+      {
+        "track_number": 6,
+        "title": "Præludium og fuga C-dur (orgel)"
+      }
+    ]
+  }
+]

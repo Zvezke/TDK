@@ -4,6 +4,7 @@
     "about": "About",
     "audition": "Audition",
     "travels": "Concert travels",
+    "discography": "Discography",
     "contact": "Contact"
   },
   "home": {
@@ -48,6 +49,11 @@
     "radioTVDescription": "The choir has regularly appeared on Danish radio and TV. Among other things, DR-TV has recorded and re-broadcast 60 episodes of the program 'Before Sunday'. During concert tours and in other countries, several concerts have been transmitted, as well as recordings from LP/CD recordings have been aired as a prelude to concerts. These broadcasts contribute to the choir's visibility and bring the music to a wider audience.",
     "partnershipsTitle": "Partnerships and cooperation",
     "partnershipsDescription": "The choir cooperates - and receives operating grants from Esbjerg Municipality and Trinity Church to preserve and continue the choir's traditions. With these partnerships, the choir's continued success and development are ensured."
+  },
+  "discography": {
+    "title": "Discography",
+    "description": "The choir has released several CDs and participated in radio and TV broadcasts. The choir has a wide repertoire that ranges from traditional choral arrangements to Danish hymns and songs and English choral music.",
+    "comingSoon": "Coming soon"
   },
   "sangproeven": {
     "sangproevenTitle": "The Audition",
