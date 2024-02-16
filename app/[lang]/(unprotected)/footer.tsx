@@ -32,9 +32,9 @@ const Footer = ({
           <li>
             <Link href="/discography">{discography}</Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/kontakt">{contact}</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="flex items-center gap-12 pb-4">

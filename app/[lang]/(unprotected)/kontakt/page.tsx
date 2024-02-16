@@ -4,7 +4,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
   const { contact } = await getDictionary(params.lang);
 
   return (
-    <main className="flex min-h-screen  flex-col items-center justify-center bg-tdk-blue-light-background dark:bg-tdk-blue-700">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-tdk-blue-light-background dark:bg-tdk-blue-700">
       <h2 className=" mb-4 font-playfair text-5xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 max-lg:text-center lg:text-9xl">
         {contact.comingSoonTitle}
       </h2>

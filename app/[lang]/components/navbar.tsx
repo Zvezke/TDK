@@ -110,9 +110,9 @@ const Navbar = ({
               <li>
                 <Link href="/discography">{discography}</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/kontakt">{contact}</Link>
-              </li>
+              </li> */}
               {isLoggedIn && (
                 <li>
                   <Link href="/intra/external">Intra</Link>
