@@ -16,6 +16,7 @@ const useGetAllEvents = async () => {
   let { data: events, error: eventsError } = await supabase
     .from("events")
     .select("*")
+    .gte("date", new Date().toISOString())
     .order("date", { ascending: true });
   revalidatePath("/[lang]/(unprotected)/components/EventsCards");
   return { events, eventsError };

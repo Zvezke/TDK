@@ -52,11 +52,18 @@ export default async function RootLayout({
               about={navBar.about}
               audition={navBar.audition}
               travels={navBar.travels}
+              discography={navBar.discography}
               contact={navBar.contact}
             />
           </header>
           {children}
-          <Footer />
+          <Footer
+            about={navBar.about}
+            audition={navBar.audition}
+            travels={navBar.travels}
+            discography={navBar.discography}
+            contact={navBar.contact}
+          />
         </body>
       </html>
     </Providers>

@@ -43,6 +43,7 @@ export interface NavbarProps {
   about: string;
   audition: string;
   travels: string;
+  discography: string;
   contact: string;
 }
 

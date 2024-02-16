@@ -31,7 +31,13 @@ import ButtonLogIn from "./buttonLogIn/ButtonLogIn";
 // Supabase
 import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
 
-const Navbar = ({ about, audition, travels, contact }: NavbarProps) => {
+const Navbar = ({
+  about,
+  audition,
+  travels,
+  discography,
+  contact,
+}: NavbarProps) => {
   // Context
   const { isLoggedIn, setIsLoggedIn } = useAuth();
 
@@ -91,7 +97,7 @@ const Navbar = ({ about, audition, travels, contact }: NavbarProps) => {
           <div className="mx-auto grid-cols-12 max-lg:flex max-lg:items-center max-lg:px-8 lg:grid xl:max-w-screen-xl">
             <Logo />
             {/* Create client component for Logo - <Logo/> */}
-            <ul className="col-start-4 col-end-10 flex items-center justify-center gap-12 text-tdk-blue-300 max-lg:hidden">
+            <ul className="col-start-4 col-end-10 flex items-center justify-center gap-8 text-tdk-blue-300 max-lg:hidden">
               <li>
                 <Link href="/om">{about}</Link>
               </li>
@@ -100,6 +106,9 @@ const Navbar = ({ about, audition, travels, contact }: NavbarProps) => {
               </li>
               <li>
                 <Link href="/koncertrejser">{travels}</Link>
+              </li>
+              <li>
+                <Link href="/discography">{discography}</Link>
               </li>
               <li>
                 <Link href="/kontakt">{contact}</Link>
