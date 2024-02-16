@@ -45,7 +45,7 @@ export default async function RootLayout({
   return (
     <Providers>
       <html lang={params.lang}>
-        <body className={`${roboto.variable} ${playfair.variable} light`}>
+        <body className={`${roboto.variable} ${playfair.variable} dark`}>
           {/* Check how to disable header in sub */}
           {/* <header>
             {/* <Sidebar /> */}
