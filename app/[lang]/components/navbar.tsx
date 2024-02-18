@@ -238,6 +238,16 @@ const Navbar = ({
               </Link>
             </li> */}
             <li>
+              <Link href="/koncertrejser" onClick={() => setMenuOpen(false)}>
+                Koncertrejser
+              </Link>
+            </li>
+            <li>
+              <Link href="/discography" onClick={() => setMenuOpen(false)}>
+                Discography
+              </Link>
+            </li>
+            <li>
               <Link href="/kontakt" onClick={() => setMenuOpen(false)}>
                 Kontakt
               </Link>
