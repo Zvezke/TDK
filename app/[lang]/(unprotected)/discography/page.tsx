@@ -11,7 +11,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
     <div>
       {/* 1. sektion - Hero */}
       <div className="relative bg-tdk-blue-light-background dark:bg-tdk-blue-700">
-        <section className="">
+        <section>
           <div className="relative h-[90vh] lg:col-start-2 lg:col-end-3">
             <Image
               className="absolute left-0 top-20 h-[80vh] object-cover"
