@@ -22,8 +22,6 @@ export default async function CardTravel() {
   return (
     <div className="py-24 sm:py-32 lg:col-start-1 lg:col-end-3">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* {console.log(travels)} */}
-
         {travels?.map((travel) => (
           <Link
             key={travel.id}
