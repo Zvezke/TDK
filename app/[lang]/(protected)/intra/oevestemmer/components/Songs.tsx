@@ -3,26 +3,20 @@ import React, { Suspense } from "react";
 import UploadVoice from "./UploadVoice";
 import ListVoices from "./ListVoices";
 import DeleteSong from "./DeleteSong";
+import { createSupabaseServerComponentClient } from "@/supabase/backendClient";
 
 const Songs = async () => {
+  const supabase = createSupabaseServerComponentClient();
+  const { data } = await supabase.auth.getSession();
+
   const getSong = async () => {
     const res = await fetch(
       process.env.NEXT_PUBLIC_RAILWAY_URL + "/da/intra/oevestemmer/get-song"
     );
-    // console.log("res, getSong", res);
     return res.json();
   };
 
   let songData = await getSong();
-  // console.log("songData, title", songData?.songs[0].title);
-
-  // console.log(
-  //   process.env.NEXT_PUBLIC_RAILWAY_URL + "/da/intra/oevestemmer/get-song"
-  // );
-
-  // let voices = await getListOfVoices();
-  // console.log("songData", songData);
-  // console.log("voices", voices);
 
   return (
     <>
@@ -33,12 +27,16 @@ const Songs = async () => {
           )
           .map((song: Songs) => (
             <div key={song.id} className="col-span-1">
-              <div className="flex flex-col gap-2 mt-4 justify-between items-start">
+              <div className="mt-4 flex flex-col items-start justify-between gap-2">
                 <h2 className="text-base font-semibold">{song.title}</h2>
                 <div className="flex">
                   <div className="flex gap-2">
-                    <DeleteSong songTitle={song.title ?? ""} />
-                    <UploadVoice songTitle={song.title ?? ""} />
+                    {data.session?.user?.id === process.env.ADMINID && (
+                      <DeleteSong songTitle={song.title ?? ""} />
+                    )}
+                    {data.session?.user?.id === process.env.ADMINID && (
+                      <UploadVoice songTitle={song.title ?? ""} />
+                    )}
                   </div>
                 </div>
               </div>

@@ -1,7 +1,6 @@
 "use server";
 
-import { createSupabaseBackendClient } from "@/supabase/backendClient";
-import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
+import { createSupabaseServerComponentClient } from "@/supabase/backendClient";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import React from "react";
@@ -49,6 +48,9 @@ export const deleteVoice = async (songTitle: string, voiceName: string) => {
 };
 
 const ListVoices = async ({ songTitle }: { songTitle: string }) => {
+  const supabase = createSupabaseServerComponentClient();
+  const { data } = await supabase.auth.getSession();
+
   const getListOfVoices = async () => {
     const sanitizedSongTitle = replaceDanishCharacters(songTitle);
     const res = await fetch(
@@ -70,7 +72,7 @@ const ListVoices = async ({ songTitle }: { songTitle: string }) => {
               className={
                 voice.name === ".emptyFolderPlaceholder"
                   ? "hidden"
-                  : "px-2 py-1 text-xs font-normal text-tdk-blue-800 bg-gray-100 rounded-md"
+                  : "rounded-md bg-gray-100 px-2 py-1 text-xs font-normal text-tdk-blue-800"
               }
             >
               {voice.name === ".emptyFolderPlaceholder" ? null : (
@@ -78,7 +80,9 @@ const ListVoices = async ({ songTitle }: { songTitle: string }) => {
                   <Link href={`${voices?.url?.publicUrl}/${voice.name}`}>
                     {voice.name}
                   </Link>
-                  <DeleteVoice songTitle={songTitle} voiceName={voice.name} />
+                  {data.session?.user?.id === process.env.ADMINID && (
+                    <DeleteVoice songTitle={songTitle} voiceName={voice.name} />
+                  )}
                 </div>
               )}
             </li>
