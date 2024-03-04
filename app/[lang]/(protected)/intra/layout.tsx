@@ -96,7 +96,7 @@ export default function ExternalLayout({
                         className="-m-2.5 p-2.5"
                         onClick={() => setSidebarOpen(false)}
                       >
-                        <span className="sr-only">Close sidebar</span>
+                        <span className="sr-only">Luk menu</span>
                         <XMarkIcon
                           className="h-6 w-6 text-tdk-blue-200"
                           aria-hidden="true"
@@ -200,7 +200,9 @@ export default function ExternalLayout({
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-transparent text-[0.625rem] font-medium text-tdk-blue-200">
                         <CalendarIcon className="h-6 w-6" aria-hidden="true" />
                       </span>
-                      <span className="truncate">Begivenheder</span>
+                      <span className="truncate">
+                        Begivenheder (offentlige)
+                      </span>
                     </Link>
                     {/* <Link
                       href="/da/intra/intern"
@@ -314,6 +316,16 @@ export default function ExternalLayout({
                           <WindowIcon className="h-6 w-6" aria-hidden="true" />
                         </span>
                         <span className="truncate">Koncertrejser</span>
+                      </Link>
+                      <Link
+                        href="/discography"
+                        className="group flex gap-x-3
+                        rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
+                      >
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
+                          <WindowIcon className="h-6 w-6" aria-hidden="true" />
+                        </span>
+                        <span className="truncate">Diskografi</span>
                       </Link>
                     </li>
                   </ul>
