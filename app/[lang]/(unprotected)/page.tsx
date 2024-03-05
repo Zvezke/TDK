@@ -41,7 +41,7 @@ export default async function Home({
           <div className="mb-12 mt-6 flex justify-center gap-2 lg:my-10">
             {/* TODO: Hover effect */}
             <Link
-              className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings py-2 px-4 text-sm font-medium text-tdk-blue-light-background dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700 lg:mr-8 lg:py-4 lg:px-6"
+              className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings px-4 py-2 text-sm font-medium text-tdk-blue-light-background dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700 lg:mr-8 lg:px-6 lg:py-4"
               href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
               target="_blank"
               rel="noopener noreferrer"
@@ -49,7 +49,7 @@ export default async function Home({
               {home.hero_primaryButton}
             </Link>
             <Link
-              className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings py-2 px-4 text-sm font-medium text-tdk-blue-light-buttonsSubheadings dark:border-tdk-yellow-400 dark:text-tdk-yellow-400 lg:py-4 lg:px-6"
+              className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings px-4 py-2 text-sm font-medium text-tdk-blue-light-buttonsSubheadings dark:border-tdk-yellow-400 dark:text-tdk-yellow-400 lg:px-6 lg:py-4"
               href="/om"
             >
               {home.hero_secondaryButton}
@@ -111,7 +111,7 @@ export default async function Home({
           height={1080}
         />
         {/* </div> */}
-        <div className="absolute flex h-full flex-col justify-between pt-4 lg:pt-24 lg:pb-16">
+        <div className="absolute flex h-full flex-col justify-between pt-4 lg:pb-16 lg:pt-24">
           <h2 className="text-center font-playfair text-2xl font-black text-tdk-blue-light-background lg:text-5xl">
             {home.choirImg_title}
           </h2>
@@ -139,7 +139,7 @@ export default async function Home({
         <div className="mb-12 mt-6 justify-center gap-2 text-base max-lg:flex max-lg:text-sm lg:my-10">
           {/* TODO: Hover effect */}
           <Link
-            className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings py-2 px-4 font-medium text-tdk-blue-light-background dark:border-tdk-orange-400 dark:bg-tdk-orange-400 dark:text-tdk-green-700 lg:mr-8 lg:py-4 lg:px-6"
+            className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings px-4 py-2 font-medium text-tdk-blue-light-background dark:border-tdk-orange-400 dark:bg-tdk-orange-400 dark:text-tdk-green-700 lg:mr-8 lg:px-6 lg:py-4"
             href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
@@ -148,7 +148,7 @@ export default async function Home({
           </Link>
           <Link
             // className="py-4 px-6 rounded-md font-medium text-tdk-blue-light-buttonsSubheadings outline-2 outline-tdk-blue-light-buttonsSubheadings dark:text-tdk-orange-400 dark:outline-tdk-orange-400"
-            className="box-border rounded-md border-2 py-2 px-4 font-medium dark:border-tdk-orange-400 dark:text-tdk-orange-400 lg:mr-8 lg:py-4 lg:px-6"
+            className="box-border rounded-md border-2 px-4 py-2 font-medium dark:border-tdk-orange-400 dark:text-tdk-orange-400 lg:mr-8 lg:px-6 lg:py-4"
             href="/om"
             rel="noopener noreferrer"
           >
