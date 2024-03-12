@@ -30,6 +30,7 @@ import ButtonLogIn from "./buttonLogIn/ButtonLogIn";
 
 // Supabase
 import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
+import ThemeSwitch from "./ThemeSwitch";
 
 const Navbar = ({
   about,
@@ -156,7 +157,8 @@ const Navbar = ({
                   setColorMode(colorMode === "light" ? "dark" : "light");
                 }}
               >
-                {colorMode === "light" ? (
+                <ThemeSwitch />
+                {/* {colorMode === "light" ? (
                   <Image
                     src="/images/darkMode.svg"
                     alt="Icon for light mode"
@@ -170,7 +172,7 @@ const Navbar = ({
                     width={20}
                     height={20}
                   />
-                )}
+                )} */}
               </button>
               {/* <LoginButton /> */}
               {/* <Image
