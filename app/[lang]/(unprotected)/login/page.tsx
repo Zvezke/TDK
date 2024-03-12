@@ -131,7 +131,7 @@ export default function Login() {
 
 // {isLoggedIn && (
 //   <Suspense fallback={<Loading />}>
-//     {/* @ts-expect-error Async Server Component */}
+//     {/* @ts-ignore Async Server Component */}
 //     <LoggedInAs email={authData?.user.email} />
 //   </Suspense>
 // )}

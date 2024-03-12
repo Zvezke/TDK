@@ -22,13 +22,13 @@ export default async function Page() {
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="mb-4 flex items-center gap-4">
           <Suspense fallback={<div>Loading ...</div>}>
-            {/* @ts-expect-error Async Server Component */}
+            {/* @ts-ignore Async Server Component */}
             {data.session?.user?.id === process.env.ADMINID && <AddSong />}
           </Suspense>
         </div>
         <div className="mt-4 grid grid-cols-4 grid-rows-2 gap-8">
           <Suspense fallback={<div>Henter sange ...</div>}>
-            {/* @ts-expect-error Async Server Component */}
+            {/* @ts-ignore Async Server Component */}
             <Songs />
           </Suspense>
 

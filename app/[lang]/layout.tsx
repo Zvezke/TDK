@@ -8,6 +8,7 @@ import Link from "next/link";
 // import Header from "./header";
 import Logo from "./components/Logo";
 import Navbar from "./components/navbar";
+// import { Providers } from "@/providers/Providers";
 import { Providers } from "@/providers/Providers";
 
 import Sidebar from "./components/Sidebar";
