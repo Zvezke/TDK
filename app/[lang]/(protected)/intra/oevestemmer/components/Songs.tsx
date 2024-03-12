@@ -41,7 +41,7 @@ const Songs = async () => {
                 </div>
               </div>
               <Suspense fallback={<div>Henter stemmer ...</div>}>
-                {/* @ts-expect-error Async Server Component */}
+                {/* @ts-ignore Async Server Component */}
                 <ListVoices songTitle={song.title ?? ""} />
               </Suspense>
             </div>
