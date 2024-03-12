@@ -158,21 +158,6 @@ const Navbar = ({
                 }}
               >
                 <ThemeSwitch />
-                {/* {colorMode === "light" ? (
-                  <Image
-                    src="/images/darkMode.svg"
-                    alt="Icon for light mode"
-                    width={20}
-                    height={20}
-                  />
-                ) : (
-                  <Image
-                    src="/images/lightMode.svg"
-                    alt="Icon for dark mode"
-                    width={20}
-                    height={20}
-                  />
-                )} */}
               </button>
               {/* <LoginButton /> */}
               {/* <Image

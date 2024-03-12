@@ -20,51 +20,6 @@ function getLocale(request: NextRequest): string | undefined {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
-  // If you have one
-  // if (
-  //   [
-  //     "/manifest.json",
-  //     "/images/favicon.ico",
-  //     "/images/faviconLight.svg",
-  //     "/images/faviconDark.svg",
-  //     "/images/church.svg",
-  //     "/images/language.svg",
-  //     "/images/FacebookIcon.svg",
-  //     "/images/InstagramIcon.svg",
-  //     "/images/darkMode.svg",
-  //     "/images/lightMode.svg",
-  //     "/images/hamburger.svg",
-  //     "/images/close.svg",
-  //     "/images/home/syngendeDrengeVoresAktiviteter.png",
-  //     "/images/home/heroSingingBoys.svg",
-  //     "/images/home/imgMarcus.png",
-  //     "/images/home/koropstilling1.png",
-  //     "/images/home/syngendeDrengeVoresAktiviteter.png",
-  //     "/images/home/testimonialMattias.png",
-  //     "/images/home/testimonialViggo.png",
-  //     "/images/om/heroKoropstilling.png",
-  //     "/images/om/koretsHistorieSoftLight.png",
-  //     "/images/om/koropstilling2.jpg",
-  //     "/images/om/koncerterRepertoireHardLight.png",
-  //     "/images/om/rejserFaellesoplevelser.png",
-  //     "/images/om/rejserFaellesoplevelserMobil.png",
-  //     "/images/om/lone.jpg",
-  //     "/images/om/partnerskaberSamarbejdeMobil.jpg",
-  //     "/images/om/boysSinging.png",
-  //     "/images/om/partnerskaberSamarbejde.jpg",
-  //     "/images/sangproeven/boySinging.png",
-  //     "/images/sangproeven/mathiasFrederikAnders.jpg",
-  //     "/images/sangproeven/gladeFyre.png",
-  //     "/images/travels/koncertrejser.jpg",
-  //     "/images/travels/koncertrejser32.jpg",
-  //     "/images/travels/koncertrejser24.jpg",
-
-  //     // Your other files in `public`
-  //   ].includes(pathname)
-  // )
-  //   return;
-
   // Define a regex pattern to match paths that should be ignored
   const ignorePattern =
     /^\/(manifest.json|images\/.*|your-other-patterns-here)/;
@@ -76,7 +31,8 @@ export function middleware(request: NextRequest) {
   }
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+    (locale) =>
+      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   );
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
@@ -84,7 +40,7 @@ export function middleware(request: NextRequest) {
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
     return NextResponse.redirect(
-      new URL(`/${locale}/${pathname}`, request.url)
+      new URL(`/${locale}/${pathname}`, request.url),
     );
   }
 }
