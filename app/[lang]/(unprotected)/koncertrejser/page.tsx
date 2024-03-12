@@ -31,7 +31,7 @@ const Page = () => {
             </div>
           </div>
           <Suspense fallback={<div>Loading...</div>}>
-            {/*@ts-expect-error Async Server Component*/}
+            {/*@ts-ignore Async Server Component*/}
             <CardTravel />
           </Suspense>
         </section>
