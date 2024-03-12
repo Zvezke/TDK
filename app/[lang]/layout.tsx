@@ -9,6 +9,7 @@ import Link from "next/link";
 import Logo from "./components/Logo";
 import Navbar from "./components/navbar";
 import { Providers } from "@/providers/Providers";
+
 import Sidebar from "./components/Sidebar";
 
 export async function generateStaticParams() {
@@ -43,9 +44,9 @@ export default async function RootLayout({
 }) {
   const { navBar } = await getDictionary(params.lang);
   return (
-    <Providers>
-      <html lang={params.lang}>
-        <body className={`${roboto.variable} ${playfair.variable} light`}>
+    <html lang={params.lang}>
+      <body className={`${roboto.variable} ${playfair.variable} light`}>
+        <Providers>
           {/* Check how to disable header in sub */}
           {/* <header>
             {/* <Sidebar /> */}
@@ -58,8 +59,8 @@ export default async function RootLayout({
           {/* </header> */}
           {children}
           {/* <Footer /> */}
-        </body>
-      </html>
-    </Providers>
+        </Providers>
+      </body>
+    </html>
   );
 }

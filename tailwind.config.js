@@ -81,8 +81,8 @@ module.exports = {
     //   },
     // },
   },
-  darkMode: "class",
 },
+darkMode: "class",
 };
 
 // // F5F9F9
