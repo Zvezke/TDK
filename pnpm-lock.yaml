@@ -57,7 +57,7 @@ dependencies:
     specifier: 18.2.21
     version: 18.2.21
   date-fns:
-    specifier: ^2.30.0
+    specifier: 2.30.0
     version: 2.30.0
   date-fns-tz:
     specifier: ^2.0.1
