@@ -39,14 +39,17 @@ export default function CardAlbum({ album }: CardAlbumProps) {
           <div>
             <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
               <div className="mb-4">
-                <h2 className="mb-2 font-playfair text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 className="mb-2 font-playfair text-3xl font-bold tracking-tight text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 sm:text-4xl">
                   {album.album}
                 </h2>
-                <p className="mb-4 text-xs text-gray-300">
+                <p className="mb-4 text-xs text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400">
                   {album.description}
                 </p>
                 {album.tracks.map((track) => (
-                  <li className="text-gray-200" key={track.track_number}>
+                  <li
+                    className="text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400"
+                    key={track.track_number}
+                  >
                     {track.title}
                   </li>
                 ))}
