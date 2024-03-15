@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
@@ -19,6 +20,7 @@ import useColorMode from "@/hooks/useColorMode";
 
 // Components
 import LogoutButton from "./logoutButton/page";
+import ThemeSwitch from "./ThemeSwitch";
 
 // Context
 import { useAuth } from "@/context/AuthContext";
@@ -30,7 +32,6 @@ import ButtonLogIn from "./buttonLogIn/ButtonLogIn";
 
 // Supabase
 import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
-import ThemeSwitch from "./ThemeSwitch";
 
 const Navbar = ({
   about,
@@ -90,6 +91,8 @@ const Navbar = ({
   // if (authSupabaseData) {
   //   console.log("authSupabaseData", authSupabaseData);
   // }
+
+  const router = useRouter();
 
   try {
     return (
@@ -152,28 +155,13 @@ const Navbar = ({
             </div>
             {/* Dark mode, language, login */}
             <div className="flex items-center justify-end gap-8 lg:col-start-11 lg:col-end-13">
-              <button
+              {/* <button
                 onClick={() => {
                   setColorMode(colorMode === "light" ? "dark" : "light");
                 }}
               >
-                <ThemeSwitch />
-                {/* {colorMode === "light" ? (
-                  <Image
-                    src="/images/darkMode.svg"
-                    alt="Icon for light mode"
-                    width={20}
-                    height={20}
-                  />
-                ) : (
-                  <Image
-                    src="/images/lightMode.svg"
-                    alt="Icon for dark mode"
-                    width={20}
-                    height={20}
-                  />
-                )} */}
-              </button>
+              </button> */}
+              <ThemeSwitch />
               {/* <LoginButton /> */}
               {/* <Image
                 src="/images/language.svg"

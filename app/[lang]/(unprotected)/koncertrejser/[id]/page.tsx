@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="flex h-screen w-full items-center justify-center">
             <h2
               className="z-10 px-8 pb-4 text-center font-playfair text-[3.5rem] font-black leading-tight
-            text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:pb-8 lg:text-8xl"
+            text-tdk-blue-200 lg:pb-8 lg:text-8xl"
             >
               {travel?.title}
             </h2>
@@ -43,19 +43,19 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="mt-16 flex justify-center">
             <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
               <div className="mb-4">
-                <h1 className="font-playfair text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h1 className="font-playfair text-3xl font-bold tracking-tight text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-200 sm:text-4xl">
                   {travel?.title}
                 </h1>
-                <time className="text-xs text-gray-300">
+                <time className="text-xs text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-200">
                   {/* {travel?.date} */}
                   {formatDate(travel?.date as string)}
                 </time>
               </div>
               <div
-                className="rich-text-content-cardtravel max-w-xl pb-16 text-gray-300"
+                className="rich-text-content-cardtravel max-w-xl pb-16 text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400"
                 dangerouslySetInnerHTML={{
                   __html: convertRichTextToHtml(
-                    travel?.rich_text as RichTextDoc
+                    travel?.rich_text as RichTextDoc,
                   ),
                 }}
               />

@@ -17,13 +17,10 @@ const Page = () => {
               height={1080}
             />
             <div className="mx-auto flex h-screen flex-col justify-center text-center lg:px-0 lg:text-left xl:max-w-screen-xl">
-              <h2
-                className="z-10 px-8 pb-4 font-playfair text-[3.5rem] font-black leading-tight text-tdk-blue-light-headlines
-            dark:text-tdk-blue-200 lg:px-0 lg:pb-8 lg:text-8xl"
-              >
+              <h2 className="z-10 px-8 pb-4 font-playfair text-[3.5rem] font-black leading-tight text-tdk-blue-200 lg:px-0 lg:pb-8 lg:text-8xl">
                 Koncertrejser
               </h2>
-              <p className="z-10 mx-auto max-w-prose px-8 text-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-400 lg:mx-0 lg:px-0 lg:pr-12 lg:text-xl">
+              <p className="z-10 mx-auto max-w-prose px-8 text-tdk-blue-400 lg:mx-0 lg:px-0 lg:pr-12 lg:text-xl">
                 Læs om vores koncertrejser. Læs om internationale optrædener og
                 det musikalske fællesskab. Kom med og skab uforglemmelige
                 musikalske minder.
@@ -31,7 +28,6 @@ const Page = () => {
             </div>
           </div>
           <Suspense fallback={<div>Loading...</div>}>
-            {/*@ts-ignore Async Server Component*/}
             <CardTravel />
           </Suspense>
         </section>
@@ -41,3 +37,7 @@ const Page = () => {
 };
 
 export default Page;
+
+{
+  /*@ts-ignore Async Server Component*/
+}

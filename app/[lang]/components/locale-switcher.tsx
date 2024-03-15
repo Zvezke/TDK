@@ -14,6 +14,10 @@ export default function LocaleSwitcher() {
     return segments.join("/");
   };
 
+  const setCookie = (locale: string) => {
+    document.cookie = `NEXT_LOCALE=${locale}; max-age=31536000; path=/`;
+  };
+
   // //  Toggle for language switcher using redirectedPathName
   // const toggleLanguage = () => {
   //   console.log(redirectedPathName);
@@ -28,7 +32,11 @@ export default function LocaleSwitcher() {
     <>
       {/* {console.log(pathName)} */}
       {pathName.includes("/da") && (
-        <Link key="da" href={redirectedPathName("en")}>
+        <Link
+          onClick={() => setCookie("en")}
+          key="da"
+          href={redirectedPathName("en")}
+        >
           EN
           {/* <Image
             src="/images/language.svg"
@@ -39,7 +47,11 @@ export default function LocaleSwitcher() {
         </Link>
       )}
       {pathName.includes("/en") && (
-        <Link key="en" href={redirectedPathName("da")}>
+        <Link
+          onClick={() => setCookie("da")}
+          key="en"
+          href={redirectedPathName("da")}
+        >
           DA
           {/* <Image
             src="/images/language.svg"
