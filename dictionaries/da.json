@@ -74,5 +74,11 @@
     "comingSoonTitle": "Kommer snart",
     "contactMessage": "Hvis du ønsker at kontakte korlederen, er du velkommen til at ",
     "contactLink": "sende en email."
+  },
+  "board": {
+    "title": "Bestyrelsen",
+    "chairman": "Formand",
+    "viceChairman": "Næstformand",
+    "treasurer": "Kasserer"
   }
 }

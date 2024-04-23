@@ -189,6 +189,7 @@ export default function ExternalLayout({
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
+                    {/* Intra, sidebar, Begivenheder */}
                     <Link
                       href="/da/intra/external"
                       className={
@@ -204,19 +205,8 @@ export default function ExternalLayout({
                         Begivenheder (offentlige)
                       </span>
                     </Link>
-                    {/* <Link
-                      href="/da/intra/intern"
-                      className={
-                        currentRoute === "da/intra/intern"
-                          ? "group flex gap-x-3 rounded-md bg-tdk-blue-cardBg p-2 text-sm font-semibold leading-6 text-tdk-blue-200"
-                          : "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
-                      }
-                    >
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">
-                        <CalendarIcon className="h-6 w-6" aria-hidden="true" />
-                      </span>
-                      <span className="truncate">Aktiviteter (Intern)</span>
-                    </Link> */}
+
+                    {/* Intra, sidebar, Øvestemmer */}
                     <Link
                       href="/da/intra/oevestemmer"
                       className={
@@ -225,13 +215,7 @@ export default function ExternalLayout({
                           : "group flex gap-x-3 rounded-md bg-tdk-blue-800 p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       }
                     >
-                      <span
-                        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg ${
-                          currentRoute === "/da/intra/oevestemmer"
-                            ? "bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200"
-                            : "bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-800 group-hover:text-tdk-blue-cardBg"
-                        }`}
-                      >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-transparent text-[0.625rem] font-medium text-tdk-blue-200">
                         <CalendarIcon
                           className={`h-6 w-6 ${
                             currentRoute === "/da/intra/oevestemmer"
@@ -243,6 +227,8 @@ export default function ExternalLayout({
                       </span>
                       <span className="truncate">Øvestemmer</span>
                     </Link>
+
+                    {/* Intra, sidebar, Koncertrejser */}
                     <Link
                       href="/da/intra/koncertrejser"
                       className={
@@ -251,13 +237,7 @@ export default function ExternalLayout({
                           : "group flex gap-x-3 rounded-md bg-tdk-blue-800 p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
                       }
                     >
-                      <span
-                        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg ${
-                          currentRoute === "/da/intra/koncertrejser"
-                            ? "bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200"
-                            : "bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-800 group-hover:text-tdk-blue-cardBg"
-                        }`}
-                      >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-transparent text-[0.625rem] font-medium text-tdk-blue-200">
                         <CalendarIcon
                           className={`h-6 w-6 ${
                             currentRoute === "/da/intra/koncertrejser"
@@ -269,12 +249,34 @@ export default function ExternalLayout({
                       </span>
                       <span className="truncate">Koncertrejser</span>
                     </Link>
+
+                    {/* Intra, sidebar, Bestyrelsen */}
+                    <Link
+                      href="/da/intra/board"
+                      className={
+                        currentRoute === "/da/intra/board"
+                          ? "group flex gap-x-3 rounded-md bg-tdk-blue-cardBg p-2 text-sm font-semibold leading-6 text-tdk-blue-200"
+                          : "group flex gap-x-3 rounded-md bg-tdk-blue-800 p-2 text-sm font-semibold leading-6 text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200"
+                      }
+                    >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-transparent text-[0.625rem] font-medium text-tdk-blue-200">
+                        <CalendarIcon
+                          className={`h-6 w-6 ${
+                            currentRoute === "/da/intra/board"
+                              ? "bg-tdk-blue-cardBg text-tdk-blue-200"
+                              : "bg-transparent text-tdk-blue-400 hover:bg-tdk-blue-cardBg"
+                          }`}
+                          aria-hidden="true"
+                        />
+                      </span>
+                      <span className="truncate">Bestyrelsen</span>
+                    </Link>
                   </ul>
                 </li>
                 <li>
-                  <div className="text-xs font-semibold leading-6 text-tdk-blue-400">
+                  {/* <div className="text-xs font-semibold leading-6 text-tdk-blue-400">
                     Hjemmesiden
-                  </div>
+                  </div> */}
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     <li>
                       <Link
@@ -346,9 +348,9 @@ export default function ExternalLayout({
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
-          <div className="flex-1 bg-tdk-blue-cardBg text-sm font-semibold leading-6 text-tdk-blue-200">
+          {/* <div className="flex-1 bg-tdk-blue-cardBg text-sm font-semibold leading-6 text-tdk-blue-200">
             Dashboard
-          </div>
+          </div> */}
         </div>
       </div>
       {children}

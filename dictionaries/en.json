@@ -73,5 +73,11 @@
     "comingSoonTitle": "Coming soon",
     "contactMessage": "If you wish to contact the choir leader, you are welcome to ",
     "contactLink": "send an email."
+  },
+  "board": {
+    "title": "Board",
+    "chairman": "Chairman",
+    "viceChairman": "Vice Chairman",
+    "treasurer": "Treasurer"
   }
 }
