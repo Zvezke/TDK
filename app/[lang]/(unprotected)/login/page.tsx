@@ -39,7 +39,7 @@ export default function Login() {
     IAuthStore | AuthRecord | null | undefined
   >(null);
   const [authStore, setAuthStore] = useState<IAuthStore | null | undefined>(
-    null
+    null,
   );
 
   const router = useRouter();
@@ -81,7 +81,7 @@ export default function Login() {
             onSubmit={handleSubmit(submitData)}
           >
             <div className="relative -space-y-px rounded-md shadow-sm">
-              <div className="ring-gray-300 pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset" />
+              <div className="pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset ring-gray-300" />
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   E-mailadresse
@@ -91,7 +91,7 @@ export default function Login() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="text-gray-900 ring-gray-100 placeholder:text-gray-400 focus:ring-indigo-600 relative block w-full rounded-t-md border-0 py-1.5 ring-1 ring-inset focus:z-10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="E-mailadresse"
                   {...register("email")}
                 />
@@ -105,7 +105,7 @@ export default function Login() {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="text-gray-900 ring-gray-100 placeholder:text-gray-400 focus:ring-indigo-600 relative block w-full rounded-b-md border-0 py-1.5 ring-1 ring-inset focus:z-10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="Kodeord"
                   {...register("password")}
                 />
@@ -115,7 +115,7 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                className="focus-visible:outline-indigo-600 flex w-full justify-center rounded-md border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings px-3 py-1.5 text-sm font-semibold leading-6 text-tdk-blue-light-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700"
+                className="flex w-full justify-center rounded-md border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings px-3 py-1.5 text-sm font-semibold leading-6 text-tdk-blue-light-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:border-tdk-yellow-400 dark:bg-tdk-yellow-400 dark:text-tdk-blue-700"
               >
                 Log ind
               </button>

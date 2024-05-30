@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import EventsModal from "./EventsModal";
 
-import { format } from "date-fns";
+import { format, subHours } from "date-fns";
 import { da } from "date-fns/locale";
+import { utcToZonedTime, format as formatTz } from "date-fns-tz";
 
 const EventsExternal = ({ events }: any) => {
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
@@ -16,8 +17,9 @@ const EventsExternal = ({ events }: any) => {
   };
 
   const time = (date: string) => {
-    const newDate = new Date(date);
-    return format(newDate, "HH:mm", { locale: da });
+    const newDate = utcToZonedTime(date, "Europe/Copenhagen");
+    const dateMinusTwoHours = subHours(newDate, 2);
+    return formatTz(dateMinusTwoHours, "HH:mm", { locale: da });
   };
 
   const handleClick = (eventId: string | null = null) => {
@@ -31,8 +33,8 @@ const EventsExternal = ({ events }: any) => {
   return (
     <>
       {events &&
-        events?.map((event: Events) => (
-          <>
+        events?.map((event: any) => (
+          <React.Fragment key={event.id}>
             <Link
               href={"#"}
               className="cursor-pointer"
@@ -55,7 +57,7 @@ const EventsExternal = ({ events }: any) => {
                   <h4 className="truncate font-roboto text-xl font-medium leading-loose text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-2xl">
                     {event.title}
                   </h4>
-                  <p className="text-sm line-clamp-2">{event.body}</p>
+                  <p className="line-clamp-2 text-sm">{event.body}</p>
                 </div>
               </div>
             </Link>
@@ -64,7 +66,7 @@ const EventsExternal = ({ events }: any) => {
               open={selectedEventId === event.id}
               handleClick={() => handleClick(event?.id as string)}
             />
-          </>
+          </React.Fragment>
         ))}
     </>
   );

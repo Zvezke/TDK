@@ -122,7 +122,7 @@ export default function Sidebar() {
                                     item.current
                                       ? "bg-tdk-blue-cardBg text-tdk-blue-200"
                                       : "text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200",
-                                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
+                                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
                                   )}
                                 >
                                   <item.icon
@@ -148,7 +148,7 @@ export default function Sidebar() {
                                     team.current
                                       ? "bg-tdk-blue-cardBg text-tdk-blue-200"
                                       : "text-tdk-blue-400 hover:bg-tdk-blue-cardBg hover:text-tdk-blue-200",
-                                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
+                                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
                                   )}
                                 >
                                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-tdk-blue-800 text-[0.625rem] font-medium text-tdk-blue-400 group-hover:text-tdk-blue-200">

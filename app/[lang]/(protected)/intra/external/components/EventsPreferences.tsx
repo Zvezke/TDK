@@ -55,7 +55,10 @@ const EventsPreferences = ({ eventId }: EventProps) => {
           <div className="flex flex-shrink-0 self-center">
             <Menu as="div" className="relative inline-block text-left">
               <div>
-                <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-tdk-blue-cardBg hover:text-tdk-blue-800">
+                <Menu.Button
+                  onClick={() => console.log("Test")}
+                  className="-m-2 flex items-center rounded-full p-2 text-tdk-blue-cardBg hover:text-tdk-blue-800"
+                >
                   <span className="sr-only">Åben menu</span>
                   <EllipsisVerticalIcon
                     className="h-5 w-5"
@@ -73,7 +76,7 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="ring-black absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-tdk-blue-200 shadow-lg ring-1 ring-opacity-5 focus:outline-none">
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-tdk-blue-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
@@ -83,11 +86,11 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                             active
                               ? "bg-tdk-blue-400 text-tdk-blue-800"
                               : "text-tdk-blue-700",
-                            "flex px-4 py-2 text-sm"
+                            "flex px-4 py-2 text-sm",
                           )}
                         >
                           <PencilSquareIcon
-                            className="text-tdk-blue-700 mr-3 h-5 w-5"
+                            className="mr-3 h-5 w-5 text-tdk-blue-700"
                             aria-hidden="true"
                           />
                           <span>Rediger</span>
@@ -106,11 +109,11 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                             active
                               ? "bg-tdk-blue-400 text-tdk-blue-800"
                               : "text-tdk-blue-700",
-                            "flex px-4 py-2 text-sm"
+                            "flex px-4 py-2 text-sm",
                           )}
                         >
                           <MinusCircleIcon
-                            className="text-tdk-blue-700 mr-3 h-5 w-5"
+                            className="mr-3 h-5 w-5 text-tdk-blue-700"
                             aria-hidden="true"
                           />
                           <span>Slet</span>
