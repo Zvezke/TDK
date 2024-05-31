@@ -5,6 +5,7 @@
 
 // Import React components
 import { Fragment, Suspense, useEffect, useState } from "react";
+import { useSelectedEvent } from "@/app/[lang]/(protected)/intra/external/context/EventsContext";
 
 // Next
 // import { useRouter } from "next/navigation";
@@ -32,10 +33,17 @@ import CardHeading from "../../../../components/cardHeadings";
 import EventsDeleteModal from "./EventsDeleteModal";
 
 interface EventProps {
-  eventId: string | null;
+  event: {
+    id: string;
+    created_at: string;
+    title: string | null;
+    body: string | null;
+    date: string | null;
+  };
 }
 
-const EventsPreferences = ({ eventId }: EventProps) => {
+const EventsPreferences = ({ event }: EventProps) => {
+  const [, setSelectedEvent] = useSelectedEvent();
   const [open, setOpen] = useState(false);
 
   const handleCloseModal = () => {
@@ -56,7 +64,7 @@ const EventsPreferences = ({ eventId }: EventProps) => {
             <Menu as="div" className="relative inline-block text-left">
               <div>
                 <Menu.Button
-                  onClick={() => console.log("Test")}
+                  // onClick={() => console.log("Test")}
                   className="-m-2 flex items-center rounded-full p-2 text-tdk-blue-cardBg hover:text-tdk-blue-800"
                 >
                   <span className="sr-only">Åben menu</span>
@@ -81,7 +89,7 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          href="#"
+                          onClick={() => setSelectedEvent(event)}
                           className={classNames(
                             active
                               ? "bg-tdk-blue-400 text-tdk-blue-800"
@@ -100,10 +108,10 @@ const EventsPreferences = ({ eventId }: EventProps) => {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          onClick={() => setOpen(true)}
-                          // onClick={async () => {
-                          // await useDeleteEvent(eventId as string);
-                          // }}
+                          // onClick={() => setOpen(true)}
+                          onClick={async () => {
+                            await useDeleteEvent(event.id as string);
+                          }}
                           href="#"
                           className={classNames(
                             active
@@ -126,7 +134,7 @@ const EventsPreferences = ({ eventId }: EventProps) => {
             </Menu>
           </div>
           <EventsDeleteModal
-            eventId={eventId as string}
+            eventId={event.id as string}
             open={open}
             onClose={handleCloseModal}
           />
