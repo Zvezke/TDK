@@ -8,6 +8,8 @@ import { format, subHours } from "date-fns";
 import { da } from "date-fns/locale";
 import { utcToZonedTime, format as formatTz } from "date-fns-tz";
 
+// console.log(da);
+
 const EventsExternal = ({ events }: any) => {
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
 

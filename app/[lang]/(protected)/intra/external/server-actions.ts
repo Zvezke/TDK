@@ -32,15 +32,23 @@ interface Event {
   date: string | null;
   title: string | null;
 }
-
 const useCreateEvent = async (eventData: Event) => {
   const supabase = createSupabaseServerComponentClient<Database>();
-  let { data: event, error: eventError } = await supabase
+  let { data: supabaseEvent, error: supabaseEventError } = await supabase
     .from("events")
-    .insert([eventData])
-    .select("*");
-  revalidatePath("/[lang]/(protected)/intra/external/components/Events");
-  return { event, eventError };
+    .upsert([eventData])
+    .select("*")
+    .single();
+
+  // console.log("Before revalidation");
+
+  // Replace the path with the appropriate dynamic path
+  // revalidatePath("/[lang]/intra/external/components/EventsInternal", "layout");
+
+  // console.log("After revalidation");
+
+  // app/[lang]/(protected)/intra/external/components/EventsInternal.tsx
+  return { supabaseEvent, supabaseEventError };
 };
 
 //////////////////

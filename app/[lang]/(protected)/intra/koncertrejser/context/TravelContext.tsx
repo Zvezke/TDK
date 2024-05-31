@@ -19,8 +19,6 @@ const TravelContext = createContext<TravelContextProps>({
 export const TravelProvider = ({ children }: TravelProviderProps) => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
-  // imageUrl && console.log("TravelContext, imageUrl", imageUrl);
-
   return (
     <TravelContext.Provider value={{ imageUrl, setImageUrl }}>
       {children}

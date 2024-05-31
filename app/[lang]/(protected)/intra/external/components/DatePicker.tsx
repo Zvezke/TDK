@@ -2,11 +2,18 @@
 
 // Måske bruge 'With title and pill actions' - https://tailwindui.com/components/application-ui/forms/textareas#component-c8189b6993ca18e9955b370f741b763b
 
+import {
+  useSelectedEvent,
+  useEvents,
+  // useTestEvent,
+} from "@/app/[lang]/(protected)/intra/external/context/EventsContext";
+import { useState, useEffect } from "react";
+
 import { createDateTimeForSupabase } from "../utils/timeUtils";
 
 // Libraries
-import { useForm } from "react-hook-form";
-import { z, ZodType } from "zod";
+import { useForm, useWatch } from "react-hook-form";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 // Supabase
@@ -31,10 +38,64 @@ const schema = z.object({
   body: z.string(),
 });
 
+const monthNames = [
+  "Januar",
+  "Februar",
+  "Marts",
+  "April",
+  "Maj",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "December",
+];
+
 const DatePicker = () => {
-  const { register, handleSubmit, reset, formState } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-  });
+  const [testString, setTestString] = useState<string>("Test string");
+  const [selectedEvent] = useSelectedEvent();
+  // const [events, setEvents] = useEvents();
+  const [events, setEvents] = useEvents();
+  // const [testEvent, setTestEvent] = useTestEvent();
+  const currentDate = new Date();
+  const defaultValues = selectedEvent
+    ? {
+        year: "",
+        month: "",
+        day: "",
+        daytime: "",
+        title: "",
+        body: "",
+      }
+    : {
+        year: currentDate.getFullYear().toString(),
+        month: monthNames[currentDate.getMonth()],
+        day: currentDate.getDate().toString(),
+        daytime: "15:00",
+        title: "",
+        body: "",
+      };
+
+  const { register, handleSubmit, reset, setValue, formState } =
+    useForm<FormValues>({
+      resolver: zodResolver(schema),
+      defaultValues,
+    });
+
+  // Populate form with selected event data if available
+  useEffect(() => {
+    if (selectedEvent) {
+      const date = new Date(selectedEvent.date as string);
+      setValue("year", date.getFullYear().toString());
+      setValue("month", monthNames[date.getMonth()]);
+      setValue("day", date.getDate().toString());
+      setValue("daytime", date.toTimeString().substring(0, 5));
+      setValue("title", selectedEvent.title as string);
+      setValue("body", selectedEvent.body as string);
+    }
+  }, [selectedEvent, setValue]);
 
   const onSubmit = async (data: FormValues) => {
     const { year, month, day, daytime, title, body } = data;
@@ -43,18 +104,52 @@ const DatePicker = () => {
       year,
       month,
       day,
-      daytime
+      daytime,
     );
 
     try {
-      const dataForSupabase = {
-        title: title,
-        body: body,
+      const eventData = {
+        id: selectedEvent?.id as string,
+        created_at: selectedEvent?.created_at as string,
+        title,
+        body,
         date: dateForSupabase,
       };
-      const { eventError } = await useCreateEvent(dataForSupabase);
-      console.warn("DatePicker, eventError", eventError);
+
+      const { supabaseEventError } = await useCreateEvent(eventData);
+      if (!supabaseEventError) {
+        setEvents((prevEvents) => {
+          if (selectedEvent) {
+            return prevEvents.map((e) =>
+              e.id === selectedEvent.id ? eventData : e,
+            );
+          } else {
+            return [...prevEvents, eventData];
+          }
+        });
+        // setTestString("Test string updated");
+        // console.log("DatePicker, supabaseEvent", supabaseEvent);
+        // setTestEvent({ body: "2" });
+        // setEvents((prevEvents) => {
+        //   if (selectedEvent) {
+        //     return prevEvents.map((e) => (e.id === events?.id ? events : e));
+        //   } else {
+        //     return [...prevEvents, events];
+        //   }
+        // });
+      }
+      //   // Update the events state with the new or updated event
+      //   setEvents((prevEvents) => {
+      //     const updatedEvents = selectedEvent
+      //       ? prevEvents.map((e) => (e.id === event.id ? event : e))
+      //       : [...prevEvents, event];
+
+      //     return updatedEvents;
+      //   });
+      // }
+      console.warn("DatePicker, eventError", supabaseEventError);
     } catch (error) {
+      console.error(error);
     } finally {
       reset();
     }
@@ -65,20 +160,19 @@ const DatePicker = () => {
   return (
     <div className="">
       <form className="grid" onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex justify-between">
+        <div className="flex justify-start gap-4">
           {/* Month */}
           <div className="flex flex-col">
             <label
               htmlFor="Month"
-              className="text-gray-900 block text-sm font-medium leading-6"
+              className="block text-sm font-medium leading-6 text-gray-900"
             >
               Måned
             </label>
+            {/* <div>{testString}</div> */}
             <select
               id="Month"
-              className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
-              // Set default value to current month
-              defaultValue="Januar"
+              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
               {...register("month")}
             >
               <option>Januar</option>
@@ -101,48 +195,20 @@ const DatePicker = () => {
           <div className="flex flex-col">
             <label
               htmlFor="Day"
-              className="text-gray-900 block text-sm font-medium leading-6"
+              className="block text-sm font-medium leading-6 text-gray-900"
             >
               Dag
             </label>
             <select
               id="Day"
-              className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
-              // Set default value to current day
-              defaultValue="1"
+              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
               {...register("day")}
             >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18</option>
-              <option>19</option>
-              <option>20</option>
-              <option>21</option>
-              <option>22</option>
-              <option>23</option>
-              <option>24</option>
-              <option>25</option>
-              <option>26</option>
-              <option>27</option>
-              <option>28</option>
-              <option>29</option>
-              <option>30</option>
-              <option>31</option>
+              {Array.from({ length: 31 }, (_, i) => (
+                <option key={i + 1} value={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
             </select>
             {errors.day && <span>{errors.day.message}</span>}
           </div>
@@ -151,17 +217,16 @@ const DatePicker = () => {
           <div className="flex flex-col">
             <label
               htmlFor="year"
-              className="text-gray-900 block text-sm font-medium leading-6"
+              className="block text-sm font-medium leading-6 text-gray-900"
             >
               År
             </label>
             <select
               id="year"
-              className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
-              // Set default value to current year
-              defaultValue="2023"
+              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
               {...register("year")}
             >
+              <option>2023</option>
               <option>2024</option>
               <option>2025</option>
               <option>2026</option>
@@ -173,127 +238,43 @@ const DatePicker = () => {
           <div className="flex flex-col">
             <label
               htmlFor="daytime"
-              className="text-gray-900 block text-sm font-medium leading-6"
+              className="block text-sm font-medium leading-6 text-gray-900"
             >
               Tidspunkt
             </label>
             <select
               id="daytime"
-              className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
-              defaultValue="12:00"
+              className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
               {...register("daytime")}
             >
-              <option>00:00</option>
-              <option>00:15</option>
-              <option>00:30</option>
-              <option>00:45</option>
-              <option>01:00</option>
-              <option>01:15</option>
-              <option>01:30</option>
-              <option>01:45</option>
-              <option>02:00</option>
-              <option>02:15</option>
-              <option>02:30</option>
-              <option>02:45</option>
-              <option>03:00</option>
-              <option>03:15</option>
-              <option>03:30</option>
-              <option>03:45</option>
-              <option>04:00</option>
-              <option>04:15</option>
-              <option>04:30</option>
-              <option>04:45</option>
-              <option>05:00</option>
-              <option>05:15</option>
-              <option>05:30</option>
-              <option>05:45</option>
-              <option>06:00</option>
-              <option>06:15</option>
-              <option>06:30</option>
-              <option>06:45</option>
-              <option>07:00</option>
-              <option>07:15</option>
-              <option>07:30</option>
-              <option>07:45</option>
-              <option>08:00</option>
-              <option>08:15</option>
-              <option>08:30</option>
-              <option>08:45</option>
-              <option>09:00</option>
-              <option>09:15</option>
-              <option>09:30</option>
-              <option>09:45</option>
-              <option>10:00</option>
-              <option>10:15</option>
-              <option>10:30</option>
-              <option>10:45</option>
-              <option>11:00</option>
-              <option>11:15</option>
-              <option>11:30</option>
-              <option>11:45</option>
-              <option>12:00</option>
-              <option>12:15</option>
-              <option>12:30</option>
-              <option>12:45</option>
-              <option>13:00</option>
-              <option>13:15</option>
-              <option>13:30</option>
-              <option>13:45</option>
-              <option>14:00</option>
-              <option>14:15</option>
-              <option>14:30</option>
-              <option>14:45</option>
-              <option>15:00</option>
-              <option>15:15</option>
-              <option>15:30</option>
-              <option>15:45</option>
-              <option>16:00</option>
-              <option>16:15</option>
-              <option>16:30</option>
-              <option>16:45</option>
-              <option>17:00</option>
-              <option>17:15</option>
-              <option>17:30</option>
-              <option>17:45</option>
-              <option>18:00</option>
-              <option>18:15</option>
-              <option>18:30</option>
-              <option>18:45</option>
-              <option>19:00</option>
-              <option>19:15</option>
-              <option>19:30</option>
-              <option>19:45</option>
-              <option>20:00</option>
-              <option>20:15</option>
-              <option>20:30</option>
-              <option>20:45</option>
-              <option>21:00</option>
-              <option>21:15</option>
-              <option>21:30</option>
-              <option>21:45</option>
-              <option>22:00</option>
-              <option>22:15</option>
-              <option>22:30</option>
-              <option>22:45</option>
-              <option>23:00</option>
-              <option>23:15</option>
-              <option>23:30</option>
-              <option>23:45</option>
+              {Array.from({ length: 24 }, (_, i) => [
+                `${i.toString().padStart(2, "0")}:00`,
+                `${i.toString().padStart(2, "0")}:15`,
+                `${i.toString().padStart(2, "0")}:30`,
+                `${i.toString().padStart(2, "0")}:45`,
+              ])
+                .flat()
+                .map((time) => (
+                  <option key={time} value={time}>
+                    {time}
+                  </option>
+                ))}
             </select>
+            {errors.daytime && <span>{errors.daytime.message}</span>}
           </div>
         </div>
 
         {/* Title */}
         <label
           htmlFor="title"
-          className="text-gray-900 mt-4 block text-sm font-medium leading-6"
+          className="mt-4 block text-sm font-medium leading-6 text-gray-900"
         >
           Titel
         </label>
         <input
           type="text"
           id="title"
-          className="block w-full rounded-md border-0 py-1.5 mt-2 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
+          className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
           {...register("title")}
           required
         />
@@ -302,13 +283,13 @@ const DatePicker = () => {
         {/* Body */}
         <label
           htmlFor="body"
-          className="text-gray-900 mt-4 block text-sm font-medium leading-6"
+          className="mt-4 block text-sm font-medium leading-6 text-gray-900"
         >
           Beskrivelse
         </label>
         <textarea
           id="body"
-          className="text-gray-900 ring-gray-300 focus:ring-orange-600 mt-2 h-48 w-full rounded-md block border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6"
+          className="mt-2 block h-48 w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-600 sm:text-sm sm:leading-6"
           {...register("body")}
           required
         ></textarea>
@@ -316,11 +297,17 @@ const DatePicker = () => {
 
         {/* Submit button */}
         <button
-          className="text-white hover:bg-orange-500 focus-visible:outline-orange-600 mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
           type="submit"
         >
-          Tilføj begivenhed
+          {selectedEvent ? "Opdater begivenhed" : "Tilføj begivenhed"}
         </button>
+        {/* <button
+          className="mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+          onClick={() => setTestEvent({ body: "1" })}
+        >
+          Update TestEvent
+        </button> */}
       </form>
     </div>
   );
