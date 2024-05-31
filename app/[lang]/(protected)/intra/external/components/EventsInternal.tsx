@@ -25,10 +25,17 @@ const formatDate = (inputDate: string) => {
 
 const Events = () => {
   const [events] = useEvents();
-  // const [testEvent] = useTestEvent();
+
+  // Sort events by date
+  const sortedEvents = events?.sort(
+    (a, b) =>
+      new Date(a.date as string).getTime() -
+      new Date(b.date as string).getTime(),
+  );
+
   return (
     <>
-      {events?.map((event) => (
+      {sortedEvents?.map((event) => (
         <div
           key={event.id}
           className="mb-4 flex items-center justify-between rounded-md border-2 px-4 py-2"
@@ -42,7 +49,6 @@ const Events = () => {
             </time>
             <p className="mb-1 mt-2 max-w-prose text-xs text-gray-900">
               {event?.body}
-              {/* {testEvent.body} */}
             </p>
           </div>
           <EventsPreferences event={event} />
