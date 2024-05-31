@@ -145,7 +145,7 @@ const DatePicker = () => {
   const { errors } = formState;
 
   return (
-    <div className="">
+    <div>
       <form className="grid" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-start gap-4">
           {/* Month */}
@@ -289,12 +289,6 @@ const DatePicker = () => {
         >
           {selectedEvent ? "Opdater begivenhed" : "Tilføj begivenhed"}
         </button>
-        {/* <button
-          className="mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-          onClick={() => setTestEvent({ body: "1" })}
-        >
-          Update TestEvent
-        </button> */}
       </form>
     </div>
   );
