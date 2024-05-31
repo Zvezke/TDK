@@ -2,7 +2,6 @@ import { Playfair_Display, Roboto } from "next/font/google";
 import Footer from "./footer";
 import "../globals.css";
 import { i18n } from "@/i18n-config";
-import { get } from "http";
 import { getDictionary } from "@/get-dictionary";
 import Link from "next/link";
 // import Header from "./header";
@@ -17,8 +16,12 @@ export async function generateStaticParams() {
 export const metadata = {
   title: "TDK",
   description: "Treenighedskirkens drenge- og mandskor",
-  themeColor: "#172B3B",
+  // themeColor: "#172B3B",
   // image: "/images/church.svg",
+};
+
+const viewport = {
+  themeColor: "#172B3B",
 };
 
 const playfair = Playfair_Display({

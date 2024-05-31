@@ -63,10 +63,7 @@ const EventsPreferences = ({ event }: EventProps) => {
           <div className="flex flex-shrink-0 self-center">
             <Menu as="div" className="relative inline-block text-left">
               <div>
-                <Menu.Button
-                  // onClick={() => console.log("Test")}
-                  className="-m-2 flex items-center rounded-full p-2 text-tdk-blue-cardBg hover:text-tdk-blue-800"
-                >
+                <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-tdk-blue-cardBg hover:text-tdk-blue-800">
                   <span className="sr-only">Åben menu</span>
                   <EllipsisVerticalIcon
                     className="h-5 w-5"
@@ -110,9 +107,9 @@ const EventsPreferences = ({ event }: EventProps) => {
                         <a
                           // onClick={() => setOpen(true)}
                           onClick={async () => {
+                            // TODO: (1) Add modal to confirm delete and (2) update context (events)
                             await useDeleteEvent(event.id as string);
                           }}
-                          href="#"
                           className={classNames(
                             active
                               ? "bg-tdk-blue-400 text-tdk-blue-800"

@@ -15,6 +15,7 @@ import { createDateTimeForSupabase } from "../utils/timeUtils";
 import { useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { v4 as uuidv4 } from "uuid";
 
 // Supabase
 import { useCreateEvent } from "../server-actions";
@@ -54,7 +55,7 @@ const monthNames = [
 ];
 
 const DatePicker = () => {
-  const [testString, setTestString] = useState<string>("Test string");
+  // const [testString, setTestString] = useState<string>("Test string");
   const [selectedEvent] = useSelectedEvent();
   // const [events, setEvents] = useEvents();
   const [events, setEvents] = useEvents();
@@ -62,6 +63,7 @@ const DatePicker = () => {
   const currentDate = new Date();
   const defaultValues = selectedEvent
     ? {
+        id: selectedEvent.id,
         year: "",
         month: "",
         day: "",
@@ -70,6 +72,7 @@ const DatePicker = () => {
         body: "",
       }
     : {
+        id: "",
         year: currentDate.getFullYear().toString(),
         month: monthNames[currentDate.getMonth()],
         day: currentDate.getDate().toString(),
@@ -84,10 +87,11 @@ const DatePicker = () => {
       defaultValues,
     });
 
-  // Populate form with selected event data if available
   useEffect(() => {
     if (selectedEvent) {
       const date = new Date(selectedEvent.date as string);
+      // BUG: Fix daylightsaving time
+      date.setHours(date.getHours() - 2); // Subtract two hours
       setValue("year", date.getFullYear().toString());
       setValue("month", monthNames[date.getMonth()]);
       setValue("day", date.getDate().toString());
@@ -107,9 +111,11 @@ const DatePicker = () => {
       daytime,
     );
 
+    const id = selectedEvent?.id ? selectedEvent?.id : uuidv4();
+
     try {
       const eventData = {
-        id: selectedEvent?.id as string,
+        id,
         created_at: selectedEvent?.created_at as string,
         title,
         body,
@@ -127,26 +133,7 @@ const DatePicker = () => {
             return [...prevEvents, eventData];
           }
         });
-        // setTestString("Test string updated");
-        // console.log("DatePicker, supabaseEvent", supabaseEvent);
-        // setTestEvent({ body: "2" });
-        // setEvents((prevEvents) => {
-        //   if (selectedEvent) {
-        //     return prevEvents.map((e) => (e.id === events?.id ? events : e));
-        //   } else {
-        //     return [...prevEvents, events];
-        //   }
-        // });
       }
-      //   // Update the events state with the new or updated event
-      //   setEvents((prevEvents) => {
-      //     const updatedEvents = selectedEvent
-      //       ? prevEvents.map((e) => (e.id === event.id ? event : e))
-      //       : [...prevEvents, event];
-
-      //     return updatedEvents;
-      //   });
-      // }
       console.warn("DatePicker, eventError", supabaseEventError);
     } catch (error) {
       console.error(error);
@@ -158,7 +145,7 @@ const DatePicker = () => {
   const { errors } = formState;
 
   return (
-    <div className="">
+    <div>
       <form className="grid" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-start gap-4">
           {/* Month */}
@@ -302,12 +289,6 @@ const DatePicker = () => {
         >
           {selectedEvent ? "Opdater begivenhed" : "Tilføj begivenhed"}
         </button>
-        {/* <button
-          className="mt-6 rounded-md bg-tdk-orange-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-          onClick={() => setTestEvent({ body: "1" })}
-        >
-          Update TestEvent
-        </button> */}
       </form>
     </div>
   );

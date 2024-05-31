@@ -12,6 +12,7 @@ import Navbar from "./components/navbar";
 import { Providers } from "@/providers/Providers";
 
 import Sidebar from "./components/Sidebar";
+import { Viewport } from "next/types";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -20,8 +21,12 @@ export async function generateStaticParams() {
 export const metadata = {
   title: "TDK",
   description: "Treenighedskirkens drenge- og mandskor",
-  themeColor: "#172B3B",
+  // themeColor: "#172B3B",
   // image: "/images/church.svg",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#172B3B",
 };
 
 const playfair = Playfair_Display({
