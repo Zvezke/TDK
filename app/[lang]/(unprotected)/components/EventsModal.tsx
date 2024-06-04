@@ -1,6 +1,6 @@
 import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { format } from "date-fns";
+import { format, subHours } from "date-fns";
 import { da } from "date-fns/locale";
 
 interface EventsModalProps {
@@ -17,9 +17,11 @@ const EventsModal = ({ event, open, handleClick }: EventsModalProps) => {
     return format(newDate, "dd. MMM", { locale: da });
   };
 
+  // BUG: Fix daylight saving time
   const time = (date: string) => {
     const newDate = new Date(date);
-    return format(newDate, "HH:mm", { locale: da });
+    const dateMinusTwoHours = subHours(newDate, 2);
+    return format(dateMinusTwoHours, "HH:mm", { locale: da });
   };
 
   return (
@@ -62,7 +64,7 @@ const EventsModal = ({ event, open, handleClick }: EventsModalProps) => {
                     >
                       {event.title}
                     </Dialog.Title>
-                    <div className="text-sm mt-1 text-gray-600">
+                    <div className="mt-1 text-sm text-gray-600">
                       {dayAndMonth(event?.date as string)}, kl.{" "}
                       {time(event?.date as string)}
                     </div>
