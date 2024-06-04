@@ -12,20 +12,20 @@ type EventProps = {
 
 type SelectedEventProps = EventProps | null;
 
-const useSelectedEventState = (initialEvent: SelectedEventProps) =>
-  useState<SelectedEventProps>(initialEvent ?? null);
-
 const useEventsState = (initialEvents: EventProps[]) =>
   useState<EventProps[]>(initialEvents);
 
-export const SelectedEventContext = createContext<
-  ReturnType<typeof useSelectedEventState>
->([null, () => null]);
+const useSelectedEventState = (initialEvent: SelectedEventProps) =>
+  useState<SelectedEventProps>(initialEvent ?? null);
 
 export const EventsContext = createContext<ReturnType<typeof useEventsState>>([
   [],
   () => null,
 ]);
+
+export const SelectedEventContext = createContext<
+  ReturnType<typeof useSelectedEventState>
+>([null, () => null]);
 
 export const useEvents = () => {
   const events = useContext(EventsContext);

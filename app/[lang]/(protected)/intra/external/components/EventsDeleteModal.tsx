@@ -1,9 +1,10 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 // Server actions
 import { useDeleteEvent } from "../server-actions";
+import { useEvents } from "@/app/[lang]/(protected)/intra/external/context/EventsContext";
 
 interface EventsDeleteModalProps {
   eventId: string;
@@ -16,11 +17,19 @@ export default function EventsDeleteModal({
   open,
   onClose,
 }: EventsDeleteModalProps) {
-  // const [open = false, setOpen] = useState(false);
+  const [events, setEvents] = useEvents();
+
   const cancelButtonRef = useRef(null);
 
   const handleDeleteEvent = async () => {
-    await useDeleteEvent(eventId);
+    const { deleteEventError } = await useDeleteEvent(eventId);
+    if (deleteEventError) {
+      console.error(deleteEventError);
+      return;
+    }
+
+    // Remove the deleted event from the events
+    setEvents(events.filter((event) => event.id !== eventId));
   };
 
   return (
@@ -84,7 +93,6 @@ export default function EventsDeleteModal({
                       await handleDeleteEvent();
                       onClose();
                     }}
-                    // onClick={() => setOpen(false)}
                   >
                     Slet
                   </button>

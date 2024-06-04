@@ -105,11 +105,11 @@ const EventsPreferences = ({ event }: EventProps) => {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          // onClick={() => setOpen(true)}
-                          onClick={async () => {
-                            // TODO: (1) Add modal to confirm delete and (2) update context (events)
-                            await useDeleteEvent(event.id as string);
-                          }}
+                          onClick={() => setOpen(true)}
+                          // onClick={async () => {
+                          //   // TODO: (1) Add modal to confirm delete and (2) update context (events)
+                          //   await useDeleteEvent(event.id as string);
+                          // }}
                           className={classNames(
                             active
                               ? "bg-tdk-blue-400 text-tdk-blue-800"
