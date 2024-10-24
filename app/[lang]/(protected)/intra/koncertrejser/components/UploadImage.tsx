@@ -20,12 +20,14 @@ const UploadImage = () => {
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Function to handle file upload
   const handleFileUpload = async (e: any) => {
     console.log("UploadImage, handleFileUpload, imageUrl", imageUrl);
     await addImage(e, fileInputRef, setImageUrl);
     router.refresh();
   };
 
+  // Function to handle image replacement
   const handleReplaceImage = async (e: any) => {
     await removeChosenImage(fileInputRef, setImageUrl, imageUrl);
     router.refresh();
@@ -34,6 +36,7 @@ const UploadImage = () => {
   return (
     <>
       {imageUrl === null ? (
+        // Label for file upload
         <label
           className="h-11 w-24 cursor-pointer rounded-md bg-tdk-blue-800 px-2.5 py-1.5 text-xs font-semibold text-tdk-blue-200 shadow-sm hover:bg-tdk-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tdk-blue-800"
           htmlFor={`file-upload`}
@@ -41,6 +44,7 @@ const UploadImage = () => {
           Tilføj billede
         </label>
       ) : (
+        // Display uploaded image with option to remove
         <div className="group relative">
           <Image
             className="h-11 w-24 rounded-md border-2 border-gray-300 bg-gray-50"

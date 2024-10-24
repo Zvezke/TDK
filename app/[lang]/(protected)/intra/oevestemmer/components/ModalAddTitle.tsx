@@ -6,35 +6,8 @@ import { revalidatePath } from "next/cache";
 
 export default function ModalAddTitle({ open, setOpen }: any) {
   const [title, setTitle] = useState("");
-  // async function addTodo(formData: FormData) {
-  //   "use server";
 
-  //   // post todo to api
-  //   let data: { [key: string]: any } = {};
-  //   for (const [key, value] of formData) {
-  //     data[key] = value;
-  //   }
-
-  //   await fetch("http://localhost:3001/api/todo/add", {
-  //     method: "POST",
-  //     body: JSON.stringify(data),
-  //   });
-
-  //   revalidateTag("todo-items");
-
-  //   // revalidatePath("/todo");
-  // }
-
-  // async function getTodos() {
-  //   let todos = await fetch("http://localhost:3001/api/todo/list", {
-  //     next: { tags: ["todo-items"], revalidate: 3600 },
-  //   });
-
-  //   return todos.json();
-  // }
-
-  // let { todos } = await getTodos();
-
+  // Function to add a new title
   const addTitle = async (e: any) => {
     e.preventDefault(); // prevent form submission
     // if title is empty or only contains whitespace
@@ -55,6 +28,7 @@ export default function ModalAddTitle({ open, setOpen }: any) {
     setOpen(false);
   };
 
+  // Function to handle input change
   const handleInputChange = (e: any) => {
     setTitle(e.target.value); // update title state when input changes
   };

@@ -3,12 +3,12 @@
 import React from "react";
 
 // NextJS
-// import { revalidatePath } from "next/cache";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 // Supabase
 import { createSupabaseFrontendClient } from "@/supabase/frontendClient";
 
+// Function to replace Danish characters with their English equivalents
 const replaceDanishCharacters = (str: string) => {
   const map: { [key: string]: string } = {
     ø: "oe",
@@ -24,6 +24,8 @@ const replaceDanishCharacters = (str: string) => {
 
 const UploadVoice = ({ songTitle }: { songTitle: string }) => {
   const router = useRouter();
+
+  // Function to handle file upload
   const addVoice = async (e: any) => {
     const supabase = createSupabaseFrontendClient();
     const file = e.target.files[0];

@@ -13,17 +13,31 @@ import { utcToZonedTime, format as formatTz } from "date-fns-tz";
 const EventsExternal = ({ events }: any) => {
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
 
+  /**
+   * Formats the date to display day and month.
+   * @param date - The date string to format.
+   * @returns The formatted date string.
+   */
   const dayAndMonth = (date: string) => {
     const newDate = new Date(date);
     return format(newDate, "dd. MMM", { locale: da });
   };
 
+  /**
+   * Formats the date to display time in HH:mm format.
+   * @param date - The date string to format.
+   * @returns The formatted time string.
+   */
   const time = (date: string) => {
     const newDate = utcToZonedTime(date, "Europe/Copenhagen");
     const dateMinusTwoHours = subHours(newDate, 2);
     return formatTz(dateMinusTwoHours, "HH:mm", { locale: da });
   };
 
+  /**
+   * Handles the click event to open or close the event modal.
+   * @param eventId - The ID of the event to open or close.
+   */
   const handleClick = (eventId: string | null = null) => {
     if (eventId === null || selectedEventId === eventId) {
       setSelectedEventId(null);

@@ -13,12 +13,13 @@ const AddSong = async () => {
       throw new Error("Title is required");
     }
 
-    // NB. Error handling missing
+    // Insert the new song title into the "songs" table
     const { data, error } = await supabase
       .from("songs")
       .insert([{ title: title }])
       .select();
 
+    // Revalidate the path to update the list of songs
     revalidatePath(
       process.env.NEXT_PUBLIC_RAILWAY_URL + "/da/intra/oevestemmer/get-song"
     );
@@ -28,13 +29,14 @@ const AddSong = async () => {
     "use server";
     const supabase = createSupabaseBackendClient<Database>();
 
-    // NB. Error handling missing
+    // Delete the song with the specified title from the "songs" table
     const { data, error } = await supabase
       .from("songs")
       .delete()
       .match({ title: songTitle })
       .select();
 
+    // Revalidate the path to update the list of songs
     revalidatePath(
       process.env.NEXT_PUBLIC_RAILWAY_URL + "/da/intra/oevestemmer/get-song"
     );

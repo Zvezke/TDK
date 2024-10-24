@@ -9,9 +9,11 @@ import StarterKit from "@tiptap/starter-kit";
 import Toolbar from "./Toolbar";
 import Heading from "@tiptap/extension-heading";
 
+// Tiptap component for creating and editing travel content
 const Tiptap = () => {
   const [title, setTitle] = useState("");
 
+  // Initialize the editor with extensions and default content
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -29,6 +31,7 @@ const Tiptap = () => {
     return null;
   }
 
+  // Handle data submission to create a new travel entry
   const handleData = async () => {
     const rich_text = JSON.parse(JSON.stringify(editor.getJSON()));
     const data = {

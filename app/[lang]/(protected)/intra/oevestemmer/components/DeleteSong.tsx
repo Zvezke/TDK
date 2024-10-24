@@ -13,10 +13,13 @@ const DeleteSong = ({ songTitle }: { songTitle: string }) => {
   const deleteSong = async (e: any) => {
     const supabase = createSupabaseFrontendClient();
 
+    // Delete the song from the "songs" table
     await supabase.from("songs").delete().eq("title", songTitle);
 
+    // Remove the song's folder from the "voices-storage" bucket
     await supabase.storage.from("voices-storage").remove([`${songTitle}`]);
 
+    // Refresh the page to reflect the changes
     router.refresh();
   };
 
