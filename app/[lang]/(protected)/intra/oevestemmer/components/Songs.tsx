@@ -1,4 +1,3 @@
-// import { revalidatePath } from "next/cache";
 import React, { Suspense } from "react";
 import UploadVoice from "./UploadVoice";
 import ListVoices from "./ListVoices";
@@ -9,6 +8,7 @@ const Songs = async () => {
   const supabase = createSupabaseServerComponentClient();
   const { data } = await supabase.auth.getSession();
 
+  // Function to fetch song data from the server
   const getSong = async () => {
     const res = await fetch(
       process.env.NEXT_PUBLIC_RAILWAY_URL + "/da/intra/oevestemmer/get-song"

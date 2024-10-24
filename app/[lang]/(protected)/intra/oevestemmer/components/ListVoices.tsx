@@ -15,6 +15,7 @@ interface Voice {
   last_accessed_at: string;
 }
 
+// Function to replace Danish characters with their English equivalents
 const replaceDanishCharacters = (str: string) => {
   const map: { [key: string]: string } = {
     ø: "oe",
@@ -28,11 +29,8 @@ const replaceDanishCharacters = (str: string) => {
   return str.replace(/[øåæØÅÆ]/g, (match) => map[match]);
 };
 
+// Function to delete a voice from the list
 export const deleteVoice = async (songTitle: string, voiceName: string) => {
-  // console.log("ListVoices.tsx, deleteVoice, songTitle", songTitle);
-  // console.log("ListVoices.tsx, deleteVoice, voiceName", voiceName);
-  // const router = useRouter();
-  // const supabase = createSupabaseFrontendClient<Database>();
   const sanitizedSongTitle = replaceDanishCharacters(songTitle);
   const encodedVoiceName = encodeURIComponent(voiceName);
 
@@ -51,6 +49,7 @@ const ListVoices = async ({ songTitle }: { songTitle: string }) => {
   const supabase = createSupabaseServerComponentClient();
   const { data } = await supabase.auth.getSession();
 
+  // Function to get the list of voices for a given song
   const getListOfVoices = async () => {
     const sanitizedSongTitle = replaceDanishCharacters(songTitle);
     const res = await fetch(

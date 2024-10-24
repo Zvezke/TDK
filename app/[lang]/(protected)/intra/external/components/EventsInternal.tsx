@@ -15,6 +15,11 @@ import { utcToZonedTime, format } from "date-fns-tz";
 import EventsPreferences from "./EventsPreferences";
 import { add } from "date-fns";
 
+/**
+ * Formats a date string to a more readable format.
+ * @param inputDate - The input date string in UTC format.
+ * @returns The formatted date string in the format "dd. MMMM, 'kl.' HH:mm".
+ */
 const formatDate = (inputDate: string) => {
   const utcDate = new Date(inputDate);
   const zonedDate = utcToZonedTime(utcDate, "Europe/Copenhagen");

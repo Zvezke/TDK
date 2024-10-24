@@ -1,18 +1,10 @@
-// Components
 import TravelsPreferences from "./TravelsPreferences";
-
-// Actions
 import { useGetTravels } from "../lib/server-actions";
-
-// Utils
 import { convertRichTextToHtml, RichTextDoc } from "../utils/richTextUtils";
 import Image from "next/image";
 
 const Travels = async () => {
   const { travels, travelsError } = await useGetTravels();
-
-  // console.log("travels", travels);
-  // console.log("travelsError", travelsError);
 
   if (travelsError) {
     console.log("Error fetching travels", travelsError);
@@ -38,7 +30,6 @@ const Travels = async () => {
                   {travel?.title}
                 </h3>
                 <time className="text-xs text-gray-500">
-                  {/* {travel?.date} */}
                   {formatDate(travel?.date as string)}
                 </time>
               </div>

@@ -12,12 +12,21 @@ interface EventsModalProps {
 const EventsModal = ({ event, open, handleClick }: EventsModalProps) => {
   const cancelButtonRef = useRef(null);
 
+  /**
+   * Formats the date to display day and month.
+   * @param date - The date string to format.
+   * @returns The formatted date string.
+   */
   const dayAndMonth = (date: string) => {
     const newDate = new Date(date);
     return format(newDate, "dd. MMM", { locale: da });
   };
 
-  // BUG: Fix daylight saving time
+  /**
+   * Formats the date to display time in HH:mm format.
+   * @param date - The date string to format.
+   * @returns The formatted time string.
+   */
   const time = (date: string) => {
     const newDate = new Date(date);
     const dateMinusTwoHours = subHours(newDate, 2);
