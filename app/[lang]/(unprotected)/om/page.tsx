@@ -33,7 +33,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
       {/* Korets historie */}
       <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
         <section className="mx-auto grid lg:grid lg:grid-cols-2 xl:max-w-screen-xl">
-          <div className="mx-auto py-12 px-6 text-center  dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
+          <div className="mx-auto px-6 py-12 text-center  dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
             <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-left lg:text-5xl">
               {aboutPage.historyTitle}
             </h3>
@@ -57,7 +57,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
       {/* Organisation og uddannelse */}
       {/* Mobil */}
       <div className="flex h-full w-full flex-col items-center justify-between bg-tdk-blue-light-background text-center dark:bg-tdk-blue-700 lg:hidden ">
-        <div className="py-12 px-6 text-center">
+        <div className="px-6 py-12 text-center">
           <h3 className="font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-5xl">
             {aboutPage.organizationTitle}
           </h3>
@@ -75,7 +75,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
         />
       </div>
       {/* Desktop */}
-      <div className="relative top-0 left-0 flex h-full w-full flex-col items-center justify-between text-center max-lg:hidden">
+      <div className="relative left-0 top-0 flex h-full w-full flex-col items-center justify-between text-center max-lg:hidden">
         <section className="flex flex-col">
           <Image
             className="w-screen"
@@ -85,7 +85,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
             height={1080}
           />
         </section>
-        <section className="absolute top-0 left-0 flex h-full w-full flex-col items-center justify-between py-12 px-6 text-center text-tdk-blue-400">
+        <section className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-between px-6 py-12 text-center text-tdk-blue-400">
           <h3 className="mb-6 font-playfair text-5xl font-bold ">
             {aboutPage.organizationTitle}
           </h3>
@@ -100,7 +100,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
       {/* Koncerter og repertoire */}
       <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
         <section className="mx-auto grid lg:grid lg:grid-cols-2 xl:max-w-screen-xl">
-          <div className="mx-auto py-12 px-6 text-center  dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
+          <div className="mx-auto px-6 py-12 text-center  dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
             <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-left lg:text-5xl">
               {aboutPage.concertsTitle}
             </h3>
@@ -135,7 +135,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
           width={1000}
           height={667}
         />
-        <div className="relative bg-tdk-blue-light-background py-12 px-6 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
+        <div className="relative bg-tdk-blue-light-background px-6 py-12 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
           <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl">
             {aboutPage.travelTitle}
           </h3>
@@ -155,7 +155,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
       </section>
 
       {/* Lones udtalelse */}
-      <section className="relative col-start-1 col-end-3 bg-tdk-blue-light-backgroundDark py-12 px-6 text-center text-lg dark:bg-tdk-green-700 lg:text-xl">
+      <section className="relative col-start-1 col-end-3 bg-tdk-blue-light-backgroundDark px-6 py-12 text-center text-lg dark:bg-tdk-green-700 lg:text-xl">
         <div className="mx-auto max-w-prose">
           <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-green-300 lg:text-5xl">
             {aboutPage.lonesStatementTitle}
@@ -168,7 +168,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
             <p>{aboutPage.lonesStatementFinal}</p>
           </div>
         </div>
-        <div className="mt-12 mb-4 lg:self-start">
+        <div className="mb-4 mt-12 lg:self-start">
           {/* <Link
             className="py-2 lg:py-4 lg:mr-8 px-4 lg:px-6 rounded-md text-tdk-blue-light-backgroundDark bg-tdk-blue-light-buttonsSubheadings dark:text-tdk-blue-700 dark:bg-tdk-yellow-400"
             href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
@@ -178,7 +178,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
             Tilmeld dit barn i dag
           </Link> */}
           <Link
-            className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings py-2 px-4 text-sm font-medium text-tdk-blue-light-background dark:border-tdk-orange-400 dark:bg-tdk-orange-400 dark:text-tdk-green-700 lg:py-4 lg:px-6"
+            className="rounded-md border-2 border-tdk-blue-light-buttonsSubheadings bg-tdk-blue-light-buttonsSubheadings px-4 py-2 text-sm font-medium text-tdk-blue-light-background dark:border-tdk-orange-400 dark:bg-tdk-orange-400 dark:text-tdk-green-700 lg:px-6 lg:py-4"
             href="mailto:lonegislinge@gmail.com?subject=Ang.%20tilmelding%20til%20Treenighedskirkens%20drengekor"
             target="_blank"
             rel="noopener noreferrer"
@@ -197,7 +197,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
           width={1920}
           height={1080}
         />
-        <div className="relative bg-tdk-blue-light-background py-12 px-6 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
+        <div className="relative bg-tdk-blue-light-background px-6 py-12 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
           {/* <h3 className="font-playfair font-bold text-4xl text-tdk-blue-light-headlines mb-6 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl dark:text-tdk-blue-200">
             CV, Lone Gislinge
           </h3> */}
@@ -228,7 +228,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
             width={960}
             height={594}
           />
-          <div className="mx-auto py-12 px-6 text-center  dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
+          <div className="mx-auto px-6 py-12 text-center dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
             <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-left lg:text-5xl">
               {aboutPage.radioTVTitle}
             </h3>
@@ -246,6 +246,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
           />
         </section>
       </div>
+
       {/* Partnerskaber og samarbejde */}
       <section className="mx-auto flex flex-col lg:grid lg:grid-cols-2 ">
         <Image
@@ -256,7 +257,7 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
           width={960}
           height={304}
         />
-        <div className="relative bg-tdk-blue-light-background py-12 px-6 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
+        <div className="relative bg-tdk-blue-light-background px-6 py-12 text-center dark:bg-tdk-blue-700 lg:col-start-2 lg:col-end-3 lg:mx-0 lg:px-0 lg:pl-16 lg:text-left">
           <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:col-start-2 lg:col-end-7 lg:text-left lg:text-5xl">
             {aboutPage.partnershipsTitle}
           </h3>
@@ -266,6 +267,27 @@ const Page = async ({ params }: { params: { lang: "da" | "en" } }) => {
           </p>
         </div>
       </section>
+
+      {/* 60 års jubilæum */}
+      <div className="bg-tdk-blue-light-backgroundDark dark:bg-tdk-green-700">
+        <section className="mx-auto grid lg:grid lg:grid-cols-2 xl:max-w-screen-xl">
+          <div className="mx-auto px-6 py-12 text-center dark:text-tdk-green-400 lg:col-start-1 lg:col-end-2 lg:mx-0 lg:grid lg:px-0 lg:text-left">
+            <h3 className="mb-6 font-playfair text-4xl font-bold text-tdk-blue-light-headlines dark:text-tdk-blue-200 lg:text-left lg:text-5xl">
+              {aboutPage.sixtyYearsTitle}
+            </h3>
+            <p className="mx-auto max-w-prose text-base text-tdk-blue-light-headlines dark:text-tdk-green-400 lg:mx-0 lg:pr-8 lg:text-base">
+              {aboutPage.sixtyYearsDescription}
+            </p>
+          </div>
+          <Image
+            className="order-1 w-screen lg:absolute lg:right-0 lg:w-1/2"
+            src="/images/om/60_aars_jubilaeum_II.jpg"
+            alt="Syngende drenge"
+            width={813}
+            height={350}
+          />
+        </section>
+      </div>
     </>
   );
 };

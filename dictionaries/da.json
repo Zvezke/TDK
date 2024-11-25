@@ -49,7 +49,9 @@
     "radioTVTitle": "Radio- og TV-optrædener",
     "radioTVDescription": "Koret har jævnligt optrådt i dansk radio og tv. Bl.a. har DR-tv optaget og genudsendt 60 afsnit af programmet ”Før Søndagen”. På koncertrejser samt i andre lande er flere koncerter blevet transmitteret ligesom optagelser fra plade/CD-indspilninger er blevet sendt som optakt til koncerter. Disse udsendelser bidrager til korets synlighed og bringer musikken ud til et bredere publikum.",
     "partnershipsTitle": "Partnerskaber og samarbejde",
-    "partnershipsDescription": "Koret samarbejder - og modtager driftstilskud fra Esbjerg Kommune og Treenighedskirken for at bevare og videreføre korets traditioner. Med disse partnerskaber sikres korets fortsatte succes og udvikling."
+    "partnershipsDescription": "Koret samarbejder - og modtager driftstilskud fra Esbjerg Kommune og Treenighedskirken for at bevare og videreføre korets traditioner. Med disse partnerskaber sikres korets fortsatte succes og udvikling.",
+    "sixtyYearsTitle": "60 års jubilæum",
+    "sixtyYearsDescription": "1. søndag i advent 2024 er det præcis 60 år siden Treenighedskirkens Drengekor havde sin første offentlige optræden. Det skete ved højmessen i Treenighedskirken, hvor koret siden har haft sin faste plads. Jubilæet fejres med en særlig udgave af De ni læsninger, som gennem næsten alle år har været en fast del af korets koncertvirksomhed. Gamle korsangere fra hele landet kommer til Esbjerg for at være med til koncert og jubilæumsfest. Der bliver glade gensyn, udveksling af skønne minder og masser af fællessang."
   },
   "discography": {
     "title": "Diskografi",
@@ -80,5 +82,9 @@
     "chairman": "Formand",
     "viceChairman": "Næstformand",
     "treasurer": "Kasserer"
+  },
+  "travels": {
+    "title": "Koncertrejser",
+    "description": "Læs om vores koncertrejser. Læs om internationale optrædener og det musikalske fællesskab. Kom med og skab uforglemmelige musikalske minder."
   }
 }
