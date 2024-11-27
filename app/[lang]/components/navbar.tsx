@@ -3,8 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import Logo from "./Logo";
 
 // Types and interfaces
@@ -94,6 +93,10 @@ const Navbar = ({
 
   const router = useRouter();
 
+  // Add this to get current locale
+  const params = useParams();
+  const lang = params.lang as string;
+
   try {
     return (
       <>
@@ -103,23 +106,23 @@ const Navbar = ({
             {/* Create client component for Logo - <Logo/> */}
             <ul className="col-start-4 col-end-10 flex items-center justify-center gap-8 text-tdk-blue-300 max-lg:hidden">
               <li>
-                <Link href="/om">{about}</Link>
+                <Link href={`/${lang}/om`}>{about}</Link>
               </li>
               <li>
-                <Link href="/sangproeven">{audition}</Link>
+                <Link href={`/${lang}/sangproeven`}>{audition}</Link>
               </li>
               <li>
-                <Link href="/koncertrejser">{travels}</Link>
+                <Link href={`/${lang}/koncertrejser`}>{travels}</Link>
               </li>
               <li>
-                <Link href="/discography">{discography}</Link>
+                <Link href={`/${lang}/discography`}>{discography}</Link>
               </li>
               {/* <li>
                 <Link href="/kontakt">{contact}</Link>
               </li> */}
               {isLoggedIn && (
                 <li>
-                  <Link href="/intra/external">Intra</Link>
+                  <Link href={`/${lang}/intra/external`}>Intra</Link>
                 </li>
               )}
             </ul>
@@ -171,7 +174,7 @@ const Navbar = ({
               /> */}
               <LocaleSwitcher />
               {!isLoggedIn ? (
-                <Link className="text-s max-lg:hidden" href="/login">
+                <Link className="text-s max-lg:hidden" href={`/${lang}/login`}>
                   Log ind
                 </Link>
               ) : (
@@ -213,12 +216,15 @@ const Navbar = ({
         >
           <ul className="flex flex-col items-end gap-8 pt-32 text-2xl">
             <li>
-              <Link href="/om" onClick={() => setMenuOpen(false)}>
+              <Link href={`/${lang}/om`} onClick={() => setMenuOpen(false)}>
                 Om
               </Link>
             </li>
             <li>
-              <Link href="/sangproeven" onClick={() => setMenuOpen(false)}>
+              <Link
+                href={`/${lang}/sangproeven`}
+                onClick={() => setMenuOpen(false)}
+              >
                 Sangprøven
               </Link>
             </li>
@@ -228,22 +234,34 @@ const Navbar = ({
               </Link>
             </li> */}
             <li>
-              <Link href="/koncertrejser" onClick={() => setMenuOpen(false)}>
+              <Link
+                href={`/${lang}/koncertrejser`}
+                onClick={() => setMenuOpen(false)}
+              >
                 Koncertrejser
               </Link>
             </li>
             <li>
-              <Link href="/discography" onClick={() => setMenuOpen(false)}>
+              <Link
+                href={`/${lang}/discography`}
+                onClick={() => setMenuOpen(false)}
+              >
                 Discography
               </Link>
             </li>
             <li>
-              <Link href="/kontakt" onClick={() => setMenuOpen(false)}>
+              <Link
+                href={`/${lang}/kontakt`}
+                onClick={() => setMenuOpen(false)}
+              >
                 Kontakt
               </Link>
             </li>
             <li>
-              <Link href="/intra/ekstern" onClick={() => setMenuOpen(false)}>
+              <Link
+                href={`/${lang}/intra/ekstern`}
+                onClick={() => setMenuOpen(false)}
+              >
                 Intra
               </Link>
             </li>
